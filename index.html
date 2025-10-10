@@ -78,6 +78,19 @@
 <body>
 
 <header>
+  <!-- 🌅 Header Slideshow Background -->
+  <div class="slideshow" id="slideshow">
+    <img src="assets/plant.jpg" alt="Soft greenery" class="slide active">
+      <img src="assets/sunrise.jpg" alt="Sunrise glow over horizon" class="slide">
+        <img src="assets/birds.jpg" alt="Birds in morning sky" class="slide">
+        </div>
+        
+        <!-- 🌿 Shared Cronx Academy Navigation -->
+        <nav class="topnav">
+          <a href="index.html" id="nav-guide">📘 Teaching Guide</a>
+            <a href="syllabus.html" id="nav-syllabus">📚 Syllabus</a>
+              <a href="https://cronx-academy.vercel.app/" target="_blank">🌐 Home</a>
+              </nav>-->
   <div class="title">🌞 Sheena’s Homeschool Teaching Guide for Thalia (Age 14, Croydon)</div>
   <div class="subtitle">Pastel plants • sunrise • birds • friendly fonts • mobile-ready</div>
   <div class="quote" id="quoteBox">Loading inspiration…</div>
@@ -123,6 +136,42 @@
     background:var(--lav);
     color:#000;
   }
+
+/* --- Slideshow --- */
+.slideshow{
+  position:relative;
+  width:100%;
+  height:220px;
+  overflow:hidden;
+  border-bottom:3px solid var(--lav);
+}
+.slideshow img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 2s ease-in-out;
+}
+.slideshow img.active{opacity:1;}
+/* --- Navigation --- */
+.topnav{
+  background:#ffffffcc;
+  backdrop-filter:blur(8px);
+  border-bottom:2px solid var(--lav);
+  display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;
+  padding:8px 0;position:sticky;top:0;z-index:10;
+}
+.topnav a{
+  font-family:'Poppins',sans-serif;font-weight:600;
+  text-decoration:none;color:var(--head);
+  background:#f9fafb;border:1px solid var(--lav);
+  border-radius:10px;padding:6px 12px;transition:all .2s;
+}
+.topnav a:hover{background:var(--lav);color:#000;}
+.topnav a.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+
+
 </style>
 
 <main class="wrap">
@@ -518,6 +567,22 @@
   // Init
   renderPlanner(); loadPlanner(); loadReflections();
 </script>
+
+<script>
+  // --- highlight current page ---
+  const path = window.location.pathname.split('/').pop();
+  if(path.includes('syllabus')) document.getElementById('nav-syllabus').classList.add('active');
+  else document.getElementById('nav-guide').classList.add('active');
+
+  // --- header slideshow ---
+  const slides = document.querySelectorAll('.slide');
+  let i=0;
+  setInterval(()=>{
+    slides[i].classList.remove('active');
+      i=(i+1)%slides.length;
+        slides[i].classList.add('active');
+        },7000);
+        </script>
 
 </body>
 </html>
