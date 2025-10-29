@@ -1,588 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Sheena’s Homeschool Teaching Guide for Thalia (Age 14, Croydon)</title>
-<meta name="description" content="Interactive guide, weekly planner (9–4), reflections journal, and local resources. Pastel theme with inspirational quotes." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronx Academy - Homeschooling with Sheena & Thalia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Fonts (safe fallbacks if offline) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
 
-<style>
-  :root{
-    --bg:#E8F5E9;          /* Mint Mist */
-    --ink:#3C3C3C;         /* Soft Graphite */
-    --head:#2C3E50;        /* Dawn Blue */
-    --lav:#E6E6FA;         /* Lavender Bloom */
-    --gold:#FFE8A1;        /* Morning Light */
-    --teal:#7FB3B0;        /* Meadow Teal */
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Quicksand',system-ui,Segoe UI,Arial,sans-serif;line-height:1.6}
-  header{
-    background:linear-gradient(180deg, #FFF6D6 0%, #E8F5E9 60%);
-    padding:20px 16px 8px; text-align:center; position:sticky; top:0; z-index:5; border-bottom:3px solid var(--lav);
-  }
-  .title{font-family:'Poppins',sans-serif;color:var(--head);margin:4px 0 6px;font-size:1.35rem}
-  .subtitle{margin:0;color:#4b5563}
-  .quote{
-    margin:10px auto; max-width:900px; background:var(--gold); border-left:6px solid var(--teal);
-    padding:10px 12px; border-radius:12px; font-style:italic;
-  }
-  .wrap{max-width:980px;margin:14px auto; padding:0 12px 40px}
-  nav.toc{
-    background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:10px 12px; margin:12px 0 18px;
-  }
-  nav.toc a{display:inline-block; margin:6px 10px 0 0; padding:6px 10px; border-radius:10px; text-decoration:none; color:#0f172a; background:#f7f7fb; border:1px solid var(--lav)}
-  nav.toc a:hover{background:#fff}
-  h2,h3{font-family:'Poppins',sans-serif;color:var(--head)}
-  details{background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:8px 12px; margin:12px 0}
-  details>summary{cursor:pointer; font-weight:700; padding:8px 4px}
-  .note{background:#fff; border-left:4px solid var(--teal); padding:8px 10px; border-radius:10px; margin:8px 0}
-  .grid-two{display:grid; gap:12px; grid-template-columns:1fr}
-  @media(min-width:860px){ .grid-two{ grid-template-columns:1fr 1fr } }
-  .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:12px}
-  .small{font-size:.95rem}
-  .muted{color:#6b7280}
-  .btn{
-    appearance:none;border:none;background:var(--teal);color:#083f3d;
-    padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer;
-  }
-  .btn.alt{background:#dbeafe;color:#0f172a;border:1px solid #bfdbfe}
-  .btn.warn{background:#fde68a;color:#7c2d12}
-  .btn:disabled{opacity:.7;cursor:not-allowed}
-  .btnrow{display:flex;gap:8px;flex-wrap:wrap}
-  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden}
-  th,td{border:1px solid #e5e7eb;padding:8px;vertical-align:top}
-  th{background:#eef2ff;text-align:left}
-  input[type="text"], textarea{
-    width:100%;padding:8px;border:1px solid #e5e7eb;border-radius:10px;font:inherit;background:#fff;
-  }
-  .checkbox{display:flex;align-items:center;gap:8px}
-  footer{
-    margin-top:24px;text-align:center;color:#6b7280;padding:16px 8px;border-top:3px solid var(--lav)
-  }
-  /* Print */
-  @media print{
-    header{position:static}
-    nav.toc{display:none}
-    .btnrow{display:none}
-    details{border:none;padding:0}
-    details[open] > summary{font-size:1.1rem;margin-top:8px}
-    body{background:#fff}
-  }
-</style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+            border: 3px solid #667eea;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+
+        .header .tagline {
+            font-size: 14px;
+            color: #718096;
+            font-style: italic;
+        }
+
+        /* Quick Nav */
+        .quick-nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .quick-nav-btn {
+            background: white;
+            border: 3px solid #667eea;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #667eea;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .quick-nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Subject Modules Grid */
+        .modules-section {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .modules-section h2 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, #fff, #f7fafc);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 3px solid;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .module-card.history {
+            border-color: #fc5c7d;
+        }
+
+        .module-card.maths {
+            border-color: #1FA2FF;
+        }
+
+        .module-card.english {
+            border-color: #66bb6a;
+        }
+
+        .module-card.wellbeing {
+            border-color: #ffb74d;
+        }
+
+        .module-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .module-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .module-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .module-features {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        .module-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .module-features li {
+            padding: 5px 0;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .module-features li:before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .status-badge.coming-soon {
+            background: #a0aec0;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .guide-section h2 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .guide-section h3 {
+            font-size: 20px;
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .guide-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .guide-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .guide-section li {
+            padding: 8px 0;
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .guide-section li:before {
+            content: "• ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e6f7ff, #f0f9ff);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #1FA2FF;
+            margin: 20px 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .resource-link {
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .resource-link:hover {
+            background: #5568d3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-nav {
+                flex-direction: column;
+            }
+
+            .quick-nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header class="header">
+            <h1>🌷 Cronx Academy</h1>
+            <p class="subtitle">Sheena's Homeschool Teaching Guide for Thalia (Age 14, Croydon)</p>
+            <p class="tagline">Learning together, growing together 💛</p>
+        </header>
 
-<header>
-  <!-- 🌅 Header Slideshow Background -->
-  <div class="slideshow" id="slideshow">
-    <img src="assets/plant.jpg" alt="Soft greenery" class="slide active">
-      <img src="assets/sunrise.jpg" alt="Sunrise glow over horizon" class="slide">
-        <img src="assets/birds.jpg" alt="Birds in morning sky" class="slide">
-        </div>
-        
-        <!-- 🌿 Shared Cronx Academy Navigation -->
-        <nav class="topnav">
-          <a href="index.html" id="nav-guide">📘 Teaching Guide</a>
-            <a href="syllabus.html" id="nav-syllabus">📚 Syllabus</a>
-              <a href="https://cronx-academy.vercel.app/" target="_blank">🌐 Home</a>
-              </nav>-->
-  <div class="title">🌞 Sheena’s Homeschool Teaching Guide for Thalia (Age 14, Croydon)</div>
-  <div class="subtitle">Pastel plants • sunrise • birds • friendly fonts • mobile-ready</div>
-  <div class="quote" id="quoteBox">Loading inspiration…</div>
-  <div class="btnrow" style="justify-content:center;margin:6px 0 2px">
-    <button class="btn alt" id="nextQuoteBtn">New Quote</button>
-    <button class="btn alt" id="toggleAllBtn">Expand/Collapse All</button>
-  </div>
-</header>
+        <nav class="quick-nav">
+            <a href="#modules" class="quick-nav-btn">📚 Interactive Modules</a>
+            <a href="#guide" class="quick-nav-btn">📖 Teaching Guide</a>
+            <a href="#resources" class="quick-nav-btn">🔗 Resources</a>
+        </nav>
 
-<!-- Shared Cronx Academy Navigation -->
-<nav class="topnav">
-  <a href="index.html">📘 Teaching Guide</a>
-  <a href="syllabus.html">📚 Syllabus</a>
-  <a href="https://cronx-academy.vercel.app/" target="_blank">🌐 Home</a>
-</nav>
+        <section id="modules" class="modules-section">
+            <h2>🎯 Interactive Learning Modules</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #4a5568; font-size: 16px;">
+                Click any module below to start learning!
+            </p>
+            
+            <div class="modules-grid">
+                <a href="history-quest-fixed.html" class="module-card history">
+                    <div class="module-icon">📚</div>
+                    <div class="module-title">History Quest</div>
+                    <div class="module-description">
+                        Interactive journey through Caribbean and world history with timelines, quizzes, and engaging stories.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Tudor England & Caribbean Colonization</li>
+                            <li>Pirates of the Caribbean</li>
+                            <li>Nubian Warrior Queens</li>
+                            <li>African & Caribbean Spirituality</li>
+                            <li>American Revolution</li>
+                            <li>Interactive quizzes & story modules</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge">✨ Ready to Explore</span>
+                </a>
 
-<style>
-  .topnav{
-    background:#ffffffcc;
-    backdrop-filter:blur(8px);
-    border-bottom:2px solid var(--lav);
-    display:flex;
-    justify-content:center;
-    gap:1rem;
-    flex-wrap:wrap;
-    padding:8px 0;
-    position:sticky;
-    top:0;
-    z-index:10;
-  }
-  .topnav a{
-    font-family:'Poppins',sans-serif;
-    font-weight:600;
-    text-decoration:none;
-    color:var(--head);
-    background:#f9fafb;
-    border:1px solid var(--lav);
-    border-radius:10px;
-    padding:6px 12px;
-    transition:all .2s;
-  }
-  .topnav a:hover{
-    background:var(--lav);
-    color:#000;
-  }
+                <a href="orishas-learning-module.html" class="module-card history">
+                    <div class="module-icon">✨</div>
+                    <div class="module-title">Understanding the Orishas</div>
+                    <div class="module-description">
+                        Deep dive into African and Caribbean spiritual traditions, meeting the powerful spirits of nature and life.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Meet 6 major Orishas in detail</li>
+                            <li>Learn about sacred practices</li>
+                            <li>Compare global spiritual systems</li>
+                            <li>Beautiful interactive profiles</li>
+                            <li>Cultural understanding & respect</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge">✨ Ready to Explore</span>
+                </a>
 
-/* --- Slideshow --- */
-.slideshow{
-  position:relative;
-  width:100%;
-  height:220px;
-  overflow:hidden;
-  border-bottom:3px solid var(--lav);
-}
-.slideshow img{
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 2s ease-in-out;
-}
-.slideshow img.active{opacity:1;}
-/* --- Navigation --- */
-.topnav{
-  background:#ffffffcc;
-  backdrop-filter:blur(8px);
-  border-bottom:2px solid var(--lav);
-  display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;
-  padding:8px 0;position:sticky;top:0;z-index:10;
-}
-.topnav a{
-  font-family:'Poppins',sans-serif;font-weight:600;
-  text-decoration:none;color:var(--head);
-  background:#f9fafb;border:1px solid var(--lav);
-  border-radius:10px;padding:6px 12px;transition:all .2s;
-}
-.topnav a:hover{background:var(--lav);color:#000;}
-.topnav a.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+                <div class="module-card maths">
+                    <div class="module-icon">🔢</div>
+                    <div class="module-title">Maths Interactive</div>
+                    <div class="module-description">
+                        Coming soon! Practice algebra, geometry, and statistics with real-world Caribbean examples.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Algebra with cooking ratios</li>
+                            <li>Geometry with architecture</li>
+                            <li>Statistics with community data</li>
+                            <li>Money management & budgeting</li>
+                            <li>Visual problem-solving games</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge coming-soon">🔜 Coming Soon</span>
+                </div>
 
+                <div class="module-card english">
+                    <div class="module-icon">📖</div>
+                    <div class="module-title">English & Literature</div>
+                    <div class="module-description">
+                        Coming soon! Reading comprehension, creative writing, and analysis with Caribbean authors.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Reading journal & reviews</li>
+                            <li>Creative writing prompts</li>
+                            <li>Caribbean literature focus</li>
+                            <li>Grammar practice games</li>
+                            <li>Public speaking skills</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge coming-soon">🔜 Coming Soon</span>
+                </div>
 
-</style>
+                <a href="voice-therapy-app.html" class="module-card wellbeing">
+                    <div class="module-icon">🌈</div>
+                    <div class="module-title">Whisper Garden</div>
+                    <div class="module-description">
+                        Gentle voice therapy for children with selective mutism. A safe space to practice vocalization and build confidence.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Breathing exercises</li>
+                            <li>Animal sound practice</li>
+                            <li>Whisper activities</li>
+                            <li>Progress garden & celebrations</li>
+                            <li>No pressure, always optional</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge">✨ Ready to Explore</span>
+                </a>
+            </div>
+        </section>
 
-<main class="wrap">
+        <section id="guide" class="guide-section">
+            <h2>🧭 Teaching Guide for Sheena</h2>
+            
+            <div class="highlight-box">
+                <p style="font-size: 17px; margin: 0;">
+                    <strong>💛 Welcome & Encouragement:</strong> Dear Sheena, you don't need to be a professional teacher — just patient, curious, and willing to learn alongside Thalia. This guide helps you turn each day into an opportunity for connection and growth. Perfection isn't the goal; joy and progress are.
+                </p>
+            </div>
 
-  <nav class="toc">
-    <a href="#welcome">Welcome</a>
-    <a href="#role">Your Role</a>
-    <a href="#curriculum">Curriculum</a>
-    <a href="#routine">Daily Routine</a>
-    <a href="#subjects">Subject Tips</a>
-    <a href="#planner">Weekly Planner</a>
-    <a href="#reflections">Reflections</a>
-    <a href="#resources">Resources</a>
-  </nav>
+            <h3>🌼 Your Role as a Home Educator</h3>
+            <ul>
+                <li>📚 Provide full-time, suitable education (no need to follow the national curriculum)</li>
+                <li>🕰️ Keep a gentle 9–4 structure with movement and breaks</li>
+                <li>🌼 Encourage questions, choice, and creativity</li>
+                <li>💬 Flex when needed — interest-led detours are powerful</li>
+            </ul>
 
-  <section id="welcome">
-    <details open>
-      <summary>🌷 Welcome & Encouragement</summary>
-      <p>Dear Sheena, you don’t need to be a professional teacher — just patient, curious, and willing to learn alongside Thalia. This guide helps you turn each day into an opportunity for connection and growth. Perfection isn’t the goal; joy and progress are. 💛</p>
-      <div class="note small">Tip: Keep a simple weekly rhythm. If a day goes sideways, choose one “anchor task” (e.g., reading together or a nature walk) and celebrate the win.</div>
-    </details>
-  </section>
+            <h3>📚 Curriculum Overview</h3>
+            <p><strong>Core Subjects:</strong></p>
+            <ul>
+                <li>English – reading, writing, analysis</li>
+                <li>Maths – algebra, geometry, statistics</li>
+                <li>Science – biology, chemistry, physics</li>
+                <li>Language – French/Spanish daily practice</li>
+            </ul>
 
-  <section id="role">
-    <details>
-      <summary>🧭 Your Role as a Home Educator</summary>
-      <ul>
-        <li>📚 Provide full-time, suitable education (no need to follow the national curriculum).</li>
-        <li>🕰️ Keep a gentle 9–4 structure with movement and breaks.</li>
-        <li>🌼 Encourage questions, choice, and creativity.</li>
-        <li>💬 Flex when needed — interest-led detours are powerful.</li>
-      </ul>
-    </details>
-  </section>
+            <p><strong>Creative, Digital & Life Skills:</strong></p>
+            <ul>
+                <li>Computing & digital citizenship</li>
+                <li>Art, design & media</li>
+                <li>PSHE, wellbeing & physical activity</li>
+                <li>Community projects & volunteering</li>
+            </ul>
 
-  <section id="curriculum">
-    <details>
-      <summary>📚 Curriculum Overview (What You’ll Cover)</summary>
-      <div class="grid-two">
-        <div class="card">
-          <h3>Core Subjects</h3>
-          <ul>
-            <li><b>English</b> – reading, writing, analysis</li>
-            <li><b>Maths</b> – algebra, geometry, statistics</li>
-            <li><b>Science</b> – biology, chemistry, physics</li>
-            <li><b>Language</b> – French/Spanish daily practice</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Creative, Digital & Life</h3>
-          <ul>
-            <li>Computing & digital citizenship</li>
-            <li>Art, design & media</li>
-            <li>PSHE, wellbeing & physical activity</li>
-            <li>Community projects & volunteering</li>
-          </ul>
-        </div>
-      </div>
-      <p class="small muted">Pace and choice are yours — adapt to energy, interests, and what’s working.</p>
-    </details>
-  </section>
+            <h3>🌞 Daily Routine (9:00 – 16:00)</h3>
+            <ul>
+                <li>9:00–9:30 Check-in, stretch, plan the day</li>
+                <li>9:30–11:00 Main focus (English/Maths)</li>
+                <li>11:00–11:30 Break / snack / quick walk</li>
+                <li>11:30–13:00 Second focus (Science/Computing)</li>
+                <li>13:00–14:00 Lunch & reset</li>
+                <li>14:00–15:00 Creative / Practical (Art, Music, PSHE)</li>
+                <li>15:00–16:00 Reflection, journalling, or community task</li>
+            </ul>
 
-  <section id="routine">
-    <details>
-      <summary>🌞 Daily Routine (9:00 – 16:00)</summary>
-      <ul>
-        <li><b>9:00–9:30</b> Check-in, stretch, plan the day</li>
-        <li><b>9:30–11:00</b> Main focus (English/Maths)</li>
-        <li><b>11:00–11:30</b> Break / snack / quick walk</li>
-        <li><b>11:30–13:00</b> Second focus (Science/Computing)</li>
-        <li><b>13:00–14:00</b> Lunch & reset</li>
-        <li><b>14:00–15:00</b> Creative / Practical (Art, Music, PSHE)</li>
-        <li><b>15:00–16:00</b> Reflection, journalling, or community task</li>
-      </ul>
-    </details>
-  </section>
+            <h3>🪄 Subject-by-Subject Tips</h3>
+            
+            <p><strong>English Language & Literature:</strong><br>
+            Read widely; discuss themes & characters; keep a reading journal; write short reviews. Rotate: one week creative writing, next week non-fiction/essay. Use the History Quest stories as reading material!</p>
 
-  <section id="subjects">
-    <details>
-      <summary>🪄 Subject-by-Subject Tips</summary>
+            <p><strong>Mathematics:</strong><br>
+            Use real-life problems: cooking ratios, home budgeting, map scales. Short daily practice beats long cramming. Mix videos + problems + talk-throughs.</p>
 
-      <details class="card">
-        <summary>English Language & Literature</summary>
-        <p>Read widely; discuss themes & characters; keep a reading journal; write short reviews. Rotate: one week creative writing, next week non-fiction/essay.</p>
-      </details>
+            <p><strong>Science:</strong><br>
+            Home experiments + virtual labs (e.g., PhET). Keep a lab log: question → method → result → what we learned. Visit museums when you can.</p>
 
-      <details class="card">
-        <summary>Mathematics</summary>
-        <p>Use real-life problems: cooking ratios, home budgeting, map scales. Short daily practice beats long cramming. Mix videos + problems + talk-throughs.</p>
-      </details>
+            <p><strong>Languages:</strong><br>
+            Daily 10 minutes of vocab + 10 minutes speaking/listening. Label objects at home. Watch short videos with subtitles; write tiny dialogues.</p>
 
-      <details class="card">
-        <summary>Science</summary>
-        <p>Home experiments + virtual labs (e.g., PhET). Keep a lab log: question → method → result → what we learned. Visit museums when you can.</p>
-      </details>
+            <p><strong>Computing & Digital Skills:</strong><br>
+            Create a simple website or blog. Discuss online safety & digital footprints. Try a coding project (Scratch/Python) with a clear, fun goal.</p>
 
-      <details class="card">
-        <summary>Languages</summary>
-        <p>Daily 10 minutes of vocab + 10 minutes speaking/listening. Label objects at home. Watch short videos with subtitles; write tiny dialogues.</p>
-      </details>
+            <p><strong>Art, Design & Media:</strong><br>
+            Keep a sketchbook. Explore photography walks. Try upcycling or poster design. Share finished pieces in a portfolio folder.</p>
 
-      <details class="card">
-        <summary>Computing & Digital Skills</summary>
-        <p>Create a simple website or blog. Discuss online safety & digital footprints. Try a coding project (Scratch/Python) with a clear, fun goal.</p>
-      </details>
+            <p><strong>PSHE & Wellbeing:</strong><br>
+            Weekly check-in: mood, stress, wins. Practise mindfulness/light exercise. Cook together; talk about healthy habits & friendships. Use Whisper Garden for gentle confidence building.</p>
+        </section>
 
-      <details class="card">
-        <summary>Art, Design & Media</summary>
-        <p>Keep a sketchbook. Explore photography walks. Try upcycling or poster design. Share finished pieces in a portfolio folder.</p>
-      </details>
+        <section id="resources" class="guide-section">
+            <h2>🔗 Helpful Resources</h2>
+            <p>External links to support your homeschooling journey:</p>
+            
+            <div class="resources-grid">
+                <a href="https://www.gov.uk/home-education" target="_blank" class="resource-link">
+                    GOV.UK Home Education
+                </a>
+                <a href="https://www.croydon.gov.uk/schools-and-education/parents/educating-your-child-home" target="_blank" class="resource-link">
+                    Croydon Council
+                </a>
+                <a href="https://classroom.thenational.academy/" target="_blank" class="resource-link">
+                    Oak National Academy
+                </a>
+                <a href="https://www.bbc.co.uk/bitesize" target="_blank" class="resource-link">
+                    BBC Bitesize
+                </a>
+                <a href="https://www.bankofengland.co.uk/education/education-resources" target="_blank" class="resource-link">
+                    Financial Education
+                </a>
+            </div>
 
-      <details class="card">
-        <summary>PSHE & Wellbeing</summary>
-        <p>Weekly check-in: mood, stress, wins. Practise mindfulness/light exercise. Cook together; talk about healthy habits & friendships.</p>
-      </details>
-    </details>
-  </section>
+            <div class="highlight-box" style="margin-top: 25px;">
+                <p><strong>🏛️ Local Cultural Resources:</strong><br>
+                Museum of Croydon, Historic Croydon Airport, and Croydon libraries offer great learning opportunities for history and community engagement.</p>
+            </div>
+        </section>
 
-  <section id="planner">
-    <details open>
-      <summary>🗓️ Weekly Planner (9–4) — saves automatically</summary>
-      <div class="btnrow" style="margin:6px 0 10px">
-        <button class="btn" id="exampleWeekBtn">Load Example Week</button>
-        <button class="btn alt" id="clearPlannerBtn">Clear Planner</button>
-        <button class="btn warn" id="resetAllBtn">Reset Everything</button>
-        <button class="btn alt" id="exportBtn">Export</button>
-        <button class="btn alt" id="importBtn">Import</button>
-      </div>
-      <div class="note small">Tip: Your entries save to this device automatically (localStorage). Use <b>Export</b> to back up or move to another device, and <b>Import</b> to restore.</div>
-
-      <table id="plannerTable" aria-label="Weekly planner">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-          </tr>
-        </thead>
-        <tbody id="plannerBody">
-          <!-- JS will render rows for 9:00–16:00 -->
-        </tbody>
-      </table>
-      <p class="small muted">Checkboxes let you tick done items. You can add multiple lines in a cell.</p>
-    </details>
-  </section>
-
-  <section id="reflections">
-    <details>
-      <summary>💖 Reflections & Signature</summary>
-      <div class="grid-two">
-        <div class="card">
-          <label for="reflectionWeek"><b>Week Ending:</b></label>
-          <input id="reflectionWeek" type="text" placeholder="e.g., Fri 17 Oct 2025" />
-          <label for="reflectionText" style="display:block;margin-top:8px"><b>Reflections:</b></label>
-          <textarea id="reflectionText" rows="8" placeholder="What went well? What was tricky? What will we try next week?"></textarea>
-        </div>
-        <div class="card">
-          <p><b>Signed by Sheena:</b> __________________________ &nbsp;&nbsp;&nbsp; <b>Date:</b> _____________</p>
-          <div class="note small">Affirmation idea: “Learning is a journey, not a race.”</div>
-          <p class="small muted">🌸 Curriculum design and materials compiled by <b>Oris John-Baptiste</b>, 2025</p>
-        </div>
-      </div>
-    </details>
-  </section>
-
-  <section id="resources">
-    <details>
-      <summary>🔗 Helpful Links (open in new tab)</summary>
-      <ul>
-        <li><a href="https://www.gov.uk/home-education" target="_blank" rel="noreferrer">GOV.UK: Home Education Guidance</a></li>
-        <li><a href="https://www.croydon.gov.uk/schools-and-education/parents/educating-your-child-home" target="_blank" rel="noreferrer">Croydon Council: Home Education</a></li>
-        <li><a href="https://classroom.thenational.academy/" target="_blank" rel="noreferrer">Oak National Academy</a></li>
-        <li><a href="https://www.bbc.co.uk/bitesize" target="_blank" rel="noreferrer">BBC Bitesize</a></li>
-        <li><a href="https://www.bankofengland.co.uk/education/education-resources" target="_blank" rel="noreferrer">Bank of England: Financial Education</a></li>
-      </ul>
-      <p class="small muted">For local culture days: Museum of Croydon, Historic Croydon Airport, and Croydon libraries.</p>
-    </details>
-  </section>
-
-</main>
-
-<footer>
-  <p>Made for Sheena & Thalia • Friendly, flexible home learning • v1.0</p>
-</footer>
-
-<script>
-  // -------- Quotes (rotating) --------
-  const quotes = [
-    "“Education is the most powerful weapon which you can use to change the world.” – Nelson Mandela",
-    "“If you’re always trying to be normal, you’ll never know how amazing you can be.” – Maya Angelou",
-    "“The time is always right to do what is right.” – Martin Luther King Jr.",
-    "“Dream big, work hard, stay humble.” – Marcus Rashford",
-    "“When I dare to be powerful... it becomes less and less important whether I am afraid.” – Audre Lorde",
-    "“One child, one teacher, one book, one pen can change the world.” – Malala Yousafzai",
-    "“If there’s a book that you want to read... then you must write it.” – Toni Morrison"
-  ];
-  const quoteBox = document.getElementById('quoteBox');
-  const nextBtn = document.getElementById('nextQuoteBtn');
-  function setQuote(i){ quoteBox.textContent = quotes[i % quotes.length]; localStorage.setItem('quoteIndex', i % quotes.length); }
-  let qIndex = parseInt(localStorage.getItem('quoteIndex') || Math.floor(Math.random()*quotes.length),10);
-  setQuote(qIndex);
-  nextBtn.addEventListener('click', ()=> setQuote(++qIndex));
-
-  // -------- Expand/Collapse All --------
-  const toggleAllBtn = document.getElementById('toggleAllBtn');
-  toggleAllBtn.addEventListener('click', () => {
-    const all = document.querySelectorAll('details');
-    const anyClosed = Array.from(all).some(d => !d.open);
-    all.forEach(d => d.open = anyClosed); // open all if any closed; else close all
-  });
-
-  // -------- Planner (9–16) with localStorage --------
-  const times = ["09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00"];
-  const days = ["Mon","Tue","Wed","Thu","Fri"];
-  const plannerBody = document.getElementById('plannerBody');
-  const STORAGE_KEY = "sheena_planner_v1";
-  const REFLECT_KEY = "sheena_reflections_v1";
-
-  function renderPlanner(){
-    plannerBody.innerHTML = "";
-    for(let t=0;t<times.length-1;t++){
-      const tr = document.createElement('tr');
-      const timeCell = document.createElement('td');
-      timeCell.innerHTML = `<b>${times[t]}–${times[t+1]}</b>`;
-      tr.appendChild(timeCell);
-      for(let d=0; d<days.length; d++){
-        const td = document.createElement('td');
-        const textId = `cell_${t}_${d}`;
-        const checkId = `check_${t}_${d}`;
-        td.innerHTML = `
-          <div class="checkbox">
-            <input type="checkbox" id="${checkId}" />
-            <input type="text" id="${textId}" placeholder="Add activity/goal…" />
-          </div>
-        `;
-        tr.appendChild(td);
-      }
-      plannerBody.appendChild(tr);
-    }
-  }
-
-  function loadPlanner(){
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    for(let t=0;t<times.length-1;t++){
-      for(let d=0; d<days.length; d++){
-        const textId = `cell_${t}_${d}`;
-        const checkId = `check_${t}_${d}`;
-        const v = data[textId] || "";
-        const c = data[checkId] || false;
-        const txt = document.getElementById(textId);
-        const chk = document.getElementById(checkId);
-        if(txt) txt.value = v;
-        if(chk) chk.checked = c;
-        if(txt) txt.addEventListener('input', savePlanner);
-        if(chk) chk.addEventListener('change', savePlanner);
-      }
-    }
-  }
-
-  function savePlanner(){
-    const data = {};
-    for(let t=0;t<times.length-1;t++){
-      for(let d=0; d<days.length; d++){
-        const textId = `cell_${t}_${d}`;
-        const checkId = `check_${t}_${d}`;
-        const txt = document.getElementById(textId);
-        const chk = document.getElementById(checkId);
-        data[textId] = txt ? txt.value : "";
-        data[checkId] = chk ? chk.checked : false;
-      }
-    }
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }
-
-  function clearPlanner(){
-    localStorage.removeItem(STORAGE_KEY);
-    renderPlanner(); loadPlanner();
-  }
-
-  // Example Week (based on standard schedule)
-  function loadExampleWeek(){
-    clearPlanner();
-    const examples = {
-      // Morning blocks
-      "cell_0_0":"English: reading & journalling",
-      "cell_0_1":"Maths: algebra practice",
-      "cell_0_2":"Language: vocab & speaking",
-      "cell_0_3":"Applied Maths: problem set",
-      "cell_0_4":"Literature & media study",
-
-      // Mid-morning
-      "cell_1_0":"English: essay planning",
-      "cell_1_1":"Citizenship: rights & finance",
-      "cell_1_2":"Art & design studio",
-      "cell_1_3":"PSHE: cooking & nutrition",
-      "cell_1_4":"Entrepreneurship: business idea",
-
-      // Pre-lunch
-      "cell_2_0":"PE: dance / walk",
-      "cell_2_1":"Science (Biology): ecosystems",
-      "cell_2_2":"Humanities: local history",
-      "cell_2_3":"Science (Chem/Phys): energy",
-      "cell_2_4":"Project-based learning",
-
-      // Afternoon blocks
-      "cell_4_0":"Free reading / library",
-      "cell_4_1":"Budgeting task / BoE resource",
-      "cell_4_2":"Sketch & photo walk",
-      "cell_4_3":"Mindfulness & yoga",
-      "cell_4_4":"Family time / local event"
-    };
-    // Apply
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    Object.assign(data, examples);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    renderPlanner(); loadPlanner();
-  }
-
-  // Export / Import (JSON)
-  function exportData(){
-    const payload = {
-      planner: JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"),
-      reflections: {
-        week: document.getElementById('reflectionWeek').value || "",
-        text: document.getElementById('reflectionText').value || ""
-      },
-      quoteIndex: localStorage.getItem('quoteIndex') || 0
-    };
-    const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'sheena_handbook_backup.json';
-    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-  }
-
-  function importData(){
-    const inp = document.createElement('input');
-    inp.type = 'file'; inp.accept = 'application/json';
-    inp.addEventListener('change', () => {
-      const file = inp.files[0]; if(!file) return;
-      const reader = new FileReader();
-      reader.onload = e => {
-        try{
-          const payload = JSON.parse(e.target.result);
-          if(payload.planner) localStorage.setItem(STORAGE_KEY, JSON.stringify(payload.planner));
-          if(payload.quoteIndex != null) localStorage.setItem('quoteIndex', String(payload.quoteIndex));
-          if(payload.reflections){
-            document.getElementById('reflectionWeek').value = payload.reflections.week || "";
-            document.getElementById('reflectionText').value = payload.reflections.text || "";
-            localStorage.setItem(REFLECT_KEY, JSON.stringify(payload.reflections));
-          }
-          renderPlanner(); loadPlanner(); setQuote(parseInt(localStorage.getItem('quoteIndex')||0,10));
-          alert('Import complete ✅');
-        }catch(err){ alert('Import failed. Invalid file.'); }
-      };
-      reader.readAsText(file);
-    });
-    inp.click();
-  }
-
-  // Reflections persistence
-  const reflectionWeek = document.getElementById('reflectionWeek');
-  const reflectionText = document.getElementById('reflectionText');
-  function loadReflections(){
-    const r = JSON.parse(localStorage.getItem(REFLECT_KEY) || "{}");
-    if(r.week) reflectionWeek.value = r.week;
-    if(r.text) reflectionText.value = r.text;
-  }
-  function saveReflections(){
-    const r = {week: reflectionWeek.value || "", text: reflectionText.value || ""};
-    localStorage.setItem(REFLECT_KEY, JSON.stringify(r));
-  }
-  reflectionWeek.addEventListener('input', saveReflections);
-  reflectionText.addEventListener('input', saveReflections);
-
-  // Buttons
-  document.getElementById('exampleWeekBtn').addEventListener('click', loadExampleWeek);
-  document.getElementById('clearPlannerBtn').addEventListener('click', clearPlanner);
-  document.getElementById('resetAllBtn').addEventListener('click', ()=>{
-    if(confirm("This will clear planner, reflections and quote choice.")){
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(REFLECT_KEY);
-      localStorage.removeItem('quoteIndex');
-      renderPlanner(); loadPlanner(); loadReflections(); setQuote(Math.floor(Math.random()*quotes.length));
-    }
-  });
-  document.getElementById('exportBtn').addEventListener('click', exportData);
-  document.getElementById('importBtn').addEventListener('click', importData);
-
-  // Init
-  renderPlanner(); loadPlanner(); loadReflections();
-</script>
-
-<script>
-  // --- highlight current page ---
-  const path = window.location.pathname.split('/').pop();
-  if(path.includes('syllabus')) document.getElementById('nav-syllabus').classList.add('active');
-  else document.getElementById('nav-guide').classList.add('active');
-
-  // --- header slideshow ---
-  const slides = document.querySelectorAll('.slide');
-  let i=0;
-  setInterval(()=>{
-    slides[i].classList.remove('active');
-      i=(i+1)%slides.length;
-        slides[i].classList.add('active');
-        },7000);
-        </script>
-
+        <footer class="footer">
+            <p>🌸 Curriculum design and materials compiled by Oris John-Baptiste, 2025</p>
+            <p style="margin-top: 10px; font-size: 12px;">Built with love for Thalia's learning journey 💛</p>
+        </footer>
+    </div>
 </body>
 </html>
