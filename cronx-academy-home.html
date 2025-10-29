@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronx Academy - Homeschooling with Sheena & Thalia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+            border: 3px solid #667eea;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 18px;
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+
+        .header .tagline {
+            font-size: 14px;
+            color: #718096;
+            font-style: italic;
+        }
+
+        /* Quick Nav */
+        .quick-nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .quick-nav-btn {
+            background: white;
+            border: 3px solid #667eea;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #667eea;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .quick-nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Subject Modules Grid */
+        .modules-section {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .modules-section h2 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .module-card {
+            background: linear-gradient(135deg, #fff, #f7fafc);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 3px solid;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .module-card.history {
+            border-color: #fc5c7d;
+        }
+
+        .module-card.maths {
+            border-color: #1FA2FF;
+        }
+
+        .module-card.english {
+            border-color: #66bb6a;
+        }
+
+        .module-card.wellbeing {
+            border-color: #ffb74d;
+        }
+
+        .module-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .module-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .module-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .module-features {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+        }
+
+        .module-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .module-features li {
+            padding: 5px 0;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .module-features li:before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .status-badge.coming-soon {
+            background: #a0aec0;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .guide-section h2 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .guide-section h3 {
+            font-size: 20px;
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .guide-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .guide-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .guide-section li {
+            padding: 8px 0;
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .guide-section li:before {
+            content: "• ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e6f7ff, #f0f9ff);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #1FA2FF;
+            margin: 20px 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .resource-link {
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .resource-link:hover {
+            background: #5568d3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-nav {
+                flex-direction: column;
+            }
+
+            .quick-nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌷 Cronx Academy</h1>
+            <p class="subtitle">Sheena's Homeschool Teaching Guide for Thalia (Age 14, Croydon)</p>
+            <p class="tagline">Learning together, growing together 💛</p>
+        </header>
+
+        <nav class="quick-nav">
+            <a href="#modules" class="quick-nav-btn">📚 Interactive Modules</a>
+            <a href="#guide" class="quick-nav-btn">📖 Teaching Guide</a>
+            <a href="#resources" class="quick-nav-btn">🔗 Resources</a>
+        </nav>
+
+        <section id="modules" class="modules-section">
+            <h2>🎯 Interactive Learning Modules</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #4a5568; font-size: 16px;">
+                Click any module below to start learning!
+            </p>
+            
+            <div class="modules-grid">
+                <a href="history-quest-fixed.html" class="module-card history">
+                    <div class="module-icon">📚</div>
+                    <div class="module-title">History Quest</div>
+                    <div class="module-description">
+                        Interactive journey through Caribbean and world history with timelines, quizzes, and engaging stories.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Tudor England & Caribbean Colonization</li>
+                            <li>Pirates of the Caribbean</li>
+                            <li>Nubian Warrior Queens</li>
+                            <li>African & Caribbean Spirituality</li>
+                            <li>American Revolution</li>
+                            <li>Interactive quizzes & story modules</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge">✨ Ready to Explore</span>
+                </a>
+
+                <a href="orishas-learning-module.html" class="module-card history">
+                    <div class="module-icon">✨</div>
+                    <div class="module-title">Understanding the Orishas</div>
+                    <div class="module-description">
+                        Deep dive into African and Caribbean spiritual traditions, meeting the powerful spirits of nature and life.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Meet 6 major Orishas in detail</li>
+                            <li>Learn about sacred practices</li>
+                            <li>Compare global spiritual systems</li>
+                            <li>Beautiful interactive profiles</li>
+                            <li>Cultural understanding & respect</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge">✨ Ready to Explore</span>
+                </a>
+
+                <div class="module-card maths">
+                    <div class="module-icon">🔢</div>
+                    <div class="module-title">Maths Interactive</div>
+                    <div class="module-description">
+                        Coming soon! Practice algebra, geometry, and statistics with real-world Caribbean examples.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Algebra with cooking ratios</li>
+                            <li>Geometry with architecture</li>
+                            <li>Statistics with community data</li>
+                            <li>Money management & budgeting</li>
+                            <li>Visual problem-solving games</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge coming-soon">🔜 Coming Soon</span>
+                </div>
+
+                <div class="module-card english">
+                    <div class="module-icon">📖</div>
+                    <div class="module-title">English & Literature</div>
+                    <div class="module-description">
+                        Coming soon! Reading comprehension, creative writing, and analysis with Caribbean authors.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Reading journal & reviews</li>
+                            <li>Creative writing prompts</li>
+                            <li>Caribbean literature focus</li>
+                            <li>Grammar practice games</li>
+                            <li>Public speaking skills</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge coming-soon">🔜 Coming Soon</span>
+                </div>
+
+                <a href="voice-therapy-app.html" class="module-card wellbeing">
+                    <div class="module-icon">🌈</div>
+                    <div class="module-title">Whisper Garden</div>
+                    <div class="module-description">
+                        Gentle voice therapy for children with selective mutism. A safe space to practice vocalization and build confidence.
+                    </div>
+                    <div class="module-features">
+                        <ul>
+                            <li>Breathing exercises</li>
+                            <li>Animal sound practice</li>
+                            <li>Whisper activities</li>
+                            <li>Progress garden & celebrations</li>
+                            <li>No pressure, always optional</li>
+                        </ul>
+                    </div>
+                    <span class="status-badge">✨ Ready to Explore</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="guide" class="guide-section">
+            <h2>🧭 Teaching Guide for Sheena</h2>
+            
+            <div class="highlight-box">
+                <p style="font-size: 17px; margin: 0;">
+                    <strong>💛 Welcome & Encouragement:</strong> Dear Sheena, you don't need to be a professional teacher — just patient, curious, and willing to learn alongside Thalia. This guide helps you turn each day into an opportunity for connection and growth. Perfection isn't the goal; joy and progress are.
+                </p>
+            </div>
+
+            <h3>🌼 Your Role as a Home Educator</h3>
+            <ul>
+                <li>📚 Provide full-time, suitable education (no need to follow the national curriculum)</li>
+                <li>🕰️ Keep a gentle 9–4 structure with movement and breaks</li>
+                <li>🌼 Encourage questions, choice, and creativity</li>
+                <li>💬 Flex when needed — interest-led detours are powerful</li>
+            </ul>
+
+            <h3>📚 Curriculum Overview</h3>
+            <p><strong>Core Subjects:</strong></p>
+            <ul>
+                <li>English – reading, writing, analysis</li>
+                <li>Maths – algebra, geometry, statistics</li>
+                <li>Science – biology, chemistry, physics</li>
+                <li>Language – French/Spanish daily practice</li>
+            </ul>
+
+            <p><strong>Creative, Digital & Life Skills:</strong></p>
+            <ul>
+                <li>Computing & digital citizenship</li>
+                <li>Art, design & media</li>
+                <li>PSHE, wellbeing & physical activity</li>
+                <li>Community projects & volunteering</li>
+            </ul>
+
+            <h3>🌞 Daily Routine (9:00 – 16:00)</h3>
+            <ul>
+                <li>9:00–9:30 Check-in, stretch, plan the day</li>
+                <li>9:30–11:00 Main focus (English/Maths)</li>
+                <li>11:00–11:30 Break / snack / quick walk</li>
+                <li>11:30–13:00 Second focus (Science/Computing)</li>
+                <li>13:00–14:00 Lunch & reset</li>
+                <li>14:00–15:00 Creative / Practical (Art, Music, PSHE)</li>
+                <li>15:00–16:00 Reflection, journalling, or community task</li>
+            </ul>
+
+            <h3>🪄 Subject-by-Subject Tips</h3>
+            
+            <p><strong>English Language & Literature:</strong><br>
+            Read widely; discuss themes & characters; keep a reading journal; write short reviews. Rotate: one week creative writing, next week non-fiction/essay. Use the History Quest stories as reading material!</p>
+
+            <p><strong>Mathematics:</strong><br>
+            Use real-life problems: cooking ratios, home budgeting, map scales. Short daily practice beats long cramming. Mix videos + problems + talk-throughs.</p>
+
+            <p><strong>Science:</strong><br>
+            Home experiments + virtual labs (e.g., PhET). Keep a lab log: question → method → result → what we learned. Visit museums when you can.</p>
+
+            <p><strong>Languages:</strong><br>
+            Daily 10 minutes of vocab + 10 minutes speaking/listening. Label objects at home. Watch short videos with subtitles; write tiny dialogues.</p>
+
+            <p><strong>Computing & Digital Skills:</strong><br>
+            Create a simple website or blog. Discuss online safety & digital footprints. Try a coding project (Scratch/Python) with a clear, fun goal.</p>
+
+            <p><strong>Art, Design & Media:</strong><br>
+            Keep a sketchbook. Explore photography walks. Try upcycling or poster design. Share finished pieces in a portfolio folder.</p>
+
+            <p><strong>PSHE & Wellbeing:</strong><br>
+            Weekly check-in: mood, stress, wins. Practise mindfulness/light exercise. Cook together; talk about healthy habits & friendships. Use Whisper Garden for gentle confidence building.</p>
+        </section>
+
+        <section id="resources" class="guide-section">
+            <h2>🔗 Helpful Resources</h2>
+            <p>External links to support your homeschooling journey:</p>
+            
+            <div class="resources-grid">
+                <a href="https://www.gov.uk/home-education" target="_blank" class="resource-link">
+                    GOV.UK Home Education
+                </a>
+                <a href="https://www.croydon.gov.uk/schools-and-education/parents/educating-your-child-home" target="_blank" class="resource-link">
+                    Croydon Council
+                </a>
+                <a href="https://classroom.thenational.academy/" target="_blank" class="resource-link">
+                    Oak National Academy
+                </a>
+                <a href="https://www.bbc.co.uk/bitesize" target="_blank" class="resource-link">
+                    BBC Bitesize
+                </a>
+                <a href="https://www.bankofengland.co.uk/education/education-resources" target="_blank" class="resource-link">
+                    Financial Education
+                </a>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 25px;">
+                <p><strong>🏛️ Local Cultural Resources:</strong><br>
+                Museum of Croydon, Historic Croydon Airport, and Croydon libraries offer great learning opportunities for history and community engagement.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>🌸 Curriculum design and materials compiled by Oris John-Baptiste, 2025</p>
+            <p style="margin-top: 10px; font-size: 12px;">Built with love for Thalia's learning journey 💛</p>
+        </footer>
+    </div>
+</body>
+</html>
