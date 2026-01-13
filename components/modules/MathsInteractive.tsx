@@ -16,6 +16,7 @@ export default function MathsInteractive() {
   const [difficulty, setDifficulty] = useState<DifficultyLevel>('standard');
   const [completedTopics, setCompletedTopics] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentDate, setCurrentDate] = useState<string>('');
 
   const generateDailyLesson = (completed: string[]) => {
     const allTopics = Object.values(mathTopics).flat();
@@ -38,6 +39,16 @@ export default function MathsInteractive() {
       const completed = saved ? JSON.parse(saved) : [];
       setCompletedTopics(completed);
       generateDailyLesson(completed);
+
+      // Set current date on client side only
+      const date = new Date().toLocaleDateString('en-GB', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+      setCurrentDate(date);
+
       setIsLoading(false);
     }
   }, []);
@@ -89,12 +100,7 @@ export default function MathsInteractive() {
               📅 Today&apos;s Date
             </div>
             <div className="text-xl font-semibold text-gray-800">
-              {new Date().toLocaleDateString('en-GB', {
-                weekday: 'long',
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-              })}
+              {currentDate || 'Loading...'}
             </div>
           </div>
 
