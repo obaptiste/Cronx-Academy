@@ -15,22 +15,13 @@ export default function MathsInteractive() {
   const [currentLesson, setCurrentLesson] = useState<MathLesson | null>(null);
   const [difficulty, setDifficulty] = useState<DifficultyLevel>('standard');
   const [completedTopics, setCompletedTopics] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const saved = localStorage.getItem('completedTopics');
-    if (saved) {
-      setCompletedTopics(JSON.parse(saved));
-    }
-    generateDailyLesson();
-  }, []);
-
-  const generateDailyLesson = () => {
+  const generateDailyLesson = (completed: string[]) => {
     const allTopics = Object.values(mathTopics).flat();
-    const availableTopics = allTopics.filter(t => !completedTopics.includes(t.title));
+    const availableTopics = allTopics.filter(t => !completed.includes(t.title));
 
     if (availableTopics.length === 0) {
-      setCompletedTopics([]);
-      localStorage.setItem('completedTopics', JSON.stringify([]));
       const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)];
       setCurrentLesson(randomTopic);
       return;
@@ -40,13 +31,39 @@ export default function MathsInteractive() {
     setCurrentLesson(randomTopic);
   };
 
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('completedTopics');
+      const completed = saved ? JSON.parse(saved) : [];
+      setCompletedTopics(completed);
+      generateDailyLesson(completed);
+      setIsLoading(false);
+    }
+  }, []);
+
   const markComplete = () => {
-    if (currentLesson) {
+    if (currentLesson && typeof window !== 'undefined') {
       const newCompleted = [...completedTopics, currentLesson.title];
       setCompletedTopics(newCompleted);
       localStorage.setItem('completedTopics', JSON.stringify(newCompleted));
     }
   };
+
+  const handleNewLesson = () => {
+    generateDailyLesson(completedTopics);
+  };
+
+  if (isLoading) {
+    return (
+      <div className="max-w-7xl mx-auto px-5 py-8">
+        <div className="bg-white p-10 rounded-3xl shadow-xl text-center">
+          <div className="text-6xl mb-4">🔢</div>
+          <p className="text-xl text-gray-600">Loading your lesson...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-8">
@@ -188,7 +205,7 @@ export default function MathsInteractive() {
             <p className="text-gray-800">{currentLesson.homework}</p>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={markComplete}
               className="flex-1 bg-green-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-green-600 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3"
@@ -197,7 +214,7 @@ export default function MathsInteractive() {
               <span>Mark Complete</span>
             </button>
             <button
-              onClick={generateDailyLesson}
+              onClick={handleNewLesson}
               className="flex-1 bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3"
             >
               <span>🔄</span>
