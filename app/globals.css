@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  min-height: 100vh;
+}
+
+/* Module color classes */
+.module-history {
+  border-color: #fc5c7d;
+}
+
+.module-maths {
+  border-color: #1FA2FF;
+}
+
+.module-english {
+  border-color: #66bb6a;
+}
+
+.module-wellbeing {
+  border-color: #ffb74d;
+}
