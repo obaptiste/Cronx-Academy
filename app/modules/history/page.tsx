@@ -5,6 +5,63 @@ export const metadata = {
   description: 'Interactive journey through Caribbean and world history',
 };
 
+const historyModules = [
+  {
+    title: 'World War II',
+    icon: '🌍',
+    description: 'An interactive journey through 1939-1945',
+    topics: ['Causes & Origins', 'Major Battles', 'The Home Front', 'Holocaust & Remembrance', 'Legacy'],
+    status: 'ready' as const,
+    href: '/modules/ww2',
+    color: 'from-red-500 to-pink-600'
+  },
+  {
+    title: 'Tudor England & Caribbean',
+    icon: '👑',
+    description: 'Explore the Tudor era and its connection to Caribbean colonization',
+    topics: ['Henry VIII', 'Elizabeth I', 'Early Exploration', 'Caribbean Settlement'],
+    status: 'coming-soon' as const,
+    href: '#',
+    color: 'from-purple-500 to-indigo-600'
+  },
+  {
+    title: 'Pirates of the Caribbean',
+    icon: '🏴‍☠️',
+    description: 'The golden age of piracy in Caribbean waters',
+    topics: ['Famous Pirates', 'Life at Sea', 'Trade Routes', 'Naval Battles'],
+    status: 'coming-soon' as const,
+    href: '#',
+    color: 'from-amber-500 to-orange-600'
+  },
+  {
+    title: 'Nubian Warrior Queens',
+    icon: '⚔️',
+    description: 'Powerful women rulers of ancient Nubia',
+    topics: ['Queen Amanirenas', 'Kingdom of Kush', 'Military Campaigns', 'Legacy'],
+    status: 'coming-soon' as const,
+    href: '#',
+    color: 'from-yellow-500 to-amber-600'
+  },
+  {
+    title: 'African & Caribbean Spirituality',
+    icon: '✨',
+    description: 'Understanding cultural and spiritual traditions',
+    topics: ['Traditional Beliefs', 'Syncretism', 'Cultural Preservation', 'Modern Practice'],
+    status: 'coming-soon' as const,
+    href: '#',
+    color: 'from-teal-500 to-cyan-600'
+  },
+  {
+    title: 'American Revolution',
+    icon: '🗽',
+    description: 'The birth of a new nation and its global impact',
+    topics: ['Causes', 'Key Battles', 'Founding Fathers', 'Declaration of Independence'],
+    status: 'coming-soon' as const,
+    href: '#',
+    color: 'from-blue-500 to-indigo-600'
+  }
+];
+
 export default function HistoryPage() {
   return (
     <div className="max-w-7xl mx-auto px-5 py-8">
@@ -15,50 +72,80 @@ export default function HistoryPage() {
         ← Back to Cronx Academy
       </Link>
 
-      <div className="bg-white p-10 rounded-3xl shadow-xl">
+      <div className="bg-white p-10 rounded-3xl shadow-xl mb-8">
         <div className="text-center mb-8">
           <div className="text-7xl mb-4">📚</div>
-          <h1 className="text-5xl font-bold text-indigo-600 mb-4">History Quest</h1>
+          <h1 className="text-5xl font-bold text-pink-600 mb-4">History Quest</h1>
           <p className="text-xl text-gray-600">
             Interactive journey through Caribbean and world history
           </p>
         </div>
+      </div>
 
-        <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-8 rounded-2xl border-l-[5px] border-pink-500 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">🚧 Module In Development</h2>
-          <p className="text-gray-700 mb-4">
-            This comprehensive history module is currently being refactored into the new Next.js
-            architecture. It will include:
-          </p>
-          <ul className="space-y-2">
-            {[
-              'Tudor England & Caribbean Colonization',
-              'Pirates of the Caribbean',
-              'Nubian Warrior Queens',
-              'African & Caribbean Spirituality',
-              'American Revolution',
-              'Interactive quizzes & story modules'
-            ].map((feature, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-gray-700">
-                <span className="text-green-500 font-bold">✓</span>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="text-center">
-          <p className="text-gray-600 mb-4">
-            For now, you can access the original version:
-          </p>
-          <a
-            href="/old-html/history-quest-fixed.html"
-            target="_blank"
-            className="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-lg transition-all"
+      {/* History Modules Grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {historyModules.map((module, idx) => (
+          <div
+            key={idx}
+            className={`bg-white rounded-3xl shadow-lg overflow-hidden transition-all hover:-translate-y-2 hover:shadow-xl ${
+              module.status === 'coming-soon' ? 'opacity-75' : ''
+            }`}
           >
-            View Original History Quest Module
-          </a>
-        </div>
+            <div className={`bg-gradient-to-r ${module.color} p-6 text-white`}>
+              <div className="text-4xl mb-2">{module.icon}</div>
+              <h2 className="text-2xl font-bold">{module.title}</h2>
+              {module.status === 'coming-soon' && (
+                <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-sm">
+                  Coming Soon
+                </span>
+              )}
+            </div>
+            <div className="p-6">
+              <p className="text-gray-600 mb-4">{module.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {module.topics.map((topic, topicIdx) => (
+                  <span
+                    key={topicIdx}
+                    className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+                  >
+                    {topic}
+                  </span>
+                ))}
+              </div>
+              {module.status === 'ready' ? (
+                <Link
+                  href={module.href}
+                  className="block w-full text-center bg-pink-600 text-white py-3 rounded-xl font-bold hover:bg-pink-700 transition-all"
+                >
+                  Start Learning →
+                </Link>
+              ) : (
+                <button
+                  disabled
+                  className="block w-full text-center bg-gray-300 text-gray-500 py-3 rounded-xl font-bold cursor-not-allowed"
+                >
+                  Coming Soon
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Legacy Module Link */}
+      <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-8 rounded-3xl border-l-[5px] border-pink-500">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">📜 Original History Quest</h2>
+        <p className="text-gray-700 mb-4">
+          Access the original comprehensive history module with all topics while we continue
+          building out the interactive Next.js versions.
+        </p>
+        <a
+          href="/old-html/history-quest-fixed.html"
+          target="_blank"
+          className="inline-block bg-pink-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-pink-700 hover:-translate-y-1 hover:shadow-lg transition-all"
+        >
+          View Original History Quest Module
+        </a>
       </div>
     </div>
   );
