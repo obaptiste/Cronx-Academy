@@ -7,12 +7,12 @@ export const modules: ModuleCard[] = [
     icon: '📚',
     description: 'Interactive journey through Caribbean and world history with timelines, quizzes, and engaging stories.',
     features: [
+      'World War II (NEW!) - 14 comprehensive lessons',
       'Tudor England & Caribbean Colonization',
       'Pirates of the Caribbean',
       'Nubian Warrior Queens',
       'African & Caribbean Spirituality',
-      'American Revolution',
-      'Interactive quizzes & story modules'
+      'American Revolution'
     ],
     status: 'ready',
     href: '/modules/history',
