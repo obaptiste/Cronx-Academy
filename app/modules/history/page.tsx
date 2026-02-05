@@ -20,8 +20,8 @@ const historyModules = [
     icon: '👑',
     description: 'Explore the Tudor era and its connection to Caribbean colonization',
     topics: ['Henry VIII', 'Elizabeth I', 'Early Exploration', 'Caribbean Settlement'],
-    status: 'coming-soon' as const,
-    href: '#',
+    status: 'ready' as const,
+    href: '/modules/tudor',
     color: 'from-purple-500 to-indigo-600'
   },
   {
@@ -29,8 +29,8 @@ const historyModules = [
     icon: '🏴‍☠️',
     description: 'The golden age of piracy in Caribbean waters',
     topics: ['Famous Pirates', 'Life at Sea', 'Trade Routes', 'Naval Battles'],
-    status: 'coming-soon' as const,
-    href: '#',
+    status: 'ready' as const,
+    href: '/modules/pirates',
     color: 'from-amber-500 to-orange-600'
   },
   {
@@ -46,18 +46,18 @@ const historyModules = [
     title: 'African & Caribbean Spirituality',
     icon: '✨',
     description: 'Understanding cultural and spiritual traditions',
-    topics: ['Traditional Beliefs', 'Syncretism', 'Cultural Preservation', 'Modern Practice'],
-    status: 'coming-soon' as const,
-    href: '#',
+    topics: ['African Roots', 'Caribbean Traditions', 'Syncretism', 'Modern Practice'],
+    status: 'ready' as const,
+    href: '/modules/spirituality',
     color: 'from-teal-500 to-cyan-600'
   },
   {
     title: 'American Revolution',
     icon: '🗽',
     description: 'The birth of a new nation and its global impact',
-    topics: ['Causes', 'Key Battles', 'Founding Fathers', 'Declaration of Independence'],
-    status: 'coming-soon' as const,
-    href: '#',
+    topics: ['Causes', 'Key Battles', 'Key Figures', 'Legacy & Impact'],
+    status: 'ready' as const,
+    href: '/modules/revolution',
     color: 'from-blue-500 to-indigo-600'
   }
 ];

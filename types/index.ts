@@ -62,3 +62,103 @@ export interface WW2Topics {
 }
 
 export type WW2TopicCategory = keyof WW2Topics;
+
+// Tudor England & Caribbean Module Types
+export interface TudorLesson {
+  title: string;
+  era: string;
+  objectives: string[];
+  keyDates: string[];
+  introduction: string;
+  mainContent: string[];
+  primarySources: string[];
+  discussionQuestions: string[];
+  activities: string[];
+  keyFigures: string[];
+  vocabularyTerms: { term: string; definition: string }[];
+  furtherReading: string;
+}
+
+export interface TudorTopics {
+  tudorEngland: TudorLesson[];
+  earlyExploration: TudorLesson[];
+  caribbeanColonization: TudorLesson[];
+  tradAndEconomy: TudorLesson[];
+}
+
+export type TudorTopicCategory = keyof TudorTopics;
+
+// Pirates of the Caribbean Module Types
+export interface PiratesLesson {
+  title: string;
+  era: string;
+  objectives: string[];
+  keyDates: string[];
+  introduction: string;
+  mainContent: string[];
+  primarySources: string[];
+  discussionQuestions: string[];
+  activities: string[];
+  keyFigures: string[];
+  vocabularyTerms: { term: string; definition: string }[];
+  furtherReading: string;
+}
+
+export interface PiratesTopics {
+  famousPirates: PiratesLesson[];
+  lifeAtSea: PiratesLesson[];
+  tradeRoutes: PiratesLesson[];
+  navalBattles: PiratesLesson[];
+}
+
+export type PiratesTopicCategory = keyof PiratesTopics;
+
+// African & Caribbean Spirituality Module Types
+export interface SpiritualityLesson {
+  title: string;
+  era: string;
+  objectives: string[];
+  keyDates: string[];
+  introduction: string;
+  mainContent: string[];
+  primarySources: string[];
+  discussionQuestions: string[];
+  activities: string[];
+  keyFigures: string[];
+  vocabularyTerms: { term: string; definition: string }[];
+  furtherReading: string;
+}
+
+export interface SpiritualityTopics {
+  africanRoots: SpiritualityLesson[];
+  caribbeanTraditions: SpiritualityLesson[];
+  syncretism: SpiritualityLesson[];
+  modernPractice: SpiritualityLesson[];
+}
+
+export type SpiritualityTopicCategory = keyof SpiritualityTopics;
+
+// American Revolution Module Types
+export interface RevolutionLesson {
+  title: string;
+  era: string;
+  objectives: string[];
+  keyDates: string[];
+  introduction: string;
+  mainContent: string[];
+  primarySources: string[];
+  discussionQuestions: string[];
+  activities: string[];
+  keyFigures: string[];
+  vocabularyTerms: { term: string; definition: string }[];
+  furtherReading: string;
+}
+
+export interface RevolutionTopics {
+  causesAndOrigins: RevolutionLesson[];
+  majorBattles: RevolutionLesson[];
+  keyFiguresAndLeaders: RevolutionLesson[];
+  legacyAndImpact: RevolutionLesson[];
+}
+
+export type RevolutionTopicCategory = keyof RevolutionTopics;
