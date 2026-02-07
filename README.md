@@ -100,6 +100,7 @@ cronx-academy/
 **Maths Lessons**: Edit `/lib/data/mathLessons.ts` and add entries to the appropriate category (algebra, geometry, number, or statistics).
 
 **History Lessons**: Each history module has its own data file in `/lib/data/`:
+
 - `ww2Lessons.ts` - World War II lessons
 - `tudorLessons.ts` - Tudor England & Caribbean lessons
 - `piratesLessons.ts` - Pirates of the Caribbean lessons
@@ -124,6 +125,7 @@ All types are defined in `/types/index.ts`. Update this file when adding new fea
 ### Progress Tracking
 
 All interactive modules use localStorage to track completed lessons. Progress persists across browser sessions. Each module tracks progress independently:
+
 - `completedTopics` - Maths lessons
 - `completedWW2Lessons` - World War II lessons
 - `completedTudorLessons` - Tudor England lessons
