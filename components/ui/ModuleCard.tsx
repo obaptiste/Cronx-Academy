@@ -22,12 +22,8 @@ export default function ModuleCard({ module }: ModuleCardProps) {
       `}
     >
       <div className="text-6xl mb-4 text-center">{module.icon}</div>
-      <h3 className="text-2xl font-bold text-gray-800 mb-3 text-center">
-        {module.title}
-      </h3>
-      <p className="text-gray-600 mb-4 leading-relaxed">
-        {module.description}
-      </p>
+      <h3 className="text-2xl font-bold text-gray-800 mb-3 text-center">{module.title}</h3>
+      <p className="text-gray-600 mb-4 leading-relaxed">{module.description}</p>
       <div className="bg-indigo-50 p-4 rounded-2xl mt-4">
         <ul className="space-y-2">
           {module.features.map((feature, idx) => (

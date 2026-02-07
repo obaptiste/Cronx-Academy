@@ -3,12 +3,22 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { RevolutionLesson, RevolutionTopicCategory } from '@/types';
-import { revolutionTopics, getAllRevolutionLessons, revolutionCategoryNames, revolutionCategoryIcons } from '@/lib/data/revolutionLessons';
+import {
+  revolutionTopics,
+  getAllRevolutionLessons,
+  revolutionCategoryNames,
+  revolutionCategoryIcons,
+} from '@/lib/data/revolutionLessons';
 
 export default function RevolutionInteractive() {
   const [currentLesson, setCurrentLesson] = useState<RevolutionLesson | null>(null);
-  const [currentCategory, setCurrentCategory] = useState<RevolutionTopicCategory>('causesAndOrigins');
-  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const [currentCategory, setCurrentCategory] =
+    useState<RevolutionTopicCategory>('causesAndOrigins');
+  const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
+    const saved = localStorage.getItem('completedRevolutionLessons');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState<string>('');
   const [viewMode, setViewMode] = useState<'lesson' | 'browse'>('browse');
@@ -17,7 +27,7 @@ export default function RevolutionInteractive() {
     sources: false,
     discussion: false,
     activities: false,
-    vocabulary: false
+    vocabulary: false,
   });
 
   const generateRandomLesson = (completed: string[]) => {
@@ -42,14 +52,13 @@ export default function RevolutionInteractive() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('completedRevolutionLessons');
       const completed = saved ? JSON.parse(saved) : [];
-      setCompletedLessons(completed);
       generateRandomLesson(completed);
 
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
-        year: 'numeric'
+        year: 'numeric',
       });
       setCurrentDate(date);
 
@@ -77,9 +86,9 @@ export default function RevolutionInteractive() {
   };
 
   const toggleSection = (section: string) => {
-    setExpandedSections(prev => ({
+    setExpandedSections((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
 
@@ -111,7 +120,9 @@ export default function RevolutionInteractive() {
           <div className="text-5xl">🗽</div>
           <div>
             <h1 className="text-4xl font-bold text-blue-600">American Revolution</h1>
-            <p className="text-gray-600">The birth of a nation and the ideas that changed the world</p>
+            <p className="text-gray-600">
+              The birth of a nation and the ideas that changed the world
+            </p>
           </div>
         </div>
 
@@ -120,9 +131,7 @@ export default function RevolutionInteractive() {
             <div className="flex items-center gap-2 font-semibold text-blue-900 mb-2">
               📅 Today&apos;s Date
             </div>
-            <div className="text-xl font-semibold text-gray-800">
-              {currentDate || 'Loading...'}
-            </div>
+            <div className="text-xl font-semibold text-gray-800">{currentDate || 'Loading...'}</div>
           </div>
 
           <div className="bg-gradient-to-br from-red-100 to-red-200 p-5 rounded-2xl">
@@ -239,7 +248,10 @@ export default function RevolutionInteractive() {
             </h3>
             <div className="space-y-2">
               {currentLesson.keyDates.map((date, idx) => (
-                <div key={idx} className="flex items-center gap-3 py-2 border-b border-red-200 last:border-0">
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 py-2 border-b border-red-200 last:border-0"
+                >
                   <span className="text-red-600 font-bold">{idx + 1}.</span>
                   <span className="text-gray-800">{date}</span>
                 </div>
@@ -402,7 +414,9 @@ export default function RevolutionInteractive() {
               }`}
             >
               <span>✅</span>
-              <span>{completedLessons.includes(currentLesson.title) ? 'Completed!' : 'Mark Complete'}</span>
+              <span>
+                {completedLessons.includes(currentLesson.title) ? 'Completed!' : 'Mark Complete'}
+              </span>
             </button>
             <button
               onClick={handleNewLesson}
@@ -432,7 +446,7 @@ export default function RevolutionInteractive() {
             'Use primary sources to show multiple perspectives on events',
             'Encourage critical thinking: Were the colonists justified in their rebellion?',
             'Compare the American Revolution to other revolutions (French, Haitian)',
-            'Discuss the ongoing relevance of revolutionary ideas today'
+            'Discuss the ongoing relevance of revolutionary ideas today',
           ].map((tip, idx) => (
             <li key={idx} className="flex items-start gap-3 text-gray-700">
               <span className="text-blue-600 font-bold">•</span>

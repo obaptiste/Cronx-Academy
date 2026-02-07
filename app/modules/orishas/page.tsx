@@ -36,7 +36,7 @@ export default function OrishasPage() {
               'Learn about sacred practices',
               'Compare global spiritual systems',
               'Beautiful interactive profiles',
-              'Cultural understanding & respect'
+              'Cultural understanding & respect',
             ].map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3 text-gray-700">
                 <span className="text-green-500 font-bold">✓</span>
@@ -47,9 +47,7 @@ export default function OrishasPage() {
         </div>
 
         <div className="text-center">
-          <p className="text-gray-600 mb-4">
-            For now, you can access the original version:
-          </p>
+          <p className="text-gray-600 mb-4">For now, you can access the original version:</p>
           <a
             href="/old-html/orishas-learning-module.html"
             target="_blank"

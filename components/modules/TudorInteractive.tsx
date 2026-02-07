@@ -3,12 +3,21 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TudorLesson, TudorTopicCategory } from '@/types';
-import { tudorTopics, getAllTudorLessons, tudorCategoryNames, tudorCategoryIcons } from '@/lib/data/tudorLessons';
+import {
+  tudorTopics,
+  getAllTudorLessons,
+  tudorCategoryNames,
+  tudorCategoryIcons,
+} from '@/lib/data/tudorLessons';
 
 export default function TudorInteractive() {
   const [currentLesson, setCurrentLesson] = useState<TudorLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<TudorTopicCategory>('tudorEngland');
-  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
+    const saved = localStorage.getItem('completedTudorLessons');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState<string>('');
   const [viewMode, setViewMode] = useState<'lesson' | 'browse'>('browse');
@@ -17,7 +26,7 @@ export default function TudorInteractive() {
     sources: false,
     discussion: false,
     activities: false,
-    vocabulary: false
+    vocabulary: false,
   });
 
   const generateRandomLesson = (completed: string[]) => {
@@ -42,14 +51,13 @@ export default function TudorInteractive() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('completedTudorLessons');
       const completed = saved ? JSON.parse(saved) : [];
-      setCompletedLessons(completed);
       generateRandomLesson(completed);
 
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
-        year: 'numeric'
+        year: 'numeric',
       });
       setCurrentDate(date);
 
@@ -77,9 +85,9 @@ export default function TudorInteractive() {
   };
 
   const toggleSection = (section: string) => {
-    setExpandedSections(prev => ({
+    setExpandedSections((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
 
@@ -111,7 +119,9 @@ export default function TudorInteractive() {
           <div className="text-5xl">👑</div>
           <div>
             <h1 className="text-4xl font-bold text-purple-600">Tudor England & Caribbean</h1>
-            <p className="text-gray-600">Explore the Tudor era and its connection to Caribbean colonization</p>
+            <p className="text-gray-600">
+              Explore the Tudor era and its connection to Caribbean colonization
+            </p>
           </div>
         </div>
 
@@ -120,9 +130,7 @@ export default function TudorInteractive() {
             <div className="flex items-center gap-2 font-semibold text-purple-900 mb-2">
               📅 Today&apos;s Date
             </div>
-            <div className="text-xl font-semibold text-gray-800">
-              {currentDate || 'Loading...'}
-            </div>
+            <div className="text-xl font-semibold text-gray-800">{currentDate || 'Loading...'}</div>
           </div>
 
           <div className="bg-gradient-to-br from-indigo-100 to-indigo-200 p-5 rounded-2xl">
@@ -239,7 +247,10 @@ export default function TudorInteractive() {
             </h3>
             <div className="space-y-2">
               {currentLesson.keyDates.map((date, idx) => (
-                <div key={idx} className="flex items-center gap-3 py-2 border-b border-amber-200 last:border-0">
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 py-2 border-b border-amber-200 last:border-0"
+                >
                   <span className="text-amber-600 font-bold">{idx + 1}.</span>
                   <span className="text-gray-800">{date}</span>
                 </div>
@@ -402,7 +413,9 @@ export default function TudorInteractive() {
               }`}
             >
               <span>✅</span>
-              <span>{completedLessons.includes(currentLesson.title) ? 'Completed!' : 'Mark Complete'}</span>
+              <span>
+                {completedLessons.includes(currentLesson.title) ? 'Completed!' : 'Mark Complete'}
+              </span>
             </button>
             <button
               onClick={handleNewLesson}
@@ -432,7 +445,7 @@ export default function TudorInteractive() {
             'Discuss the perspectives of different groups: monarchs, explorers, indigenous peoples, enslaved people',
             'Encourage critical thinking about sources - who wrote them and why?',
             'Sensitive topics (slavery, colonisation) require careful handling - allow time for discussion',
-            'Consider local connections - many British towns have links to this period'
+            'Consider local connections - many British towns have links to this period',
           ].map((tip, idx) => (
             <li key={idx} className="flex items-start gap-3 text-gray-700">
               <span className="text-purple-600 font-bold">•</span>

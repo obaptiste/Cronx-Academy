@@ -8,19 +8,23 @@ import { mathTopics } from '@/lib/data/mathLessons';
 const difficultyDescriptions: Record<DifficultyLevel, string> = {
   foundation: 'Building core skills with extra support',
   standard: 'Year 9 expected standard',
-  higher: 'Extended challenges and deeper thinking'
+  higher: 'Extended challenges and deeper thinking',
 };
 
 export default function MathsInteractive() {
   const [currentLesson, setCurrentLesson] = useState<MathLesson | null>(null);
   const [difficulty, setDifficulty] = useState<DifficultyLevel>('standard');
-  const [completedTopics, setCompletedTopics] = useState<string[]>([]);
+  const [completedTopics, setCompletedTopics] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
+    const saved = localStorage.getItem('completedTopics');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState<string>('');
 
   const generateDailyLesson = (completed: string[]) => {
     const allTopics = Object.values(mathTopics).flat();
-    const availableTopics = allTopics.filter(t => !completed.includes(t.title));
+    const availableTopics = allTopics.filter((t) => !completed.includes(t.title));
 
     if (availableTopics.length === 0) {
       const randomTopic = allTopics[Math.floor(Math.random() * allTopics.length)];
@@ -33,11 +37,9 @@ export default function MathsInteractive() {
   };
 
   useEffect(() => {
-    // Only run on client side
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('completedTopics');
       const completed = saved ? JSON.parse(saved) : [];
-      setCompletedTopics(completed);
       generateDailyLesson(completed);
 
       // Set current date on client side only
@@ -45,7 +47,7 @@ export default function MathsInteractive() {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
-        year: 'numeric'
+        year: 'numeric',
       });
       setCurrentDate(date);
 
@@ -99,9 +101,7 @@ export default function MathsInteractive() {
             <div className="flex items-center gap-2 font-semibold text-purple-900 mb-2">
               📅 Today&apos;s Date
             </div>
-            <div className="text-xl font-semibold text-gray-800">
-              {currentDate || 'Loading...'}
-            </div>
+            <div className="text-xl font-semibold text-gray-800">{currentDate || 'Loading...'}</div>
           </div>
 
           <div className="bg-gradient-to-br from-blue-100 to-blue-200 p-5 rounded-2xl">
@@ -115,9 +115,7 @@ export default function MathsInteractive() {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
-            Difficulty Level
-          </label>
+          <label className="block text-sm font-semibold text-gray-700 mb-3">Difficulty Level</label>
           <div className="grid grid-cols-3 gap-3 mb-3">
             {(Object.keys(difficultyDescriptions) as DifficultyLevel[]).map((level) => (
               <button
@@ -125,9 +123,10 @@ export default function MathsInteractive() {
                 onClick={() => setDifficulty(level)}
                 className={`
                   px-4 py-3 rounded-xl border-2 font-semibold transition-all
-                  ${difficulty === level
-                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-lg'
-                    : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
+                  ${
+                    difficulty === level
+                      ? 'bg-indigo-600 text-white border-indigo-600 shadow-lg'
+                      : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
                   }
                 `}
               >
@@ -238,7 +237,7 @@ export default function MathsInteractive() {
             'Use real-world examples whenever possible to show why maths matters',
             'Take breaks every 20-25 minutes to maintain focus and energy',
             'Celebrate progress, not just perfection - maths is about growth',
-            'If Thalia gets stuck, try a different approach or come back to it later'
+            'If Thalia gets stuck, try a different approach or come back to it later',
           ].map((tip, idx) => (
             <li key={idx} className="flex items-start gap-3 text-gray-700">
               <span className="text-indigo-600 font-bold">•</span>

@@ -36,7 +36,7 @@ export default function WellbeingPage() {
               'Animal sound practice',
               'Whisper activities',
               'Progress garden & celebrations',
-              'No pressure, always optional'
+              'No pressure, always optional',
             ].map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3 text-gray-700">
                 <span className="text-green-500 font-bold">✓</span>
@@ -47,9 +47,7 @@ export default function WellbeingPage() {
         </div>
 
         <div className="text-center">
-          <p className="text-gray-600 mb-4">
-            For now, you can access the original version:
-          </p>
+          <p className="text-gray-600 mb-4">For now, you can access the original version:</p>
           <a
             href="/old-html/voice-therapy-app.html"
             target="_blank"
