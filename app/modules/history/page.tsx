@@ -10,10 +10,16 @@ const historyModules = [
     title: 'World War II',
     icon: '🌍',
     description: 'An interactive journey through 1939-1945',
-    topics: ['Causes & Origins', 'Major Battles', 'The Home Front', 'Holocaust & Remembrance', 'Legacy'],
+    topics: [
+      'Causes & Origins',
+      'Major Battles',
+      'The Home Front',
+      'Holocaust & Remembrance',
+      'Legacy',
+    ],
     status: 'ready' as const,
     href: '/modules/ww2',
-    color: 'from-red-500 to-pink-600'
+    color: 'from-red-500 to-pink-600',
   },
   {
     title: 'Tudor England & Caribbean',
@@ -22,7 +28,7 @@ const historyModules = [
     topics: ['Henry VIII', 'Elizabeth I', 'Early Exploration', 'Caribbean Settlement'],
     status: 'ready' as const,
     href: '/modules/tudor',
-    color: 'from-purple-500 to-indigo-600'
+    color: 'from-purple-500 to-indigo-600',
   },
   {
     title: 'Pirates of the Caribbean',
@@ -31,7 +37,7 @@ const historyModules = [
     topics: ['Famous Pirates', 'Life at Sea', 'Trade Routes', 'Naval Battles'],
     status: 'ready' as const,
     href: '/modules/pirates',
-    color: 'from-amber-500 to-orange-600'
+    color: 'from-amber-500 to-orange-600',
   },
   {
     title: 'Nubian Warrior Queens',
@@ -40,7 +46,7 @@ const historyModules = [
     topics: ['Queen Amanirenas', 'Kingdom of Kush', 'Military Campaigns', 'Legacy'],
     status: 'coming-soon' as const,
     href: '#',
-    color: 'from-yellow-500 to-amber-600'
+    color: 'from-yellow-500 to-amber-600',
   },
   {
     title: 'African & Caribbean Spirituality',
@@ -49,7 +55,7 @@ const historyModules = [
     topics: ['African Roots', 'Caribbean Traditions', 'Syncretism', 'Modern Practice'],
     status: 'ready' as const,
     href: '/modules/spirituality',
-    color: 'from-teal-500 to-cyan-600'
+    color: 'from-teal-500 to-cyan-600',
   },
   {
     title: 'American Revolution',
@@ -58,8 +64,8 @@ const historyModules = [
     topics: ['Causes', 'Key Battles', 'Key Figures', 'Legacy & Impact'],
     status: 'ready' as const,
     href: '/modules/revolution',
-    color: 'from-blue-500 to-indigo-600'
-  }
+    color: 'from-blue-500 to-indigo-600',
+  },
 ];
 
 export default function HistoryPage() {

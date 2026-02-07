@@ -12,9 +12,7 @@ export default function Home() {
         <p className="text-xl text-purple-700 mb-4 text-center">
           Sheena&apos;s Homeschool Teaching Guide for Thalia (Age 14, Croydon)
         </p>
-        <p className="text-gray-600 italic text-center">
-          Learning together, growing together 💛
-        </p>
+        <p className="text-gray-600 italic text-center">Learning together, growing together 💛</p>
       </header>
 
       {/* Quick Navigation */}
@@ -57,9 +55,7 @@ export default function Home() {
 
       {/* Teaching Guide Section */}
       <section id="guide" className="bg-white p-10 rounded-3xl shadow-xl mb-8">
-        <h2 className="text-3xl font-bold text-indigo-600 mb-6">
-          🧭 Teaching Guide for Sheena
-        </h2>
+        <h2 className="text-3xl font-bold text-indigo-600 mb-6">🧭 Teaching Guide for Sheena</h2>
 
         <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-2xl border-l-[5px] border-blue-400 mb-6">
           <p className="text-gray-700 leading-relaxed">
@@ -76,7 +72,9 @@ export default function Home() {
         <ul className="space-y-3 mb-6">
           <li className="flex items-start text-gray-700">
             <span className="text-indigo-600 font-bold mr-3">•</span>
-            <span>📚 Provide full-time, suitable education (no need to follow the national curriculum)</span>
+            <span>
+              📚 Provide full-time, suitable education (no need to follow the national curriculum)
+            </span>
           </li>
           <li className="flex items-start text-gray-700">
             <span className="text-indigo-600 font-bold mr-3">•</span>
@@ -92,9 +90,7 @@ export default function Home() {
           </li>
         </ul>
 
-        <h3 className="text-2xl font-bold text-purple-700 mt-6 mb-4">
-          📚 Curriculum Overview
-        </h3>
+        <h3 className="text-2xl font-bold text-purple-700 mt-6 mb-4">📚 Curriculum Overview</h3>
         <p className="font-bold text-gray-800 mb-2">Core Subjects:</p>
         <ul className="space-y-2 mb-4">
           <li className="flex items-start text-gray-700">
@@ -169,9 +165,7 @@ export default function Home() {
           </li>
         </ul>
 
-        <h3 className="text-2xl font-bold text-purple-700 mt-6 mb-4">
-          🪄 Subject-by-Subject Tips
-        </h3>
+        <h3 className="text-2xl font-bold text-purple-700 mt-6 mb-4">🪄 Subject-by-Subject Tips</h3>
 
         <div className="space-y-4">
           <div>
@@ -237,9 +231,7 @@ export default function Home() {
       {/* Resources Section */}
       <section id="resources" className="bg-white p-10 rounded-3xl shadow-xl mb-8">
         <h2 className="text-3xl font-bold text-indigo-600 mb-6">🔗 Helpful Resources</h2>
-        <p className="text-gray-700 mb-6">
-          External links to support your homeschooling journey:
-        </p>
+        <p className="text-gray-700 mb-6">External links to support your homeschooling journey:</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           <a

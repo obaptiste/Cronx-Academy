@@ -67,7 +67,7 @@ describe('WW2 lessons data integrity', () => {
         describe(`lesson ${i + 1}`, () => {
           expectValidHistoryLesson(
             lesson as unknown as Record<string, unknown>,
-            `WW2/${topicKey}/${lesson.title}`
+            `WW2/${topicKey}/${lesson.title}`,
           );
         });
       });
@@ -98,7 +98,7 @@ describe('Tudor lessons data integrity', () => {
         describe(`lesson ${i + 1}`, () => {
           expectValidHistoryLesson(
             lesson as unknown as Record<string, unknown>,
-            `Tudor/${topicKey}/${lesson.title}`
+            `Tudor/${topicKey}/${lesson.title}`,
           );
         });
       });
@@ -129,7 +129,7 @@ describe('Pirates lessons data integrity', () => {
         describe(`lesson ${i + 1}`, () => {
           expectValidHistoryLesson(
             lesson as unknown as Record<string, unknown>,
-            `Pirates/${topicKey}/${lesson.title}`
+            `Pirates/${topicKey}/${lesson.title}`,
           );
         });
       });
@@ -160,7 +160,7 @@ describe('Revolution lessons data integrity', () => {
         describe(`lesson ${i + 1}`, () => {
           expectValidHistoryLesson(
             lesson as unknown as Record<string, unknown>,
-            `Revolution/${topicKey}/${lesson.title}`
+            `Revolution/${topicKey}/${lesson.title}`,
           );
         });
       });
@@ -191,7 +191,7 @@ describe('Spirituality lessons data integrity', () => {
         describe(`lesson ${i + 1}`, () => {
           expectValidHistoryLesson(
             lesson as unknown as Record<string, unknown>,
-            `Spirituality/${topicKey}/${lesson.title}`
+            `Spirituality/${topicKey}/${lesson.title}`,
           );
         });
       });

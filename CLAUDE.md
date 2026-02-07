@@ -12,10 +12,12 @@ curriculum modules across history, mathematics, cultural studies, and wellbeing.
 - **Language**: TypeScript (strict mode)
 - **UI**: React 19.2.3 + Tailwind CSS 4
 - **Build**: npm, PostCSS
-- **Linting**: ESLint 9 (flat config) with `next/core-web-vitals` and `next/typescript`
+- **Linting**: ESLint 9 (flat config) with `next/core-web-vitals`, `next/typescript`, and `eslint-config-prettier`
+- **Formatting**: Prettier 3 (config in `.prettierrc`)
 - **Testing**: Vitest 4 + React Testing Library + jsdom
 - **Database**: None - all data is static TypeScript files, progress stored in localStorage
-- **Deployment**: Vercel-ready (no CI/CD pipelines yet)
+- **CI/CD**: GitHub Actions (`.github/workflows/ci.yml`) - runs format check, lint, test, and build on every PR
+- **Deployment**: Vercel-ready
 
 ## Commands
 
@@ -26,6 +28,8 @@ npm run start     # Start production server
 npm run lint      # Run ESLint checks
 npm test          # Run Vitest test suite
 npm run test:watch # Run tests in watch mode
+npm run format    # Auto-format all files with Prettier
+npm run format:check # Check formatting (used in CI)
 ```
 
 **Always run `npm test && npm run build` before pushing** to catch regressions and type errors.
@@ -61,6 +65,9 @@ __tests__/              # Vitest test suite
   components/           # Component rendering & interaction tests
 
 old-html/               # Original standalone HTML files (archived, do not modify)
+
+.github/workflows/
+  ci.yml                # GitHub Actions CI pipeline
 ```
 
 ### Key Patterns
@@ -71,8 +78,9 @@ old-html/               # Original standalone HTML files (archived, do not modif
 - **MathLesson has a different shape** than history lessons: warmUp, mainActivities, practice, extension, homework
 - **Progress tracking** uses localStorage with JSON arrays of completed lesson titles
   (keys: `completedTopics`, `completedWW2Lessons`, etc.)
-- **Hydration safety**: All localStorage reads happen inside `useEffect` with `typeof window !== 'undefined'`
-  checks. Date formatting is also client-side only to avoid SSR mismatches.
+- **Hydration safety**: localStorage reads use lazy state initializers with `typeof window` guards.
+  Date formatting happens in `useEffect` to avoid SSR mismatches. Components show a loading state
+  until client-side initialization is complete.
 - **Module registry** in `lib/data/modules.ts` controls what appears on the dashboard.
   Status can be `'ready'` or `'coming-soon'`.
 - **Path alias**: `@/*` maps to the project root (configured in tsconfig.json)
@@ -80,6 +88,7 @@ old-html/               # Original standalone HTML files (archived, do not modif
 ### Component Pattern for New Modules
 
 Each learning module consists of three parts:
+
 1. **Page route**: `app/modules/<name>/page.tsx` - imports and renders the interactive component
 2. **Interactive component**: `components/modules/<Name>Interactive.tsx` - lesson browser UI with
    topic filtering, lesson selection, progress tracking, and completion marking
@@ -98,6 +107,7 @@ identical component structure. When creating new history modules, use any existi
 ## Content Guidelines
 
 This is an educational platform for a 14-year-old learner. All content should be:
+
 - Age-appropriate and engaging
 - Culturally sensitive (strong Caribbean and African heritage focus)
 - Aligned with UK Key Stage 3/4 curriculum standards
@@ -106,11 +116,11 @@ This is an educational platform for a 14-year-old learner. All content should be
 ## Known Issues & Incomplete Work
 
 - ~~No test suite~~ - Vitest is now configured with 761 tests (data integrity + component tests)
-- **No CI/CD** - no GitHub Actions or automated pipelines
+- ~~No CI/CD~~ - GitHub Actions pipeline now runs format check, lint, test, and build on PRs
+- ~~No Prettier~~ - Prettier 3 is now configured with ESLint integration
 - **Wellbeing module** (`/modules/wellbeing`) - still links to old HTML version, not fully migrated
 - **Orishas module** (`/modules/orishas`) - may still reference old HTML
 - **English & Literature module** - marked as `coming-soon`, not implemented
-- **No Prettier** configured - only ESLint for code quality
 - **localStorage keys are inconsistent** across modules (e.g., `completedTopics` vs `completedWW2Lessons`)
 - **History lesson type interfaces are duplicated** - TudorLesson, PiratesLesson, RevolutionLesson,
   SpiritualityLesson all share the exact same shape and could be unified

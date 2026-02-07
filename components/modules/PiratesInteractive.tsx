@@ -3,12 +3,21 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { PiratesLesson, PiratesTopicCategory } from '@/types';
-import { piratesTopics, getAllPiratesLessons, piratesCategoryNames, piratesCategoryIcons } from '@/lib/data/piratesLessons';
+import {
+  piratesTopics,
+  getAllPiratesLessons,
+  piratesCategoryNames,
+  piratesCategoryIcons,
+} from '@/lib/data/piratesLessons';
 
 export default function PiratesInteractive() {
   const [currentLesson, setCurrentLesson] = useState<PiratesLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<PiratesTopicCategory>('famousPirates');
-  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
+    const saved = localStorage.getItem('completedPiratesLessons');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState<string>('');
   const [viewMode, setViewMode] = useState<'lesson' | 'browse'>('browse');
@@ -17,7 +26,7 @@ export default function PiratesInteractive() {
     sources: false,
     discussion: false,
     activities: false,
-    vocabulary: false
+    vocabulary: false,
   });
 
   const generateRandomLesson = (completed: string[]) => {
@@ -42,14 +51,13 @@ export default function PiratesInteractive() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('completedPiratesLessons');
       const completed = saved ? JSON.parse(saved) : [];
-      setCompletedLessons(completed);
       generateRandomLesson(completed);
 
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
-        year: 'numeric'
+        year: 'numeric',
       });
       setCurrentDate(date);
 
@@ -77,9 +85,9 @@ export default function PiratesInteractive() {
   };
 
   const toggleSection = (section: string) => {
-    setExpandedSections(prev => ({
+    setExpandedSections((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
 
@@ -120,9 +128,7 @@ export default function PiratesInteractive() {
             <div className="flex items-center gap-2 font-semibold text-orange-900 mb-2">
               📅 Today&apos;s Date
             </div>
-            <div className="text-xl font-semibold text-gray-800">
-              {currentDate || 'Loading...'}
-            </div>
+            <div className="text-xl font-semibold text-gray-800">{currentDate || 'Loading...'}</div>
           </div>
 
           <div className="bg-gradient-to-br from-red-100 to-red-200 p-5 rounded-2xl">
@@ -239,7 +245,10 @@ export default function PiratesInteractive() {
             </h3>
             <div className="space-y-2">
               {currentLesson.keyDates.map((date, idx) => (
-                <div key={idx} className="flex items-center gap-3 py-2 border-b border-amber-200 last:border-0">
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 py-2 border-b border-amber-200 last:border-0"
+                >
                   <span className="text-amber-600 font-bold">{idx + 1}.</span>
                   <span className="text-gray-800">{date}</span>
                 </div>
@@ -402,7 +411,9 @@ export default function PiratesInteractive() {
               }`}
             >
               <span>✅</span>
-              <span>{completedLessons.includes(currentLesson.title) ? 'Completed!' : 'Mark Complete'}</span>
+              <span>
+                {completedLessons.includes(currentLesson.title) ? 'Completed!' : 'Mark Complete'}
+              </span>
             </button>
             <button
               onClick={handleNewLesson}
@@ -432,7 +443,7 @@ export default function PiratesInteractive() {
             'Use maps to show trade routes and pirate hunting grounds',
             'Connect piracy to broader themes: economics, politics, and social conditions',
             'Sensitive topics (slavery, violence) require careful handling and context',
-            'Compare primary sources critically - many were written by enemies of pirates'
+            'Compare primary sources critically - many were written by enemies of pirates',
           ].map((tip, idx) => (
             <li key={idx} className="flex items-start gap-3 text-gray-700">
               <span className="text-orange-600 font-bold">•</span>

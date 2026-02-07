@@ -54,7 +54,10 @@ describe('MathsInteractive', () => {
   });
 
   it('restores completed count from localStorage', async () => {
-    localStorage.setItem('completedTopics', JSON.stringify(['Solving Linear Equations', 'Expanding Brackets']));
+    localStorage.setItem(
+      'completedTopics',
+      JSON.stringify(['Solving Linear Equations', 'Expanding Brackets']),
+    );
 
     render(<MathsInteractive />);
 
