@@ -13,7 +13,7 @@ curriculum modules across history, mathematics, cultural studies, and wellbeing.
 - **UI**: React 19.2.3 + Tailwind CSS 4
 - **Build**: npm, PostCSS
 - **Linting**: ESLint 9 (flat config) with `next/core-web-vitals` and `next/typescript`
-- **Testing**: None configured yet
+- **Testing**: Vitest 4 + React Testing Library + jsdom
 - **Database**: None - all data is static TypeScript files, progress stored in localStorage
 - **Deployment**: Vercel-ready (no CI/CD pipelines yet)
 
@@ -24,9 +24,11 @@ npm run dev       # Start dev server on port 3000
 npm run build     # Production build (catches type errors)
 npm run start     # Start production server
 npm run lint      # Run ESLint checks
+npm test          # Run Vitest test suite
+npm run test:watch # Run tests in watch mode
 ```
 
-**Always run `npm run build` before pushing** to catch TypeScript and build errors.
+**Always run `npm test && npm run build` before pushing** to catch regressions and type errors.
 
 ## Architecture
 
@@ -53,6 +55,11 @@ lib/data/               # Static lesson content (TypeScript)
   spiritualityLessons.ts # African & Caribbean spirituality lessons
 
 types/index.ts          # All TypeScript interfaces (single file)
+
+__tests__/              # Vitest test suite
+  data/                 # Data integrity tests (all lesson files)
+  components/           # Component rendering & interaction tests
+
 old-html/               # Original standalone HTML files (archived, do not modify)
 ```
 
@@ -98,7 +105,7 @@ This is an educational platform for a 14-year-old learner. All content should be
 
 ## Known Issues & Incomplete Work
 
-- **No test suite** - no Jest, Vitest, or any testing framework
+- ~~No test suite~~ - Vitest is now configured with 761 tests (data integrity + component tests)
 - **No CI/CD** - no GitHub Actions or automated pipelines
 - **Wellbeing module** (`/modules/wellbeing`) - still links to old HTML version, not fully migrated
 - **Orishas module** (`/modules/orishas`) - may still reference old HTML
