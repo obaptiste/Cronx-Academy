@@ -57,6 +57,7 @@ lib/data/               # Static lesson content (TypeScript)
   piratesLessons.ts     # Pirates of the Caribbean lessons
   revolutionLessons.ts  # American Revolution lessons
   spiritualityLessons.ts # African & Caribbean spirituality lessons
+  englishLessons.ts     # English & Literature lessons (4 categories, 16 lessons)
 
 types/index.ts          # All TypeScript interfaces (single file)
 
@@ -122,7 +123,7 @@ This is an educational platform for a 14-year-old learner. All content should be
 - ~~No Prettier~~ - Prettier 3 is now configured with ESLint integration
 - **Wellbeing module** (`/modules/wellbeing`) - still links to old HTML version, not fully migrated
 - **Orishas module** (`/modules/orishas`) - may still reference old HTML
-- **English & Literature module** - marked as `coming-soon`, not implemented
+- ~~English & Literature module~~ - now fully implemented with 16 lessons across 4 categories
 - **localStorage keys are inconsistent** across modules (e.g., `completedTopics` vs `completedWW2Lessons`)
 - ~~History lesson type interfaces are duplicated~~ - Unified into single `HistoryLesson` interface
 
