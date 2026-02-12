@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { WW2Lesson, WW2TopicCategory } from '@/types';
+import { HistoryLesson, WW2TopicCategory } from '@/types';
 import {
   ww2Topics,
   getAllWW2Lessons,
@@ -11,7 +11,7 @@ import {
 } from '@/lib/data/ww2Lessons';
 
 export default function WW2Interactive() {
-  const [currentLesson, setCurrentLesson] = useState<WW2Lesson | null>(null);
+  const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<WW2TopicCategory>('causesAndOrigins');
   const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
     if (typeof window === 'undefined') return [];
@@ -78,7 +78,7 @@ export default function WW2Interactive() {
     setViewMode('lesson');
   };
 
-  const selectLesson = (lesson: WW2Lesson, category: WW2TopicCategory) => {
+  const selectLesson = (lesson: HistoryLesson, category: WW2TopicCategory) => {
     setCurrentLesson(lesson);
     setCurrentCategory(category);
     setViewMode('lesson');

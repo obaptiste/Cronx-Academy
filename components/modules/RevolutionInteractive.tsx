@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { RevolutionLesson, RevolutionTopicCategory } from '@/types';
+import { HistoryLesson, RevolutionTopicCategory } from '@/types';
 import {
   revolutionTopics,
   getAllRevolutionLessons,
@@ -11,7 +11,7 @@ import {
 } from '@/lib/data/revolutionLessons';
 
 export default function RevolutionInteractive() {
-  const [currentLesson, setCurrentLesson] = useState<RevolutionLesson | null>(null);
+  const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
   const [currentCategory, setCurrentCategory] =
     useState<RevolutionTopicCategory>('causesAndOrigins');
   const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
@@ -79,7 +79,7 @@ export default function RevolutionInteractive() {
     setViewMode('lesson');
   };
 
-  const selectLesson = (lesson: RevolutionLesson, category: RevolutionTopicCategory) => {
+  const selectLesson = (lesson: HistoryLesson, category: RevolutionTopicCategory) => {
     setCurrentLesson(lesson);
     setCurrentCategory(category);
     setViewMode('lesson');

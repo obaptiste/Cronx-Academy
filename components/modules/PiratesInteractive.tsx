@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { PiratesLesson, PiratesTopicCategory } from '@/types';
+import { HistoryLesson, PiratesTopicCategory } from '@/types';
 import {
   piratesTopics,
   getAllPiratesLessons,
@@ -11,7 +11,7 @@ import {
 } from '@/lib/data/piratesLessons';
 
 export default function PiratesInteractive() {
-  const [currentLesson, setCurrentLesson] = useState<PiratesLesson | null>(null);
+  const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<PiratesTopicCategory>('famousPirates');
   const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
     if (typeof window === 'undefined') return [];
@@ -78,7 +78,7 @@ export default function PiratesInteractive() {
     setViewMode('lesson');
   };
 
-  const selectLesson = (lesson: PiratesLesson, category: PiratesTopicCategory) => {
+  const selectLesson = (lesson: HistoryLesson, category: PiratesTopicCategory) => {
     setCurrentLesson(lesson);
     setCurrentCategory(category);
     setViewMode('lesson');

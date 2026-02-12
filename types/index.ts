@@ -36,8 +36,8 @@ export interface Progress {
   lastVisited: Date;
 }
 
-// WW2 History Module Types
-export interface WW2Lesson {
+// History Module Types (shared across all history modules)
+export interface HistoryLesson {
   title: string;
   era: string;
   objectives: string[];
@@ -52,113 +52,54 @@ export interface WW2Lesson {
   furtherReading: string;
 }
 
+// WW2 History Module Topics
 export interface WW2Topics {
-  causesAndOrigins: WW2Lesson[];
-  majorEvents: WW2Lesson[];
-  homeFront: WW2Lesson[];
-  keyFiguresAndLeadership: WW2Lesson[];
-  holocaustAndGenocide: WW2Lesson[];
-  endAndLegacy: WW2Lesson[];
+  causesAndOrigins: HistoryLesson[];
+  majorEvents: HistoryLesson[];
+  homeFront: HistoryLesson[];
+  keyFiguresAndLeadership: HistoryLesson[];
+  holocaustAndGenocide: HistoryLesson[];
+  endAndLegacy: HistoryLesson[];
 }
 
 export type WW2TopicCategory = keyof WW2Topics;
 
-// Tudor England & Caribbean Module Types
-export interface TudorLesson {
-  title: string;
-  era: string;
-  objectives: string[];
-  keyDates: string[];
-  introduction: string;
-  mainContent: string[];
-  primarySources: string[];
-  discussionQuestions: string[];
-  activities: string[];
-  keyFigures: string[];
-  vocabularyTerms: { term: string; definition: string }[];
-  furtherReading: string;
-}
-
+// Tudor England & Caribbean Module Topics
 export interface TudorTopics {
-  tudorEngland: TudorLesson[];
-  earlyExploration: TudorLesson[];
-  caribbeanColonization: TudorLesson[];
-  tradAndEconomy: TudorLesson[];
+  tudorEngland: HistoryLesson[];
+  earlyExploration: HistoryLesson[];
+  caribbeanColonization: HistoryLesson[];
+  tradAndEconomy: HistoryLesson[];
 }
 
 export type TudorTopicCategory = keyof TudorTopics;
 
-// Pirates of the Caribbean Module Types
-export interface PiratesLesson {
-  title: string;
-  era: string;
-  objectives: string[];
-  keyDates: string[];
-  introduction: string;
-  mainContent: string[];
-  primarySources: string[];
-  discussionQuestions: string[];
-  activities: string[];
-  keyFigures: string[];
-  vocabularyTerms: { term: string; definition: string }[];
-  furtherReading: string;
-}
-
+// Pirates of the Caribbean Module Topics
 export interface PiratesTopics {
-  famousPirates: PiratesLesson[];
-  lifeAtSea: PiratesLesson[];
-  tradeRoutes: PiratesLesson[];
-  navalBattles: PiratesLesson[];
+  famousPirates: HistoryLesson[];
+  lifeAtSea: HistoryLesson[];
+  tradeRoutes: HistoryLesson[];
+  navalBattles: HistoryLesson[];
 }
 
 export type PiratesTopicCategory = keyof PiratesTopics;
 
-// African & Caribbean Spirituality Module Types
-export interface SpiritualityLesson {
-  title: string;
-  era: string;
-  objectives: string[];
-  keyDates: string[];
-  introduction: string;
-  mainContent: string[];
-  primarySources: string[];
-  discussionQuestions: string[];
-  activities: string[];
-  keyFigures: string[];
-  vocabularyTerms: { term: string; definition: string }[];
-  furtherReading: string;
-}
-
+// African & Caribbean Spirituality Module Topics
 export interface SpiritualityTopics {
-  africanRoots: SpiritualityLesson[];
-  caribbeanTraditions: SpiritualityLesson[];
-  syncretism: SpiritualityLesson[];
-  modernPractice: SpiritualityLesson[];
+  africanRoots: HistoryLesson[];
+  caribbeanTraditions: HistoryLesson[];
+  syncretism: HistoryLesson[];
+  modernPractice: HistoryLesson[];
 }
 
 export type SpiritualityTopicCategory = keyof SpiritualityTopics;
 
-// American Revolution Module Types
-export interface RevolutionLesson {
-  title: string;
-  era: string;
-  objectives: string[];
-  keyDates: string[];
-  introduction: string;
-  mainContent: string[];
-  primarySources: string[];
-  discussionQuestions: string[];
-  activities: string[];
-  keyFigures: string[];
-  vocabularyTerms: { term: string; definition: string }[];
-  furtherReading: string;
-}
-
+// American Revolution Module Topics
 export interface RevolutionTopics {
-  causesAndOrigins: RevolutionLesson[];
-  majorBattles: RevolutionLesson[];
-  keyFiguresAndLeaders: RevolutionLesson[];
-  legacyAndImpact: RevolutionLesson[];
+  causesAndOrigins: HistoryLesson[];
+  majorBattles: HistoryLesson[];
+  keyFiguresAndLeaders: HistoryLesson[];
+  legacyAndImpact: HistoryLesson[];
 }
 
 export type RevolutionTopicCategory = keyof RevolutionTopics;
