@@ -103,3 +103,13 @@ export interface RevolutionTopics {
 }
 
 export type RevolutionTopicCategory = keyof RevolutionTopics;
+
+// English & Literature Module Topics
+export interface EnglishTopics {
+  caribbeanAuthors: HistoryLesson[];
+  literaryAnalysis: HistoryLesson[];
+  creativeWriting: HistoryLesson[];
+  poetrySpokenWord: HistoryLesson[];
+}
+
+export type EnglishTopicCategory = keyof EnglishTopics;
