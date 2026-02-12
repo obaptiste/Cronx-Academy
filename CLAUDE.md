@@ -73,8 +73,10 @@ old-html/               # Original standalone HTML files (archived, do not modif
 ### Key Patterns
 
 - **All interactive components use `'use client'`** - they depend on useState, useEffect, localStorage
-- **Lesson data follows a consistent interface**: title, era, objectives, keyDates, introduction,
-  mainContent, primarySources, discussionQuestions, activities, keyFigures, vocabularyTerms, furtherReading
+- **All history lessons share a single `HistoryLesson` interface**: title, era, objectives, keyDates,
+  introduction, mainContent, primarySources, discussionQuestions, activities, keyFigures,
+  vocabularyTerms, furtherReading. Each module has its own `*Topics` container interface with
+  module-specific category keys.
 - **MathLesson has a different shape** than history lessons: warmUp, mainActivities, practice, extension, homework
 - **Progress tracking** uses localStorage with JSON arrays of completed lesson titles
   (keys: `completedTopics`, `completedWW2Lessons`, etc.)
@@ -122,8 +124,7 @@ This is an educational platform for a 14-year-old learner. All content should be
 - **Orishas module** (`/modules/orishas`) - may still reference old HTML
 - **English & Literature module** - marked as `coming-soon`, not implemented
 - **localStorage keys are inconsistent** across modules (e.g., `completedTopics` vs `completedWW2Lessons`)
-- **History lesson type interfaces are duplicated** - TudorLesson, PiratesLesson, RevolutionLesson,
-  SpiritualityLesson all share the exact same shape and could be unified
+- ~~History lesson type interfaces are duplicated~~ - Unified into single `HistoryLesson` interface
 
 ## Development Notes
 

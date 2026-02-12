@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { TudorLesson, TudorTopicCategory } from '@/types';
+import { HistoryLesson, TudorTopicCategory } from '@/types';
 import {
   tudorTopics,
   getAllTudorLessons,
@@ -11,7 +11,7 @@ import {
 } from '@/lib/data/tudorLessons';
 
 export default function TudorInteractive() {
-  const [currentLesson, setCurrentLesson] = useState<TudorLesson | null>(null);
+  const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<TudorTopicCategory>('tudorEngland');
   const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
     if (typeof window === 'undefined') return [];
@@ -78,7 +78,7 @@ export default function TudorInteractive() {
     setViewMode('lesson');
   };
 
-  const selectLesson = (lesson: TudorLesson, category: TudorTopicCategory) => {
+  const selectLesson = (lesson: HistoryLesson, category: TudorTopicCategory) => {
     setCurrentLesson(lesson);
     setCurrentCategory(category);
     setViewMode('lesson');

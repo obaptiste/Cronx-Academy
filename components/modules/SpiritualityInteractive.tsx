@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { SpiritualityLesson, SpiritualityTopicCategory } from '@/types';
+import { HistoryLesson, SpiritualityTopicCategory } from '@/types';
 import {
   spiritualityTopics,
   getAllSpiritualityLessons,
@@ -11,7 +11,7 @@ import {
 } from '@/lib/data/spiritualityLessons';
 
 export default function SpiritualityInteractive() {
-  const [currentLesson, setCurrentLesson] = useState<SpiritualityLesson | null>(null);
+  const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<SpiritualityTopicCategory>('africanRoots');
   const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
     if (typeof window === 'undefined') return [];
@@ -78,7 +78,7 @@ export default function SpiritualityInteractive() {
     setViewMode('lesson');
   };
 
-  const selectLesson = (lesson: SpiritualityLesson, category: SpiritualityTopicCategory) => {
+  const selectLesson = (lesson: HistoryLesson, category: SpiritualityTopicCategory) => {
     setCurrentLesson(lesson);
     setCurrentCategory(category);
     setViewMode('lesson');
