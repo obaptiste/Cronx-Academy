@@ -113,3 +113,31 @@ export interface EnglishTopics {
 }
 
 export type EnglishTopicCategory = keyof EnglishTopics;
+
+// Quiz Types
+export interface QuizQuestion {
+  id: string;
+  type: 'vocabulary' | 'date' | 'figure';
+  question: string;
+  options: string[];
+  correctIndex: number;
+}
+
+export interface QuizResult {
+  lessonTitle: string;
+  module: string;
+  score: number;
+  totalQuestions: number;
+  completedAt: string;
+}
+
+// Progress Dashboard Types
+export interface ModuleProgress {
+  moduleId: string;
+  moduleName: string;
+  icon: string;
+  completedLessons: number;
+  totalLessons: number;
+  quizResults: QuizResult[];
+  storageKey: string;
+}
