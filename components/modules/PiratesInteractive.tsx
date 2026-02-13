@@ -362,6 +362,7 @@ export default function PiratesInteractive() {
                     <input
                       type="checkbox"
                       className="w-5 h-5 rounded border-2 border-red-600 text-red-600 focus:ring-red-500"
+                      aria-label={`Activity: ${activity}`}
                     />
                     <span className="text-gray-800">{activity}</span>
                   </div>
