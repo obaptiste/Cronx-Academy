@@ -12,10 +12,26 @@ vi.mock('next/link', () => ({
   ),
 }));
 
-describe('MathsInteractive', () => {
-  beforeEach(() => {
-    localStorage.clear();
+// Mock localStorage
+const localStorageMock: Record<string, string> = {};
+
+beforeEach(() => {
+  Object.keys(localStorageMock).forEach((key) => delete localStorageMock[key]);
+  vi.stubGlobal('localStorage', {
+    getItem: vi.fn((key: string) => localStorageMock[key] || null),
+    setItem: vi.fn((key: string, value: string) => {
+      localStorageMock[key] = value;
+    }),
+    removeItem: vi.fn((key: string) => {
+      delete localStorageMock[key];
+    }),
+    clear: vi.fn(() => {
+      Object.keys(localStorageMock).forEach((key) => delete localStorageMock[key]);
+    }),
   });
+});
+
+describe('MathsInteractive', () => {
 
   it('shows loading state initially then renders lesson content', async () => {
     render(<MathsInteractive />);
