@@ -300,7 +300,7 @@ export default function WW2Interactive() {
           </div>
 
           {/* Key Figures */}
-          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-indigo-500">
+          <div className="bg-linear-to-br from-indigo-50 to-indigo-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-indigo-500">
             <h3 className="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
               👤 Key Figures
             </h3>
