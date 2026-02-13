@@ -377,6 +377,7 @@ export default function TudorInteractive() {
                   <div key={idx} className="flex items-center gap-3 py-2">
                     <input
                       type="checkbox"
+                      aria-label={activity}
                       className="w-5 h-5 rounded border-2 border-orange-600 text-orange-600 focus:ring-orange-500"
                     />
                     <span className="text-gray-800">{activity}</span>

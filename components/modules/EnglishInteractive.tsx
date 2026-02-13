@@ -376,10 +376,14 @@ export default function EnglishInteractive() {
                 {currentLesson.activities.map((activity, idx) => (
                   <div key={idx} className="flex items-center gap-3 py-2">
                     <input
+                      id={`activity-${idx}`}
                       type="checkbox"
+                      title={activity}
                       className="w-5 h-5 rounded border-2 border-orange-600 text-orange-600 focus:ring-orange-500"
                     />
-                    <span className="text-gray-800">{activity}</span>
+                    <label htmlFor={`activity-${idx}`} className="text-gray-800">
+                      {activity}
+                    </label>
                   </div>
                 ))}
               </div>

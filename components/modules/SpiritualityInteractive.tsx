@@ -378,6 +378,7 @@ export default function SpiritualityInteractive() {
                   <div key={idx} className="flex items-center gap-3 py-2">
                     <input
                       type="checkbox"
+                      aria-label={activity}
                       className="w-5 h-5 rounded border-2 border-purple-600 text-purple-600 focus:ring-purple-500"
                     />
                     <span className="text-gray-800">{activity}</span>
