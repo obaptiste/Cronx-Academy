@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { HistoryLesson, PiratesTopicCategory } from '@/types';
+import { HistoryLesson, PiratesTopicCategory, QuizQuestion } from '@/types';
 import {
   piratesTopics,
   getAllPiratesLessons,
   piratesCategoryNames,
   piratesCategoryIcons,
 } from '@/lib/data/piratesLessons';
+import QuizPanel from '@/components/ui/QuizPanel';
+import { generateLessonQuiz, collectVocabPool } from '@/lib/quiz';
 
 export default function PiratesInteractive() {
   const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
@@ -89,6 +91,20 @@ export default function PiratesInteractive() {
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
+
+  const startQuiz = () => {
+    if (currentLesson) {
+      const vocabPool = collectVocabPool(
+        piratesTopics as unknown as Record<string, HistoryLesson[]>,
+      );
+      const questions = generateLessonQuiz(currentLesson, vocabPool);
+      setQuizQuestions(questions);
+      setShowQuiz(true);
+    }
   };
 
   const totalLessons = getAllPiratesLessons().length;
@@ -347,7 +363,7 @@ export default function PiratesInteractive() {
           </div>
 
           {/* Activities (Collapsible) */}
-          <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-red-600">
+          <div className="bg-linear-to-br from-red-50 to-red-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-red-600">
             <button
               onClick={() => toggleSection('activities')}
               className="w-full flex items-center justify-between text-xl font-bold text-red-900 mb-4"
@@ -361,10 +377,13 @@ export default function PiratesInteractive() {
                   <div key={idx} className="flex items-center gap-3 py-2">
                     <input
                       type="checkbox"
+                      id={`activity-${idx}`}
                       className="w-5 h-5 rounded border-2 border-red-600 text-red-600 focus:ring-red-500"
                       aria-label={`Activity: ${activity}`}
                     />
-                    <span className="text-gray-800">{activity}</span>
+                    <label htmlFor={`activity-${idx}`} className="text-gray-800 cursor-pointer">
+                      {activity}
+                    </label>
                   </div>
                 ))}
               </div>
@@ -372,7 +391,7 @@ export default function PiratesInteractive() {
           </div>
 
           {/* Vocabulary (Collapsible) */}
-          <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-teal-600">
+          <div className="bg-linear-to-br from-teal-50 to-teal-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-teal-600">
             <button
               onClick={() => toggleSection('vocabulary')}
               className="w-full flex items-center justify-between text-xl font-bold text-teal-900 mb-4"
@@ -399,6 +418,24 @@ export default function PiratesInteractive() {
             </h3>
             <p className="text-gray-700">{currentLesson.furtherReading}</p>
           </div>
+
+          {/* Quiz Section */}
+          {showQuiz ? (
+            <QuizPanel
+              questions={quizQuestions}
+              lessonTitle={currentLesson.title}
+              moduleId="pirates"
+              onClose={() => setShowQuiz(false)}
+            />
+          ) : (
+            <button
+              onClick={startQuiz}
+              className="w-full bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3"
+            >
+              <span>📝</span>
+              <span>Take Lesson Quiz</span>
+            </button>
+          )}
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">

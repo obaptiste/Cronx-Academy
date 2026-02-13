@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { HistoryLesson, RevolutionTopicCategory } from '@/types';
+import { HistoryLesson, RevolutionTopicCategory, QuizQuestion } from '@/types';
 import {
   revolutionTopics,
   getAllRevolutionLessons,
   revolutionCategoryNames,
   revolutionCategoryIcons,
 } from '@/lib/data/revolutionLessons';
+import QuizPanel from '@/components/ui/QuizPanel';
+import { generateLessonQuiz, collectVocabPool } from '@/lib/quiz';
 
 export default function RevolutionInteractive() {
   const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
@@ -90,6 +92,20 @@ export default function RevolutionInteractive() {
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
+
+  const startQuiz = () => {
+    if (currentLesson) {
+      const vocabPool = collectVocabPool(
+        revolutionTopics as unknown as Record<string, HistoryLesson[]>,
+      );
+      const questions = generateLessonQuiz(currentLesson, vocabPool);
+      setQuizQuestions(questions);
+      setShowQuiz(true);
+    }
   };
 
   const totalLessons = getAllRevolutionLessons().length;
@@ -364,7 +380,7 @@ export default function RevolutionInteractive() {
                   <div key={idx} className="flex items-center gap-3 py-2">
                     <input
                       type="checkbox"
-                      title={activity}
+                      aria-label={`Complete activity: ${activity}`}
                       className="w-5 h-5 rounded border-2 border-orange-600 text-orange-600 focus:ring-orange-500"
                     />
                     <span className="text-gray-800">{activity}</span>
@@ -402,6 +418,24 @@ export default function RevolutionInteractive() {
             </h3>
             <p className="text-gray-700">{currentLesson.furtherReading}</p>
           </div>
+
+          {/* Quiz Section */}
+          {showQuiz ? (
+            <QuizPanel
+              questions={quizQuestions}
+              lessonTitle={currentLesson.title}
+              moduleId="revolution"
+              onClose={() => setShowQuiz(false)}
+            />
+          ) : (
+            <button
+              onClick={startQuiz}
+              className="w-full bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3"
+            >
+              <span>📝</span>
+              <span>Take Lesson Quiz</span>
+            </button>
+          )}
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">

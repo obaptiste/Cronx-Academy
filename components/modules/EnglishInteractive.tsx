@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { HistoryLesson, EnglishTopicCategory } from '@/types';
+import { HistoryLesson, EnglishTopicCategory, QuizQuestion } from '@/types';
 import {
   englishTopics,
   getAllEnglishLessons,
   englishCategoryNames,
   englishCategoryIcons,
 } from '@/lib/data/englishLessons';
+import QuizPanel from '@/components/ui/QuizPanel';
+import { generateLessonQuiz, collectVocabPool } from '@/lib/quiz';
 
 export default function EnglishInteractive() {
   const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
@@ -89,6 +91,20 @@ export default function EnglishInteractive() {
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
+
+  const startQuiz = () => {
+    if (currentLesson) {
+      const vocabPool = collectVocabPool(
+        englishTopics as unknown as Record<string, HistoryLesson[]>,
+      );
+      const questions = generateLessonQuiz(currentLesson, vocabPool);
+      setQuizQuestions(questions);
+      setShowQuiz(true);
+    }
   };
 
   const totalLessons = getAllEnglishLessons().length;
@@ -362,10 +378,14 @@ export default function EnglishInteractive() {
                 {currentLesson.activities.map((activity, idx) => (
                   <div key={idx} className="flex items-center gap-3 py-2">
                     <input
+                      id={`activity-${idx}`}
                       type="checkbox"
+                      title={activity}
                       className="w-5 h-5 rounded border-2 border-orange-600 text-orange-600 focus:ring-orange-500"
                     />
-                    <span className="text-gray-800">{activity}</span>
+                    <label htmlFor={`activity-${idx}`} className="text-gray-800">
+                      {activity}
+                    </label>
                   </div>
                 ))}
               </div>
@@ -400,6 +420,24 @@ export default function EnglishInteractive() {
             </h3>
             <p className="text-gray-700">{currentLesson.furtherReading}</p>
           </div>
+
+          {/* Quiz Section */}
+          {showQuiz ? (
+            <QuizPanel
+              questions={quizQuestions}
+              lessonTitle={currentLesson.title}
+              moduleId="english"
+              onClose={() => setShowQuiz(false)}
+            />
+          ) : (
+            <button
+              onClick={startQuiz}
+              className="w-full bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3"
+            >
+              <span>📝</span>
+              <span>Take Lesson Quiz</span>
+            </button>
+          )}
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">

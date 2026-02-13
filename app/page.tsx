@@ -35,6 +35,12 @@ export default function Home() {
         >
           🔗 Resources
         </a>
+        <a
+          href="/progress"
+          className="bg-indigo-600 border-[3px] border-indigo-600 px-6 py-3 rounded-full font-bold text-white hover:bg-indigo-700 transition-all hover:-translate-y-1 hover:shadow-lg"
+        >
+          📊 Progress Dashboard
+        </a>
       </nav>
 
       {/* Interactive Modules Section */}
