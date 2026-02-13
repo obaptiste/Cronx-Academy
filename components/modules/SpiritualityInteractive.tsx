@@ -98,7 +98,9 @@ export default function SpiritualityInteractive() {
 
   const startQuiz = () => {
     if (currentLesson) {
-      const vocabPool = collectVocabPool(spiritualityTopics as unknown as Record<string, HistoryLesson[]>);
+      const vocabPool = collectVocabPool(
+        spiritualityTopics as unknown as Record<string, HistoryLesson[]>,
+      );
       const questions = generateLessonQuiz(currentLesson, vocabPool);
       setQuizQuestions(questions);
       setShowQuiz(true);

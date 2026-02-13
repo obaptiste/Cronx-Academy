@@ -119,10 +119,7 @@ describe('saveQuizResult', () => {
       completedAt: new Date().toISOString(),
     };
     saveQuizResult(result);
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      'quizResults_tudor',
-      expect.any(String),
-    );
+    expect(localStorage.setItem).toHaveBeenCalledWith('quizResults_tudor', expect.any(String));
     const saved = JSON.parse(localStorageMock['quizResults_tudor']);
     expect(saved).toHaveLength(1);
     expect(saved[0].lessonTitle).toBe('Test Lesson');

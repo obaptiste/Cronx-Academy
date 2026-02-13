@@ -43,9 +43,7 @@ export function generateVocabQuestions(
 
     // If not enough distractors, use definitions from same lesson
     while (distractors.length < 3) {
-      const otherLessonDefs = terms
-        .filter((t) => t.term !== term.term)
-        .map((t) => t.definition);
+      const otherLessonDefs = terms.filter((t) => t.term !== term.term).map((t) => t.definition);
       const remaining = otherLessonDefs.filter((d) => !distractors.includes(d));
       if (remaining.length === 0) break;
       distractors.push(remaining[0]);
@@ -74,10 +72,7 @@ export function generateVocabQuestions(
  * @param lesson - The lesson to generate questions from
  * @param maxQuestions - Maximum number of questions to generate
  */
-export function generateDateQuestions(
-  lesson: HistoryLesson,
-  maxQuestions = 3,
-): QuizQuestion[] {
+export function generateDateQuestions(lesson: HistoryLesson, maxQuestions = 3): QuizQuestion[] {
   const dates = lesson.keyDates;
   if (dates.length < 2) return [];
 

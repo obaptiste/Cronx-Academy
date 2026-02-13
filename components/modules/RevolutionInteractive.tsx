@@ -99,7 +99,9 @@ export default function RevolutionInteractive() {
 
   const startQuiz = () => {
     if (currentLesson) {
-      const vocabPool = collectVocabPool(revolutionTopics as unknown as Record<string, HistoryLesson[]>);
+      const vocabPool = collectVocabPool(
+        revolutionTopics as unknown as Record<string, HistoryLesson[]>,
+      );
       const questions = generateLessonQuiz(currentLesson, vocabPool);
       setQuizQuestions(questions);
       setShowQuiz(true);

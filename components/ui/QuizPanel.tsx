@@ -183,8 +183,7 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
       {/* Options */}
       <div className="space-y-3 mb-6">
         {currentQuestion.options.map((option, idx) => {
-          let buttonClass =
-            'w-full text-left p-4 rounded-xl border-2 font-medium transition-all ';
+          let buttonClass = 'w-full text-left p-4 rounded-xl border-2 font-medium transition-all ';
 
           if (!answered) {
             buttonClass +=

@@ -109,9 +109,7 @@ export default function ProgressDashboard() {
                 ? Math.round((mod.completedLessons / mod.totalLessons) * 100)
                 : 0;
             const latestQuiz =
-              mod.quizResults.length > 0
-                ? mod.quizResults[mod.quizResults.length - 1]
-                : null;
+              mod.quizResults.length > 0 ? mod.quizResults[mod.quizResults.length - 1] : null;
 
             return (
               <div key={mod.moduleId} className="border-2 border-gray-100 rounded-2xl p-5">
@@ -129,8 +127,8 @@ export default function ProgressDashboard() {
                     <div className="text-2xl font-bold text-indigo-600">{percentage}%</div>
                     {latestQuiz && (
                       <p className="text-xs text-gray-400">
-                        Last quiz: {Math.round((latestQuiz.score / latestQuiz.totalQuestions) * 100)}
-                        %
+                        Last quiz:{' '}
+                        {Math.round((latestQuiz.score / latestQuiz.totalQuestions) * 100)}%
                       </p>
                     )}
                   </div>
@@ -160,9 +158,7 @@ export default function ProgressDashboard() {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {mod.quizResults.slice(-5).map((result, idx) => {
-                        const quizPct = Math.round(
-                          (result.score / result.totalQuestions) * 100,
-                        );
+                        const quizPct = Math.round((result.score / result.totalQuestions) * 100);
                         return (
                           <span
                             key={idx}
@@ -190,9 +186,7 @@ export default function ProgressDashboard() {
 
       {/* Teaching Insights for Sheena */}
       <div className="bg-white p-8 rounded-3xl shadow-xl mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
-          💡 Insights for Sheena
-        </h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">💡 Insights for Sheena</h2>
         <div className="space-y-4">
           {overallPercentage === 0 && (
             <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-xl">
@@ -237,10 +231,7 @@ export default function ProgressDashboard() {
             const avgQuiz =
               mod.quizResults.length > 0
                 ? Math.round(
-                    (mod.quizResults.reduce(
-                      (s, r) => s + (r.score / r.totalQuestions) * 100,
-                      0,
-                    ) /
+                    (mod.quizResults.reduce((s, r) => s + (r.score / r.totalQuestions) * 100, 0) /
                       mod.quizResults.length) *
                       10,
                   ) / 10
