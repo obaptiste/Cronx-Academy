@@ -12,13 +12,25 @@ const difficultyDescriptions: Record<DifficultyLevel, string> = {
 };
 
 export default function MathsInteractive() {
+  const readCompletedTopics = (): string[] => {
+    if (typeof window === 'undefined') return [];
+    if (typeof localStorage?.getItem !== 'function') return [];
+
+    const saved = localStorage.getItem('completedTopics');
+    if (!saved) return [];
+
+    try {
+      const parsed: unknown = JSON.parse(saved);
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter((item): item is string => typeof item === 'string');
+    } catch {
+      return [];
+    }
+  };
+
   const [currentLesson, setCurrentLesson] = useState<MathLesson | null>(null);
   const [difficulty, setDifficulty] = useState<DifficultyLevel>('standard');
-  const [completedTopics, setCompletedTopics] = useState<string[]>(() => {
-    if (typeof window === 'undefined') return [];
-    const saved = localStorage.getItem('completedTopics');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [completedTopics, setCompletedTopics] = useState<string[]>(readCompletedTopics);
   const [isLoading, setIsLoading] = useState(true);
   const [currentDate, setCurrentDate] = useState<string>('');
 
@@ -38,8 +50,7 @@ export default function MathsInteractive() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('completedTopics');
-      const completed = saved ? JSON.parse(saved) : [];
+      const completed = readCompletedTopics();
       generateDailyLesson(completed);
 
       // Set current date on client side only
@@ -57,6 +68,8 @@ export default function MathsInteractive() {
 
   const markComplete = () => {
     if (currentLesson && typeof window !== 'undefined') {
+      if (typeof localStorage?.setItem !== 'function') return;
+      if (completedTopics.includes(currentLesson.title)) return;
       const newCompleted = [...completedTopics, currentLesson.title];
       setCompletedTopics(newCompleted);
       localStorage.setItem('completedTopics', JSON.stringify(newCompleted));

@@ -361,7 +361,7 @@ export default function PiratesInteractive() {
           </div>
 
           {/* Activities (Collapsible) */}
-          <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-red-600">
+          <div className="bg-linear-to-br from-red-50 to-red-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-red-600">
             <button
               onClick={() => toggleSection('activities')}
               className="w-full flex items-center justify-between text-xl font-bold text-red-900 mb-4"
@@ -377,7 +377,7 @@ export default function PiratesInteractive() {
                       type="checkbox"
                       id={`activity-${idx}`}
                       className="w-5 h-5 rounded border-2 border-red-600 text-red-600 focus:ring-red-500"
-                      aria-label={activity}
+                      aria-label={`Activity: ${activity}`}
                     />
                     <label htmlFor={`activity-${idx}`} className="text-gray-800 cursor-pointer">
                       {activity}
@@ -389,7 +389,7 @@ export default function PiratesInteractive() {
           </div>
 
           {/* Vocabulary (Collapsible) */}
-          <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-teal-600">
+          <div className="bg-linear-to-br from-teal-50 to-teal-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-teal-600">
             <button
               onClick={() => toggleSection('vocabulary')}
               className="w-full flex items-center justify-between text-xl font-bold text-teal-900 mb-4"

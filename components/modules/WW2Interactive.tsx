@@ -317,7 +317,7 @@ export default function WW2Interactive() {
           </div>
 
           {/* Primary Sources (Collapsible) */}
-          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-yellow-600">
+          <div className="bg-linear-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-yellow-600">
             <button
               onClick={() => toggleSection('sources')}
               className="w-full flex items-center justify-between text-xl font-bold text-yellow-900 mb-4"

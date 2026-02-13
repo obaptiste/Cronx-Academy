@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import MathsInteractive from '@/components/modules/MathsInteractive';
 
@@ -12,34 +12,41 @@ vi.mock('next/link', () => ({
   ),
 }));
 
-// Mock localStorage
-const localStorageMock: Record<string, string> = {};
+const createLocalStorageMock = () => {
+  let store: Record<string, string> = {};
 
-beforeEach(() => {
-  Object.keys(localStorageMock).forEach((key) => delete localStorageMock[key]);
-  vi.stubGlobal('localStorage', {
-    getItem: vi.fn((key: string) => localStorageMock[key] || null),
-    setItem: vi.fn((key: string, value: string) => {
-      localStorageMock[key] = value;
-    }),
-    removeItem: vi.fn((key: string) => {
-      delete localStorageMock[key];
-    }),
-    clear: vi.fn(() => {
-      Object.keys(localStorageMock).forEach((key) => delete localStorageMock[key]);
-    }),
-  });
-});
+  return {
+    getItem: (key: string) => store[key] ?? null,
+    setItem: (key: string, value: string) => {
+      store[key] = value;
+    },
+    removeItem: (key: string) => {
+      delete store[key];
+    },
+    clear: () => {
+      store = {};
+    },
+  };
+};
 
 describe('MathsInteractive', () => {
+  beforeEach(() => {
+    const localStorageMock = createLocalStorageMock();
+    Object.defineProperty(globalThis, 'localStorage', {
+      configurable: true,
+      writable: true,
+      value: localStorageMock,
+    });
+  });
 
   it('shows loading state initially then renders lesson content', async () => {
     render(<MathsInteractive />);
 
-    // After useEffect fires, loading should disappear and lesson content should appear
-    await waitFor(() => {
-      expect(screen.getByText('Daily Maths Lesson')).toBeInTheDocument();
-    });
+    const loadingMessage = screen.queryByText('Loading your lesson...');
+    if (loadingMessage) {
+      await waitForElementToBeRemoved(loadingMessage);
+    }
+    expect(screen.getByText('Daily Maths Lesson')).toBeInTheDocument();
   });
 
   it('displays the back link to home', async () => {
@@ -108,6 +115,46 @@ describe('MathsInteractive', () => {
     // Verify localStorage was updated
     const stored = JSON.parse(localStorage.getItem('completedTopics') || '[]');
     expect(stored.length).toBe(1);
+  });
+
+  it('does not increment completed count when Mark Complete is clicked twice', async () => {
+    const user = userEvent.setup();
+    render(<MathsInteractive />);
+
+    await waitFor(() => {
+      expect(screen.getByText('0 topics completed')).toBeInTheDocument();
+    });
+
+    const markCompleteButton = screen.getByText('Mark Complete');
+    await user.click(markCompleteButton);
+    await user.click(markCompleteButton);
+
+    await waitFor(() => {
+      expect(screen.getByText('1 topics completed')).toBeInTheDocument();
+    });
+
+    const stored = JSON.parse(localStorage.getItem('completedTopics') || '[]');
+    expect(stored.length).toBe(1);
+  });
+
+  it('falls back to empty progress when localStorage contains malformed JSON', async () => {
+    localStorage.setItem('completedTopics', '{');
+
+    render(<MathsInteractive />);
+
+    await waitFor(() => {
+      expect(screen.getByText('0 topics completed')).toBeInTheDocument();
+    });
+  });
+
+  it('falls back to empty progress when localStorage contains non-array JSON', async () => {
+    localStorage.setItem('completedTopics', JSON.stringify({ foo: 'bar' }));
+
+    render(<MathsInteractive />);
+
+    await waitFor(() => {
+      expect(screen.getByText('0 topics completed')).toBeInTheDocument();
+    });
   });
 
   it('renders teaching tips section', async () => {
