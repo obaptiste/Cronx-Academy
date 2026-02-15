@@ -104,6 +104,16 @@ export interface RevolutionTopics {
 
 export type RevolutionTopicCategory = keyof RevolutionTopics;
 
+// Nubian Warrior Queens Module Topics
+export interface NubianTopics {
+  kingdomOfKush: HistoryLesson[];
+  warriorQueens: HistoryLesson[];
+  cultureAndInnovation: HistoryLesson[];
+  legacyAndConnections: HistoryLesson[];
+}
+
+export type NubianTopicCategory = keyof NubianTopics;
+
 // English & Literature Module Topics
 export interface EnglishTopics {
   caribbeanAuthors: HistoryLesson[];

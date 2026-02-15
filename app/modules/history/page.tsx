@@ -44,8 +44,8 @@ const historyModules = [
     icon: '⚔️',
     description: 'Powerful women rulers of ancient Nubia',
     topics: ['Queen Amanirenas', 'Kingdom of Kush', 'Military Campaigns', 'Legacy'],
-    status: 'coming-soon' as const,
-    href: '#',
+    status: 'ready' as const,
+    href: '/modules/nubian',
     color: 'from-yellow-500 to-amber-600',
   },
   {

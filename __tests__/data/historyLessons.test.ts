@@ -4,6 +4,7 @@ import { tudorTopics } from '@/lib/data/tudorLessons';
 import { piratesTopics } from '@/lib/data/piratesLessons';
 import { revolutionTopics } from '@/lib/data/revolutionLessons';
 import { spiritualityTopics } from '@/lib/data/spiritualityLessons';
+import { nubianTopics } from '@/lib/data/nubianLessons';
 
 /**
  * All history lesson types share the same required fields.
@@ -200,6 +201,37 @@ describe('Spirituality lessons data integrity', () => {
 
   it('has no duplicate lesson titles', () => {
     const all = Object.values(spiritualityTopics).flat();
+    const titles = all.map((l) => l.title);
+    expect(titles.length).toBe(new Set(titles).size);
+  });
+});
+
+// ----- Nubian -----
+describe('Nubian lessons data integrity', () => {
+  const topicKeys = Object.keys(nubianTopics) as (keyof typeof nubianTopics)[];
+
+  it('has at least one lesson per topic', () => {
+    for (const key of topicKeys) {
+      expect(nubianTopics[key].length).toBeGreaterThan(0);
+    }
+  });
+
+  for (const topicKey of topicKeys) {
+    describe(`topic: ${topicKey}`, () => {
+      const lessons = nubianTopics[topicKey];
+      lessons.forEach((lesson, i) => {
+        describe(`lesson ${i + 1}`, () => {
+          expectValidHistoryLesson(
+            lesson as unknown as Record<string, unknown>,
+            `Nubian/${topicKey}/${lesson.title}`,
+          );
+        });
+      });
+    });
+  }
+
+  it('has no duplicate lesson titles', () => {
+    const all = Object.values(nubianTopics).flat();
     const titles = all.map((l) => l.title);
     expect(titles.length).toBe(new Set(titles).size);
   });

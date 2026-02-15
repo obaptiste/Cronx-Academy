@@ -4,6 +4,7 @@ import { getAllTudorLessons } from '@/lib/data/tudorLessons';
 import { getAllPiratesLessons } from '@/lib/data/piratesLessons';
 import { getAllRevolutionLessons } from '@/lib/data/revolutionLessons';
 import { getAllSpiritualityLessons } from '@/lib/data/spiritualityLessons';
+import { getAllNubianLessons } from '@/lib/data/nubianLessons';
 import { getAllEnglishLessons } from '@/lib/data/englishLessons';
 import { mathTopics } from '@/lib/data/mathLessons';
 
@@ -50,6 +51,13 @@ const moduleConfigs: ModuleConfig[] = [
     icon: '✨',
     storageKey: 'completedSpiritualityLessons',
     getTotalLessons: () => getAllSpiritualityLessons().length,
+  },
+  {
+    moduleId: 'nubian',
+    moduleName: 'Nubian Warrior Queens',
+    icon: '⚔️',
+    storageKey: 'completedNubianLessons',
+    getTotalLessons: () => getAllNubianLessons().length,
   },
   {
     moduleId: 'english',
