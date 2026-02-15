@@ -5,7 +5,17 @@ export const metadata = {
   description: 'Interactive journey through Caribbean and world history',
 };
 
-const historyModules = [
+type HistoryModule = {
+  title: string;
+  icon: string;
+  description: string;
+  topics: string[];
+  status: 'ready' | 'coming-soon';
+  href: string;
+  color: string;
+};
+
+const historyModules: HistoryModule[] = [
   {
     title: 'World War II',
     icon: '🌍',
@@ -17,7 +27,7 @@ const historyModules = [
       'Holocaust & Remembrance',
       'Legacy',
     ],
-    status: 'ready' as const,
+    status: 'ready',
     href: '/modules/ww2',
     color: 'from-red-500 to-pink-600',
   },
@@ -26,7 +36,7 @@ const historyModules = [
     icon: '👑',
     description: 'Explore the Tudor era and its connection to Caribbean colonization',
     topics: ['Henry VIII', 'Elizabeth I', 'Early Exploration', 'Caribbean Settlement'],
-    status: 'ready' as const,
+    status: 'ready',
     href: '/modules/tudor',
     color: 'from-purple-500 to-indigo-600',
   },
@@ -35,7 +45,7 @@ const historyModules = [
     icon: '🏴‍☠️',
     description: 'The golden age of piracy in Caribbean waters',
     topics: ['Famous Pirates', 'Life at Sea', 'Trade Routes', 'Naval Battles'],
-    status: 'ready' as const,
+    status: 'ready',
     href: '/modules/pirates',
     color: 'from-amber-500 to-orange-600',
   },
@@ -44,8 +54,8 @@ const historyModules = [
     icon: '⚔️',
     description: 'Powerful women rulers of ancient Nubia',
     topics: ['Queen Amanirenas', 'Kingdom of Kush', 'Military Campaigns', 'Legacy'],
-    status: 'coming-soon' as const,
-    href: '#',
+    status: 'ready',
+    href: '/modules/nubian',
     color: 'from-yellow-500 to-amber-600',
   },
   {
@@ -53,7 +63,7 @@ const historyModules = [
     icon: '✨',
     description: 'Understanding cultural and spiritual traditions',
     topics: ['African Roots', 'Caribbean Traditions', 'Syncretism', 'Modern Practice'],
-    status: 'ready' as const,
+    status: 'ready',
     href: '/modules/spirituality',
     color: 'from-teal-500 to-cyan-600',
   },
@@ -62,7 +72,7 @@ const historyModules = [
     icon: '🗽',
     description: 'The birth of a new nation and its global impact',
     topics: ['Causes', 'Key Battles', 'Key Figures', 'Legacy & Impact'],
-    status: 'ready' as const,
+    status: 'ready',
     href: '/modules/revolution',
     color: 'from-blue-500 to-indigo-600',
   },
