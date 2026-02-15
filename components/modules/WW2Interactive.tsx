@@ -51,9 +51,13 @@ export default function WW2Interactive() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('completedWW2Lessons');
-      const completed = saved ? JSON.parse(saved) : [];
-      generateRandomLesson(completed);
+const saved = localStorage.getItem('completedWW2Lessons');
+const completed = saved ? JSON.parse(saved) : [];
+
+// Defer state updates to avoid synchronous setState-in-effect warnings
+queueMicrotask(() => {
+  generateRandomLesson(completed);
+});
 
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
