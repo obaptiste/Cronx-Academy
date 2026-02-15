@@ -70,7 +70,7 @@ export const nubianTopics: NubianTopics = {
       era: 'Late 1st century BCE',
       objectives: [
         'Understand who the Kandakes were and how women ruled in Kush',
-        'Analyze Amanirenas\' military campaign against Rome',
+        "Analyze Amanirenas' military campaign against Rome",
         'Evaluate why this conflict matters in African and global history',
       ],
       keyDates: [
@@ -79,7 +79,7 @@ export const nubianTopics: NubianTopics = {
         'c. 22-21 BCE - Negotiated peace creates a favorable frontier settlement',
       ],
       introduction:
-        'Amanirenas, one of Nubia\'s most famous Kandakes (queen-mothers/queens), led resistance during Roman expansion after Egypt fell under imperial rule. Her leadership demonstrates that women in Kush could command armies, shape diplomacy, and defend sovereignty at a major imperial frontier.',
+        "Amanirenas, one of Nubia's most famous Kandakes (queen-mothers/queens), led resistance during Roman expansion after Egypt fell under imperial rule. Her leadership demonstrates that women in Kush could command armies, shape diplomacy, and defend sovereignty at a major imperial frontier.",
       mainContent: [
         'The title Kandake signaled formal political authority in Kush, not ceremonial status only',
         'Conflict with Rome emerged around taxation, border control, and military pressure in Nubia',
@@ -93,7 +93,7 @@ export const nubianTopics: NubianTopics = {
         'Comparative frontier records from Roman Egypt',
       ],
       discussionQuestions: [
-        'What does Amanirenas\' story reveal about leadership and gender in Kush?',
+        "What does Amanirenas' story reveal about leadership and gender in Kush?",
         'How do imperial and local narratives differ when describing the same war?',
         'Why might diplomacy after conflict be as important as battlefield outcomes?',
       ],
@@ -115,7 +115,7 @@ export const nubianTopics: NubianTopics = {
         { term: 'Frontier', definition: 'Border zone between rival political powers' },
         {
           term: 'Sovereignty',
-          definition: 'A state\'s authority to govern itself without outside control',
+          definition: "A state's authority to govern itself without outside control",
         },
         { term: 'Diplomacy', definition: 'Negotiation between states to manage conflict' },
       ],
@@ -195,7 +195,7 @@ export const nubianTopics: NubianTopics = {
         '21st century - Growing public interest in Kandake narratives and African women leaders',
       ],
       introduction:
-        'Nubian warrior queens have become important symbols in conversations about African history, women\'s leadership, and curriculum decolonization. Studying their legacy requires balancing pride with rigorous evidence and respectful interpretation.',
+        "Nubian warrior queens have become important symbols in conversations about African history, women's leadership, and curriculum decolonization. Studying their legacy requires balancing pride with rigorous evidence and respectful interpretation.",
       mainContent: [
         'Public history and school curricula increasingly include Kush and Kandake leadership',
         'Diaspora communities use Nubian history to challenge stereotypes of African passivity',
