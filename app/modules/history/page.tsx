@@ -100,52 +100,56 @@ export default function HistoryPage() {
 
       {/* History Modules Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {historyModules.map((module, idx) => (
-          <div
-            key={idx}
-            className={`bg-white rounded-3xl shadow-lg overflow-hidden transition-all hover:-translate-y-2 hover:shadow-xl ${
-              module.status === 'coming-soon' ? 'opacity-75' : ''
-            }`}
-          >
-            <div className={`bg-gradient-to-r ${module.color} p-6 text-white`}>
-              <div className="text-4xl mb-2">{module.icon}</div>
-              <h2 className="text-2xl font-bold">{module.title}</h2>
-              {module.status === 'coming-soon' && (
-                <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-sm">
-                  Coming Soon
-                </span>
-              )}
-            </div>
-            <div className="p-6">
-              <p className="text-gray-600 mb-4">{module.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {module.topics.map((topic, topicIdx) => (
-                  <span
-                    key={topicIdx}
-                    className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
-                  >
-                    {topic}
+        {historyModules.map((module, idx) => {
+          const isComingSoon = module.status !== 'ready';
+
+          return (
+            <div
+              key={idx}
+              className={`bg-white rounded-3xl shadow-lg overflow-hidden transition-all hover:-translate-y-2 hover:shadow-xl ${
+                isComingSoon ? 'opacity-75' : ''
+              }`}
+            >
+              <div className={`bg-gradient-to-r ${module.color} p-6 text-white`}>
+                <div className="text-4xl mb-2">{module.icon}</div>
+                <h2 className="text-2xl font-bold">{module.title}</h2>
+                {isComingSoon && (
+                  <span className="inline-block mt-2 px-3 py-1 bg-white/20 rounded-full text-sm">
+                    Coming Soon
                   </span>
-                ))}
+                )}
               </div>
-              {module.status === 'ready' ? (
-                <Link
-                  href={module.href}
-                  className="block w-full text-center bg-pink-600 text-white py-3 rounded-xl font-bold hover:bg-pink-700 transition-all"
-                >
-                  Start Learning →
-                </Link>
-              ) : (
-                <button
-                  disabled
-                  className="block w-full text-center bg-gray-300 text-gray-500 py-3 rounded-xl font-bold cursor-not-allowed"
-                >
-                  Coming Soon
-                </button>
-              )}
+              <div className="p-6">
+                <p className="text-gray-600 mb-4">{module.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {module.topics.map((topic, topicIdx) => (
+                    <span
+                      key={topicIdx}
+                      className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+                {!isComingSoon ? (
+                  <Link
+                    href={module.href}
+                    className="block w-full text-center bg-pink-600 text-white py-3 rounded-xl font-bold hover:bg-pink-700 transition-all"
+                  >
+                    Start Learning →
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="block w-full text-center bg-gray-300 text-gray-500 py-3 rounded-xl font-bold cursor-not-allowed"
+                  >
+                    Coming Soon
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Legacy Module Link */}
