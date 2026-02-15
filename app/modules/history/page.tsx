@@ -110,7 +110,7 @@ export default function HistoryPage() {
                 isComingSoon ? 'opacity-75' : ''
               }`}
             >
-              <div className={`bg-gradient-to-r ${module.color} p-6 text-white`}>
+              <div className={`bg-linear-to-r ${module.color} p-6 text-white`}>
                 <div className="text-4xl mb-2">{module.icon}</div>
                 <h2 className="text-2xl font-bold">{module.title}</h2>
                 {isComingSoon && (
@@ -153,7 +153,7 @@ export default function HistoryPage() {
       </div>
 
       {/* Legacy Module Link */}
-      <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-8 rounded-3xl border-l-[5px] border-pink-500">
+      <div className="bg-linear-to-r from-pink-50 to-pink-100 p-8 rounded-3xl border-l-[5px] border-pink-500">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">📜 Original History Quest</h2>
         <p className="text-gray-700 mb-4">
           Access the original comprehensive history module with all topics while we continue
