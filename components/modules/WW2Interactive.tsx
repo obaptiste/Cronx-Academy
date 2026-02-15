@@ -53,7 +53,6 @@ export default function WW2Interactive() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('completedWW2Lessons');
       const completed = saved ? JSON.parse(saved) : [];
-      generateRandomLesson(completed);
 
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
@@ -61,9 +60,11 @@ export default function WW2Interactive() {
         month: 'long',
         year: 'numeric',
       });
-      setCurrentDate(date);
-
-      setIsLoading(false);
+      queueMicrotask(() => {
+        generateRandomLesson(completed);
+        setCurrentDate(date);
+        setIsLoading(false);
+      });
     }
   }, []);
 
