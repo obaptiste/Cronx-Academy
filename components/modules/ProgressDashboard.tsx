@@ -17,9 +17,13 @@ export default function ProgressDashboard() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setModules(getAllModuleProgress());
-      setStats(getOverallStats());
-      setIsLoading(false);
+      const nextModules = getAllModuleProgress();
+      const nextStats = getOverallStats();
+      queueMicrotask(() => {
+        setModules(nextModules);
+        setStats(nextStats);
+        setIsLoading(false);
+      });
     }
   }, []);
 

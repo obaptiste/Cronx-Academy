@@ -51,8 +51,6 @@ export default function MathsInteractive() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const completed = readCompletedTopics();
-      generateDailyLesson(completed);
-
       // Set current date on client side only
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
@@ -60,9 +58,11 @@ export default function MathsInteractive() {
         month: 'long',
         year: 'numeric',
       });
-      setCurrentDate(date);
-
-      setIsLoading(false);
+      queueMicrotask(() => {
+        generateDailyLesson(completed);
+        setCurrentDate(date);
+        setIsLoading(false);
+      });
     }
   }, []);
 

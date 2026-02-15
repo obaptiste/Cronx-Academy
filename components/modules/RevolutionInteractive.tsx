@@ -54,17 +54,17 @@ export default function RevolutionInteractive() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('completedRevolutionLessons');
       const completed = saved ? JSON.parse(saved) : [];
-      generateRandomLesson(completed);
-
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
         year: 'numeric',
       });
-      setCurrentDate(date);
-
-      setIsLoading(false);
+      queueMicrotask(() => {
+        generateRandomLesson(completed);
+        setCurrentDate(date);
+        setIsLoading(false);
+      });
     }
   }, []);
 

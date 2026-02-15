@@ -53,7 +53,6 @@ export default function EnglishInteractive() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('completedEnglishLessons');
       const completed = saved ? JSON.parse(saved) : [];
-      generateRandomLesson(completed);
 
       const date = new Date().toLocaleDateString('en-GB', {
         weekday: 'long',
@@ -61,9 +60,11 @@ export default function EnglishInteractive() {
         month: 'long',
         year: 'numeric',
       });
-      setCurrentDate(date);
-
-      setIsLoading(false);
+      queueMicrotask(() => {
+        generateRandomLesson(completed);
+        setCurrentDate(date);
+        setIsLoading(false);
+      });
     }
   }, []);
 
