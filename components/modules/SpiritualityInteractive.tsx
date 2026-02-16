@@ -142,14 +142,14 @@ export default function SpiritualityInteractive() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-gradient-to-br from-amber-100 to-amber-200 p-5 rounded-2xl">
+          <div className="bg-linear-to-br from-amber-100 to-amber-200 p-5 rounded-2xl">
             <div className="flex items-center gap-2 font-semibold text-amber-900 mb-2">
               📅 Today&apos;s Date
             </div>
             <div className="text-xl font-semibold text-gray-800">{currentDate || 'Loading...'}</div>
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-100 to-yellow-200 p-5 rounded-2xl">
+          <div className="bg-linear-to-br from-yellow-100 to-yellow-200 p-5 rounded-2xl">
             <div className="flex items-center gap-2 font-semibold text-yellow-900 mb-2">
               ✅ Progress
             </div>
@@ -158,7 +158,7 @@ export default function SpiritualityInteractive() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-orange-100 to-orange-200 p-5 rounded-2xl">
+          <div className="bg-linear-to-br from-orange-100 to-orange-200 p-5 rounded-2xl">
             <div className="flex items-center gap-2 font-semibold text-orange-900 mb-2">
               📖 Current Topic
             </div>
@@ -233,7 +233,7 @@ export default function SpiritualityInteractive() {
       {viewMode === 'lesson' && currentLesson && (
         <div className="space-y-6">
           {/* Lesson Header */}
-          <div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white p-8 rounded-3xl shadow-xl">
+          <div className="bg-linear-to-r from-amber-600 to-yellow-600 text-white p-8 rounded-3xl shadow-xl">
             <div className="flex items-center gap-2 text-amber-200 mb-2">
               {spiritualityCategoryIcons[currentCategory]}{' '}
               {spiritualityCategoryNames[currentCategory]}
@@ -243,7 +243,7 @@ export default function SpiritualityInteractive() {
           </div>
 
           {/* Learning Objectives */}
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-blue-500">
+          <div className="bg-linear-to-br from-blue-50 to-blue-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-blue-500">
             <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
               🎯 Learning Objectives
             </h3>
@@ -258,7 +258,7 @@ export default function SpiritualityInteractive() {
           </div>
 
           {/* Key Dates */}
-          <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-amber-500">
+          <div className="bg-linear-to-br from-amber-50 to-amber-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-amber-500">
             <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
               📅 Key Dates
             </h3>
@@ -284,7 +284,7 @@ export default function SpiritualityInteractive() {
           </div>
 
           {/* Main Content (Collapsible) */}
-          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-yellow-500">
+          <div className="bg-linear-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-yellow-500">
             <button
               onClick={() => toggleSection('content')}
               className="w-full flex items-center justify-between text-xl font-bold text-yellow-900 mb-4"
@@ -305,7 +305,7 @@ export default function SpiritualityInteractive() {
           </div>
 
           {/* Key Figures */}
-          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-indigo-500">
+          <div className="bg-linear-to-br from-indigo-50 to-indigo-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-indigo-500">
             <h3 className="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
               👤 Key Figures
             </h3>
@@ -345,7 +345,7 @@ export default function SpiritualityInteractive() {
           </div>
 
           {/* Discussion Questions (Collapsible) */}
-          <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-green-600">
+          <div className="bg-linear-to-br from-green-50 to-green-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-green-600">
             <button
               onClick={() => toggleSection('discussion')}
               className="w-full flex items-center justify-between text-xl font-bold text-green-900 mb-4"
@@ -366,7 +366,7 @@ export default function SpiritualityInteractive() {
           </div>
 
           {/* Activities (Collapsible) */}
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-purple-600">
+          <div className="bg-linear-to-br from-purple-50 to-purple-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-purple-600">
             <button
               onClick={() => toggleSection('activities')}
               className="w-full flex items-center justify-between text-xl font-bold text-purple-900 mb-4"
@@ -391,7 +391,7 @@ export default function SpiritualityInteractive() {
           </div>
 
           {/* Vocabulary (Collapsible) */}
-          <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-teal-600">
+          <div className="bg-linear-to-br from-teal-50 to-teal-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-teal-600">
             <button
               onClick={() => toggleSection('vocabulary')}
               className="w-full flex items-center justify-between text-xl font-bold text-teal-900 mb-4"
