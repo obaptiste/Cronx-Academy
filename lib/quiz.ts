@@ -98,11 +98,6 @@ export function generateDateQuestions(lesson: HistoryLesson, maxQuestions = 3): 
     const otherDates = parsed.filter((p) => p.date !== item.date).map((p) => p.date);
     const distractors = shuffleArray(otherDates).slice(0, 3);
 
-    // Pad with plausible dates if needed
-    while (distractors.length < 3 && distractors.length < parsed.length - 1) {
-      break; // Can't generate more distractors than available
-    }
-
     if (distractors.length < 1) continue;
 
     const options = shuffleArray([item.date, ...distractors]);
