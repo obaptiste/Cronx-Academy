@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Interactive - Daily Lessons for Thalia</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header-card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 3px solid #667eea;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header-icon {
+            font-size: 50px;
+        }
+
+        .header-text h1 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .header-text p {
+            font-size: 16px;
+            color: #718096;
+        }
+
+        /* Stats Cards */
+        .stats-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .stat-card.purple {
+            background: linear-gradient(135deg, #e9d5ff, #ddd6fe);
+        }
+
+        .stat-card.blue {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .stat-header.purple {
+            color: #6b21a8;
+        }
+
+        .stat-header.blue {
+            color: #1e40af;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        /* Difficulty Selector */
+        .difficulty-section {
+            margin-bottom: 25px;
+        }
+
+        .difficulty-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .difficulty-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .difficulty-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            background: #f3f4f6;
+            color: #4a5568;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .difficulty-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .difficulty-btn.active {
+            background: #667eea;
+            color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .difficulty-description {
+            font-size: 14px;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        /* Lesson Content */
+        .lesson-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .lesson-title-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .lesson-title-card h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .objectives-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        .objectives-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .objectives-content {
+            flex: 1;
+        }
+
+        .objectives-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .objectives-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .objectives-list li {
+            display: flex;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .bullet {
+            color: rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+        }
+
+        /* Activity Cards */
+        .activity-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid;
+        }
+
+        .activity-card.warmup {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border-color: #f59e0b;
+        }
+
+        .activity-card.main {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-color: #3b82f6;
+        }
+
+        .activity-card.practice {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-color: #10b981;
+        }
+
+        .activity-card.extension {
+            background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+            border-color: #a855f7;
+        }
+
+        .activity-card.homework {
+            background: linear-gradient(135deg, #fff7ed, #fed7aa);
+            border-color: #f97316;
+        }
+
+        .activity-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .activity-title.warmup { color: #92400e; }
+        .activity-title.main { color: #1e40af; }
+        .activity-title.practice { color: #065f46; }
+        .activity-title.extension { color: #6b21a8; }
+        .activity-title.homework { color: #9a3412; }
+
+        .activity-content {
+            color: #374151;
+            line-height: 1.7;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .activity-list li {
+            display: flex;
+            gap: 12px;
+        }
+
+        .activity-number {
+            font-weight: bold;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+
+        .practice-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 2px solid #10b981;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .checkbox:checked {
+            background: #10b981;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 15px 25px;
+            border-radius: 15px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .action-btn.complete {
+            background: #10b981;
+            color: white;
+        }
+
+        .action-btn.complete:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .action-btn.new {
+            background: #667eea;
+            color: white;
+        }
+
+        .action-btn.new:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Teaching Tips */
+        .tips-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .tips-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tips-list li {
+            display: flex;
+            gap: 10px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .tip-bullet {
+            color: #667eea;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Back Button */
+        .back-button {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column;
+            }
+
+            .difficulty-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .header-text h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const topics = {
+            algebra: [
+                {
+                    title: "Solving Linear Equations",
+                    objectives: ["Solve equations with variables on both sides", "Use inverse operations correctly", "Check solutions by substitution"],
+                    warmUp: "Simplify: 3x + 7 - x + 2",
+                    mainActivities: [
+                        "Work through 5 equations starting simple: 2x + 5 = 13",
+                        "Progress to equations with variables on both sides: 3x + 4 = x + 10",
+                        "Challenge: equations with brackets: 2(x + 3) = 16"
+                    ],
+                    practice: ["4x + 7 = 23", "5x - 3 = 2x + 9", "3(x - 2) = 15", "2x + 5 = x + 12"],
+                    extension: "Create your own equation where x = 7",
+                    homework: "Complete 10 mixed linear equations from textbook pages 45-46"
+                },
+                {
+                    title: "Expanding Brackets",
+                    objectives: ["Multiply out single brackets", "Expand double brackets", "Simplify algebraic expressions"],
+                    warmUp: "Calculate: 5 × (3 + 2)",
+                    mainActivities: [
+                        "Expand: 3(x + 4), 5(2x - 3)",
+                        "Use grid method for double brackets: (x + 3)(x + 2)",
+                        "Practice FOIL method for expansion"
+                    ],
+                    practice: ["4(x + 5)", "3(2x - 7)", "(x + 4)(x + 1)", "(2x + 3)(x - 2)"],
+                    extension: "Expand and simplify: (x + 3)(x + 2) + 2(x - 1)",
+                    homework: "Expand 8 expressions, progressing in difficulty"
+                },
+                {
+                    title: "Factorising Expressions",
+                    objectives: ["Find common factors", "Factorise simple quadratics", "Recognise difference of two squares"],
+                    warmUp: "List all factors of 24",
+                    mainActivities: [
+                        "Find highest common factor: 6x + 12",
+                        "Factorise simple quadratics: x² + 5x + 6",
+                        "Special cases: x² - 9 (difference of two squares)"
+                    ],
+                    practice: ["8x + 20", "x² + 7x + 12", "x² - 16", "2x² + 10x"],
+                    extension: "Factorise fully: 3x² + 9x + 6",
+                    homework: "Mixed factorising practice, 12 questions"
+                }
+            ],
+            geometry: [
+                {
+                    title: "Angles in Parallel Lines",
+                    objectives: ["Identify corresponding angles", "Identify alternate angles", "Calculate missing angles using parallel line rules"],
+                    warmUp: "Name three types of angles you know",
+                    mainActivities: [
+                        "Draw parallel lines with transversal, label angle types",
+                        "Use 'Z' pattern for alternate angles",
+                        "Use 'F' pattern for corresponding angles",
+                        "Calculate missing angles in diagrams"
+                    ],
+                    practice: ["Find missing angles in 4 different parallel line diagrams"],
+                    extension: "Create your own parallel lines problem where one angle is 65°",
+                    homework: "Complete angles worksheet with 10 parallel line problems"
+                },
+                {
+                    title: "Pythagoras' Theorem",
+                    objectives: ["State Pythagoras' theorem", "Calculate missing sides in right-angled triangles", "Apply theorem to real-world problems"],
+                    warmUp: "What makes a triangle 'right-angled'?",
+                    mainActivities: [
+                        "Introduce a² + b² = c² with visual proof",
+                        "Calculate hypotenuse when given two shorter sides",
+                        "Calculate shorter side when given hypotenuse and one side",
+                        "Real-world application: ladder problem"
+                    ],
+                    practice: ["Find c when a=3, b=4", "Find a when b=5, c=13", "Ladder 6m long, 2m from wall - how high?"],
+                    extension: "Use Pythagoras to find diagonal of rectangle 8cm by 6cm",
+                    homework: "Complete 8 Pythagoras problems of varying difficulty"
+                },
+                {
+                    title: "Area and Perimeter",
+                    objectives: ["Calculate area of rectangles and triangles", "Find perimeter of compound shapes", "Solve real-world problems involving area"],
+                    warmUp: "What is the perimeter of a square with side 5cm?",
+                    mainActivities: [
+                        "Review formulae: rectangle A = l×w, triangle A = ½×b×h",
+                        "Calculate area of compound shapes by breaking them down",
+                        "Find missing dimensions when given area",
+                        "Real problem: How much paint for a room 4m by 3m?"
+                    ],
+                    practice: ["Area of rectangle 8cm by 5cm", "Triangle with base 6cm, height 4cm", "Perimeter of L-shape"],
+                    extension: "A rectangular garden is 12m by 8m. A path 1m wide goes around it. What's the path area?",
+                    homework: "Complete 10 area and perimeter problems"
+                }
+            ],
+            number: [
+                {
+                    title: "Fractions, Decimals and Percentages",
+                    objectives: ["Convert between fractions, decimals and percentages", "Order FDP values", "Calculate percentages of amounts"],
+                    warmUp: "Convert ½ to a decimal and percentage",
+                    mainActivities: [
+                        "Create conversion table for common fractions",
+                        "Practice converting: ¾, ⅖, ⅝ to decimals and percentages",
+                        "Calculate 15% of £80, 35% of 200",
+                        "Order mixed FDP values from smallest to largest"
+                    ],
+                    practice: ["Convert ⅗ to decimal and percentage", "Find 24% of £150", "Order: 0.6, 55%, ⅔"],
+                    extension: "A jumper costs £45. In a sale it's reduced by 20%. What's the sale price?",
+                    homework: "Mixed FDP practice, including percentage increase/decrease"
+                },
+                {
+                    title: "Ratio and Proportion",
+                    objectives: ["Simplify ratios", "Share amounts in given ratios", "Solve proportion problems"],
+                    warmUp: "Simplify the ratio 6:12",
+                    mainActivities: [
+                        "Simplify ratios by dividing by HCF: 15:25, 18:24",
+                        "Share £60 in ratio 2:3",
+                        "Recipe problems: scale ingredients up/down",
+                        "Direct proportion: if 5 pencils cost £2, what do 8 cost?"
+                    ],
+                    practice: ["Simplify 20:30", "Share £45 in ratio 2:7", "Scale recipe from 4 to 6 people"],
+                    extension: "Three friends share £84 in ratio 3:4:5. How much does each get?",
+                    homework: "Complete ratio and proportion worksheet, 10 questions"
+                },
+                {
+                    title: "Working with Money",
+                    objectives: ["Calculate best value deals", "Work with budgets", "Understand profit and loss"],
+                    warmUp: "Which is better value: 500g for £2 or 750g for £2.70?",
+                    mainActivities: [
+                        "Compare unit prices to find best deals",
+                        "Plan a weekly shopping budget of £50",
+                        "Calculate profit/loss: bought for £30, sold for £45",
+                        "Work out sale discounts and final prices"
+                    ],
+                    practice: ["Best value: 400g for £1.20 or 600g for £1.65?", "Budget: cinema £8, food £12, bus £4. Change from £30?"],
+                    extension: "You buy items for £15, £23, £8. You want 20% profit on each. What are your selling prices?",
+                    homework: "Create a budget for a day trip to London for 2 people (£100 budget)"
+                }
+            ],
+            statistics: [
+                {
+                    title: "Mean, Median, Mode and Range",
+                    objectives: ["Calculate mean from a list", "Find median from ordered data", "Identify mode and range", "Choose appropriate average"],
+                    warmUp: "Put these in order: 7, 3, 9, 1, 5",
+                    mainActivities: [
+                        "Calculate mean of test scores: 67, 82, 74, 91, 86",
+                        "Find median of ordered and unordered lists",
+                        "Identify mode in data sets (including bimodal)",
+                        "Discuss when each average is most useful"
+                    ],
+                    practice: ["Find mean, median, mode, range of: 5, 8, 3, 8, 6, 2, 8"],
+                    extension: "Five numbers have mean 12. Four of them are 10, 11, 15, 8. Find the fifth number.",
+                    homework: "Collect data at home (e.g., TV watching times for family) and calculate all averages"
+                },
+                {
+                    title: "Charts and Graphs",
+                    objectives: ["Draw and interpret bar charts", "Create pie charts from data", "Read information from graphs"],
+                    warmUp: "What information can you get from a bar chart?",
+                    mainActivities: [
+                        "Draw bar chart of class favourite subjects",
+                        "Convert data into pie chart (calculate angles)",
+                        "Interpret line graph showing temperature over a week",
+                        "Discuss which chart type suits which data"
+                    ],
+                    practice: ["Draw bar chart for: Mon-15°, Tue-18°, Wed-12°, Thu-16°, Fri-14°"],
+                    extension: "Create a pie chart showing how you spend your 24-hour day",
+                    homework: "Collect data on favorite foods in your household and create 2 different types of charts"
+                }
+            ]
+        };
+
+        function MathLessonApp() {
+            const [currentLesson, setCurrentLesson] = useState(null);
+            const [difficulty, setDifficulty] = useState('standard');
+            const [completedTopics, setCompletedTopics] = useState(() => {
+                const saved = localStorage.getItem('completedTopics');
+                return saved ? JSON.parse(saved) : [];
+            });
+
+            const difficultyDescriptions = {
+                foundation: "Building core skills with extra support",
+                standard: "Year 9 expected standard",
+                higher: "Extended challenges and deeper thinking"
+            };
+
+            const generateDailyLesson = () => {
+                const allTopics = Object.values(topics).flat();
+                const availableTopics = allTopics.filter(t => !completedTopics.includes(t.title));
+
+                if (availableTopics.length === 0) {
+                    setCompletedTopics([]);
+                    localStorage.setItem('completedTopics', JSON.stringify([]));
+                    return generateDailyLesson();
+                }
+
+                const randomTopic = availableTopics[Math.floor(Math.random() * availableTopics.length)];
+                setCurrentLesson(randomTopic);
+            };
+
+            const markComplete = () => {
+                if (currentLesson) {
+                    const newCompleted = [...completedTopics, currentLesson.title];
+                    setCompletedTopics(newCompleted);
+                    localStorage.setItem('completedTopics', JSON.stringify(newCompleted));
+                }
+            };
+
+            useEffect(() => {
+                generateDailyLesson();
+            }, []);
+
+            return (
+                <div className="app-container">
+                    <a href="cronx-academy-home.html" className="back-button">
+                        ← Back to Cronx Academy
+                    </a>
+
+                    <div className="header-card">
+                        <div className="header-content">
+                            <div className="header-icon">🔢</div>
+                            <div className="header-text">
+                                <h1>Daily Maths Lesson</h1>
+                                <p>Interactive lessons tailored for Thalia (Year 9)</p>
+                            </div>
+                        </div>
+
+                        <div className="stats-container">
+                            <div className="stat-card purple">
+                                <div className="stat-header purple">
+                                    📅 Today's Date
+                                </div>
+                                <div className="stat-value">
+                                    {new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+                                </div>
+                            </div>
+
+                            <div className="stat-card blue">
+                                <div className="stat-header blue">
+                                    ✅ Progress
+                                </div>
+                                <div className="stat-value">
+                                    {completedTopics.length} topics completed
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="difficulty-section">
+                            <label className="difficulty-label">Difficulty Level</label>
+                            <div className="difficulty-buttons">
+                                {Object.keys(difficultyDescriptions).map((level) => (
+                                    <button
+                                        key={level}
+                                        onClick={() => setDifficulty(level)}
+                                        className={`difficulty-btn ${difficulty === level ? 'active' : ''}`}
+                                    >
+                                        {level.charAt(0).toUpperCase() + level.slice(1)}
+                                    </button>
+                                ))}
+                            </div>
+                            <p className="difficulty-description">{difficultyDescriptions[difficulty]}</p>
+                        </div>
+                    </div>
+
+                    {currentLesson && (
+                        <div className="lesson-container">
+                            <div className="lesson-title-card">
+                                <h2>{currentLesson.title}</h2>
+                                <div className="objectives-section">
+                                    <div className="objectives-icon">🎯</div>
+                                    <div className="objectives-content">
+                                        <p className="objectives-title">Learning Objectives:</p>
+                                        <ul className="objectives-list">
+                                            {currentLesson.objectives.map((obj, idx) => (
+                                                <li key={idx}>
+                                                    <span className="bullet">•</span>
+                                                    <span>{obj}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="activity-card warmup">
+                                <h3 className="activity-title warmup">🔥 Warm-Up (5 minutes)</h3>
+                                <p className="activity-content">{currentLesson.warmUp}</p>
+                            </div>
+
+                            <div className="activity-card main">
+                                <h3 className="activity-title main">📚 Main Activities (30 minutes)</h3>
+                                <ol className="activity-list">
+                                    {currentLesson.mainActivities.map((activity, idx) => (
+                                        <li key={idx}>
+                                            <span className="activity-number">{idx + 1}.</span>
+                                            <span className="activity-content">{activity}</span>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </div>
+
+                            <div className="activity-card practice">
+                                <h3 className="activity-title practice">✏️ Practice Questions (15 minutes)</h3>
+                                <div>
+                                    {currentLesson.practice.map((question, idx) => (
+                                        <div key={idx} className="practice-item">
+                                            <input type="checkbox" className="checkbox" />
+                                            <span className="activity-content">{question}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="activity-card extension">
+                                <h3 className="activity-title extension">🌟 Extension Challenge</h3>
+                                <p className="activity-content">{currentLesson.extension}</p>
+                            </div>
+
+                            <div className="activity-card homework">
+                                <h3 className="activity-title homework">📝 Homework</h3>
+                                <p className="activity-content">{currentLesson.homework}</p>
+                            </div>
+
+                            <div className="action-buttons">
+                                <button onClick={markComplete} className="action-btn complete">
+                                    ✅ Mark Complete
+                                </button>
+                                <button onClick={generateDailyLesson} className="action-btn new">
+                                    🔄 New Lesson
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="tips-card">
+                        <h3 className="tips-title">💡 Teaching Tips for Sheena</h3>
+                        <ul className="tips-list">
+                            <li>
+                                <span className="tip-bullet">•</span>
+                                <span>Encourage working out on paper - mental maths is good but showing method is essential</span>
+                            </li>
+                            <li>
+                                <span className="tip-bullet">•</span>
+                                <span>Use real-world examples whenever possible to show why maths matters</span>
+                            </li>
+                            <li>
+                                <span className="tip-bullet">•</span>
+                                <span>Take breaks every 20-25 minutes to maintain focus and energy</span>
+                            </li>
+                            <li>
+                                <span className="tip-bullet">•</span>
+                                <span>Celebrate progress, not just perfection - maths is about growth</span>
+                            </li>
+                            <li>
+                                <span className="tip-bullet">•</span>
+                                <span>If Thalia gets stuck, try a different approach or come back to it later</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<MathLessonApp />, document.getElementById('root'));
+    </script>
+</body>
+</html>
