@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Quest - Interactive Learning Adventure</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animated Background Particles */
+        .background-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(252, 92, 125, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .logo-text h1 {
+            font-size: 32px;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 2px;
+        }
+
+        .user-stats {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1FA2FF, #12D8FA);
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(31, 162, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(31, 162, 255, 0.4);
+        }
+
+        .stat-badge.points {
+            background: linear-gradient(135deg, #ffd89b, #19547b);
+        }
+
+        .stat-badge.badges {
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 18px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #1FA2FF, #12D8FA);
+            color: white;
+            box-shadow: 0 8px 25px rgba(31, 162, 255, 0.4);
+        }
+
+        /* Main Content Area */
+        .content-area {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            min-height: 600px;
+        }
+
+        /* Timeline Styles */
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .timeline-header h2 {
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .timeline-header p {
+            color: #718096;
+            font-size: 18px;
+        }
+
+        .timeline-filter {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover {
+            border-color: #1FA2FF;
+            background: #e6f7ff;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #1FA2FF, #12D8FA);
+            color: white;
+            border-color: transparent;
+        }
+
+        .timeline-cards {
+            display: grid;
+            gap: 35px;
+        }
+
+        .timeline-card {
+            background: linear-gradient(135deg, #fff, #f7fafc);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            border-left: 8px solid;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(12px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-card.tudor { border-color: #fc5c7d; }
+        .timeline-card.caribbean { border-color: #1FA2FF; }
+        .timeline-card.pirates { border-color: #2d3748; }
+        .timeline-card.nubian { border-color: #d4af37; }
+        .timeline-card.empire { border-color: #ffd89b; }
+        .timeline-card.revolution { border-color: #e53e3e; }
+        .timeline-card.mysticism { border-color: #9c27b0; }
+        .timeline-card.independence { border-color: #6a82fb; }
+
+        .timeline-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 18px;
+        }
+
+        .timeline-date {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 18px;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        .timeline-icon {
+            font-size: 40px;
+        }
+
+        .timeline-card h3 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .timeline-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .timeline-facts {
+            background: linear-gradient(135deg, #edf2f7, #e6fffa);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 18px;
+            border: 2px solid rgba(31, 162, 255, 0.1);
+        }
+
+        .timeline-facts h4 {
+            font-size: 15px;
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .timeline-facts ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-facts li {
+            padding: 8px 0;
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .timeline-facts li:before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .quiz-score-display {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .score-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .quiz-progress {
+            display: flex;
+            gap: 8px;
+            margin: 25px 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .progress-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.completed {
+            background: #48bb78;
+            box-shadow: 0 0 10px rgba(72, 187, 120, 0.5);
+        }
+
+        .progress-dot.current {
+            background: #1FA2FF;
+            transform: scale(1.4);
+            box-shadow: 0 0 15px rgba(31, 162, 255, 0.6);
+        }
+
+        .quiz-question-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 45px;
+            border-radius: 25px;
+            color: white;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .question-number {
+            font-size: 15px;
+            opacity: 0.95;
+            margin-bottom: 12px;
+        }
+
+        .question-text {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 18px;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 3px solid #e2e8f0;
+            padding: 22px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 17px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .quiz-option:hover {
+            border-color: #1FA2FF;
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .quiz-option.selected {
+            border-color: #1FA2FF;
+            background: #e6f7ff;
+            box-shadow: 0 5px 20px rgba(31, 162, 255, 0.2);
+        }
+
+        .quiz-option.correct {
+            border-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #f56565;
+            background: #fff5f5;
+        }
+
+        .option-letter {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .quiz-option.correct .option-letter {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+
+        .quiz-option.incorrect .option-letter {
+            background: linear-gradient(135deg, #f56565, #e53e3e);
+        }
+
+        .feedback-card {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 25px;
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.3);
+        }
+
+        .feedback-card.incorrect {
+            background: linear-gradient(135deg, #f56565, #e53e3e);
+            box-shadow: 0 10px 30px rgba(245, 101, 101, 0.3);
+        }
+
+        .feedback-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .feedback-card p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .quiz-actions {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 45px;
+            border: none;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1FA2FF, #12D8FA);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2d3748;
+            border: 3px solid #e2e8f0;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .results-score {
+            font-size: 90px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 25px 0;
+        }
+
+        .results-message {
+            font-size: 28px;
+            color: #2d3748;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        .results-stars {
+            font-size: 60px;
+            margin: 25px 0;
+        }
+
+        .results-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .result-stat {
+            background: linear-gradient(135deg, #e6f7ff, #f0f9ff);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(31, 162, 255, 0.2);
+        }
+
+        .result-stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1FA2FF;
+            margin-bottom: 8px;
+        }
+
+        .result-stat-label {
+            font-size: 14px;
+            color: #718096;
+            font-weight: 600;
+        }
+
+        /* Story Module Styles */
+        .story-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .story-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .story-selector-card {
+            background: white;
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .story-selector-card:hover {
+            border-color: #1FA2FF;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-selector-card.active {
+            border-color: #1FA2FF;
+            background: #e6f7ff;
+        }
+
+        .story-card {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-radius: 25px;
+            padding: 45px;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .story-header h2 {
+            font-size: 36px;
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .story-meta {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .story-tag {
+            background: linear-gradient(135deg, #1FA2FF, #12D8FA);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(31, 162, 255, 0.3);
+        }
+
+        .story-character {
+            display: flex;
+            gap: 25px;
+            align-items: start;
+            margin: 35px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .character-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 20px rgba(252, 92, 125, 0.3);
+        }
+
+        .character-dialogue {
+            flex: 1;
+        }
+
+        .character-name {
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .character-text {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .story-narration {
+            background: linear-gradient(135deg, #edf2f7, #e6fffa);
+            padding: 25px;
+            border-radius: 18px;
+            margin: 25px 0;
+            font-style: italic;
+            color: #4a5568;
+            line-height: 1.9;
+            border-left: 5px solid #1FA2FF;
+            font-size: 16px;
+        }
+
+        .story-choices {
+            display: grid;
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .story-choice {
+            background: white;
+            border: 3px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .story-choice:hover {
+            border-color: #1FA2FF;
+            transform: translateX(8px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .story-choice h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .story-choice p {
+            color: #718096;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Progress Dashboard Styles */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 35px;
+            border-radius: 25px;
+            color: white;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .dashboard-card.turquoise {
+            background: linear-gradient(135deg, #1FA2FF, #12D8FA);
+        }
+
+        .dashboard-card.coral {
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+        }
+
+        .dashboard-card.yellow {
+            background: linear-gradient(135deg, #ffd89b, #19547b);
+        }
+
+        .dashboard-icon {
+            font-size: 55px;
+            margin-bottom: 18px;
+        }
+
+        .dashboard-value {
+            font-size: 52px;
+            font-weight: 900;
+            margin: 12px 0;
+        }
+
+        .dashboard-label {
+            font-size: 17px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        .badges-section {
+            margin-top: 50px;
+        }
+
+        .badges-section h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #2d3748;
+            font-weight: 800;
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .badge-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .badge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            border-color: #1FA2FF;
+        }
+
+        .badge-card.locked {
+            opacity: 0.35;
+            filter: grayscale(100%);
+        }
+
+        .badge-icon {
+            font-size: 70px;
+            margin-bottom: 12px;
+        }
+
+        .badge-name {
+            font-weight: 700;
+            color: #2d3748;
+            font-size: 15px;
+        }
+
+        /* Topics Library Styles */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+            border-color: #1FA2FF;
+        }
+
+        .topic-banner {
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .topic-banner.tudor {
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+        }
+
+        .topic-banner.caribbean {
+            background: linear-gradient(135deg, #1FA2FF, #12D8FA);
+        }
+
+        .topic-banner.pirates {
+            background: linear-gradient(135deg, #2d3748, #434343);
+        }
+
+        .topic-banner.nubian {
+            background: linear-gradient(135deg, #d4af37, #aa8c2d);
+        }
+
+        .topic-banner.empire {
+            background: linear-gradient(135deg, #ffd89b, #19547b);
+        }
+
+        .topic-banner.revolution {
+            background: linear-gradient(135deg, #e53e3e, #9b2c2c);
+        }
+
+        .topic-banner.mysticism {
+            background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+        }
+
+        .topic-banner.independence {
+            background: linear-gradient(135deg, #6a82fb, #764ba2);
+        }
+
+        .topic-content {
+            padding: 30px;
+        }
+
+        .topic-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 12px;
+        }
+
+        .topic-description {
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .topic-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #a0aec0;
+            font-weight: 600;
+        }
+
+        .topic-stat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Achievement Popup */
+        .achievement-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .achievement-popup {
+            background: white;
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .achievement-popup .badge-icon {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        .achievement-popup h2 {
+            font-size: 36px;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        .achievement-popup p {
+            color: #718096;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .app-container {
+                padding: 15px;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .logo-text h1 {
+                font-size: 26px;
+            }
+
+            .user-stats {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .stat-badge {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-tabs {
+                gap: 8px;
+            }
+
+            .nav-tab {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .content-area {
+                padding: 25px;
+            }
+
+            .timeline-card {
+                padding: 25px;
+            }
+
+            .timeline-card h3 {
+                font-size: 22px;
+            }
+
+            .quiz-question-card {
+                padding: 30px;
+            }
+
+            .question-text {
+                font-size: 22px;
+            }
+
+            .story-character {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-score {
+                font-size: 70px;
+            }
+
+            .achievement-popup {
+                padding: 40px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-particles" id="particles"></div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Historical Data
+        const timelineEvents = [
+            {
+                id: 1,
+                category: 'tudor',
+                date: '1485-1603',
+                title: 'The Tudor Dynasty',
+                icon: '👑',
+                description: 'The Tudor period marked a golden age in English history, featuring powerful monarchs like Henry VIII and Elizabeth I who transformed England into a major European power.',
+                facts: [
+                    'Henry VIII founded the Church of England and had six wives',
+                    'Elizabeth I defeated the Spanish Armada in 1588',
+                    'Shakespeare wrote his famous plays during this era',
+                    'The Tudor rose became a symbol of unity',
+                    'The period saw the beginning of English colonization'
+                ]
+            },
+            {
+                id: 2,
+                category: 'caribbean',
+                date: '1492-1700s',
+                title: 'Caribbean Colonization',
+                icon: '⛵',
+                description: 'European powers competed for control of the Caribbean islands, establishing colonies and transforming the region through sugar plantations and the transatlantic slave trade.',
+                facts: [
+                    'Columbus arrived in the Caribbean in 1492',
+                    'Indigenous Taíno and Carib peoples had complex societies',
+                    'Sugar became known as "white gold"',
+                    'Multiple European nations claimed territories',
+                    'Maroon communities resisted colonizers'
+                ]
+            },
+            {
+                id: 3,
+                category: 'pirates',
+                date: '1650-1730',
+                title: 'The Golden Age of Piracy',
+                icon: '🏴‍☠️',
+                description: 'The Caribbean became the legendary home of pirates during the Golden Age of Piracy. Buccaneers like Blackbeard, Henry Morgan, and Anne Bonny terrorized merchant ships and challenged colonial powers, creating a fascinating chapter in Caribbean history.',
+                facts: [
+                    'Port Royal, Jamaica was known as the "wickedest city on Earth"',
+                    'Pirates created their own democratic codes and rules',
+                    'Famous pirates included Blackbeard, Calico Jack, and Anne Bonny',
+                    'Pirate havens existed in Nassau, Tortuga, and Port Royal',
+                    'Many pirates were former sailors or privateers turned outlaws'
+                ]
+            },
+            {
+                id: 4,
+                category: 'empire',
+                date: '1700s-1900s',
+                title: 'The British Empire',
+                icon: '🌍',
+                description: 'At its peak, the British Empire was the largest empire in history, spanning territories across every continent and influencing global trade and culture.',
+                facts: [
+                    'The empire covered a quarter of Earth\'s land',
+                    'The phrase "the sun never sets" described its reach',
+                    'Industrial Revolution powered imperial expansion',
+                    'Trade routes connected distant colonies',
+                    'The empire\'s legacy includes both innovation and harm'
+                ]
+            },
+            {
+                id: 5,
+                category: 'revolution',
+                date: '1775-1783',
+                title: 'American War of Independence',
+                icon: '🗽',
+                description: 'The thirteen American colonies rebelled against British rule in a revolutionary war that changed the world. Led by George Washington and inspired by ideas of liberty and self-governance, the colonists fought for independence, creating the United States of America.',
+                facts: [
+                    'The war began with battles at Lexington and Concord in 1775',
+                    'The Declaration of Independence was signed on July 4, 1776',
+                    'France, Spain, and the Netherlands supported the Americans',
+                    'Key victories at Saratoga and Yorktown secured independence',
+                    'The Treaty of Paris (1783) officially ended the war'
+                ]
+            },
+            {
+                id: 6,
+                category: 'independence',
+                date: '1900s-Present',
+                title: 'Caribbean Independence',
+                icon: '🎉',
+                description: 'Caribbean nations fought for and achieved independence throughout the 20th century, establishing their own governments and celebrating unique identities.',
+                facts: [
+                    'Jamaica gained independence in 1962',
+                    'Trinidad and Tobago became independent in 1962',
+                    'Barbados became independent in 1966',
+                    'Many islands formed the West Indies Federation',
+                    'Today, Caribbean nations celebrate rich cultures'
+                ]
+            },
+            {
+                id: 7,
+                category: 'nubian',
+                date: '8th Century BCE - 4th Century CE',
+                title: 'The Nubian Kingdom & Warrior Queens',
+                icon: '👑',
+                description: 'The ancient Kingdom of Kush in Nubia (modern-day Sudan) was one of Africa\'s greatest civilizations, renowned for its powerful warrior queens called Kandakes who led armies into battle and ruled with strength and wisdom.',
+                facts: [
+                    'Kandake Amanirenas led armies against Rome and negotiated peace as equals',
+                    'Nubian queens ruled in their own right, not just as consorts',
+                    'The Kandakes were skilled archers and military strategists',
+                    'Nubia had more pyramids than Egypt - over 200 still stand today',
+                    'Nubian civilization lasted over 3,000 years with rich culture and trade'
+                ]
+            },
+            {
+                id: 8,
+                category: 'mysticism',
+                date: 'Ancient Times - Present',
+                title: 'African & Caribbean Mysticism',
+                icon: '✨',
+                description: 'Ancient African and Caribbean spiritual practices connected people to ancestors, nature, and divine forces through rituals, herbalism, and sacred knowledge. These traditions traveled across the ocean and blended to create unique spiritual systems like Vodou, Santería, and Obeah.',
+                facts: [
+                    'African spirituality honors ancestors as guides and protectors',
+                    'Vodou combines West African Vodun with Catholic imagery',
+                    'Obeah practitioners were healers, protectors, and spiritual advisors',
+                    'Sacred drums, dance, and song connect the physical and spiritual worlds',
+                    'Unlike European witchcraft, African mysticism focuses on community healing and balance'
+                ]
+            }
+        ];
+
+        const quizQuestions = [
+            {
+                id: 1,
+                question: 'Who was the English king famous for having six wives?',
+                options: ['King Henry VII', 'King Henry VIII', 'King Edward VI', 'King Charles I'],
+                correctAnswer: 1,
+                explanation: 'Henry VIII had six wives in his quest for a male heir. His marriages led to the English Reformation and the founding of the Church of England.',
+                funFact: 'A rhyme helps remember their fates: "Divorced, beheaded, died; divorced, beheaded, survived!"'
+            },
+            {
+                id: 2,
+                question: 'Which crop was most important to Caribbean plantation economies?',
+                options: ['Cotton', 'Tobacco', 'Sugar', 'Coffee'],
+                correctAnswer: 2,
+                explanation: 'Sugar was called "white gold" and was the most valuable crop in the Caribbean. It drove the plantation economy.',
+                funFact: 'In the 1700s, sugar was so valuable it was stored in locked cabinets!'
+            },
+            {
+                id: 3,
+                question: 'What was the name of the famous pirate known as Edward Teach?',
+                options: ['Captain Kidd', 'Blackbeard', 'Calico Jack', 'Henry Morgan'],
+                correctAnswer: 1,
+                explanation: 'Edward Teach, better known as Blackbeard, was one of the most feared pirates of the Golden Age. He had a terrifying appearance with a long black beard and lit fuses in his hair during battle!',
+                funFact: 'Blackbeard stuck slow-burning fuses under his hat to create smoke around his face and look more terrifying in battle!'
+            },
+            {
+                id: 4,
+                question: 'When did Jamaica gain its independence?',
+                options: ['1958', '1960', '1962', '1966'],
+                correctAnswer: 2,
+                explanation: 'Jamaica achieved independence from Britain on August 6, 1962, establishing its own government.',
+                funFact: 'Jamaica\'s motto is "Out of Many, One People", celebrating diversity!'
+            },
+            {
+                id: 5,
+                question: 'Which queen defeated the Spanish Armada?',
+                options: ['Queen Mary I', 'Queen Elizabeth I', 'Queen Victoria', 'Queen Anne'],
+                correctAnswer: 1,
+                explanation: 'Queen Elizabeth I led England to victory against the Spanish Armada in 1588.',
+                funFact: 'Elizabeth I never married and was known as the "Virgin Queen"!'
+            },
+            {
+                id: 6,
+                question: 'When was the American Declaration of Independence signed?',
+                options: ['July 4, 1775', 'July 4, 1776', 'July 4, 1777', 'July 4, 1783'],
+                correctAnswer: 1,
+                explanation: 'The Declaration of Independence was signed on July 4, 1776, declaring the thirteen American colonies free from British rule. This date is now celebrated as Independence Day in the United States.',
+                funFact: 'Thomas Jefferson wrote the Declaration of Independence when he was only 33 years old!'
+            },
+            {
+                id: 7,
+                question: 'Which Caribbean port was known as the "wickedest city on Earth"?',
+                options: ['Havana', 'Port Royal', 'Nassau', 'Tortuga'],
+                correctAnswer: 1,
+                explanation: 'Port Royal in Jamaica was the pirate capital and known as the "wickedest city on Earth" due to its lawlessness, drinking, and piracy. In 1692, an earthquake destroyed much of the city.',
+                funFact: 'Port Royal sank into the sea during a massive earthquake, and today parts of the pirate city lie underwater!'
+            },
+            {
+                id: 8,
+                question: 'Who was the commanding general of the American Continental Army?',
+                options: ['Benjamin Franklin', 'Thomas Jefferson', 'George Washington', 'John Adams'],
+                correctAnswer: 2,
+                explanation: 'George Washington commanded the Continental Army throughout the American Revolution and later became the first President of the United States.',
+                funFact: 'George Washington had wooden teeth made from hippopotamus ivory, not wood as many people believe!'
+            },
+            {
+                id: 9,
+                question: 'What does "the sun never sets on the British Empire" mean?',
+                options: [
+                    'Britain had special technology',
+                    'The empire spanned multiple time zones',
+                    'Britain controlled the weather',
+                    'British ships sailed only at night'
+                ],
+                correctAnswer: 1,
+                explanation: 'This phrase means the British Empire was so vast that the sun was always shining somewhere on its territories.',
+                funFact: 'At its peak in 1920, the empire covered 24% of Earth\'s land!'
+            },
+            {
+                id: 10,
+                question: 'Which female pirate sailed with Calico Jack Rackham?',
+                options: ['Mary Read', 'Anne Bonny', 'Grace O\'Malley', 'Ching Shih'],
+                correctAnswer: 1,
+                explanation: 'Anne Bonny was one of the most famous female pirates in history. She disguised herself as a man and sailed with Calico Jack Rackham in the Caribbean, fighting alongside male pirates.',
+                funFact: 'Anne Bonny and Mary Read both sailed with Calico Jack and were known to be fiercer fighters than many male pirates!'
+            },
+            {
+                id: 11,
+                question: 'What were the Nubian warrior queens called?',
+                options: ['Pharaohs', 'Kandakes', 'Sultanas', 'Empresses'],
+                correctAnswer: 1,
+                explanation: 'The powerful queens of ancient Nubia were called Kandakes (also spelled Candaces). These warrior queens ruled in their own right, led armies into battle, and were equal to any king in power.',
+                funFact: 'Kandake Amanirenas fought against Rome and actually won! She negotiated peace terms as equals with the Roman Emperor Augustus.'
+            },
+            {
+                id: 12,
+                question: 'What is Vodou (Voodoo)?',
+                options: [
+                    'A type of curse or black magic',
+                    'A spiritual practice honoring ancestors and spirits',
+                    'A Caribbean cooking style',
+                    'A form of European witchcraft'
+                ],
+                correctAnswer: 1,
+                explanation: 'Vodou is a legitimate spiritual practice that combines West African Vodun beliefs with elements of Catholicism. It honors ancestors, nature spirits called Loa, and focuses on community, healing, and balance - not curses or evil magic as often wrongly portrayed in movies.',
+                funFact: 'Vodou played a key role in the Haitian Revolution! Leaders used Vodou ceremonies to organize the enslaved people who fought for freedom.'
+            },
+            {
+                id: 13,
+                question: 'Which ancient kingdom had MORE pyramids than Egypt?',
+                options: ['Greece', 'Nubia (Kush)', 'Rome', 'Persia'],
+                correctAnswer: 1,
+                explanation: 'The ancient Kingdom of Nubia (Kush) built over 200 pyramids - more than Egypt! These Nubian pyramids are smaller and steeper than Egyptian ones, and many still stand in modern-day Sudan.',
+                funFact: 'Nubian pyramids were tombs for kings AND queens, showing the equal power of Nubian warrior queens!'
+            },
+            {
+                id: 14,
+                question: 'How does African spirituality differ from European witchcraft beliefs?',
+                options: [
+                    'African spirituality focuses on community healing and balance',
+                    'They are exactly the same',
+                    'African spirituality has no rituals',
+                    'African spirituality only worships one god'
+                ],
+                correctAnswer: 0,
+                explanation: 'African and Caribbean spiritual traditions emphasize community healing, honoring ancestors, and maintaining balance with nature. Unlike European "witchcraft" persecution, African mysticism was an accepted part of life focused on helping people, not harming them.',
+                funFact: 'Sacred drums in African spirituality aren\'t just music - they\'re used to communicate with spirits and ancestors!'
+            }
+        ];
+
+        const storyModules = [
+            {
+                id: 1,
+                title: 'A Day in Tudor London',
+                period: '1550s',
+                category: 'Tudor England',
+                icon: '🏰',
+                chapters: [{
+                    narration: 'The year is 1555. The bustling streets of London are filled with merchants, nobles, and common folk. You are a young apprentice learning about life in Tudor England...',
+                    characters: [
+                        {
+                            name: 'Master Thomas',
+                            avatar: '👨‍🏫',
+                            dialogue: 'Welcome, young apprentice! Today you\'ll learn about our great city under Queen Mary\'s rule.'
+                        },
+                        {
+                            name: 'You',
+                            avatar: '👤',
+                            dialogue: 'Master Thomas, I\'ve heard stories about King Henry VIII and his changes. What happened?'
+                        }
+                    ],
+                    choices: [
+                        { text: 'Ask about the Church of England', description: 'Learn how religion changed' },
+                        { text: 'Ask about daily life', description: 'Discover Tudor customs' },
+                        { text: 'Ask about the royal family', description: 'Hear royal stories' }
+                    ]
+                }]
+            },
+            {
+                id: 2,
+                title: 'Voices from the Caribbean',
+                period: '1780s',
+                category: 'Caribbean History',
+                icon: '🌴',
+                chapters: [{
+                    narration: 'The Caribbean islands in the 1780s were places of beauty and struggle. High in the mountains of Jamaica, free communities thrived...',
+                    characters: [
+                        {
+                            name: 'Nanny',
+                            avatar: '👩',
+                            dialogue: 'My name is Nanny, leader of the Maroons. We escaped bondage and built free communities. Our story is one of courage!'
+                        },
+                        {
+                            name: 'Young Student',
+                            avatar: '👦',
+                            dialogue: 'Nanny, how did you stay free? The British army was so powerful!'
+                        }
+                    ],
+                    choices: [
+                        { text: 'Learn about Maroon communities', description: 'Discover how they fought for freedom' },
+                        { text: 'Explore island geography', description: 'See why mountains were perfect' },
+                        { text: 'Hear about traditional knowledge', description: 'Learn survival skills' }
+                    ]
+                }]
+            },
+            {
+                id: 3,
+                title: 'Pirates of Port Royal',
+                period: '1690s',
+                category: 'Golden Age of Piracy',
+                icon: '🏴‍☠️',
+                chapters: [{
+                    narration: 'Port Royal, Jamaica - the wickedest city on Earth! The year is 1690, and the taverns are full of pirates, privateers, and treasure hunters. Ships laden with Spanish gold arrive daily, and danger lurks around every corner...',
+                    characters: [
+                        {
+                            name: 'Captain Blackheart',
+                            avatar: '🏴‍☠️',
+                            dialogue: 'Ahoy there! I be Captain Blackheart, scourge of the Caribbean seas! We pirates follow a code - democracy on ship, equal shares of treasure, and freedom from tyranny. Join me crew and see the world!'
+                        },
+                        {
+                            name: 'Anne Bonny',
+                            avatar: '⚔️',
+                            dialogue: 'Don\'t let anyone tell you piracy is only for men! I sailed with Calico Jack and fought better than most. The sea doesn\'t care if you\'re man or woman - only if you\'re brave!'
+                        },
+                        {
+                            name: 'You',
+                            avatar: '👤',
+                            dialogue: 'I want to understand why people became pirates. Was it just for treasure, or was there more to it?'
+                        }
+                    ],
+                    choices: [
+                        { text: 'Learn about the Pirate Code', description: 'Discover pirate democracy and rules' },
+                        { text: 'Explore famous pirates', description: 'Meet Blackbeard, Anne Bonny, and others' },
+                        { text: 'Understand pirate havens', description: 'Visit Port Royal, Nassau, and Tortuga' }
+                    ]
+                }]
+            },
+            {
+                id: 4,
+                title: 'Revolution in the Colonies',
+                period: '1775',
+                category: 'American Independence',
+                icon: '🗽',
+                chapters: [{
+                    narration: 'April 19, 1775 - Lexington, Massachusetts. The morning air is tense as colonial militia gather on the village green. British redcoats are marching to seize weapons and arrest patriot leaders. The shot heard round the world is about to be fired...',
+                    characters: [
+                        {
+                            name: 'Paul Revere',
+                            avatar: '🐴',
+                            dialogue: 'I rode through the night warning "The British are coming!" Every colonist must know that war has begun. We fight not for conquest, but for liberty and the right to govern ourselves!'
+                        },
+                        {
+                            name: 'General Washington',
+                            avatar: '⭐',
+                            dialogue: 'My fellow patriots, we face the most powerful army in the world. But we fight for a noble cause - independence and freedom. With courage and perseverance, we shall prevail!'
+                        },
+                        {
+                            name: 'Young Patriot',
+                            avatar: '👤',
+                            dialogue: 'Why are we rebelling against King George? What has Britain done to make us want independence?'
+                        }
+                    ],
+                    choices: [
+                        { text: 'Learn about taxation without representation', description: 'Understand the causes of rebellion' },
+                        { text: 'Discover key battles', description: 'Explore Lexington, Bunker Hill, and Yorktown' },
+                        { text: 'Read the Declaration of Independence', description: 'See the founding principles' }
+                    ]
+                }]
+            },
+            {
+                id: 5,
+                title: 'Warriors of Nubia',
+                period: '1st Century BCE',
+                category: 'Ancient Africa',
+                icon: '👸',
+                chapters: [{
+                    narration: 'The Nile River flows through the Kingdom of Kush in Nubia, 24 BCE. Roman armies have invaded from the north, but they underestimate the power of the Nubian warrior queen who stands ready to defend her people...',
+                    characters: [
+                        {
+                            name: 'Kandake Amanirenas',
+                            avatar: '👸',
+                            dialogue: 'I am Amanirenas, Kandake of Kush! The Romans think we are weak because I am a woman. They will learn that a Nubian queen is fiercer than any Roman general. I have one eye, but I see more clearly than they ever will!'
+                        },
+                        {
+                            name: 'Young Archer',
+                            avatar: '🏹',
+                            dialogue: 'My Queen, the Romans have superior weapons and larger armies. How can we stand against the might of Rome?'
+                        },
+                        {
+                            name: 'Kandake Amanirenas',
+                            avatar: '👸',
+                            dialogue: 'We have something they don\'t - knowledge of our land, the courage of our ancestors, and the strength of our unity. We are Nubians! We built pyramids, created kingdoms, and will never bow to invaders!'
+                        }
+                    ],
+                    choices: [
+                        { text: 'Learn about Nubian warrior queens', description: 'Discover the power of the Kandakes' },
+                        { text: 'Explore Nubian civilization', description: 'See pyramids, trade, and culture' },
+                        { text: 'Hear about the battle with Rome', description: 'How Nubia fought and won respect' }
+                    ]
+                }]
+            },
+            {
+                id: 6,
+                title: 'Sacred Drums and Spirits',
+                period: '1700s-Present',
+                category: 'African & Caribbean Spirituality',
+                icon: '🥁',
+                chapters: [{
+                    narration: 'Under the moonlight in the Caribbean, drums begin to beat with ancient rhythms brought from Africa. The community gathers for a ceremony honoring the ancestors and seeking guidance from the spirits. This is a sacred moment connecting past, present, and future...',
+                    characters: [
+                        {
+                            name: 'Mama Zula',
+                            avatar: '👵',
+                            dialogue: 'Come, child. Tonight we honor those who came before us. In Africa, in the Caribbean, our people have always known - the spirits walk with us, the ancestors guide us, and nature teaches us. This is not magic - this is our way of life.'
+                        },
+                        {
+                            name: 'Young Student',
+                            avatar: '👦',
+                            dialogue: 'Mama Zula, some people call these practices "witchcraft" or "voodoo" and say they\'re bad. But you\'re teaching healing and respect...'
+                        },
+                        {
+                            name: 'Mama Zula',
+                            avatar: '👵',
+                            dialogue: 'Ah, yes. People fear what they don\'t understand. Our practices honor life, heal the sick, and keep communities strong. We work WITH nature, not against it. We remember our ancestors. We seek balance. That is the African way - and it traveled here to flourish in Caribbean soil.'
+                        }
+                    ],
+                    choices: [
+                        { text: 'Learn about ancestor veneration', description: 'How ancestors guide and protect' },
+                        { text: 'Explore healing traditions', description: 'Herbs, rituals, and spiritual medicine' },
+                        { text: 'Understand the Orishas', description: 'Meet the spirits of nature and life' }
+                    ]
+                }]
+            }
+        ];
+
+        const topics = [
+            { id: 1, title: 'Tudor England', category: 'tudor', icon: '👑', description: 'Explore the Tudor dynasty from Henry VII to Elizabeth I.', lessons: 12, quizzes: 5 },
+            { id: 2, title: 'Caribbean Colonization', category: 'caribbean', icon: '⛵', description: 'Learn about European arrival and its impact.', lessons: 10, quizzes: 4 },
+            { id: 3, title: 'Pirates of the Caribbean', category: 'pirates', icon: '🏴‍☠️', description: 'Discover the Golden Age of Piracy and legendary buccaneers.', lessons: 8, quizzes: 4 },
+            { id: 4, title: 'Nubian Warrior Queens', category: 'nubian', icon: '👸', description: 'Meet the powerful Kandakes who ruled ancient Nubia and challenged Rome.', lessons: 9, quizzes: 4 },
+            { id: 5, title: 'The British Empire', category: 'empire', icon: '🌍', description: 'Understand how Britain built the largest empire.', lessons: 15, quizzes: 6 },
+            { id: 6, title: 'American Revolution', category: 'revolution', icon: '🗽', description: 'Explore the fight for independence from British rule.', lessons: 11, quizzes: 5 },
+            { id: 7, title: 'African & Caribbean Mysticism', category: 'mysticism', icon: '✨', description: 'Discover spiritual traditions, ancestor worship, and sacred practices.', lessons: 10, quizzes: 5 },
+            { id: 8, title: 'Independence Movements', category: 'independence', icon: '🎉', description: 'Discover how Caribbean nations achieved independence.', lessons: 8, quizzes: 3 },
+            { id: 9, title: 'Caribbean Culture', category: 'caribbean', icon: '🎭', description: 'Celebrate Caribbean heritage and traditions.', lessons: 10, quizzes: 4 },
+            { id: 10, title: 'Heroes & Leaders', category: 'independence', icon: '⭐', description: 'Meet brave individuals who fought for justice.', lessons: 9, quizzes: 4 }
+        ];
+
+        const badges = [
+            { id: 1, name: 'First Steps', icon: '🎯', earned: true },
+            { id: 2, name: 'Quiz Master', icon: '🏆', earned: true },
+            { id: 3, name: 'History Detective', icon: '🔍', earned: true },
+            { id: 4, name: 'Story Explorer', icon: '📚', earned: false },
+            { id: 5, name: 'Perfect Score', icon: '💯', earned: false },
+            { id: 6, name: 'Time Traveler', icon: '⏰', earned: true },
+            { id: 7, name: 'Culture Expert', icon: '🌟', earned: false },
+            { id: 8, name: 'Champion', icon: '👑', earned: false }
+        ];
+
+        // Main App Component
+        function HistoryQuestApp() {
+            const [currentTab, setCurrentTab] = useState('timeline');
+            const [points, setPoints] = useState(450);
+            const [badgesEarned, setBadgesEarned] = useState(3);
+            const [currentQuizQuestion, setCurrentQuizQuestion] = useState(0);
+            const [selectedAnswer, setSelectedAnswer] = useState(null);
+            const [showFeedback, setShowFeedback] = useState(false);
+            const [quizScore, setQuizScore] = useState(0);
+            const [quizComplete, setQuizComplete] = useState(false);
+            const [answeredQuestions, setAnsweredQuestions] = useState([]);
+            const [timelineFilter, setTimelineFilter] = useState('all');
+
+            // Generate particles on mount
+            useEffect(() => {
+                const particlesContainer = document.getElementById('particles');
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.width = Math.random() * 30 + 10 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }, []);
+
+            const handleQuizAnswer = (answerIndex) => {
+                if (showFeedback) return;
+                setSelectedAnswer(answerIndex);
+            };
+
+            const submitAnswer = () => {
+                const currentQuestion = quizQuestions[currentQuizQuestion];
+                const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
+                
+                setShowFeedback(true);
+                if (isCorrect) {
+                    setQuizScore(quizScore + 1);
+                    setPoints(points + 10);
+                }
+                
+                setAnsweredQuestions([...answeredQuestions, currentQuizQuestion]);
+            };
+
+            const nextQuestion = () => {
+                if (currentQuizQuestion < quizQuestions.length - 1) {
+                    setCurrentQuizQuestion(currentQuizQuestion + 1);
+                    setSelectedAnswer(null);
+                    setShowFeedback(false);
+                } else {
+                    setQuizComplete(true);
+                }
+            };
+
+            const restartQuiz = () => {
+                setCurrentQuizQuestion(0);
+                setSelectedAnswer(null);
+                setShowFeedback(false);
+                setQuizScore(0);
+                setQuizComplete(false);
+                setAnsweredQuestions([]);
+            };
+
+            const filteredEvents = timelineFilter === 'all' 
+                ? timelineEvents 
+                : timelineEvents.filter(event => event.category === timelineFilter);
+
+            return (
+                <div className="app-container">
+                    <header className="header">
+                        <div className="logo">
+                            <div className="logo-icon">📚</div>
+                            <div className="logo-text">
+                                <h1>History Quest</h1>
+                                <p>Interactive Learning Adventure</p>
+                            </div>
+                        </div>
+                        <div className="user-stats">
+                            <div className="stat-badge points">⭐ {points} Points</div>
+                            <div className="stat-badge badges">🏆 {badgesEarned} Badges</div>
+                        </div>
+                    </header>
+
+                    <nav className="nav-tabs">
+                        <button className={`nav-tab ${currentTab === 'timeline' ? 'active' : ''}`} onClick={() => setCurrentTab('timeline')}>📅 Timeline</button>
+                        <button className={`nav-tab ${currentTab === 'quiz' ? 'active' : ''}`} onClick={() => setCurrentTab('quiz')}>🎯 Quiz</button>
+                        <button className={`nav-tab ${currentTab === 'stories' ? 'active' : ''}`} onClick={() => setCurrentTab('stories')}>📖 Stories</button>
+                        <button className={`nav-tab ${currentTab === 'progress' ? 'active' : ''}`} onClick={() => setCurrentTab('progress')}>📊 Progress</button>
+                        <button className={`nav-tab ${currentTab === 'topics' ? 'active' : ''}`} onClick={() => setCurrentTab('topics')}>📚 Topics</button>
+                    </nav>
+
+                    <main className="content-area">
+                        {currentTab === 'timeline' && <TimelineExplorer filter={timelineFilter} setFilter={setTimelineFilter} events={filteredEvents} />}
+                        {currentTab === 'quiz' && <QuizSection currentQuestion={currentQuizQuestion} selectedAnswer={selectedAnswer} showFeedback={showFeedback} quizScore={quizScore} quizComplete={quizComplete} answeredQuestions={answeredQuestions} onAnswerSelect={handleQuizAnswer} onSubmit={submitAnswer} onNext={nextQuestion} onRestart={restartQuiz} />}
+                        {currentTab === 'stories' && <StoryModules />}
+                        {currentTab === 'progress' && <ProgressDashboard points={points} />}
+                        {currentTab === 'topics' && <TopicsLibrary />}
+                    </main>
+                </div>
+            );
+        }
+
+        // Timeline Component
+        function TimelineExplorer({ filter, setFilter, events }) {
+            return (
+                <div>
+                    <div className="timeline-header">
+                        <h2>📅 Interactive Timeline</h2>
+                        <p>Explore major events in English and Caribbean history</p>
+                        <div className="timeline-filter">
+                            <button className={`filter-btn ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>All Events</button>
+                            <button className={`filter-btn ${filter === 'tudor' ? 'active' : ''}`} onClick={() => setFilter('tudor')}>👑 Tudor</button>
+                            <button className={`filter-btn ${filter === 'caribbean' ? 'active' : ''}`} onClick={() => setFilter('caribbean')}>🌴 Caribbean</button>
+                            <button className={`filter-btn ${filter === 'pirates' ? 'active' : ''}`} onClick={() => setFilter('pirates')}>🏴‍☠️ Pirates</button>
+                            <button className={`filter-btn ${filter === 'nubian' ? 'active' : ''}`} onClick={() => setFilter('nubian')}>👸 Nubian</button>
+                            <button className={`filter-btn ${filter === 'empire' ? 'active' : ''}`} onClick={() => setFilter('empire')}>🌍 Empire</button>
+                            <button className={`filter-btn ${filter === 'revolution' ? 'active' : ''}`} onClick={() => setFilter('revolution')}>🗽 Revolution</button>
+                            <button className={`filter-btn ${filter === 'mysticism' ? 'active' : ''}`} onClick={() => setFilter('mysticism')}>✨ Mysticism</button>
+                            <button className={`filter-btn ${filter === 'independence' ? 'active' : ''}`} onClick={() => setFilter('independence')}>🎉 Independence</button>
+                        </div>
+                    </div>
+                    <div className="timeline-cards">
+                        {events.map(event => (
+                            <div key={event.id} className={`timeline-card ${event.category}`}>
+                                <div className="timeline-card-header">
+                                    <div className="timeline-date">{event.date}</div>
+                                    <div className="timeline-icon">{event.icon}</div>
+                                </div>
+                                <h3>{event.title}</h3>
+                                <p>{event.description}</p>
+                                <div className="timeline-facts">
+                                    <h4>📌 Key Facts:</h4>
+                                    <ul>{event.facts.map((fact, i) => <li key={i}>{fact}</li>)}</ul>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        // Quiz Component
+        function QuizSection({ currentQuestion, selectedAnswer, showFeedback, quizScore, quizComplete, answeredQuestions, onAnswerSelect, onSubmit, onNext, onRestart }) {
+            if (quizComplete) {
+                const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+                const stars = percentage >= 90 ? '⭐⭐⭐' : percentage >= 70 ? '⭐⭐' : percentage >= 50 ? '⭐' : '';
+                const message = percentage >= 90 ? 'Outstanding!' : percentage >= 70 ? 'Great job!' : percentage >= 50 ? 'Good effort!' : 'Keep practicing!';
+
+                return (
+                    <div className="quiz-results">
+                        <h2>🎉 Quiz Complete!</h2>
+                        <div className="results-score">{quizScore}/{quizQuestions.length}</div>
+                        <div className="results-message">{message}</div>
+                        <div className="results-stars">{stars}</div>
+                        <div className="results-breakdown">
+                            <div className="result-stat"><div className="result-stat-value">{percentage}%</div><div className="result-stat-label">Score</div></div>
+                            <div className="result-stat"><div className="result-stat-value">{quizScore}</div><div className="result-stat-label">Correct</div></div>
+                            <div className="result-stat"><div className="result-stat-value">+{quizScore * 10}</div><div className="result-stat-label">Points</div></div>
+                        </div>
+                        <button className="btn btn-primary" onClick={onRestart}>Try Again</button>
+                    </div>
+                );
+            }
+
+            const question = quizQuestions[currentQuestion];
+            const isCorrect = selectedAnswer === question.correctAnswer;
+
+            return (
+                <div className="quiz-container">
+                    <div className="quiz-header">
+                        <h2>🎯 History Quiz</h2>
+                        <p>Test your knowledge!</p>
+                        <div className="quiz-score-display">
+                            <div className="score-item">✅ Correct: {quizScore}</div>
+                            <div className="score-item">📝 Question: {currentQuestion + 1}/{quizQuestions.length}</div>
+                        </div>
+                        <div className="quiz-progress">
+                            {quizQuestions.map((_, i) => <div key={i} className={`progress-dot ${answeredQuestions.includes(i) ? 'completed' : i === currentQuestion ? 'current' : ''}`} />)}
+                        </div>
+                    </div>
+                    <div className="quiz-question-card">
+                        <div className="question-number">Question {currentQuestion + 1} of {quizQuestions.length}</div>
+                        <div className="question-text">{question.question}</div>
+                    </div>
+                    <div className="quiz-options">
+                        {question.options.map((option, i) => (
+                            <div key={i} className={`quiz-option ${selectedAnswer === i ? 'selected' : ''} ${showFeedback && i === question.correctAnswer ? 'correct' : ''} ${showFeedback && selectedAnswer === i && !isCorrect ? 'incorrect' : ''}`} onClick={() => onAnswerSelect(i)}>
+                                <div className="option-letter">{String.fromCharCode(65 + i)}</div>
+                                <div>{option}</div>
+                            </div>
+                        ))}
+                    </div>
+                    {showFeedback && (
+                        <div className={`feedback-card ${isCorrect ? '' : 'incorrect'}`}>
+                            <h3>{isCorrect ? '✅ Correct!' : '❌ Not quite!'}</h3>
+                            <p>{question.explanation}</p>
+                            <p style={{marginTop: '15px'}}><strong>💡 Fun Fact:</strong> {question.funFact}</p>
+                        </div>
+                    )}
+                    <div className="quiz-actions">
+                        {!showFeedback ? (
+                            <button className="btn btn-primary" onClick={onSubmit} disabled={selectedAnswer === null}>Submit Answer</button>
+                        ) : (
+                            <button className="btn btn-primary" onClick={onNext}>{currentQuestion < quizQuestions.length - 1 ? 'Next Question →' : 'See Results'}</button>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        // Story Component
+        function StoryModules() {
+            const [selectedStory, setSelectedStory] = useState(0);
+            return (
+                <div className="story-container">
+                    <div className="story-selector">
+                        {storyModules.map((story, i) => (
+                            <div key={story.id} className={`story-selector-card ${selectedStory === i ? 'active' : ''}`} onClick={() => setSelectedStory(i)}>
+                                <div style={{fontSize: '40px', marginBottom: '10px'}}>{story.icon}</div>
+                                <h3 style={{fontSize: '16px', marginBottom: '5px'}}>{story.title}</h3>
+                                <p style={{fontSize: '13px', color: '#718096'}}>{story.period}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="story-card">
+                        <div className="story-header">
+                            <h2>{storyModules[selectedStory].icon} {storyModules[selectedStory].title}</h2>
+                            <div className="story-meta">
+                                <span className="story-tag">{storyModules[selectedStory].period}</span>
+                                <span className="story-tag">{storyModules[selectedStory].category}</span>
+                            </div>
+                        </div>
+                        <div className="story-narration">{storyModules[selectedStory].chapters[0].narration}</div>
+                        {storyModules[selectedStory].chapters[0].characters.map((char, i) => (
+                            <div key={i} className="story-character">
+                                <div className="character-avatar">{char.avatar}</div>
+                                <div className="character-dialogue">
+                                    <div className="character-name">{char.name}</div>
+                                    <div className="character-text">{char.dialogue}</div>
+                                </div>
+                            </div>
+                        ))}
+                        <div className="story-choices">
+                            <h3 style={{marginBottom: '15px', color: '#2d3748'}}>🎯 What would you like to explore?</h3>
+                            {storyModules[selectedStory].chapters[0].choices.map((choice, i) => (
+                                <div key={i} className="story-choice">
+                                    <h4>{choice.text}</h4>
+                                    <p>{choice.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Progress Component
+        function ProgressDashboard({ points }) {
+            return (
+                <div>
+                    <div className="timeline-header" style={{marginBottom: '40px'}}>
+                        <h2>📊 Your Progress</h2>
+                        <p>Track your learning journey</p>
+                    </div>
+                    <div className="dashboard-grid">
+                        <div className="dashboard-card turquoise"><div className="dashboard-icon">⭐</div><div className="dashboard-value">{points}</div><div className="dashboard-label">Total Points</div></div>
+                        <div className="dashboard-card coral"><div className="dashboard-icon">✅</div><div className="dashboard-value">12</div><div className="dashboard-label">Lessons Completed</div></div>
+                        <div className="dashboard-card yellow"><div className="dashboard-icon">🎯</div><div className="dashboard-value">85%</div><div className="dashboard-label">Average Score</div></div>
+                    </div>
+                    <div className="badges-section">
+                        <h2>🏆 Your Badges</h2>
+                        <div className="badges-grid">
+                            {badges.map(badge => (
+                                <div key={badge.id} className={`badge-card ${!badge.earned ? 'locked' : ''}`}>
+                                    <div className="badge-icon">{badge.icon}</div>
+                                    <div className="badge-name">{badge.name}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // Topics Component
+        function TopicsLibrary() {
+            return (
+                <div>
+                    <div className="timeline-header" style={{marginBottom: '40px'}}>
+                        <h2>📚 Topics Library</h2>
+                        <p>Explore different periods in history</p>
+                    </div>
+                    <div className="topics-grid">
+                        {topics.map(topic => (
+                            <div key={topic.id} className="topic-card">
+                                <div className={`topic-banner ${topic.category}`}>{topic.icon}</div>
+                                <div className="topic-content">
+                                    <div className="topic-title">{topic.title}</div>
+                                    <div className="topic-description">{topic.description}</div>
+                                    <div className="topic-stats">
+                                        <div className="topic-stat">📖 {topic.lessons} lessons</div>
+                                        <div className="topic-stat">🎯 {topic.quizzes} quizzes</div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            );
+        }
+
+        // Render
+        ReactDOM.render(<HistoryQuestApp />, document.getElementById('root'));
+    </script>
+</body>
+</html>

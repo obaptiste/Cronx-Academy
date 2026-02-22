@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understand the Orishas - Spirits of Nature and Life</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+            border: 3px solid #9c27b0;
+        }
+
+        .header-icon {
+            font-size: 70px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .header h1 {
+            font-size: 36px;
+            color: #9c27b0;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #6a1b9a;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: white;
+            border: 3px solid #9c27b0;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #9c27b0;
+        }
+
+        .nav-btn:hover {
+            background: #9c27b0;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(156, 39, 176, 0.3);
+        }
+
+        .nav-btn.active {
+            background: #9c27b0;
+            color: white;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 32px;
+            color: #9c27b0;
+            margin-bottom: 20px;
+        }
+
+        .intro-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .intro-image {
+            text-align: center;
+            font-size: 150px;
+            animation: gentle-spin 20s linear infinite;
+        }
+
+        @keyframes gentle-spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .key-points {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 25px;
+            border-left: 5px solid #9c27b0;
+        }
+
+        .key-points h3 {
+            color: #6a1b9a;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-points li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #4a5568;
+        }
+
+        .key-points li:before {
+            content: "✨ ";
+            color: #9c27b0;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Orisha Cards Grid */
+        .orishas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .orisha-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .orisha-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            border-color: #9c27b0;
+        }
+
+        .orisha-banner {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .orisha-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.9;
+        }
+
+        .orisha-card.eleggua .orisha-banner::before {
+            background: linear-gradient(135deg, #e53e3e, #c53030);
+        }
+
+        .orisha-card.yemaya .orisha-banner::before {
+            background: linear-gradient(135deg, #2196f3, #1976d2);
+        }
+
+        .orisha-card.oshun .orisha-banner::before {
+            background: linear-gradient(135deg, #ffd700, #ffb300);
+        }
+
+        .orisha-card.shango .orisha-banner::before {
+            background: linear-gradient(135deg, #e53e3e, #b71c1c);
+        }
+
+        .orisha-card.ogun .orisha-banner::before {
+            background: linear-gradient(135deg, #2d3748, #1a202c);
+        }
+
+        .orisha-card.oya .orisha-banner::before {
+            background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+        }
+
+        .orisha-banner-icon {
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        .orisha-content {
+            padding: 25px;
+        }
+
+        .orisha-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .orisha-title {
+            font-size: 16px;
+            color: #9c27b0;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .orisha-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .orisha-attributes {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .orisha-attributes h4 {
+            font-size: 14px;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .attribute-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .attribute-tag {
+            background: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            color: #6a1b9a;
+            border: 2px solid #e1bee7;
+            font-weight: 600;
+        }
+
+        .orisha-symbols {
+            display: flex;
+            gap: 8px;
+            font-size: 24px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        /* Detail Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 25px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e53e3e;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #c53030;
+            transform: scale(1.1);
+        }
+
+        .modal-icon {
+            font-size: 100px;
+            margin-bottom: 15px;
+        }
+
+        .modal-body {
+            padding: 0 30px 30px;
+        }
+
+        .modal-section {
+            margin-bottom: 25px;
+        }
+
+        .modal-section h3 {
+            font-size: 20px;
+            color: #9c27b0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-section li {
+            padding: 10px 0;
+            font-size: 15px;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .modal-section li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-section li strong {
+            color: #9c27b0;
+            font-weight: 600;
+        }
+
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .offering-item {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #ce93d8;
+        }
+
+        .offering-item-icon {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        .offering-item-text {
+            font-size: 13px;
+            color: #6a1b9a;
+            font-weight: bold;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .comparison-section h2 {
+            font-size: 32px;
+            color: #9c27b0;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid;
+        }
+
+        .comparison-card.african {
+            border-color: #9c27b0;
+        }
+
+        .comparison-card.other {
+            border-color: #718096;
+        }
+
+        .comparison-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            padding: 10px 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        .comparison-card li:before {
+            content: "→ ";
+            color: #9c27b0;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .intro-content {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image {
+                font-size: 100px;
+            }
+
+            .orishas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .modal-content {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        const orishasData = [
+            {
+                id: 'eleggua',
+                name: 'Elegguá (Eshu)',
+                title: 'Guardian of Crossroads and Destiny',
+                icon: '🚪',
+                color: '#e53e3e',
+                description: 'Elegguá is the first and most important Orisha, the opener of ways and guardian of crossroads. He controls destiny and must be honored first in any ceremony. Like a cosmic gatekeeper, he decides what paths open or close in your life.',
+                domains: ['Crossroads', 'Opportunities', 'Beginnings', 'Communication'],
+                symbols: ['🗝️', '🚪', '🎯', '⚫'],
+                colors: ['Red', 'Black'],
+                numbers: [3, 21],
+                offerings: [
+                    { icon: '🍬', name: 'Candy' },
+                    { icon: '🥜', name: 'Peanuts' },
+                    { icon: '🎨', name: 'Toys' },
+                    { icon: '🕯️', name: 'Candles' }
+                ],
+                personality: 'Elegguá is playful, mischievous, and wise like a trickster. He can be a child-like spirit or an ancient wise elder. He loves games, jokes, and sweets, but takes his job as guardian very seriously.',
+                lessons: 'Elegguá teaches us that every choice matters. He reminds us to honor beginnings, ask permission before starting journeys, and understand that opportunities can open or close based on our respect and actions.',
+                realWorldConnection: 'Think of Elegguá when you\'re at a crossroads in life - making big decisions about school, friends, or your future. He represents that moment of choice and the importance of starting things properly.'
+            },
+            {
+                id: 'yemaya',
+                name: 'Yemayá',
+                title: 'Mother of All Life and the Oceans',
+                icon: '🌊',
+                color: '#2196f3',
+                description: 'Yemayá is the supreme mother goddess, ruler of the oceans and all waters. She is the source of all life, as life began in the waters. She protects children, mothers, and families with the fierce love and power of the sea itself.',
+                domains: ['Oceans', 'Motherhood', 'Protection', 'Fertility', 'Wealth'],
+                symbols: ['🐚', '🌊', '⚓', '🫧'],
+                colors: ['Blue', 'White'],
+                numbers: [7],
+                offerings: [
+                    { icon: '🐚', name: 'Seashells' },
+                    { icon: '🌹', name: 'Blue Flowers' },
+                    { icon: '🥥', name: 'Coconut' },
+                    { icon: '🍉', name: 'Watermelon' }
+                ],
+                personality: 'Yemayá is nurturing, protective, and powerful. Like the ocean, she can be calm and gentle or fierce and devastating. She loves her children deeply and will do anything to protect them.',
+                lessons: 'Yemayá teaches about unconditional love, the strength of mothers, and the power of nurturing. She shows that true strength includes gentleness, and that caring for others is one of the most powerful acts.',
+                realWorldConnection: 'Yemayá represents mother love - not just biological mothers, but anyone who nurtures and protects. Think of teachers, grandmothers, and community members who care for children. The ocean\'s power reflects a mother\'s protective love.'
+            },
+            {
+                id: 'oshun',
+                name: 'Oshun',
+                title: 'Goddess of Love, Beauty, and Rivers',
+                icon: '💛',
+                color: '#ffd700',
+                description: 'Oshun is the orisha of sweet waters, rivers, love, beauty, and prosperity. She is seductive, charming, and generous, but also powerful and determined. She saved humanity once by her sweetness where force had failed.',
+                domains: ['Love', 'Beauty', 'Prosperity', 'Diplomacy', 'Rivers'],
+                symbols: ['💍', '🪞', '🍯', '🦚'],
+                colors: ['Gold', 'Yellow', 'Amber'],
+                numbers: [5],
+                offerings: [
+                    { icon: '🍯', name: 'Honey' },
+                    { icon: '🍊', name: 'Oranges' },
+                    { icon: '💄', name: 'Perfume' },
+                    { icon: '🪙', name: 'Gold Items' }
+                ],
+                personality: 'Oshun is charming, sensual, and joyful. She loves luxury, dance, and laughter. Don\'t be fooled by her sweetness - she\'s also fierce when protecting what she loves and wise in matters of the heart.',
+                lessons: 'Oshun teaches that sweetness and diplomacy can achieve what force cannot. She shows the power of joy, self-love, and using your gifts with confidence. She reminds us that everyone deserves love and beauty in their lives.',
+                realWorldConnection: 'Oshun is about self-worth and confidence. When you feel good about yourself, dress nicely, or use kindness to solve problems, that\'s Oshun\'s energy. Rivers that sustain communities represent her nurturing generosity.'
+            },
+            {
+                id: 'shango',
+                name: 'Shangó (Xango)',
+                title: 'King of Thunder, Lightning, and Justice',
+                icon: '⚡',
+                color: '#e53e3e',
+                description: 'Shangó is the powerful warrior king, master of thunder, lightning, fire, and drums. He represents justice, dance, virility, and passion. A historical king who became an orisha, he embodies royal power and magnetic personality.',
+                domains: ['Thunder', 'Justice', 'Dance', 'Passion', 'Drums'],
+                symbols: ['⚡', '🪓', '🥁', '👑'],
+                colors: ['Red', 'White'],
+                numbers: [4, 6],
+                offerings: [
+                    { icon: '🍎', name: 'Red Apples' },
+                    { icon: '🍌', name: 'Bananas' },
+                    { icon: '🥥', name: 'Plantains' },
+                    { icon: '🍷', name: 'Red Wine' }
+                ],
+                personality: 'Shangó is charismatic, passionate, and loves to be the center of attention. He\'s a natural leader, loves music and dance, and has a quick temper like lightning. He\'s also fair and protects those who are treated unjustly.',
+                lessons: 'Shangó teaches about standing up for justice, leading with passion, and using your voice and presence powerfully. He shows that true strength includes defending the weak and that leadership comes with responsibility.',
+                realWorldConnection: 'Think of Shangó when you see lightning, hear thunder, or witness someone standing up for what\'s right. He represents the power of speaking out, leadership, and the energy of drums and dance in Caribbean culture.'
+            },
+            {
+                id: 'ogun',
+                name: 'Ogún',
+                title: 'Warrior of Iron, Technology, and Labor',
+                icon: '⚔️',
+                color: '#2d3748',
+                description: 'Ogún is the divine blacksmith, patron of iron, technology, warfare, and hard work. He cleared the paths through the jungle with his machete so civilization could grow. He represents the power of human progress through tools and labor.',
+                domains: ['Iron', 'War', 'Labor', 'Technology', 'Employment'],
+                symbols: ['⚔️', '🔨', '🚂', '⛓️'],
+                colors: ['Green', 'Black'],
+                numbers: [3, 7],
+                offerings: [
+                    { icon: '🥩', name: 'Red Meat' },
+                    { icon: '🍺', name: 'Rum' },
+                    { icon: '🔩', name: 'Iron Objects' },
+                    { icon: '🌽', name: 'Roasted Corn' }
+                ],
+                personality: 'Ogún is fierce, focused, and tireless. He\'s a hard worker who never gives up. He can be solitary and intense, but is loyal to those he loves. He respects strength, honesty, and dedication.',
+                lessons: 'Ogún teaches the value of hard work, perseverance, and using our tools (including technology) wisely. He shows that progress requires effort and that honorable labor deserves respect.',
+                realWorldConnection: 'Every time you use tools, technology, or transportation, that\'s Ogún\'s realm. Mechanics, builders, surgeons - anyone who works with tools honors Ogún. He reminds us that work and progress require dedication.'
+            },
+            {
+                id: 'oya',
+                name: 'Oyá',
+                title: 'Queen of Storms, Transformation, and the Cemetery',
+                icon: '🌪️',
+                color: '#9c27b0',
+                description: 'Oyá is the fierce warrior goddess of winds, storms, change, and the gates between life and death. She is one of the most powerful orishas, feared and respected. She brings transformation like a hurricane clearing away the old.',
+                domains: ['Winds', 'Change', 'Death', 'Rebirth', 'Market'],
+                symbols: ['🌪️', '⚡', '💀', '🗡️'],
+                colors: ['Maroon', 'Purple', 'Brown'],
+                numbers: [9],
+                offerings: [
+                    { icon: '🍆', name: 'Eggplant' },
+                    { icon: '🍷', name: 'Red Wine' },
+                    { icon: '🥥', name: 'Coconut' },
+                    { icon: '🕯️', name: '9 Candles' }
+                ],
+                personality: 'Oyá is fierce, independent, and unafraid. She speaks truth even when uncomfortable. She\'s passionate, protective of women, and embraces change fearlessly. She partners with Shangó in power and passion.',
+                lessons: 'Oyá teaches about embracing change, speaking truth, and understanding that endings lead to new beginnings. She shows the power of female warrior energy and reminds us that transformation, though scary, brings growth.',
+                realWorldConnection: 'Think of Oyá during storms, major life changes, or when standing up for truth. She represents women\'s strength, the courage to face endings, and the power of transformation - like a caterpillar becoming a butterfly.'
+            }
+        ];
+
+        function OrishasLearningModule() {
+            const [currentView, setCurrentView] = useState('intro');
+            const [selectedOrisha, setSelectedOrisha] = useState(null);
+
+            return (
+                <div className="app-container">
+                    <header className="header">
+                        <div className="header-icon">✨</div>
+                        <h1>Understanding the Orishas</h1>
+                        <p>Meet the Spirits of Nature and Life in African and Caribbean Spirituality</p>
+                    </header>
+
+                    <div className="nav-buttons">
+                        <button 
+                            className={`nav-btn ${currentView === 'intro' ? 'active' : ''}`}
+                            onClick={() => setCurrentView('intro')}
+                        >
+                            📖 Introduction
+                        </button>
+                        <button 
+                            className={`nav-btn ${currentView === 'orishas' ? 'active' : ''}`}
+                            onClick={() => setCurrentView('orishas')}
+                        >
+                            ✨ Meet the Orishas
+                        </button>
+                        <button 
+                            className={`nav-btn ${currentView === 'comparison' ? 'active' : ''}`}
+                            onClick={() => setCurrentView('comparison')}
+                        >
+                            🌍 Global Perspectives
+                        </button>
+                    </div>
+
+                    {currentView === 'intro' && (
+                        <div className="intro-section">
+                            <div className="intro-content">
+                                <div className="intro-text">
+                                    <h2>What Are Orishas?</h2>
+                                    <p>
+                                        Orishas (also called Orixás or Lwa) are divine spirits in African and Caribbean spirituality, particularly in traditions like Yoruba, Santería, Candomblé, and Vodou. They are not gods in the Western sense, but rather powerful spirits that represent forces of nature and aspects of human experience.
+                                    </p>
+                                    <p>
+                                        Think of them as spiritual ambassadors between humanity and the supreme creator (called Olodumare or Olorun). Each Orisha has unique personality traits, powers, colors, symbols, and areas of influence over the natural and human world.
+                                    </p>
+                                    <p>
+                                        These traditions traveled from West Africa to the Caribbean and Americas during the slave trade. Despite attempts to erase them, people preserved their spiritual practices by adapting and blending them with other beliefs, creating beautiful new traditions.
+                                    </p>
+                                </div>
+                                <div className="intro-image">⭐</div>
+                            </div>
+
+                            <div className="key-points">
+                                <h3>🌟 Key Things to Know About Orishas:</h3>
+                                <ul>
+                                    <li>Each Orisha represents natural forces (thunder, rivers, ocean) and human qualities (love, justice, wisdom)</li>
+                                    <li>They have distinct personalities, likes, dislikes, and ways of communicating with humans</li>
+                                    <li>People honor them through offerings, songs, dances, and ceremonies</li>
+                                    <li>The same Orisha may have different names in different traditions (Yoruba, Santería, Candomblé, Vodou)</li>
+                                    <li>This is a living tradition practiced by millions worldwide, especially in West Africa, Cuba, Brazil, Haiti, and throughout the Caribbean</li>
+                                    <li>It's about relationship, respect, balance with nature, and community - not about worshipping "idols" as some mistakenly believe</li>
+                                </ul>
+                            </div>
+                        </div>
+                    )}
+
+                    {currentView === 'orishas' && (
+                        <div className="orishas-grid">
+                            {orishasData.map(orisha => (
+                                <div 
+                                    key={orisha.id}
+                                    className={`orisha-card ${orisha.id}`}
+                                    onClick={() => setSelectedOrisha(orisha)}
+                                >
+                                    <div className="orisha-banner">
+                                        <div className="orisha-banner-icon">{orisha.icon}</div>
+                                    </div>
+                                    <div className="orisha-content">
+                                        <div className="orisha-name">{orisha.name}</div>
+                                        <div className="orisha-title">{orisha.title}</div>
+                                        <div className="orisha-description">{orisha.description}</div>
+                                        
+                                        <div className="orisha-attributes">
+                                            <h4>Domains:</h4>
+                                            <div className="attribute-tags">
+                                                {orisha.domains.map((domain, i) => (
+                                                    <span key={i} className="attribute-tag">{domain}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        <div className="orisha-symbols">
+                                            {orisha.symbols.map((symbol, i) => (
+                                                <span key={i}>{symbol}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {currentView === 'comparison' && (
+                        <div className="comparison-section">
+                            <h2>🌍 How Orisha Traditions Differ from Other Spiritual Systems</h2>
+                            <div className="comparison-grid">
+                                <div className="comparison-card african">
+                                    <h3>✨ African & Caribbean Spirituality (Orishas)</h3>
+                                    <ul>
+                                        <li>Multiple spirits representing nature forces and human experiences</li>
+                                        <li>Spirits have personalities, likes, dislikes, and can communicate directly</li>
+                                        <li>Emphasis on relationship, reciprocity, and community</li>
+                                        <li>Ancestors are honored and remain active in family life</li>
+                                        <li>Practiced openly as part of daily life and community</li>
+                                        <li>Drumming, dance, and possession are sacred spiritual practices</li>
+                                        <li>Balance with nature is central - spirits represent natural forces</li>
+                                        <li>Focuses on healing, protection, and helping the community thrive</li>
+                                        <li>No concept of "evil spirits" - spirits can help or hinder based on relationship</li>
+                                    </ul>
+                                </div>
+
+                                <div className="comparison-card other">
+                                    <h3>🌐 European/Western Traditions (for comparison)</h3>
+                                    <ul>
+                                        <li>One supreme God with angels as messengers</li>
+                                        <li>Clear division between good (God/angels) and evil (Devil/demons)</li>
+                                        <li>Focus on individual salvation and the afterlife</li>
+                                        <li>Dead are separate from the living, communication discouraged</li>
+                                        <li>Historically persecuted "witchcraft" and non-Christian practices</li>
+                                        <li>Worship is solemn, quiet, focused on prayer and scripture</li>
+                                        <li>Humans have dominion over nature, separate from it</li>
+                                        <li>Focus on sin, redemption, and moral law</li>
+                                        <li>Strong binary: good vs evil, saved vs damned</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div style={{ marginTop: '30px', background: 'linear-gradient(135deg, #f3e5f5, #e1bee7)', padding: '25px', borderRadius: '20px' }}>
+                                <h3 style={{ color: '#6a1b9a', marginBottom: '15px', fontSize: '20px' }}>💡 Important Understanding:</h3>
+                                <p style={{ fontSize: '16px', lineHeight: '1.8', color: '#4a5568', marginBottom: '12px' }}>
+                                    Neither system is "better" or "worse" - they're different spiritual approaches that developed in different cultures. The key difference is that African/Caribbean traditions emphasize:
+                                </p>
+                                <ul style={{ listStyle: 'none', padding: '0', fontSize: '15px', color: '#4a5568' }}>
+                                    <li style={{ padding: '8px 0' }}>✨ Living relationship with spirits and ancestors</li>
+                                    <li style={{ padding: '8px 0' }}>✨ Community and collective wellbeing over individual salvation</li>
+                                    <li style={{ padding: '8px 0' }}>✨ Balance and harmony with natural forces</li>
+                                    <li style={{ padding: '8px 0' }}>✨ Body, dance, and physical expression as sacred</li>
+                                    <li style={{ padding: '8px 0' }}>✨ Practical help with daily life challenges (health, love, work)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    )}
+
+                    {selectedOrisha && (
+                        <div className="modal-overlay" onClick={() => setSelectedOrisha(null)}>
+                            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                                <div className="modal-header">
+                                    <button className="close-btn" onClick={() => setSelectedOrisha(null)}>×</button>
+                                    <div className="modal-icon">{selectedOrisha.icon}</div>
+                                    <h2 style={{ fontSize: '32px', color: selectedOrisha.color, marginBottom: '8px' }}>
+                                        {selectedOrisha.name}
+                                    </h2>
+                                    <p style={{ fontSize: '18px', color: '#6a1b9a', fontStyle: 'italic' }}>
+                                        {selectedOrisha.title}
+                                    </p>
+                                </div>
+
+                                <div className="modal-body">
+                                    <div className="modal-section">
+                                        <h3>📖 About {selectedOrisha.name.split(' ')[0]}</h3>
+                                        <p>{selectedOrisha.description}</p>
+                                    </div>
+
+                                    <div className="modal-section">
+                                        <h3>🎭 Personality</h3>
+                                        <p>{selectedOrisha.personality}</p>
+                                    </div>
+
+                                    <div className="modal-section">
+                                        <h3>📚 Life Lessons</h3>
+                                        <p>{selectedOrisha.lessons}</p>
+                                    </div>
+
+                                    <div className="modal-section">
+                                        <h3>🌍 Real World Connection</h3>
+                                        <p>{selectedOrisha.realWorldConnection}</p>
+                                    </div>
+
+                                    <div className="modal-section">
+                                        <h3>✨ Sacred Details</h3>
+                                        <ul>
+                                            <li><strong>Colors:</strong> {selectedOrisha.colors.join(', ')}</li>
+                                            <li><strong>Sacred Numbers:</strong> {selectedOrisha.numbers.join(', ')}</li>
+                                            <li><strong>Domains:</strong> {selectedOrisha.domains.join(', ')}</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="modal-section">
+                                        <h3>🎁 Traditional Offerings</h3>
+                                        <div className="offerings-grid">
+                                            {selectedOrisha.offerings.map((offering, i) => (
+                                                <div key={i} className="offering-item">
+                                                    <div className="offering-item-icon">{offering.icon}</div>
+                                                    <div className="offering-item-text">{offering.name}</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<OrishasLearningModule />, document.getElementById('root'));
+    </script>
+</body>
+</html>
