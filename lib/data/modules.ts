@@ -72,6 +72,24 @@ export const modules: ModuleCard[] = [
     colorClass: 'english',
   },
   {
+    id: 'financial-literacy',
+    title: 'Financial Literacy',
+    icon: '💷',
+    description:
+      'Essential money skills for real life: how banking works, budgeting, earning, understanding tax, and planning for the future.',
+    features: [
+      '12 lessons across 4 topics',
+      'Money & Banking fundamentals',
+      'Budgeting, saving & smart spending',
+      'Earning, tax & workers\' rights',
+      'Credit, investing & pensions',
+      'UK-focused with real examples',
+    ],
+    status: 'ready',
+    href: '/modules/financial-literacy',
+    colorClass: 'financial',
+  },
+  {
     id: 'wellbeing',
     title: 'Whisper Garden',
     icon: '🌈',
