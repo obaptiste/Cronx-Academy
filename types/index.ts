@@ -134,6 +134,47 @@ export interface FinancialLiteracyTopics {
 
 export type FinancialLiteracyTopicCategory = keyof FinancialLiteracyTopics;
 
+// Chemistry Module Types
+export interface ChemistryQuizQuestion {
+  question: string;
+  options: string[];
+  correctIndex: number;
+}
+
+export interface ChemistryExperiment {
+  name: string;
+  description: string;
+  steps: string[];
+  safetyNote?: string;
+}
+
+export interface ChemistryLesson {
+  title: string;
+  category: string;
+  level: 'foundation' | 'standard' | 'higher';
+  objectives: string[];
+  introduction: string;
+  mainContent: string[];
+  keyConceptsAndDefinitions: { term: string; definition: string }[];
+  experiments: ChemistryExperiment[];
+  practiceQuestions: { question: string; answer: string }[];
+  funFacts: string[];
+  realWorldConnections: string[];
+  quizQuestions: ChemistryQuizQuestion[];
+  furtherReading: string;
+}
+
+export interface ChemistryTopics {
+  atomsAndElements: ChemistryLesson[];
+  periodicTable: ChemistryLesson[];
+  chemicalBonding: ChemistryLesson[];
+  chemicalReactions: ChemistryLesson[];
+  acidsAndBases: ChemistryLesson[];
+  materialsAndStates: ChemistryLesson[];
+}
+
+export type ChemistryTopicCategory = keyof ChemistryTopics;
+
 // Quiz Types
 export interface QuizQuestion {
   id: string;
