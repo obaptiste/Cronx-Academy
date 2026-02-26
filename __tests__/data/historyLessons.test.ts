@@ -5,6 +5,7 @@ import { piratesTopics } from '@/lib/data/piratesLessons';
 import { revolutionTopics } from '@/lib/data/revolutionLessons';
 import { spiritualityTopics } from '@/lib/data/spiritualityLessons';
 import { nubianTopics } from '@/lib/data/nubianLessons';
+import { financialLiteracyTopics } from '@/lib/data/financialLiteracyLessons';
 
 /**
  * All history lesson types share the same required fields.
@@ -232,6 +233,43 @@ describe('Nubian lessons data integrity', () => {
 
   it('has no duplicate lesson titles', () => {
     const all = Object.values(nubianTopics).flat();
+    const titles = all.map((l) => l.title);
+    expect(titles.length).toBe(new Set(titles).size);
+  });
+});
+
+// ----- Financial Literacy -----
+describe('Financial Literacy lessons data integrity', () => {
+  const topicKeys = Object.keys(
+    financialLiteracyTopics,
+  ) as (keyof typeof financialLiteracyTopics)[];
+
+  it('exports at least 3 topic categories', () => {
+    expect(topicKeys.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('has at least one lesson per topic', () => {
+    for (const key of topicKeys) {
+      expect(financialLiteracyTopics[key].length).toBeGreaterThan(0);
+    }
+  });
+
+  for (const topicKey of topicKeys) {
+    describe(`topic: ${topicKey}`, () => {
+      const lessons = financialLiteracyTopics[topicKey];
+      lessons.forEach((lesson, i) => {
+        describe(`lesson ${i + 1}`, () => {
+          expectValidHistoryLesson(
+            lesson as unknown as Record<string, unknown>,
+            `FinancialLiteracy/${topicKey}/${lesson.title}`,
+          );
+        });
+      });
+    });
+  }
+
+  it('has no duplicate lesson titles', () => {
+    const all = Object.values(financialLiteracyTopics).flat();
     const titles = all.map((l) => l.title);
     expect(titles.length).toBe(new Set(titles).size);
   });

@@ -124,6 +124,16 @@ export interface EnglishTopics {
 
 export type EnglishTopicCategory = keyof EnglishTopics;
 
+// Financial Literacy Module Topics
+export interface FinancialLiteracyTopics {
+  moneyBasics: HistoryLesson[];
+  budgetingAndSaving: HistoryLesson[];
+  earningAndWork: HistoryLesson[];
+  planningForFuture: HistoryLesson[];
+}
+
+export type FinancialLiteracyTopicCategory = keyof FinancialLiteracyTopics;
+
 // Quiz Types
 export interface QuizQuestion {
   id: string;
