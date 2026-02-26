@@ -140,9 +140,7 @@ describe('FinancialLiteracyInteractive', () => {
       expect(screen.getByText(/1 of \d+ lessons/)).toBeInTheDocument();
     });
 
-    const stored = JSON.parse(
-      localStorage.getItem('completedFinancialLiteracyLessons') || '[]',
-    );
+    const stored = JSON.parse(localStorage.getItem('completedFinancialLiteracyLessons') || '[]');
     expect(stored.length).toBe(1);
   });
 
@@ -168,9 +166,7 @@ describe('FinancialLiteracyInteractive', () => {
     });
 
     // Button text changes to "Completed!" after first click – no second click possible
-    const stored = JSON.parse(
-      localStorage.getItem('completedFinancialLiteracyLessons') || '[]',
-    );
+    const stored = JSON.parse(localStorage.getItem('completedFinancialLiteracyLessons') || '[]');
     expect(stored.length).toBe(1);
   });
 
@@ -186,9 +182,7 @@ describe('FinancialLiteracyInteractive', () => {
     render(<FinancialLiteracyInteractive />);
 
     await waitFor(() => {
-      expect(
-        screen.getByText('What is Money? A Brief History of Currency'),
-      ).toBeInTheDocument();
+      expect(screen.getByText('What is Money? A Brief History of Currency')).toBeInTheDocument();
     });
   });
 });

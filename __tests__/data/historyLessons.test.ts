@@ -240,7 +240,9 @@ describe('Nubian lessons data integrity', () => {
 
 // ----- Financial Literacy -----
 describe('Financial Literacy lessons data integrity', () => {
-  const topicKeys = Object.keys(financialLiteracyTopics) as (keyof typeof financialLiteracyTopics)[];
+  const topicKeys = Object.keys(
+    financialLiteracyTopics,
+  ) as (keyof typeof financialLiteracyTopics)[];
 
   it('exports at least 3 topic categories', () => {
     expect(topicKeys.length).toBeGreaterThanOrEqual(3);

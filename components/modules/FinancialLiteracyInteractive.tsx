@@ -10,9 +10,9 @@ import {
 } from '@/lib/data/financialLiteracyLessons';
 
 const teachingTips = [
-  'Relate lessons to Thalia\'s own money experience – pocket money, saving goals, online purchases',
+  "Relate lessons to Thalia's own money experience – pocket money, saving goals, online purchases",
   'Use real UK examples: compare savings accounts, look at actual payslips, check live interest rates',
-  'Encourage critical thinking about advertising and social media\'s influence on spending',
+  "Encourage critical thinking about advertising and social media's influence on spending",
   'Connect financial literacy to wider social justice – why some communities face systemic barriers',
   'Make it practical: set a small saving challenge or track spending for one week together',
   'Discuss the Caribbean diaspora experience of financial resilience and community saving traditions (e.g. "partner" systems)',

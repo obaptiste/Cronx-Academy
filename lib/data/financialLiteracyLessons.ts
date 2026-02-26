@@ -24,7 +24,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Commodity money (e.g. grain, shells, gold) had intrinsic value people already trusted',
         'Metal coins standardised value, made trade easier, and were portable and durable',
         'Paper money began as receipts for gold stored in banks – eventually the paper itself became money',
-        'Fiat money (today\'s notes and coins) has value only because governments declare it legal tender',
+        "Fiat money (today's notes and coins) has value only because governments declare it legal tender",
         'Digital money – bank transfers, cards, contactless payments – is money as data, not physical objects',
         'Cryptocurrency (e.g. Bitcoin) is decentralised money, not controlled by any government or bank',
         'Inflation means money can lose its purchasing power over time – one reason saving and investing matter',
@@ -55,7 +55,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       vocabularyTerms: [
         {
           term: 'Fiat money',
-          definition: 'Money declared legal tender by a government, not backed by a physical commodity',
+          definition:
+            'Money declared legal tender by a government, not backed by a physical commodity',
         },
         {
           term: 'Legal tender',
@@ -67,7 +68,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Cryptocurrency',
-          definition: 'Digital currency that uses cryptography and is not controlled by any central bank',
+          definition:
+            'Digital currency that uses cryptography and is not controlled by any central bank',
         },
       ],
       furtherReading: 'Bank of England: The History of Banknotes – bankofengland.co.uk',
@@ -114,10 +116,10 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Compare savings accounts from three UK banks – find the best interest rate',
         'Calculate: if you save £50/month for 3 years at 4% annual interest, how much do you have?',
         'Research the 2008 UK bank bailout – how much did it cost taxpayers?',
-        'Write a letter from a saver\'s perspective to a bank demanding fairer interest rates',
+        "Write a letter from a saver's perspective to a bank demanding fairer interest rates",
       ],
       keyFigures: [
-        'The Bank of England (UK\'s central bank, sets base interest rate)',
+        "The Bank of England (UK's central bank, sets base interest rate)",
         'The Financial Conduct Authority / FCA (Regulates UK banks and financial firms)',
         'Martin Lewis (Consumer finance expert and founder of MoneySavingExpert)',
         'The FSCS – Financial Services Compensation Scheme (Protects savers if a bank fails)',
@@ -129,7 +131,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Base rate',
-          definition: 'The Bank of England\'s key interest rate that influences all other UK rates',
+          definition: "The Bank of England's key interest rate that influences all other UK rates",
         },
         {
           term: 'FSCS',
@@ -138,7 +140,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Credit union',
-          definition: 'A member-owned, not-for-profit financial cooperative offering savings and loans',
+          definition:
+            'A member-owned, not-for-profit financial cooperative offering savings and loans',
         },
       ],
       furtherReading: 'Bank of England: How does our economy work? – bankofengland.co.uk/education',
@@ -152,7 +155,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Evaluate the pros and cons of digital vs cash payments',
       ],
       keyDates: [
-        '1966 – Barclaycard launches as the UK\'s first credit card',
+        "1966 – Barclaycard launches as the UK's first credit card",
         '1987 – First ATM cash machines introduced widely in the UK',
         '2007 – UK launches contactless card payments',
         '2015 – Apple Pay and mobile payments arrive in the UK',
@@ -184,11 +187,11 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       activities: [
         'Identify five signs that an email might be a phishing scam – create a "spot the scam" poster',
         'Compare: list three advantages and three disadvantages of a cashless society',
-        'Check the security of your (or a parent\'s) email or social media account using a password checker',
+        "Check the security of your (or a parent's) email or social media account using a password checker",
         'Role-play: practise what you would say if someone called claiming to be from your bank',
       ],
       keyFigures: [
-        'Action Fraud (UK\'s national fraud reporting centre)',
+        "Action Fraud (UK's national fraud reporting centre)",
         'UK Finance (Trade body representing the banking and finance industry)',
         'Financial Conduct Authority / FCA (Regulates digital banking and payment firms)',
         'Citizens Advice (Free, independent financial guidance for consumers)',
@@ -200,15 +203,18 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Credit card',
-          definition: 'A card that lets you borrow money to pay, which you repay later – often with interest',
+          definition:
+            'A card that lets you borrow money to pay, which you repay later – often with interest',
         },
         {
           term: 'Phishing',
-          definition: 'A scam that tricks you into revealing bank details via fake messages or websites',
+          definition:
+            'A scam that tricks you into revealing bank details via fake messages or websites',
         },
         {
           term: 'Two-factor authentication',
-          definition: 'A security process requiring two forms of verification (e.g. password + text code)',
+          definition:
+            'A security process requiring two forms of verification (e.g. password + text code)',
         },
       ],
       furtherReading: 'Take Five to Stop Fraud campaign – takefive-stopfraud.org.uk',
@@ -227,17 +233,17 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         '2022 – UK cost-of-living crisis: inflation hit 11.1%, the highest in 41 years',
         '2023 – Average UK household spent 17% of income on housing costs',
         '2024 – Research found 1 in 4 UK adults had less than £100 in savings',
-        'Every month – The UK government publishes its budget, managing the nation\'s income and spending',
+        "Every month – The UK government publishes its budget, managing the nation's income and spending",
       ],
       introduction:
-        'A budget is simply a plan for your money – deciding in advance where it goes rather than wondering where it went. Whether you\'re managing pocket money or a full salary, the same principles apply. People who budget consistently are far better prepared for emergencies, less stressed about money, and more likely to achieve financial goals.',
+        "A budget is simply a plan for your money – deciding in advance where it goes rather than wondering where it went. Whether you're managing pocket money or a full salary, the same principles apply. People who budget consistently are far better prepared for emergencies, less stressed about money, and more likely to achieve financial goals.",
       mainContent: [
         'A budget lists all your income (money coming in) and all your expenses (money going out)',
         'Fixed expenses stay the same each month (e.g. rent, phone contract)',
         'Variable expenses change (e.g. food, transport, entertainment)',
         'The 50/30/20 rule: spend 50% on needs, 30% on wants, and save 20%',
         'A budget surplus (more in than out) gives you saving or investing power',
-        'A budget deficit (more out than in) means you\'re borrowing or depleting savings – unsustainable',
+        "A budget deficit (more out than in) means you're borrowing or depleting savings – unsustainable",
         'Zero-based budgeting assigns every pound a purpose – nothing is "left over" without a plan',
         'Budgeting apps (e.g. Monzo, Emma, YNAB) can automatically track your spending categories',
       ],
@@ -250,7 +256,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Why do many people struggle to stick to a budget even when they know they should?',
         'Is the 50/30/20 rule fair for people on low incomes?',
         'Should personal finance be a compulsory subject in every school?',
-        'How is a family\'s household budget similar to the UK Government\'s budget?',
+        "How is a family's household budget similar to the UK Government's budget?",
       ],
       activities: [
         'Create a monthly budget for a teenager earning £200/month from a part-time job',
@@ -267,7 +273,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       vocabularyTerms: [
         {
           term: 'Budget',
-          definition: 'A plan that allocates income to expenses, savings, and other financial goals',
+          definition:
+            'A plan that allocates income to expenses, savings, and other financial goals',
         },
         {
           term: '50/30/20 rule',
@@ -275,7 +282,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Fixed expense',
-          definition: 'A regular cost that stays the same each month, such as rent or a subscription',
+          definition:
+            'A regular cost that stays the same each month, such as rent or a subscription',
         },
         {
           term: 'Budget deficit',
@@ -300,7 +308,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         '2024 – UK interest rates rise to 5.25%, making savings accounts more attractive',
       ],
       introduction:
-        'Saving is not just about being careful with money – it\'s about giving yourself power and freedom. An emergency fund means a broken boiler doesn\'t become a debt crisis. Compound interest means money saved in your teens can grow dramatically by your thirties. The best time to start saving was yesterday; the second best time is today.',
+        "Saving is not just about being careful with money – it's about giving yourself power and freedom. An emergency fund means a broken boiler doesn't become a debt crisis. Compound interest means money saved in your teens can grow dramatically by your thirties. The best time to start saving was yesterday; the second best time is today.",
       mainContent: [
         'An emergency fund covers 3–6 months of essential expenses – the first savings priority for most people',
         'Compound interest means you earn interest on your interest, creating exponential growth over time',
@@ -320,7 +328,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Why do so many people fail to save even when they know they should?',
         'Is it better to pay off debt or build savings first? Can you do both?',
         'Why did the UK Government create tax-free savings accounts like the ISA?',
-        'If compound interest is so powerful, why don\'t schools teach it earlier?',
+        "If compound interest is so powerful, why don't schools teach it earlier?",
       ],
       activities: [
         'Use an online compound interest calculator to model saving £50/month from age 14 to 65',
@@ -337,19 +345,23 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       vocabularyTerms: [
         {
           term: 'Compound interest',
-          definition: 'Interest calculated on both the original amount and accumulated interest – money growing on itself',
+          definition:
+            'Interest calculated on both the original amount and accumulated interest – money growing on itself',
         },
         {
           term: 'Cash ISA',
-          definition: 'An Individual Savings Account where interest earned is tax-free, up to £20,000/year',
+          definition:
+            'An Individual Savings Account where interest earned is tax-free, up to £20,000/year',
         },
         {
           term: 'Emergency fund',
-          definition: 'Money set aside to cover unexpected expenses, typically 3–6 months of living costs',
+          definition:
+            'Money set aside to cover unexpected expenses, typically 3–6 months of living costs',
         },
         {
           term: 'Rule of 72',
-          definition: 'Divide 72 by the annual interest rate to estimate how many years to double your money',
+          definition:
+            'Divide 72 by the annual interest rate to estimate how many years to double your money',
         },
       ],
       furtherReading: 'MoneySavingExpert: Best savings accounts – moneysavingexpert.com',
@@ -377,7 +389,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Advertising is designed to make you feel dissatisfied and that buying will fix it',
         'Social media creates "comparison culture" – seeing others\' spending can trigger impulse buying',
         'The "24-hour rule": wait 24 hours before any non-essential purchase – many desires fade quickly',
-        'Buy Now Pay Later (BNPL) services (e.g. Klarna) make it easy to spend money you don\'t have',
+        "Buy Now Pay Later (BNPL) services (e.g. Klarna) make it easy to spend money you don't have",
         'Consumer rights: in the UK you have 14 days to return most online purchases for a full refund',
         'Ethical consumerism means considering environmental and social impacts alongside price',
       ],
@@ -399,7 +411,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Create a "conscious spending" checklist – five questions to ask before any purchase',
       ],
       keyFigures: [
-        'Vance Packard (Author who exposed advertising\'s psychological techniques)',
+        "Vance Packard (Author who exposed advertising's psychological techniques)",
         'The Advertising Standards Authority / ASA (UK body that regulates advertising)',
         'Klarna / Buy Now Pay Later providers (Controversial modern payment services)',
         'Which? (UK consumer rights organisation)',
@@ -407,7 +419,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       vocabularyTerms: [
         {
           term: 'Buy Now Pay Later (BNPL)',
-          definition: 'A credit service that lets you receive goods immediately and pay in instalments, sometimes interest-free but with fees for missed payments',
+          definition:
+            'A credit service that lets you receive goods immediately and pay in instalments, sometimes interest-free but with fees for missed payments',
         },
         {
           term: 'Impulse buying',
@@ -415,11 +428,13 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Consumer rights',
-          definition: 'Legal protections for buyers, including rights to refunds, repairs, and honest advertising',
+          definition:
+            'Legal protections for buyers, including rights to refunds, repairs, and honest advertising',
         },
         {
           term: 'APR',
-          definition: 'Annual Percentage Rate – the yearly cost of borrowing, including interest and fees',
+          definition:
+            'Annual Percentage Rate – the yearly cost of borrowing, including interest and fees',
         },
       ],
       furtherReading: 'Citizens Advice: Your consumer rights – citizensadvice.org.uk',
@@ -442,7 +457,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         '2024/25 – National Minimum Wage for 18–20 year olds: £8.60/hour; 21+: £11.44/hour',
       ],
       introduction:
-        'When you get your first job, you might be surprised to find your pay packet is smaller than you expected. That\'s because of tax. Income Tax and National Insurance are deducted automatically before you receive your money. Understanding how this works empowers you to check you\'re being taxed correctly and to plan your finances accurately.',
+        "When you get your first job, you might be surprised to find your pay packet is smaller than you expected. That's because of tax. Income Tax and National Insurance are deducted automatically before you receive your money. Understanding how this works empowers you to check you're being taxed correctly and to plan your finances accurately.",
       mainContent: [
         'Gross pay is your total earnings before deductions; net pay (take-home pay) is after deductions',
         'Income Tax in the UK is progressive: you pay 0% on the first £12,570 (the personal allowance)',
@@ -454,7 +469,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'A payslip must show gross pay, each deduction, and net pay – keep yours for your records',
       ],
       primarySources: [
-        'HM Revenue & Customs: "Your employer must give you a payslip every time you\'re paid. It shows what you\'ve earned and what\'s been deducted."',
+        "HM Revenue & Customs: \"Your employer must give you a payslip every time you're paid. It shows what you've earned and what's been deducted.\"",
         'Institute for Fiscal Studies: "The UK tax system collects around £1 trillion per year to fund public services."',
         'Citizens Advice: "If you think you\'re paying the wrong amount of tax, contact HMRC or use their online calculator."',
       ],
@@ -529,7 +544,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'UK Supreme Court (2021): "Uber drivers are workers, not independent contractors. They are entitled to minimum wage."',
       ],
       discussionQuestions: [
-        'What are the financial risks of self-employment that employees don\'t face?',
+        "What are the financial risks of self-employment that employees don't face?",
         'Should gig economy companies be forced to treat workers as employees?',
         'Is entrepreneurship a realistic path for everyone, or does it require privilege?',
         'What skills would you need before starting your own business?',
@@ -544,35 +559,39 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Richard Branson (Virgin Group founder, started with almost nothing)',
         'Jas Athwal (UK entrepreneur from working-class background)',
         'HMRC Self Assessment team (Handles tax returns for the self-employed)',
-        'Federation of Small Businesses / FSB (Supports UK\'s 5 million small business owners)',
+        "Federation of Small Businesses / FSB (Supports UK's 5 million small business owners)",
       ],
       vocabularyTerms: [
         {
           term: 'Self-employment',
-          definition: 'Working for yourself rather than an employer – you manage your own income and taxes',
+          definition:
+            'Working for yourself rather than an employer – you manage your own income and taxes',
         },
         {
           term: 'Self Assessment',
-          definition: 'The HMRC system where self-employed people report their income and calculate their own tax',
+          definition:
+            'The HMRC system where self-employed people report their income and calculate their own tax',
         },
         {
           term: 'Sole trader',
-          definition: 'A self-employed person who owns and runs a business alone, with personal liability for debts',
+          definition:
+            'A self-employed person who owns and runs a business alone, with personal liability for debts',
         },
         {
           term: 'Passive income',
-          definition: 'Money earned with minimal ongoing effort, such as rental income or investment returns',
+          definition:
+            'Money earned with minimal ongoing effort, such as rental income or investment returns',
         },
       ],
       furtherReading: 'Gov.uk: Set up as a sole trader – gov.uk/set-up-sole-trader',
     },
     {
-      title: 'Workers\' Rights: What You Are Entitled to at Work',
+      title: "Workers' Rights: What You Are Entitled to at Work",
       era: 'Earning & Work',
       objectives: [
         'Know your key legal rights as a worker in the UK',
         'Understand what to do if your rights are not respected',
-        'Appreciate how workers\' rights were historically won through struggle',
+        "Appreciate how workers' rights were historically won through struggle",
       ],
       keyDates: [
         '1833 – Factory Act limits child labour in UK factories',
@@ -582,7 +601,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         '2023 – UK workers gain stronger rights against pregnancy and maternity discrimination',
       ],
       introduction:
-        'Workers\' rights were not given freely – they were won through decades of strikes, protests, and campaigning. Today in the UK, every worker is entitled to basic protections. Knowing your rights means you can spot when an employer is treating you unfairly and take action. These rights are especially important for young workers, who are most likely to be exploited.',
+        "Workers' rights were not given freely – they were won through decades of strikes, protests, and campaigning. Today in the UK, every worker is entitled to basic protections. Knowing your rights means you can spot when an employer is treating you unfairly and take action. These rights are especially important for young workers, who are most likely to be exploited.",
       mainContent: [
         'You are entitled to the National Minimum Wage (or National Living Wage if 21+) for every hour worked',
         'Employees are entitled to 28 days paid holiday per year (including bank holidays)',
@@ -606,13 +625,13 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       ],
       activities: [
         'Research the 1970 Equal Pay Act: what sparked it, and how far have we come?',
-        'Identify a famous UK worker\'s strike – what were they fighting for and did they succeed?',
+        "Identify a famous UK worker's strike – what were they fighting for and did they succeed?",
         'Role-play: a young worker is not being paid minimum wage – what steps should they take?',
-        'Compare workers\' rights in the UK with another country – where do workers have more protection?',
+        "Compare workers' rights in the UK with another country – where do workers have more protection?",
       ],
       keyFigures: [
         'Grunwick strikers, 1976–1978 (South Asian women workers who fought for union rights)',
-        'The TUC – Trades Union Congress (UK\'s national federation of trade unions)',
+        "The TUC – Trades Union Congress (UK's national federation of trade unions)",
         'ACAS – Advisory, Conciliation and Arbitration Service (Resolves employment disputes)',
         'The Employment Tribunal (Legal body handling unfair dismissal and discrimination claims)',
       ],
@@ -623,7 +642,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Trade union',
-          definition: 'An organisation of workers that collectively negotiates for better pay and conditions',
+          definition:
+            'An organisation of workers that collectively negotiates for better pay and conditions',
         },
         {
           term: 'Employment Tribunal',
@@ -631,7 +651,8 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Equality Act',
-          definition: '2010 UK law banning discrimination based on protected characteristics including race, sex, and disability',
+          definition:
+            '2010 UK law banning discrimination based on protected characteristics including race, sex, and disability',
         },
       ],
       furtherReading: 'Gov.uk: Your employment rights – gov.uk/browse/working',
@@ -679,13 +700,13 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       activities: [
         'Calculate: if you borrow £500 at 39% APR and repay £50/month, how long does it take to clear? How much interest do you pay?',
         'Check your own or a sample credit score using a free service – identify what affects it',
-        'Research a payday lender\'s current APR – how does it compare to a bank loan?',
+        "Research a payday lender's current APR – how does it compare to a bank loan?",
         'Create a "debt warning signs" checklist – at what point should someone seek help?',
       ],
       keyFigures: [
-        'StepChange Debt Charity (UK\'s largest free debt advice service)',
+        "StepChange Debt Charity (UK's largest free debt advice service)",
         'The Financial Conduct Authority / FCA (Regulates consumer credit and lending)',
-        'Experian / Equifax / TransUnion (UK\'s three main credit reference agencies)',
+        "Experian / Equifax / TransUnion (UK's three main credit reference agencies)",
         'Citizens Advice (Provides free legal and financial guidance including debt help)',
       ],
       vocabularyTerms: [
@@ -695,15 +716,18 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'APR',
-          definition: 'Annual Percentage Rate – the yearly cost of borrowing including interest and fees',
+          definition:
+            'Annual Percentage Rate – the yearly cost of borrowing including interest and fees',
         },
         {
           term: 'Debt spiral',
-          definition: 'A situation where debt grows faster than you can repay it, trapping you in worsening debt',
+          definition:
+            'A situation where debt grows faster than you can repay it, trapping you in worsening debt',
         },
         {
           term: 'Credit reference agency',
-          definition: 'A company that compiles financial data on individuals and provides credit scores to lenders',
+          definition:
+            'A company that compiles financial data on individuals and provides credit scores to lenders',
         },
       ],
       furtherReading: 'StepChange Debt Charity – stepchange.org',
@@ -717,7 +741,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Identify the main types of investment available to UK individuals',
       ],
       keyDates: [
-        '1602 – Dutch East India Company launches the world\'s first publicly traded shares',
+        "1602 – Dutch East India Company launches the world's first publicly traded shares",
         '1801 – London Stock Exchange formally established',
         '1999 – Stocks and Shares ISA introduced, allowing tax-free investing',
         '2008 – Global financial crisis: FTSE 100 falls 31% in one year',
@@ -753,30 +777,33 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'Research "ethical investing" / ESG funds – what do they prioritise and what are the trade-offs?',
       ],
       keyFigures: [
-        'Warren Buffett (World\'s most famous investor; advocates for long-term, patient investing)',
+        "Warren Buffett (World's most famous investor; advocates for long-term, patient investing)",
         'John Bogle (Created low-cost index fund investing; democratised investing)',
-        'The London Stock Exchange / LSE (One of the world\'s oldest and largest stock exchanges)',
+        "The London Stock Exchange / LSE (One of the world's oldest and largest stock exchanges)",
         'Vanguard / BlackRock (Major index fund providers accessible to UK investors)',
       ],
       vocabularyTerms: [
         {
           term: 'Shares (equities)',
-          definition: 'Units of ownership in a company – shareholders own a small piece of the business',
+          definition:
+            'Units of ownership in a company – shareholders own a small piece of the business',
         },
         {
           term: 'Diversification',
-          definition: 'Spreading investments across different assets to reduce the risk of large losses',
+          definition:
+            'Spreading investments across different assets to reduce the risk of large losses',
         },
         {
           term: 'Index fund',
-          definition: 'An investment fund that tracks a market index like the FTSE 100, spreading risk across many companies',
+          definition:
+            'An investment fund that tracks a market index like the FTSE 100, spreading risk across many companies',
         },
         {
           term: 'Risk and return',
           definition: 'The principle that higher potential gains come with higher potential losses',
         },
       ],
-      furtherReading: 'Boring Money: Beginner\'s guide to investing – boringmoney.co.uk',
+      furtherReading: "Boring Money: Beginner's guide to investing – boringmoney.co.uk",
     },
     {
       title: 'Pensions and Long-Term Financial Planning',
@@ -800,7 +827,7 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         'The UK State Pension (2024/25: up to £221.20/week) requires 35 years of National Insurance contributions',
         'Workplace pensions: your employer must contribute at least 3% of your salary, you add at least 5%',
         'Auto-enrolment means most employees are automatically enrolled in a pension unless they opt out',
-        'Opting out of a workplace pension means losing your employer\'s contribution – effectively a pay cut',
+        "Opting out of a workplace pension means losing your employer's contribution – effectively a pay cut",
         'A Self-Invested Personal Pension (SIPP) gives individuals more control over their investment choices',
         'The Lifetime ISA gives a 25% government bonus on savings for a first home or retirement',
         'Financial planning means setting goals, making a plan to achieve them, and reviewing regularly',
@@ -812,12 +839,12 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
       ],
       discussionQuestions: [
         'Is it fair that the state pension age keeps rising? Who is most affected?',
-        'Why do many young people not think about pensions until it\'s almost too late?',
+        "Why do many young people not think about pensions until it's almost too late?",
         'Should employers be required to contribute more to employee pensions?',
         'How might the pension system need to change as people live longer?',
       ],
       activities: [
-        'Use the Government\'s pension calculator to estimate your State Pension – what NI years do you need?',
+        "Use the Government's pension calculator to estimate your State Pension – what NI years do you need?",
         'Model: if you save £100/month in a pension from age 22 vs 42, compare outcomes at 65',
         'Research three workplace pension providers (e.g. NEST, Aviva, Legal & General) – compare features',
         'Write a letter to your 14-year-old self explaining why starting to think about pensions matters now',
@@ -835,18 +862,22 @@ export const financialLiteracyTopics: FinancialLiteracyTopics = {
         },
         {
           term: 'Auto-enrolment',
-          definition: 'The UK system that automatically places eligible workers into a workplace pension',
+          definition:
+            'The UK system that automatically places eligible workers into a workplace pension',
         },
         {
           term: 'State Pension',
-          definition: 'A government-funded pension paid from State Pension age, based on NI contributions',
+          definition:
+            'A government-funded pension paid from State Pension age, based on NI contributions',
         },
         {
           term: 'Tax relief on pensions',
-          definition: 'Government top-up on pension contributions – basic rate taxpayers get 20% added',
+          definition:
+            'Government top-up on pension contributions – basic rate taxpayers get 20% added',
         },
       ],
-      furtherReading: 'Money Helper: Pensions explained – moneyhelper.org.uk/en/pensions-and-retirement',
+      furtherReading:
+        'Money Helper: Pensions explained – moneyhelper.org.uk/en/pensions-and-retirement',
     },
   ],
 };

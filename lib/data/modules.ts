@@ -81,7 +81,7 @@ export const modules: ModuleCard[] = [
       '12 lessons across 4 topics',
       'Money & Banking fundamentals',
       'Budgeting, saving & smart spending',
-      'Earning, tax & workers\' rights',
+      "Earning, tax & workers' rights",
       'Credit, investing & pensions',
       'UK-focused with real examples',
     ],
