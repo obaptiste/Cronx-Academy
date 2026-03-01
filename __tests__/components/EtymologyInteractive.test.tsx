@@ -309,7 +309,9 @@ describe('EtymologyInteractive', () => {
         expect(screen.getByText('RIVER')).toBeInTheDocument();
       });
       // Footer should be hidden on tab index 2 (Word Detective)
-      expect(screen.queryByText('Caribbean Language Roots — The Full Picture')).not.toBeInTheDocument();
+      expect(
+        screen.queryByText('Caribbean Language Roots — The Full Picture'),
+      ).not.toBeInTheDocument();
     });
   });
 });
