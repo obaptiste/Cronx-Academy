@@ -592,6 +592,119 @@ export const piratesTopics: PiratesTopics = {
       furtherReading: "Smithsonian: The End of Piracy's Golden Age",
     },
   ],
+  foodAndNutrition: [
+    {
+      title: 'Food on Pirate Ships',
+      era: '1650-1730',
+      objectives: [
+        'Understand what pirates typically ate and drank at sea',
+        'Analyse how long voyages shaped food choices',
+        'Evaluate common myths about pirate food and drink',
+      ],
+      keyDates: [
+        '1650s - Expansion of long-distance Caribbean voyages',
+        '1690s - Buccaneer journals describe salted meat and hard tack diets',
+        '1747 - James Lind begins experiments linking citrus to scurvy prevention',
+      ],
+      introduction:
+        'Pirate meals were practical, repetitive, and often unpleasant. Crews relied on preserved foods that could survive heat, humidity, and months at sea. Popular stories of endless feasts and daily rum rations hide a harsher truth: hunger, spoilage, and malnutrition were constant threats.',
+      mainContent: [
+        'Staples included hard tack biscuits, salted pork or beef, dried peas, and oats',
+        'Fresh fruit and vegetables were scarce at sea and usually eaten soon after leaving port',
+        'Water spoiled quickly in barrels, so crews often drank weak beer, watered wine, or diluted rum',
+        'Rats, weevils, and mold commonly contaminated stored food',
+        'When possible, pirates supplemented provisions by fishing, hunting turtles, or raiding coastal settlements',
+        'A captain who failed to secure food risked mutiny as quickly as one who failed in battle',
+      ],
+      primarySources: [
+        "William Dampier: 'Our bread was full of worms, yet hunger made it passable'",
+        "Naval provisioning record: 'Beef salted in casks, pease, oatmeal, and biscuit for twelve weeks'",
+        "Sailor testimony: 'The water stank so foul we mixed it with spirits to swallow it'",
+      ],
+      discussionQuestions: [
+        'Why were preserved foods essential for pirate crews?',
+        'How did poor diet affect morale and discipline on board?',
+        'What parts of pirate food culture have been exaggerated in modern media?',
+        'How did access to food shape where pirates sailed and attacked?',
+      ],
+      activities: [
+        'Design a seven-day pirate menu using only foods available in the early 1700s',
+        'Compare pirate ship diets with diets on Royal Navy and merchant vessels',
+        'Create a storage plan showing how food and water would be rationed on a small sloop',
+        'Research one historical account of shipboard food spoilage and present findings',
+      ],
+      keyFigures: [
+        'William Dampier (Buccaneer and observer of sea diets)',
+        'Ship quartermasters (Managed provisions and rations)',
+        'Ship cooks (Prepared meals under severe limits)',
+        'Common sailors (Most affected by food shortages)',
+      ],
+      vocabularyTerms: [
+        { term: 'Hard tack', definition: 'Dry biscuit made to last for long voyages' },
+        { term: 'Salted meat', definition: 'Meat preserved in salt to prevent quick spoilage' },
+        { term: 'Ration', definition: 'Fixed amount of food or drink given daily' },
+        { term: 'Provisioning', definition: 'Supplying a ship with food, water, and essentials' },
+      ],
+      furtherReading: 'Royal Museums Greenwich: Food and Drink at Sea',
+    },
+    {
+      title: 'Nutrition, Disease, and Survival',
+      era: '1650-1750',
+      objectives: [
+        'Understand how nutrition affected pirate health and survival',
+        'Analyse the causes and symptoms of scurvy and other deficiency diseases',
+        'Evaluate how changing knowledge of diet improved life at sea',
+      ],
+      keyDates: [
+        '1600s - Scurvy recognized as a major killer on long voyages',
+        '1747 - James Lind conducts citrus trial aboard HMS Salisbury',
+        '1795 - Royal Navy begins wider lemon juice issue',
+      ],
+      introduction:
+        'Combat was dramatic, but disease killed far more sailors than cannon fire. On pirate ships, limited access to fresh food meant vitamin deficiencies, especially scurvy, could devastate crews. Nutrition was not just about comfort; it was often the difference between completing a voyage and dying at sea.',
+      mainContent: [
+        'Scurvy was caused by vitamin C deficiency and worsened on long voyages without fresh produce',
+        'Symptoms included swollen gums, bleeding, weakness, and poor wound healing',
+        'Dysentery and food-borne illness spread rapidly in crowded, unsanitary conditions',
+        'Pirates often sought islands for citrus, greens, and fresh water to restore crew health',
+        'Knowledge of effective prevention spread slowly, partly because medical ideas were inconsistent',
+        'Improved nutrition later strengthened naval power and helped suppress piracy',
+      ],
+      primarySources: [
+        "Ship surgeon's journal: 'The gums did rot and the men could scarce stand at their posts'",
+        'James Lind (1747): citrus-fed sailors recovered more quickly than those on standard rations',
+        "Caribbean port record: 'Fresh limes and oranges purchased for crews lately come in weak and diseased'",
+      ],
+      discussionQuestions: [
+        'Why did scurvy remain common even when some sailors suspected a cure?',
+        'How did health and nutrition influence pirate decision-making at sea?',
+        'What does this topic reveal about limits of medical knowledge in the 1700s?',
+        'How might better nutrition have changed pirate and naval outcomes?',
+      ],
+      activities: [
+        'Create a cause-and-effect chart linking diet to common pirate illnesses',
+        'Run a classroom simulation of rationing choices on a twelve-week voyage',
+        'Compare early modern and modern understanding of vitamin deficiencies',
+        'Write a short report from the perspective of a ship surgeon treating scurvy',
+      ],
+      keyFigures: [
+        'James Lind (Physician who tested citrus treatment)',
+        "Ships' surgeons (Responsible for diagnosing and treating illness)",
+        'Quartermasters (Controlled ration distribution)',
+        'Naval administrators (Eventually implemented citrus policies)',
+      ],
+      vocabularyTerms: [
+        { term: 'Scurvy', definition: 'Disease caused by prolonged lack of vitamin C' },
+        { term: 'Deficiency', definition: 'Illness caused by lacking essential nutrients' },
+        {
+          term: 'Dysentery',
+          definition: 'Severe intestinal infection causing dehydration and weakness',
+        },
+        { term: 'Citrus', definition: 'Fruits such as lemons and limes rich in vitamin C' },
+      ],
+      furtherReading: 'National Maritime Museum: Scurvy and the Age of Sail',
+    },
+  ],
 };
 
 // Helper function to get all lessons as a flat array
@@ -620,6 +733,7 @@ export const piratesCategoryNames: Record<keyof PiratesTopics, string> = {
   lifeAtSea: 'Life at Sea',
   tradeRoutes: 'Trade Routes',
   navalBattles: 'Naval Battles',
+  foodAndNutrition: 'Food and Nutrition',
 };
 
 // Category icons
@@ -628,4 +742,5 @@ export const piratesCategoryIcons: Record<keyof PiratesTopics, string> = {
   lifeAtSea: '⚓',
   tradeRoutes: '🗺️',
   navalBattles: '⚔️',
+  foodAndNutrition: '🍊',
 };

@@ -80,6 +80,7 @@ export interface PiratesTopics {
   lifeAtSea: HistoryLesson[];
   tradeRoutes: HistoryLesson[];
   navalBattles: HistoryLesson[];
+  foodAndNutrition: HistoryLesson[];
 }
 
 export type PiratesTopicCategory = keyof PiratesTopics;
@@ -133,6 +134,16 @@ export interface FinancialLiteracyTopics {
 }
 
 export type FinancialLiteracyTopicCategory = keyof FinancialLiteracyTopics;
+
+// Food & Nutrition Module Topics
+export interface FoodNutritionTopics {
+  nutritionBasics: HistoryLesson[];
+  healthyEatingPatterns: HistoryLesson[];
+  foodSafetyAndDigestion: HistoryLesson[];
+  practicalNutrition: HistoryLesson[];
+}
+
+export type FoodNutritionTopicCategory = keyof FoodNutritionTopics;
 
 // Quiz Types
 export interface QuizQuestion {

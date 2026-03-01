@@ -6,6 +6,7 @@ import { getAllRevolutionLessons } from '@/lib/data/revolutionLessons';
 import { getAllSpiritualityLessons } from '@/lib/data/spiritualityLessons';
 import { getAllNubianLessons } from '@/lib/data/nubianLessons';
 import { getAllEnglishLessons } from '@/lib/data/englishLessons';
+import { getAllFoodNutritionLessons } from '@/lib/data/foodNutritionLessons';
 import { mathTopics } from '@/lib/data/mathLessons';
 
 interface ModuleConfig {
@@ -65,6 +66,13 @@ const moduleConfigs: ModuleConfig[] = [
     icon: '📖',
     storageKey: 'completedEnglishLessons',
     getTotalLessons: () => getAllEnglishLessons().length,
+  },
+  {
+    moduleId: 'food-nutrition',
+    moduleName: 'Food and Nutrition',
+    icon: '🥗',
+    storageKey: 'completedFoodNutritionLessons',
+    getTotalLessons: () => getAllFoodNutritionLessons().length,
   },
   {
     moduleId: 'maths',

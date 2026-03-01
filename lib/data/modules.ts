@@ -90,6 +90,24 @@ export const modules: ModuleCard[] = [
     colorClass: 'financial',
   },
   {
+    id: 'food-nutrition',
+    title: 'Food and Nutrition',
+    icon: '🥗',
+    description:
+      'Practical food and nutrition learning for teens: balanced meals, food labels, digestion, safety, and budget-friendly planning.',
+    features: [
+      '8 lessons across 4 topics',
+      'Nutrition basics and energy balance',
+      'Balanced meals and food-label reading',
+      'Digestion and food safety skills',
+      'Meal planning for budget, sport, and study',
+      'Progress tracking and quizzes',
+    ],
+    status: 'ready',
+    href: '/modules/food-nutrition',
+    colorClass: 'nutrition',
+  },
+  {
     id: 'wellbeing',
     title: 'Whisper Garden',
     icon: '🌈',
