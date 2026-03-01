@@ -90,6 +90,7 @@ export const modules: ModuleCard[] = [
     colorClass: 'financial',
   },
   {
+<<<<<<< HEAD
     id: 'chemistry',
     title: 'Chemistry Interactive',
     icon: '⚗️',
@@ -106,6 +107,24 @@ export const modules: ModuleCard[] = [
     status: 'ready',
     href: '/modules/chemistry',
     colorClass: 'chemistry',
+=======
+    id: 'etymology',
+    title: 'Language Etymology',
+    icon: '🌍',
+    description:
+      'Explore the origins, migrations, and deaths of European languages — from Proto-Indo-European to the Caribbean. Dark Academia meets the history of words.',
+    features: [
+      'Interactive Language Family Tree (PIE → 6 families → 20+ languages)',
+      'Great Migrations Timeline — 12 key events from 4500 BCE to today',
+      'Word Detective game — trace words back to their PIE roots',
+      'Graveyard of Tongues — memorials for 6 extinct languages',
+      '15-question Quiz Zone with badges',
+      'Caribbean Connection thread woven throughout',
+    ],
+    status: 'ready',
+    href: '/modules/etymology',
+    colorClass: 'english',
+>>>>>>> origin/main
   },
   {
     id: 'wellbeing',
