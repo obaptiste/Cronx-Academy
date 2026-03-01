@@ -134,6 +134,65 @@ export interface FinancialLiteracyTopics {
 
 export type FinancialLiteracyTopicCategory = keyof FinancialLiteracyTopics;
 
+// Etymology Module Types
+export interface EtymologyLanguageNode {
+  id: string;
+  name: string;
+  type: 'root' | 'family' | 'subfamily' | 'language';
+  parent?: string;
+  era: string;
+  region: string;
+  status: 'living' | 'extinct' | 'revived';
+  speakers?: string;
+  examples: Array<{
+    modernWord: string;
+    chain: string[];
+    meaning: string;
+  }>;
+  didYouKnow: string;
+  caribbeanConnection?: string;
+}
+
+export interface EtymologyTimelineEvent {
+  year: string;
+  event: string;
+  detail: string;
+  narrative: string;
+  etymologicalExample: string;
+  caribbeanConnection?: string;
+}
+
+export interface WordDetectiveRound {
+  word: string;
+  steps: Array<{
+    prompt: string;
+    options: string[];
+    correctIndex: number;
+    explanation: string;
+  }>;
+  finalFact: string;
+  caribbeanConnection?: string;
+}
+
+export interface DeadLanguage {
+  name: string;
+  family: string;
+  region: string;
+  died: string;
+  lastSpeaker: string;
+  legacy: string;
+  sampleWords: Array<{ word: string; meaning: string }>;
+}
+
+export interface EtymologyQuizQuestion {
+  id: number;
+  type: 'multiple-choice' | 'true-false';
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+}
+
 // Quiz Types
 export interface QuizQuestion {
   id: string;
