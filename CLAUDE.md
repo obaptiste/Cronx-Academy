@@ -58,6 +58,7 @@ lib/data/               # Static lesson content (TypeScript)
   revolutionLessons.ts  # American Revolution lessons
   spiritualityLessons.ts # African & Caribbean spirituality lessons
   englishLessons.ts     # English & Literature lessons (4 categories, 16 lessons)
+  etymologyData.ts      # Etymology module data (language tree, timeline, games, quiz)
 
 types/index.ts          # All TypeScript interfaces (single file)
 
@@ -102,10 +103,68 @@ identical component structure. When creating new history modules, use any existi
 
 ### Styling
 
+#### Dashboard / History Modules (existing style)
 - Global gradient background: `linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)`
 - Module-specific color classes defined in `globals.css` (e.g., `.module-card.history`, `.module-card.maths`)
 - Tailwind CSS utilities for layout, spacing, shadows, transitions
 - Responsive design: mobile-first with tablet and desktop breakpoints
+
+#### "Dark Academia meets Cyberpunk" — Preferred aesthetic for new modules
+Established in `EtymologyInteractive.tsx`. Use this as the design reference for new standalone
+interactive modules. The vibe: ancient library meets futuristic interface.
+
+**Colour palette** (use inline styles or Tailwind arbitrary values):
+```
+Background:   #0a0a10  (deep near-black, e.g. bg-[#0a0a10])
+Card bg:      rgba(20, 20, 30, 0.9)  (dark glass panel)
+Gold accent:  #c4a040  (illuminated-manuscript gold — highlights, borders, active states)
+Parchment:    #e8dcc0  (warm off-white — body text and headings)
+Teal callout: #2a88aa  (Caribbean Connection boxes and secondary accents)
+Success:      #22c55e  (correct answers, completion)
+Error:        #ef4444  (wrong answers, extinct languages)
+Revived:      #a855f7  (purple — revived/restored items)
+```
+
+**Typography**:
+- Headings: `fontFamily: 'Georgia, serif'` (scholarly feel)
+- Body: system sans-serif (clean, readable)
+
+**Opacity conventions using hex alpha suffixes** (avoids Tailwind arbitrary opacity):
+```
+${GOLD}22  → 13% opacity  (subtle background tints)
+${GOLD}33  → 20% opacity  (active/selected backgrounds)
+${GOLD}44  → 27% opacity  (borders on hover/active)
+${GOLD}88  → 53% opacity  (muted labels, secondary text)
+${GOLD}99  → 60% opacity  (section labels, uppercase trackers)
+${GOLD}aa  → 67% opacity  (field labels)
+${GOLD}cc  → 80% opacity  (body text on dark backgrounds)
+```
+
+**No external icon libraries** — use inline SVG components or Unicode/emoji. `lucide-react` is
+not installed. See the icon helpers in `EtymologyInteractive.tsx` for the SVG pattern.
+
+**Caribbean Connection callout** — always use the teal accent box with 🌊 prefix:
+```tsx
+<div style={{ background: `${TEAL}18`, borderColor: `${TEAL}60`, color: '#7dd3ea' }}>
+  <span style={{ color: TEAL }}>🌊 Caribbean Connection:</span> ...
+</div>
+```
+
+**Card/panel pattern**:
+```tsx
+<div
+  className="rounded-xl p-4"
+  style={{ background: 'rgba(20, 20, 30, 0.9)', border: `1px solid ${GOLD}22` }}
+>
+```
+
+**Section heading pattern**:
+```tsx
+<h2 style={{ color: '#c4a040', fontFamily: 'Georgia, serif' }}>Section Title</h2>
+<p className="text-xs font-semibold uppercase tracking-wider" style={{ color: `${GOLD}99` }}>
+  Subsection label
+</p>
+```
 
 ## Content Guidelines
 
@@ -118,7 +177,7 @@ This is an educational platform for a 14-year-old learner. All content should be
 
 ## Known Issues & Incomplete Work
 
-- ~~No test suite~~ - Vitest is now configured with 761 tests (data integrity + component tests)
+- ~~No test suite~~ - Vitest is now configured with 1070 tests (data integrity + component tests)
 - ~~No CI/CD~~ - GitHub Actions pipeline now runs format check, lint, test, and build on PRs
 - ~~No Prettier~~ - Prettier 3 is now configured with ESLint integration
 - **Wellbeing module** (`/modules/wellbeing`) - still links to old HTML version, not fully migrated
