@@ -90,6 +90,24 @@ export const modules: ModuleCard[] = [
     colorClass: 'financial',
   },
   {
+    id: 'chemistry',
+    title: 'Chemistry Interactive',
+    icon: '⚗️',
+    description:
+      'Explore atoms, the periodic table, chemical bonding, reactions, acids & bases, and separation techniques through interactive lessons, flip cards, experiments, and quizzes.',
+    features: [
+      '12 lessons across 6 topics',
+      'Atoms, bonding, reactions & more',
+      'Interactive flip-card vocabulary',
+      'Experiment checklists with safety notes',
+      'Built-in quiz with instant feedback',
+      'Progress tracking',
+    ],
+    status: 'ready',
+    href: '/modules/chemistry',
+    colorClass: 'chemistry',
+  },
+  {
     id: 'wellbeing',
     title: 'Whisper Garden',
     icon: '🌈',
