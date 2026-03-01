@@ -155,8 +155,7 @@ function QuizPanel({ lesson }: { lesson: ChemistryLesson }) {
                     : 'bg-white border-gray-200 hover:border-indigo-400 text-gray-700';
                 } else {
                   if (isCorrect) cls += 'bg-green-500 text-white border-green-500';
-                  else if (isSelected && !isCorrect)
-                    cls += 'bg-red-400 text-white border-red-400';
+                  else if (isSelected && !isCorrect) cls += 'bg-red-400 text-white border-red-400';
                   else cls += 'bg-gray-100 text-gray-500 border-gray-200';
                 }
                 return (
@@ -210,11 +209,7 @@ function QuizPanel({ lesson }: { lesson: ChemistryLesson }) {
 }
 
 // ─── Experiment Steps ─────────────────────────────────────────────────────────
-function ExperimentSteps({
-  experiment,
-}: {
-  experiment: ChemistryLesson['experiments'][number];
-}) {
+function ExperimentSteps({ experiment }: { experiment: ChemistryLesson['experiments'][number] }) {
   const [checked, setChecked] = useState<boolean[]>(Array(experiment.steps.length).fill(false));
   const done = checked.filter(Boolean).length;
 
@@ -246,7 +241,9 @@ function ExperimentSteps({
               aria-label={`Step ${i + 1}`}
               className="mt-1 w-4 h-4 rounded border-2 border-amber-600 text-amber-600 focus:ring-amber-500 flex-shrink-0"
             />
-            <span className={`text-sm text-gray-800 ${checked[i] ? 'line-through text-gray-400' : ''}`}>
+            <span
+              className={`text-sm text-gray-800 ${checked[i] ? 'line-through text-gray-400' : ''}`}
+            >
               <strong className="text-amber-700">{i + 1}.</strong> {step}
             </span>
           </li>
@@ -330,7 +327,9 @@ function FunFactTicker({ facts }: { facts: string[] }) {
       <p
         className={`flex-1 text-sm font-medium transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
       >
-        <span className="opacity-70 text-xs block mb-0.5">Fun Fact {idx + 1}/{facts.length}</span>
+        <span className="opacity-70 text-xs block mb-0.5">
+          Fun Fact {idx + 1}/{facts.length}
+        </span>
         {facts[idx]}
       </p>
       <div className="flex gap-1">
@@ -399,15 +398,17 @@ function LessonBrowser({
   onSelect: (lesson: ChemistryLesson) => void;
 }) {
   const categories = Object.keys(chemistryTopics) as ChemistryTopicCategory[];
-  const visibleCategories =
-    selectedCategory === 'all' ? categories : [selectedCategory];
+  const visibleCategories = selectedCategory === 'all' ? categories : [selectedCategory];
 
   return (
     <div className="space-y-6">
       {visibleCategories.map((cat) => {
         const colors = chemistryCategoryColors[cat];
         return (
-          <div key={cat} className={`bg-gradient-to-br ${colors.bg} rounded-3xl p-5 border-2 ${colors.border}`}>
+          <div
+            key={cat}
+            className={`bg-gradient-to-br ${colors.bg} rounded-3xl p-5 border-2 ${colors.border}`}
+          >
             <h3 className={`text-lg font-bold ${colors.text} mb-4 flex items-center gap-2`}>
               {chemistryCategoryIcons[cat]} {chemistryCategoryNames[cat]}
             </h3>
@@ -427,7 +428,9 @@ function LessonBrowser({
                       {done && <span className="text-green-500 text-lg flex-shrink-0">✅</span>}
                     </div>
                     <div className="flex gap-2 mt-2">
-                      <span className={`text-xs px-2 py-0.5 rounded-full text-white ${colors.badge}`}>
+                      <span
+                        className={`text-xs px-2 py-0.5 rounded-full text-white ${colors.badge}`}
+                      >
                         {lesson.category}
                       </span>
                       <span className="text-xs px-2 py-0.5 rounded-full bg-gray-200 text-gray-600 capitalize">
@@ -536,7 +539,9 @@ export default function ChemistryInteractive() {
           <span className="font-bold text-gray-800 flex items-center gap-2">
             {icon} {label}
           </span>
-          <span className={`text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}>
+          <span
+            className={`text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+          >
             ▾
           </span>
         </button>
@@ -560,9 +565,7 @@ export default function ChemistryInteractive() {
   const isCompleted = !!currentLesson && completedLessons.includes(currentLesson.title);
   const categoryKey = currentLesson
     ? (Object.keys(chemistryTopics).find((k) =>
-        chemistryTopics[k as ChemistryTopicCategory].some(
-          (l) => l.title === currentLesson.title,
-        ),
+        chemistryTopics[k as ChemistryTopicCategory].some((l) => l.title === currentLesson.title),
       ) as ChemistryTopicCategory | undefined)
     : undefined;
   const catColors = categoryKey ? chemistryCategoryColors[categoryKey] : null;
@@ -582,8 +585,12 @@ export default function ChemistryInteractive() {
         <div className="flex items-center gap-4 mb-6">
           <div className="text-5xl">⚗️</div>
           <div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-indigo-600">Chemistry Interactive</h1>
-            <p className="text-gray-600 mt-1">Atoms, reactions, and the molecules of life — for Thalia</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-indigo-600">
+              Chemistry Interactive
+            </h1>
+            <p className="text-gray-600 mt-1">
+              Atoms, reactions, and the molecules of life — for Thalia
+            </p>
           </div>
         </div>
 
@@ -665,7 +672,9 @@ export default function ChemistryInteractive() {
             <div className="relative z-10">
               <div className="flex flex-wrap gap-2 mb-3">
                 {catColors && (
-                  <span className={`text-xs px-3 py-1 rounded-full font-bold text-white ${catColors.badge}`}>
+                  <span
+                    className={`text-xs px-3 py-1 rounded-full font-bold text-white ${catColors.badge}`}
+                  >
                     {chemistryCategoryIcons[categoryKey!]} {currentLesson.category}
                   </span>
                 )}
@@ -681,7 +690,9 @@ export default function ChemistryInteractive() {
               <h2 className="text-2xl sm:text-3xl font-bold mb-2 leading-snug">
                 {currentLesson.title}
               </h2>
-              <p className="text-indigo-200 text-sm leading-relaxed">{currentLesson.introduction}</p>
+              <p className="text-indigo-200 text-sm leading-relaxed">
+                {currentLesson.introduction}
+              </p>
             </div>
           </div>
 

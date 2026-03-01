@@ -23,18 +23,38 @@ export const chemistryTopics: ChemistryTopics = {
         'Isotopes are atoms of the same element with different numbers of neutrons (e.g. Carbon-12 and Carbon-14).',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Proton', definition: 'Positively charged particle in the nucleus; its count defines the element.' },
-        { term: 'Neutron', definition: 'Neutral (uncharged) particle in the nucleus; adds mass but not charge.' },
-        { term: 'Electron', definition: 'Negatively charged particle orbiting the nucleus in energy levels (shells).' },
-        { term: 'Atomic number', definition: 'The number of protons in an atom — unique to each element.' },
+        {
+          term: 'Proton',
+          definition: 'Positively charged particle in the nucleus; its count defines the element.',
+        },
+        {
+          term: 'Neutron',
+          definition: 'Neutral (uncharged) particle in the nucleus; adds mass but not charge.',
+        },
+        {
+          term: 'Electron',
+          definition: 'Negatively charged particle orbiting the nucleus in energy levels (shells).',
+        },
+        {
+          term: 'Atomic number',
+          definition: 'The number of protons in an atom — unique to each element.',
+        },
         { term: 'Mass number', definition: 'Total number of protons and neutrons in the nucleus.' },
-        { term: 'Isotope', definition: 'Atoms of the same element with different numbers of neutrons.' },
-        { term: 'Electron shell', definition: 'An energy level where electrons orbit the nucleus; shells fill from the inside out.' },
+        {
+          term: 'Isotope',
+          definition: 'Atoms of the same element with different numbers of neutrons.',
+        },
+        {
+          term: 'Electron shell',
+          definition:
+            'An energy level where electrons orbit the nucleus; shells fill from the inside out.',
+        },
       ],
       experiments: [
         {
           name: 'Build a 3D Atom Model',
-          description: 'Construct a physical model of a carbon or oxygen atom to visualise electron shells.',
+          description:
+            'Construct a physical model of a carbon or oxygen atom to visualise electron shells.',
           steps: [
             'Choose an element: Carbon (6 protons, 6 neutrons, 6 electrons) or Oxygen (8p, 8n, 8e).',
             'Use a ball of playdough or a polystyrene ball as the nucleus.',
@@ -47,10 +67,25 @@ export const chemistryTopics: ChemistryTopics = {
         },
       ],
       practiceQuestions: [
-        { question: 'Sodium has atomic number 11 and mass number 23. How many neutrons does it have?', answer: '12 neutrons (23 − 11 = 12).' },
-        { question: 'How many electrons does a neutral chlorine atom have if its atomic number is 17?', answer: '17 electrons — in a neutral atom, electrons always equal protons.' },
-        { question: 'Carbon-12 and Carbon-14 are isotopes. What is the same and what is different?', answer: 'Both have 6 protons (same element). Carbon-12 has 6 neutrons; Carbon-14 has 8 neutrons.' },
-        { question: 'Write the electron configuration for magnesium (atomic number 12).', answer: '2, 8, 2 — two on the first shell, eight on the second, two on the third.' },
+        {
+          question:
+            'Sodium has atomic number 11 and mass number 23. How many neutrons does it have?',
+          answer: '12 neutrons (23 − 11 = 12).',
+        },
+        {
+          question:
+            'How many electrons does a neutral chlorine atom have if its atomic number is 17?',
+          answer: '17 electrons — in a neutral atom, electrons always equal protons.',
+        },
+        {
+          question: 'Carbon-12 and Carbon-14 are isotopes. What is the same and what is different?',
+          answer:
+            'Both have 6 protons (same element). Carbon-12 has 6 neutrons; Carbon-14 has 8 neutrons.',
+        },
+        {
+          question: 'Write the electron configuration for magnesium (atomic number 12).',
+          answer: '2, 8, 2 — two on the first shell, eight on the second, two on the third.',
+        },
       ],
       funFacts: [
         'If an atom were the size of a football stadium, its nucleus would be the size of a pea on the centre spot.',
@@ -66,11 +101,17 @@ export const chemistryTopics: ChemistryTopics = {
       quizQuestions: [
         {
           question: 'Where are protons and neutrons found in an atom?',
-          options: ['In the electron shells', 'In the nucleus', 'Scattered randomly', 'In the outer shell only'],
+          options: [
+            'In the electron shells',
+            'In the nucleus',
+            'Scattered randomly',
+            'In the outer shell only',
+          ],
           correctIndex: 1,
         },
         {
-          question: 'An element has atomic number 8 and mass number 16. How many neutrons does it have?',
+          question:
+            'An element has atomic number 8 and mass number 16. How many neutrons does it have?',
           options: ['6', '8', '16', '24'],
           correctIndex: 1,
         },
@@ -107,16 +148,37 @@ export const chemistryTopics: ChemistryTopics = {
         'Subscript numbers (small, below the line) in a formula show how many atoms of each element are present.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Element', definition: 'A pure substance made of only one type of atom; cannot be broken down further by chemistry.' },
-        { term: 'Compound', definition: 'A substance formed from two or more elements chemically bonded in fixed proportions.' },
-        { term: 'Mixture', definition: 'Two or more substances mixed together but not chemically bonded; can be separated physically.' },
-        { term: 'Chemical formula', definition: 'A shorthand way of showing which elements are in a compound and in what ratio (e.g. CO₂).' },
-        { term: 'Pure substance', definition: 'A single element or compound with a fixed melting/boiling point and no other substances mixed in.' },
+        {
+          term: 'Element',
+          definition:
+            'A pure substance made of only one type of atom; cannot be broken down further by chemistry.',
+        },
+        {
+          term: 'Compound',
+          definition:
+            'A substance formed from two or more elements chemically bonded in fixed proportions.',
+        },
+        {
+          term: 'Mixture',
+          definition:
+            'Two or more substances mixed together but not chemically bonded; can be separated physically.',
+        },
+        {
+          term: 'Chemical formula',
+          definition:
+            'A shorthand way of showing which elements are in a compound and in what ratio (e.g. CO₂).',
+        },
+        {
+          term: 'Pure substance',
+          definition:
+            'A single element or compound with a fixed melting/boiling point and no other substances mixed in.',
+        },
       ],
       experiments: [
         {
           name: 'Separating a Mixture: Salt & Sand',
-          description: 'Use physical separation techniques to split a salt and sand mixture into its components.',
+          description:
+            'Use physical separation techniques to split a salt and sand mixture into its components.',
           steps: [
             'Mix a teaspoon of salt and a teaspoon of sand together in a beaker — this is your mixture.',
             'Add water and stir well. The salt dissolves; the sand does not.',
@@ -128,9 +190,20 @@ export const chemistryTopics: ChemistryTopics = {
         },
       ],
       practiceQuestions: [
-        { question: 'Is carbon dioxide (CO₂) an element, compound or mixture? How do you know?', answer: 'A compound — it contains two different elements (carbon and oxygen) chemically bonded in a fixed ratio.' },
-        { question: 'How many atoms are in one molecule of glucose (C₆H₁₂O₆)?', answer: '24 atoms total: 6 carbon + 12 hydrogen + 6 oxygen.' },
-        { question: 'Give one difference between a compound and a mixture.', answer: 'In a compound, elements are chemically bonded in fixed ratios; in a mixture, substances are not bonded and can be in any proportion.' },
+        {
+          question: 'Is carbon dioxide (CO₂) an element, compound or mixture? How do you know?',
+          answer:
+            'A compound — it contains two different elements (carbon and oxygen) chemically bonded in a fixed ratio.',
+        },
+        {
+          question: 'How many atoms are in one molecule of glucose (C₆H₁₂O₆)?',
+          answer: '24 atoms total: 6 carbon + 12 hydrogen + 6 oxygen.',
+        },
+        {
+          question: 'Give one difference between a compound and a mixture.',
+          answer:
+            'In a compound, elements are chemically bonded in fixed ratios; in a mixture, substances are not bonded and can be in any proportion.',
+        },
       ],
       funFacts: [
         'Water is so special that scientists look for it on other planets first when searching for life.',
@@ -179,7 +252,7 @@ export const chemistryTopics: ChemistryTopics = {
         'Predict properties of elements based on their position in the table',
       ],
       introduction:
-        'The periodic table is chemistry\'s greatest organisational achievement. Dmitri Mendeleev arranged the 63 known elements in 1869 and even left gaps for elements not yet discovered — and he was right. Today we know 118 elements, all arranged in a beautiful pattern where position reveals properties.',
+        "The periodic table is chemistry's greatest organisational achievement. Dmitri Mendeleev arranged the 63 known elements in 1869 and even left gaps for elements not yet discovered — and he was right. Today we know 118 elements, all arranged in a beautiful pattern where position reveals properties.",
       mainContent: [
         'Elements are arranged in order of increasing atomic number (number of protons), left to right, top to bottom.',
         'Periods (horizontal rows) represent electron shells. Elements in the same period have the same number of electron shells.',
@@ -190,17 +263,42 @@ export const chemistryTopics: ChemistryTopics = {
         'The transition metals form the large block in the middle (rows 4–7) and include iron, copper, gold, and silver.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Period', definition: 'A horizontal row in the periodic table; elements in the same period have the same number of electron shells.' },
-        { term: 'Group', definition: 'A vertical column in the periodic table; elements in the same group have the same number of outer electrons and similar properties.' },
-        { term: 'Alkali metals', definition: 'Group 1 elements (Li, Na, K, Rb, Cs, Fr) — soft, reactive metals that react vigorously with water.' },
-        { term: 'Halogens', definition: 'Group 7 elements (F, Cl, Br, I) — reactive non-metals that form salts when they react with metals.' },
-        { term: 'Noble gases', definition: 'Group 0 elements (He, Ne, Ar, Kr, Xe) — very unreactive because their outer electron shells are full.' },
-        { term: 'Transition metals', definition: 'Elements in the central block (groups 3–12) such as iron, copper, and gold — often colourful and good conductors.' },
+        {
+          term: 'Period',
+          definition:
+            'A horizontal row in the periodic table; elements in the same period have the same number of electron shells.',
+        },
+        {
+          term: 'Group',
+          definition:
+            'A vertical column in the periodic table; elements in the same group have the same number of outer electrons and similar properties.',
+        },
+        {
+          term: 'Alkali metals',
+          definition:
+            'Group 1 elements (Li, Na, K, Rb, Cs, Fr) — soft, reactive metals that react vigorously with water.',
+        },
+        {
+          term: 'Halogens',
+          definition:
+            'Group 7 elements (F, Cl, Br, I) — reactive non-metals that form salts when they react with metals.',
+        },
+        {
+          term: 'Noble gases',
+          definition:
+            'Group 0 elements (He, Ne, Ar, Kr, Xe) — very unreactive because their outer electron shells are full.',
+        },
+        {
+          term: 'Transition metals',
+          definition:
+            'Elements in the central block (groups 3–12) such as iron, copper, and gold — often colourful and good conductors.',
+        },
       ],
       experiments: [
         {
           name: 'Reactivity of Group 1: Sodium & Potassium in Water',
-          description: 'Observe (via video or demonstration) how Group 1 metals react with water to show reactivity trends.',
+          description:
+            'Observe (via video or demonstration) how Group 1 metals react with water to show reactivity trends.',
           steps: [
             'Watch a video of lithium, sodium, and potassium being dropped into water (search "alkali metals in water").',
             'Note what happens in each case: does the metal float, fizz, move around, catch fire, or explode?',
@@ -208,18 +306,35 @@ export const chemistryTopics: ChemistryTopics = {
             'Write the word equation: sodium + water → sodium hydroxide + hydrogen.',
             'Explain why potassium is more reactive than lithium using the idea of electron shells.',
           ],
-          safetyNote: 'Never handle Group 1 metals yourself — they are dangerously reactive. Always observe via demonstration or video only.',
+          safetyNote:
+            'Never handle Group 1 metals yourself — they are dangerously reactive. Always observe via demonstration or video only.',
         },
       ],
       practiceQuestions: [
-        { question: 'How many outer electrons does an element in Group 6 have?', answer: '6 outer electrons.' },
-        { question: 'What is the connection between period number and electron shells?', answer: 'The period number tells you how many electron shells the element has (e.g. Period 3 elements have 3 shells).' },
-        { question: 'Why do Group 0 (noble gases) not react with other elements?', answer: 'Their outer electron shells are completely full, so they have no tendency to gain, lose, or share electrons.' },
-        { question: 'Predict: which is more reactive, lithium (Li) or caesium (Cs)? Both are in Group 1.', answer: 'Caesium — it has more electron shells, so its outer electron is further from the nucleus and more easily lost.' },
+        {
+          question: 'How many outer electrons does an element in Group 6 have?',
+          answer: '6 outer electrons.',
+        },
+        {
+          question: 'What is the connection between period number and electron shells?',
+          answer:
+            'The period number tells you how many electron shells the element has (e.g. Period 3 elements have 3 shells).',
+        },
+        {
+          question: 'Why do Group 0 (noble gases) not react with other elements?',
+          answer:
+            'Their outer electron shells are completely full, so they have no tendency to gain, lose, or share electrons.',
+        },
+        {
+          question:
+            'Predict: which is more reactive, lithium (Li) or caesium (Cs)? Both are in Group 1.',
+          answer:
+            'Caesium — it has more electron shells, so its outer electron is further from the nucleus and more easily lost.',
+        },
       ],
       funFacts: [
         'Mendeleev predicted the properties of gallium before it was discovered — and was almost exactly right.',
-        'The rarest naturally occurring element is astatine — there is probably less than 1 gram of it in the entire Earth\'s crust at any one time.',
+        "The rarest naturally occurring element is astatine — there is probably less than 1 gram of it in the entire Earth's crust at any one time.",
         'Francium (Fr) is so unstable and rare that scientists estimate the entire Earth contains at most 20–30 grams of it.',
         'Element 118, Oganesson, was only created in 2002 and exists for less than a millisecond before decaying.',
       ],
@@ -250,7 +365,8 @@ export const chemistryTopics: ChemistryTopics = {
           correctIndex: 2,
         },
       ],
-      furtherReading: 'Royal Society of Chemistry: Interactive Periodic Table (rsc.org); BBC Bitesize: The Periodic Table',
+      furtherReading:
+        'Royal Society of Chemistry: Interactive Periodic Table (rsc.org); BBC Bitesize: The Periodic Table',
     },
     {
       title: 'Metals vs Non-Metals: Properties & Uses',
@@ -272,16 +388,35 @@ export const chemistryTopics: ChemistryTopics = {
         'Transition metals are particularly useful because they are strong, have high melting points, and can form colourful compounds — iron for construction, copper for wiring, gold for electronics.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Malleable', definition: 'Can be hammered or rolled into different shapes without breaking — a key property of metals.' },
-        { term: 'Ductile', definition: 'Can be drawn into thin wires — metals like copper are highly ductile.' },
-        { term: 'Conductor', definition: 'A material that allows electricity or heat to pass through it easily.' },
-        { term: 'Alloy', definition: 'A mixture of two or more metals (or a metal with a non-metal like carbon) with improved properties.' },
-        { term: 'Brittle', definition: 'Breaks or shatters rather than bending — a typical property of non-metals and ceramics.' },
+        {
+          term: 'Malleable',
+          definition:
+            'Can be hammered or rolled into different shapes without breaking — a key property of metals.',
+        },
+        {
+          term: 'Ductile',
+          definition: 'Can be drawn into thin wires — metals like copper are highly ductile.',
+        },
+        {
+          term: 'Conductor',
+          definition: 'A material that allows electricity or heat to pass through it easily.',
+        },
+        {
+          term: 'Alloy',
+          definition:
+            'A mixture of two or more metals (or a metal with a non-metal like carbon) with improved properties.',
+        },
+        {
+          term: 'Brittle',
+          definition:
+            'Breaks or shatters rather than bending — a typical property of non-metals and ceramics.',
+        },
       ],
       experiments: [
         {
           name: 'Testing Metal vs Non-Metal Properties',
-          description: 'Compare a selection of metals and non-metals using simple tests for conductivity, lustre, and malleability.',
+          description:
+            'Compare a selection of metals and non-metals using simple tests for conductivity, lustre, and malleability.',
           steps: [
             'Gather samples: copper wire, iron nail, pencil graphite (carbon), piece of sulfur (yellow powder), aluminium foil.',
             'Test conductivity: connect each sample in a simple circuit with a battery and bulb. Does the bulb light up?',
@@ -289,13 +424,26 @@ export const chemistryTopics: ChemistryTopics = {
             'Test malleability: try gently bending or flattening each. Which bend without breaking?',
             'Record all results in a table and classify each sample as metal or non-metal based on your results.',
           ],
-          safetyNote: 'Use low-voltage batteries only (1.5V AA cells). Do not taste or inhale powdered sulfur.',
+          safetyNote:
+            'Use low-voltage batteries only (1.5V AA cells). Do not taste or inhale powdered sulfur.',
         },
       ],
       practiceQuestions: [
-        { question: 'Why is copper used for electrical wiring?', answer: 'Copper is an excellent conductor of electricity, is ductile (can be drawn into thin wires), and resists corrosion.' },
-        { question: 'Why is steel stronger than pure iron?', answer: 'Steel is an alloy of iron and carbon. The carbon atoms disrupt the regular arrangement of iron atoms, making it harder to slide layers past each other, so the material is stronger.' },
-        { question: 'Explain why non-metals are generally poor conductors.', answer: 'Non-metals do not have free (delocalised) electrons to carry charge — their electrons are locked in bonds.' },
+        {
+          question: 'Why is copper used for electrical wiring?',
+          answer:
+            'Copper is an excellent conductor of electricity, is ductile (can be drawn into thin wires), and resists corrosion.',
+        },
+        {
+          question: 'Why is steel stronger than pure iron?',
+          answer:
+            'Steel is an alloy of iron and carbon. The carbon atoms disrupt the regular arrangement of iron atoms, making it harder to slide layers past each other, so the material is stronger.',
+        },
+        {
+          question: 'Explain why non-metals are generally poor conductors.',
+          answer:
+            'Non-metals do not have free (delocalised) electrons to carry charge — their electrons are locked in bonds.',
+        },
       ],
       funFacts: [
         'Gallium (a metal) melts in your hand — its melting point is just 29.8°C, slightly above room temperature.',
@@ -360,17 +508,40 @@ export const chemistryTopics: ChemistryTopics = {
         'Ionic compounds: have high melting and boiling points (strong lattice), conduct electricity when molten or dissolved in water (free ions can move), and are often soluble in water.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Ion', definition: 'An atom (or group of atoms) that has gained or lost electrons, giving it an overall charge.' },
-        { term: 'Cation', definition: 'A positively charged ion, formed when a metal atom loses electrons (e.g. Na⁺).' },
-        { term: 'Anion', definition: 'A negatively charged ion, formed when a non-metal atom gains electrons (e.g. Cl⁻).' },
-        { term: 'Ionic lattice', definition: 'The regular 3D arrangement of oppositely charged ions held together by strong electrostatic attraction.' },
-        { term: 'Electron transfer', definition: 'The movement of electrons from one atom to another, which creates ions.' },
-        { term: 'Electrostatic attraction', definition: 'The force of attraction between oppositely charged particles.' },
+        {
+          term: 'Ion',
+          definition:
+            'An atom (or group of atoms) that has gained or lost electrons, giving it an overall charge.',
+        },
+        {
+          term: 'Cation',
+          definition:
+            'A positively charged ion, formed when a metal atom loses electrons (e.g. Na⁺).',
+        },
+        {
+          term: 'Anion',
+          definition:
+            'A negatively charged ion, formed when a non-metal atom gains electrons (e.g. Cl⁻).',
+        },
+        {
+          term: 'Ionic lattice',
+          definition:
+            'The regular 3D arrangement of oppositely charged ions held together by strong electrostatic attraction.',
+        },
+        {
+          term: 'Electron transfer',
+          definition: 'The movement of electrons from one atom to another, which creates ions.',
+        },
+        {
+          term: 'Electrostatic attraction',
+          definition: 'The force of attraction between oppositely charged particles.',
+        },
       ],
       experiments: [
         {
           name: 'Modelling Ionic Bond Formation',
-          description: 'Use coloured counters to model the transfer of electrons when sodium reacts with chlorine.',
+          description:
+            'Use coloured counters to model the transfer of electrons when sodium reacts with chlorine.',
           steps: [
             'Draw two large circles: one labelled "Sodium atom (Na, 2,8,1)" and one labelled "Chlorine atom (Cl, 2,8,7)".',
             'Draw the electron shells in each circle using dots or crosses for electrons.',
@@ -382,9 +553,22 @@ export const chemistryTopics: ChemistryTopics = {
         },
       ],
       practiceQuestions: [
-        { question: 'What ion does magnesium (Group 2) form? Why?', answer: 'Mg²⁺ — magnesium loses its 2 outer electrons to achieve a full outer shell.' },
-        { question: 'Explain why ionic compounds conduct electricity when dissolved in water but not when solid.', answer: 'When dissolved, the ions are free to move and carry charge. In a solid, the ions are locked in the lattice and cannot move.' },
-        { question: 'Write the formula for the compound formed between calcium (Ca²⁺) and chloride (Cl⁻) ions.', answer: 'CaCl₂ — two chloride ions are needed to balance one calcium ion (2+ charge balanced by two 1− charges).' },
+        {
+          question: 'What ion does magnesium (Group 2) form? Why?',
+          answer: 'Mg²⁺ — magnesium loses its 2 outer electrons to achieve a full outer shell.',
+        },
+        {
+          question:
+            'Explain why ionic compounds conduct electricity when dissolved in water but not when solid.',
+          answer:
+            'When dissolved, the ions are free to move and carry charge. In a solid, the ions are locked in the lattice and cannot move.',
+        },
+        {
+          question:
+            'Write the formula for the compound formed between calcium (Ca²⁺) and chloride (Cl⁻) ions.',
+          answer:
+            'CaCl₂ — two chloride ions are needed to balance one calcium ion (2+ charge balanced by two 1− charges).',
+        },
       ],
       funFacts: [
         'Your body contains about 250g of salt (sodium chloride) — mostly in your blood and the fluid around cells.',
@@ -423,7 +607,8 @@ export const chemistryTopics: ChemistryTopics = {
           correctIndex: 2,
         },
       ],
-      furtherReading: 'BBC Bitesize: Ionic Bonding; Khan Academy: Ionic bonds and Coulombic attraction',
+      furtherReading:
+        'BBC Bitesize: Ionic Bonding; Khan Academy: Ionic bonds and Coulombic attraction',
     },
     {
       title: 'Covalent Bonding: Sharing is Caring',
@@ -445,12 +630,34 @@ export const chemistryTopics: ChemistryTopics = {
         'Graphite is unusual: it has layers of carbon atoms with weak forces between layers, making it a good lubricant and — unlike most covalent substances — a conductor of electricity (delocalised electrons between layers).',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Covalent bond', definition: 'A chemical bond formed by the sharing of a pair of electrons between two atoms.' },
-        { term: 'Single bond', definition: 'A covalent bond involving one shared pair of electrons (represented as —).' },
-        { term: 'Double bond', definition: 'A covalent bond involving two shared pairs of electrons (represented as =), e.g. in O₂ and CO₂.' },
-        { term: 'Simple molecular structure', definition: 'A substance made of small, discrete molecules with weak intermolecular forces.' },
-        { term: 'Giant covalent structure', definition: 'A huge network of atoms all covalently bonded — e.g. diamond or SiO₂.' },
-        { term: 'Delocalised electrons', definition: 'Electrons not associated with any one atom; in graphite they allow electrical conductivity.' },
+        {
+          term: 'Covalent bond',
+          definition:
+            'A chemical bond formed by the sharing of a pair of electrons between two atoms.',
+        },
+        {
+          term: 'Single bond',
+          definition: 'A covalent bond involving one shared pair of electrons (represented as —).',
+        },
+        {
+          term: 'Double bond',
+          definition:
+            'A covalent bond involving two shared pairs of electrons (represented as =), e.g. in O₂ and CO₂.',
+        },
+        {
+          term: 'Simple molecular structure',
+          definition:
+            'A substance made of small, discrete molecules with weak intermolecular forces.',
+        },
+        {
+          term: 'Giant covalent structure',
+          definition: 'A huge network of atoms all covalently bonded — e.g. diamond or SiO₂.',
+        },
+        {
+          term: 'Delocalised electrons',
+          definition:
+            'Electrons not associated with any one atom; in graphite they allow electrical conductivity.',
+        },
       ],
       experiments: [
         {
@@ -467,9 +674,20 @@ export const chemistryTopics: ChemistryTopics = {
         },
       ],
       practiceQuestions: [
-        { question: 'How many covalent bonds does a water molecule (H₂O) have?', answer: 'Two single covalent bonds — one between oxygen and each hydrogen atom.' },
-        { question: 'Why does diamond have a very high melting point?', answer: 'Diamond has a giant covalent structure — every carbon atom is bonded to four others in a huge 3D network. An enormous amount of energy is needed to break all these strong covalent bonds.' },
-        { question: 'Why does carbon dioxide (CO₂) not conduct electricity?', answer: 'CO₂ is a simple covalent molecule with no free electrons or ions to carry charge.' },
+        {
+          question: 'How many covalent bonds does a water molecule (H₂O) have?',
+          answer: 'Two single covalent bonds — one between oxygen and each hydrogen atom.',
+        },
+        {
+          question: 'Why does diamond have a very high melting point?',
+          answer:
+            'Diamond has a giant covalent structure — every carbon atom is bonded to four others in a huge 3D network. An enormous amount of energy is needed to break all these strong covalent bonds.',
+        },
+        {
+          question: 'Why does carbon dioxide (CO₂) not conduct electricity?',
+          answer:
+            'CO₂ is a simple covalent molecule with no free electrons or ions to carry charge.',
+        },
       ],
       funFacts: [
         'The strongest material ever tested is graphene — a single layer of graphite — yet it is just one atom thick.',
@@ -503,7 +721,8 @@ export const chemistryTopics: ChemistryTopics = {
           correctIndex: 2,
         },
       ],
-      furtherReading: 'BBC Bitesize: Covalent Bonding; Chemguide: Introduction to covalent bonding (chemguide.co.uk)',
+      furtherReading:
+        'BBC Bitesize: Covalent Bonding; Chemguide: Introduction to covalent bonding (chemguide.co.uk)',
     },
   ],
 
@@ -529,19 +748,47 @@ export const chemistryTopics: ChemistryTopics = {
         'Exothermic reactions release energy (feel hot) — combustion, neutralisation. Endothermic reactions absorb energy (feel cold) — thermal decomposition, some dissolving reactions.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Combustion', definition: 'A reaction between a fuel and oxygen that releases energy as heat and light.' },
-        { term: 'Oxidation', definition: 'Gaining oxygen (or losing hydrogen); the opposite of reduction.' },
-        { term: 'Thermal decomposition', definition: 'Breaking down a compound into simpler products using heat.' },
-        { term: 'Neutralisation', definition: 'The reaction between an acid and a base to form a salt and water.' },
-        { term: 'Precipitation', definition: 'The formation of an insoluble solid when two solutions are mixed.' },
-        { term: 'Displacement', definition: 'A more reactive element pushes out a less reactive element from a compound.' },
-        { term: 'Exothermic', definition: 'A reaction that releases energy to the surroundings — the temperature rises.' },
-        { term: 'Endothermic', definition: 'A reaction that absorbs energy from the surroundings — the temperature falls.' },
+        {
+          term: 'Combustion',
+          definition:
+            'A reaction between a fuel and oxygen that releases energy as heat and light.',
+        },
+        {
+          term: 'Oxidation',
+          definition: 'Gaining oxygen (or losing hydrogen); the opposite of reduction.',
+        },
+        {
+          term: 'Thermal decomposition',
+          definition: 'Breaking down a compound into simpler products using heat.',
+        },
+        {
+          term: 'Neutralisation',
+          definition: 'The reaction between an acid and a base to form a salt and water.',
+        },
+        {
+          term: 'Precipitation',
+          definition: 'The formation of an insoluble solid when two solutions are mixed.',
+        },
+        {
+          term: 'Displacement',
+          definition: 'A more reactive element pushes out a less reactive element from a compound.',
+        },
+        {
+          term: 'Exothermic',
+          definition:
+            'A reaction that releases energy to the surroundings — the temperature rises.',
+        },
+        {
+          term: 'Endothermic',
+          definition:
+            'A reaction that absorbs energy from the surroundings — the temperature falls.',
+        },
       ],
       experiments: [
         {
           name: 'Elephant Toothpaste: Decomposition in Action',
-          description: 'Watch a dramatic decomposition of hydrogen peroxide to produce an enormous foam eruption.',
+          description:
+            'Watch a dramatic decomposition of hydrogen peroxide to produce an enormous foam eruption.',
           steps: [
             'Pour 100ml of 6% hydrogen peroxide (H₂O₂) into a large bottle or cylinder.',
             'Add a squirt of washing-up liquid and a few drops of food colouring.',
@@ -550,13 +797,26 @@ export const chemistryTopics: ChemistryTopics = {
             'The yeast acts as a catalyst — it speeds up the decomposition of H₂O₂ into water and oxygen gas.',
             'The oxygen gets trapped in the foam, creating a dramatic eruption. Touch the foam — is it warm (exothermic) or cold?',
           ],
-          safetyNote: 'Use 6% H₂O₂ (available from hair supply shops) — not the stronger lab version. Wear gloves and goggles. Adult supervision required.',
+          safetyNote:
+            'Use 6% H₂O₂ (available from hair supply shops) — not the stronger lab version. Wear gloves and goggles. Adult supervision required.',
         },
       ],
       practiceQuestions: [
-        { question: 'Write a word equation for the complete combustion of methane (natural gas).', answer: 'Methane + oxygen → carbon dioxide + water.' },
-        { question: 'A hand warmer gets hot when activated. Is this reaction exothermic or endothermic? Explain.', answer: 'Exothermic — it releases energy to the surroundings, which is why it feels hot.' },
-        { question: 'Iron is more reactive than copper. What happens when iron is placed in copper sulfate solution?', answer: 'Iron displaces copper: iron + copper sulfate → iron sulfate + copper. A reddish-brown coating of copper forms on the iron.' },
+        {
+          question: 'Write a word equation for the complete combustion of methane (natural gas).',
+          answer: 'Methane + oxygen → carbon dioxide + water.',
+        },
+        {
+          question:
+            'A hand warmer gets hot when activated. Is this reaction exothermic or endothermic? Explain.',
+          answer: 'Exothermic — it releases energy to the surroundings, which is why it feels hot.',
+        },
+        {
+          question:
+            'Iron is more reactive than copper. What happens when iron is placed in copper sulfate solution?',
+          answer:
+            'Iron displaces copper: iron + copper sulfate → iron sulfate + copper. A reddish-brown coating of copper forms on the iron.',
+        },
       ],
       funFacts: [
         'The International Space Station uses decomposition of water (electrolysis) to produce oxygen for astronauts to breathe.',
@@ -580,7 +840,8 @@ export const chemistryTopics: ChemistryTopics = {
           correctIndex: 1,
         },
         {
-          question: 'Magnesium is more reactive than copper. What happens when magnesium is added to copper sulfate solution?',
+          question:
+            'Magnesium is more reactive than copper. What happens when magnesium is added to copper sulfate solution?',
           options: [
             'Nothing — they do not react',
             'Magnesium dissolves and copper is released',
@@ -590,7 +851,8 @@ export const chemistryTopics: ChemistryTopics = {
           correctIndex: 1,
         },
       ],
-      furtherReading: 'BBC Bitesize: Types of Chemical Reactions; Khan Academy: Chemical reactions and stoichiometry',
+      furtherReading:
+        'BBC Bitesize: Types of Chemical Reactions; Khan Academy: Chemical reactions and stoichiometry',
     },
     {
       title: 'Balancing Equations & Conservation of Mass',
@@ -612,11 +874,31 @@ export const chemistryTopics: ChemistryTopics = {
         'In a closed system, no mass is lost. If burning a metal in an open container, the product weighs more because oxygen from the air has been added.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Conservation of mass', definition: 'The total mass of substances before and after a chemical reaction is always the same.' },
-        { term: 'Coefficient', definition: 'The large number placed before a chemical formula in an equation to balance it (e.g. the 2 in 2H₂O).' },
-        { term: 'Reactants', definition: 'The substances that are present before a chemical reaction begins (on the left of an equation).' },
-        { term: 'Products', definition: 'The new substances formed in a chemical reaction (on the right of an equation).' },
-        { term: 'Balanced equation', definition: 'A chemical equation where the number of each type of atom is the same on both sides.' },
+        {
+          term: 'Conservation of mass',
+          definition:
+            'The total mass of substances before and after a chemical reaction is always the same.',
+        },
+        {
+          term: 'Coefficient',
+          definition:
+            'The large number placed before a chemical formula in an equation to balance it (e.g. the 2 in 2H₂O).',
+        },
+        {
+          term: 'Reactants',
+          definition:
+            'The substances that are present before a chemical reaction begins (on the left of an equation).',
+        },
+        {
+          term: 'Products',
+          definition:
+            'The new substances formed in a chemical reaction (on the right of an equation).',
+        },
+        {
+          term: 'Balanced equation',
+          definition:
+            'A chemical equation where the number of each type of atom is the same on both sides.',
+        },
       ],
       experiments: [
         {
@@ -630,13 +912,24 @@ export const chemistryTopics: ChemistryTopics = {
             'Wait for the reaction to stop, then record the mass again.',
             'Is the mass before equal to the mass after? Why do you think there might be a tiny difference if you do not seal the bag?',
           ],
-          safetyNote: 'Vinegar and bicarbonate are safe for this activity. Seal the bag fully to capture all gas produced.',
+          safetyNote:
+            'Vinegar and bicarbonate are safe for this activity. Seal the bag fully to capture all gas produced.',
         },
       ],
       practiceQuestions: [
-        { question: 'Balance this equation: Mg + O₂ → MgO', answer: '2Mg + O₂ → 2MgO (2 Mg and 2 O on each side).' },
-        { question: 'Balance: Fe + Cl₂ → FeCl₃', answer: '2Fe + 3Cl₂ → 2FeCl₃ (2 Fe and 6 Cl on each side).' },
-        { question: 'When 10g of calcium carbonate decomposes, 4.4g of CO₂ is produced. What mass of calcium oxide is produced?', answer: '5.6g — by conservation of mass: 10 − 4.4 = 5.6g.' },
+        {
+          question: 'Balance this equation: Mg + O₂ → MgO',
+          answer: '2Mg + O₂ → 2MgO (2 Mg and 2 O on each side).',
+        },
+        {
+          question: 'Balance: Fe + Cl₂ → FeCl₃',
+          answer: '2Fe + 3Cl₂ → 2FeCl₃ (2 Fe and 6 Cl on each side).',
+        },
+        {
+          question:
+            'When 10g of calcium carbonate decomposes, 4.4g of CO₂ is produced. What mass of calcium oxide is produced?',
+          answer: '5.6g — by conservation of mass: 10 − 4.4 = 5.6g.',
+        },
       ],
       funFacts: [
         'Lavoisier proved conservation of mass by carefully sealing reactions in containers and weighing before and after — radical for the 1700s.',
@@ -675,7 +968,8 @@ export const chemistryTopics: ChemistryTopics = {
           correctIndex: 2,
         },
       ],
-      furtherReading: 'Khan Academy: Balancing chemical equations; BBC Bitesize: Conservation of Mass',
+      furtherReading:
+        'Khan Academy: Balancing chemical equations; BBC Bitesize: Conservation of Mass',
     },
   ],
 
@@ -700,17 +994,33 @@ export const chemistryTopics: ChemistryTopics = {
         'Indicators are substances that change colour depending on pH. Universal indicator shows a rainbow of colours across the scale. Litmus: red in acid, blue in alkali.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Acid', definition: 'A substance that produces H⁺ ions in water; has a pH below 7.' },
-        { term: 'Base', definition: 'A substance that can neutralise an acid; alkalis are soluble bases.' },
-        { term: 'Alkali', definition: 'A soluble base that produces OH⁻ ions in water; has a pH above 7.' },
-        { term: 'pH scale', definition: 'A scale from 0–14 measuring how acidic or alkaline a solution is.' },
-        { term: 'Indicator', definition: 'A substance that changes colour depending on the pH of the solution.' },
+        {
+          term: 'Acid',
+          definition: 'A substance that produces H⁺ ions in water; has a pH below 7.',
+        },
+        {
+          term: 'Base',
+          definition: 'A substance that can neutralise an acid; alkalis are soluble bases.',
+        },
+        {
+          term: 'Alkali',
+          definition: 'A soluble base that produces OH⁻ ions in water; has a pH above 7.',
+        },
+        {
+          term: 'pH scale',
+          definition: 'A scale from 0–14 measuring how acidic or alkaline a solution is.',
+        },
+        {
+          term: 'Indicator',
+          definition: 'A substance that changes colour depending on the pH of the solution.',
+        },
         { term: 'Neutral', definition: 'Neither acidic nor alkaline; pH 7 (pure water).' },
       ],
       experiments: [
         {
           name: 'Red Cabbage pH Indicator',
-          description: 'Make your own natural pH indicator from red cabbage and test household substances.',
+          description:
+            'Make your own natural pH indicator from red cabbage and test household substances.',
           steps: [
             'Chop half a red cabbage and boil it in water for 10 minutes. The water turns deep purple-red.',
             'Strain the liquid and let it cool. This is your indicator.',
@@ -719,13 +1029,25 @@ export const chemistryTopics: ChemistryTopics = {
             'Observe the colour changes: red/pink = acid, purple = neutral, green/yellow = alkaline.',
             'Rank your substances on the pH scale and explain your reasoning.',
           ],
-          safetyNote: 'Dilute bleach only, and do not mix substances together. Adult supervision for bleach. Keep away from eyes.',
+          safetyNote:
+            'Dilute bleach only, and do not mix substances together. Adult supervision for bleach. Keep away from eyes.',
         },
       ],
       practiceQuestions: [
-        { question: 'A solution has pH 2. Is it a strong acid, weak acid, neutral, weak alkali or strong alkali?', answer: 'Strong acid (pH 0–3 is strongly acidic).' },
-        { question: 'What colour does litmus paper turn in an alkaline solution?', answer: 'Blue.' },
-        { question: 'Name TWO everyday acids and explain where they are found.', answer: 'Citric acid (in lemons, oranges); ethanoic acid/acetic acid (in vinegar); carbonic acid (in fizzy drinks). Any two with correct context.' },
+        {
+          question:
+            'A solution has pH 2. Is it a strong acid, weak acid, neutral, weak alkali or strong alkali?',
+          answer: 'Strong acid (pH 0–3 is strongly acidic).',
+        },
+        {
+          question: 'What colour does litmus paper turn in an alkaline solution?',
+          answer: 'Blue.',
+        },
+        {
+          question: 'Name TWO everyday acids and explain where they are found.',
+          answer:
+            'Citric acid (in lemons, oranges); ethanoic acid/acetic acid (in vinegar); carbonic acid (in fizzy drinks). Any two with correct context.',
+        },
       ],
       funFacts: [
         'Your stomach acid (hydrochloric acid) has a pH of about 1.5–2 — strong enough to dissolve a razor blade given enough time.',
@@ -782,16 +1104,37 @@ export const chemistryTopics: ChemistryTopics = {
         'Titration is the precise technique used in labs to find the exact volume of acid that neutralises a known volume of alkali.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Neutralisation', definition: 'The reaction between an acid and a base to produce a salt and water — always exothermic.' },
-        { term: 'Salt', definition: 'An ionic compound formed when the hydrogen in an acid is replaced by a metal ion.' },
-        { term: 'Titration', definition: 'A precise lab technique to find the exact volume of one solution needed to react with another.' },
-        { term: 'End point', definition: 'The point in a titration where the indicator changes colour, showing neutralisation is complete.' },
-        { term: 'Crystallisation', definition: 'A separation technique where a dissolved substance is obtained as solid crystals by evaporating the solution.' },
+        {
+          term: 'Neutralisation',
+          definition:
+            'The reaction between an acid and a base to produce a salt and water — always exothermic.',
+        },
+        {
+          term: 'Salt',
+          definition:
+            'An ionic compound formed when the hydrogen in an acid is replaced by a metal ion.',
+        },
+        {
+          term: 'Titration',
+          definition:
+            'A precise lab technique to find the exact volume of one solution needed to react with another.',
+        },
+        {
+          term: 'End point',
+          definition:
+            'The point in a titration where the indicator changes colour, showing neutralisation is complete.',
+        },
+        {
+          term: 'Crystallisation',
+          definition:
+            'A separation technique where a dissolved substance is obtained as solid crystals by evaporating the solution.',
+        },
       ],
       experiments: [
         {
           name: 'Making Copper Sulfate Crystals',
-          description: 'React copper oxide (a base) with sulfuric acid to make beautiful blue copper sulfate crystals.',
+          description:
+            'React copper oxide (a base) with sulfuric acid to make beautiful blue copper sulfate crystals.',
           steps: [
             'Measure 25ml of dilute sulfuric acid into a beaker and warm it gently on a hotplate (do NOT boil).',
             'Add a spatula of black copper oxide powder and stir. The black powder dissolves as blue solution forms.',
@@ -800,13 +1143,25 @@ export const chemistryTopics: ChemistryTopics = {
             'Gently heat the blue solution until about half has evaporated, then leave to cool slowly.',
             'Large, brilliant blue copper sulfate crystals should form. Observe their regular shape!',
           ],
-          safetyNote: 'Wear goggles and gloves throughout. Dilute sulfuric acid is corrosive. Copper sulfate is harmful — wash hands after handling.',
+          safetyNote:
+            'Wear goggles and gloves throughout. Dilute sulfuric acid is corrosive. Copper sulfate is harmful — wash hands after handling.',
         },
       ],
       practiceQuestions: [
-        { question: 'What salt is formed when nitric acid reacts with potassium hydroxide?', answer: 'Potassium nitrate (KNO₃): nitric acid → nitrate salt; potassium hydroxide → potassium salt.' },
-        { question: 'Write the word equation for: sulfuric acid + copper oxide → ?', answer: 'Sulfuric acid + copper oxide → copper sulfate + water.' },
-        { question: 'Why is excess base added when preparing a salt in the lab?', answer: 'To ensure all the acid is neutralised — you need to be certain none of the corrosive acid remains in the product.' },
+        {
+          question: 'What salt is formed when nitric acid reacts with potassium hydroxide?',
+          answer:
+            'Potassium nitrate (KNO₃): nitric acid → nitrate salt; potassium hydroxide → potassium salt.',
+        },
+        {
+          question: 'Write the word equation for: sulfuric acid + copper oxide → ?',
+          answer: 'Sulfuric acid + copper oxide → copper sulfate + water.',
+        },
+        {
+          question: 'Why is excess base added when preparing a salt in the lab?',
+          answer:
+            'To ensure all the acid is neutralised — you need to be certain none of the corrosive acid remains in the product.',
+        },
       ],
       funFacts: [
         'Indigestion tablets work by neutralising excess hydrochloric acid in your stomach — typically using calcium carbonate or magnesium hydroxide.',
@@ -821,12 +1176,7 @@ export const chemistryTopics: ChemistryTopics = {
       quizQuestions: [
         {
           question: 'What are the products of a neutralisation reaction?',
-          options: [
-            'Acid + base',
-            'Salt + water',
-            'Salt + hydrogen gas',
-            'Oxide + water',
-          ],
+          options: ['Acid + base', 'Salt + water', 'Salt + hydrogen gas', 'Oxide + water'],
           correctIndex: 1,
         },
         {
@@ -835,7 +1185,8 @@ export const chemistryTopics: ChemistryTopics = {
           correctIndex: 2,
         },
         {
-          question: 'What is the name of the salt formed when hydrochloric acid reacts with sodium hydroxide?',
+          question:
+            'What is the name of the salt formed when hydrochloric acid reacts with sodium hydroxide?',
           options: ['Sodium sulfate', 'Sodium nitrate', 'Sodium chloride', 'Sodium carbonate'],
           correctIndex: 2,
         },
@@ -865,17 +1216,36 @@ export const chemistryTopics: ChemistryTopics = {
         'Diffusion: the spreading of particles from high concentration to low concentration. Gases diffuse faster than liquids because their particles move faster.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Particle theory', definition: 'The model that explains the properties of matter by describing the arrangement and movement of tiny particles.' },
-        { term: 'Melting point', definition: 'The temperature at which a solid changes to a liquid.' },
-        { term: 'Boiling point', definition: 'The temperature at which a liquid changes to a gas throughout its volume.' },
-        { term: 'Diffusion', definition: 'The spreading out of particles from an area of high concentration to an area of low concentration.' },
-        { term: 'Sublimation', definition: 'When a solid turns directly into a gas without passing through the liquid state.' },
+        {
+          term: 'Particle theory',
+          definition:
+            'The model that explains the properties of matter by describing the arrangement and movement of tiny particles.',
+        },
+        {
+          term: 'Melting point',
+          definition: 'The temperature at which a solid changes to a liquid.',
+        },
+        {
+          term: 'Boiling point',
+          definition: 'The temperature at which a liquid changes to a gas throughout its volume.',
+        },
+        {
+          term: 'Diffusion',
+          definition:
+            'The spreading out of particles from an area of high concentration to an area of low concentration.',
+        },
+        {
+          term: 'Sublimation',
+          definition:
+            'When a solid turns directly into a gas without passing through the liquid state.',
+        },
         { term: 'Condensation', definition: 'When a gas cools and turns into a liquid.' },
       ],
       experiments: [
         {
           name: 'Diffusion Race: Ammonia vs Hydrochloric Acid',
-          description: 'Watch two gases diffuse towards each other along a glass tube and see which travels faster.',
+          description:
+            'Watch two gases diffuse towards each other along a glass tube and see which travels faster.',
           steps: [
             'Take a 50cm glass or clear plastic tube with open ends.',
             'Soak one cotton ball in concentrated ammonia solution and another in concentrated hydrochloric acid.',
@@ -884,13 +1254,26 @@ export const chemistryTopics: ChemistryTopics = {
             'Measure the distance of the ring from each end. Which gas travelled further? (Hint: lighter molecules diffuse faster.)',
             'NH₃ (molar mass 17) vs HCl (molar mass 36.5) — predict which diffuses faster before you start!',
           ],
-          safetyNote: 'Do this in a well-ventilated space or fume cupboard. Ammonia and HCl are irritants — avoid inhaling. Adult supervision required.',
+          safetyNote:
+            'Do this in a well-ventilated space or fume cupboard. Ammonia and HCl are irritants — avoid inhaling. Adult supervision required.',
         },
       ],
       practiceQuestions: [
-        { question: 'Explain why gases can be compressed but solids cannot.', answer: 'In gases, particles are far apart with lots of empty space between them — they can be pushed closer together. In solids, particles are already packed tightly together with no space to compress into.' },
-        { question: 'Why does the temperature stay constant during melting?', answer: 'The energy being absorbed is used to overcome the forces between particles (breaking the lattice), not to speed up the particles — so temperature does not rise.' },
-        { question: 'Why does perfume spread across a room quickly?', answer: 'Diffusion — perfume molecules are volatile (become a gas easily) and spread from high concentration (near the bottle) to low concentration (across the room).' },
+        {
+          question: 'Explain why gases can be compressed but solids cannot.',
+          answer:
+            'In gases, particles are far apart with lots of empty space between them — they can be pushed closer together. In solids, particles are already packed tightly together with no space to compress into.',
+        },
+        {
+          question: 'Why does the temperature stay constant during melting?',
+          answer:
+            'The energy being absorbed is used to overcome the forces between particles (breaking the lattice), not to speed up the particles — so temperature does not rise.',
+        },
+        {
+          question: 'Why does perfume spread across a room quickly?',
+          answer:
+            'Diffusion — perfume molecules are volatile (become a gas easily) and spread from high concentration (near the bottle) to low concentration (across the room).',
+        },
       ],
       funFacts: [
         'Plasma is sometimes called the fourth state of matter — it is like a gas, but the particles have so much energy that electrons are stripped from atoms. Stars are made of plasma.',
@@ -951,17 +1334,41 @@ export const chemistryTopics: ChemistryTopics = {
         'Crystallisation: obtaining large, pure crystals from a dissolved solid by slow evaporation and cooling.',
       ],
       keyConceptsAndDefinitions: [
-        { term: 'Filtration', definition: 'Separating an insoluble solid from a liquid using filter paper.' },
-        { term: 'Distillation', definition: 'Separating liquids by evaporation and condensation, exploiting different boiling points.' },
-        { term: 'Chromatography', definition: 'Separating dissolved substances based on how they move through a medium with a solvent.' },
-        { term: 'Rf value', definition: 'In chromatography, the distance a substance travels divided by the distance the solvent travels — used to identify substances.' },
-        { term: 'Fractional distillation', definition: 'Separation of a mixture of liquids with different boiling points using a fractionating column.' },
-        { term: 'Crystallisation', definition: 'Obtaining a pure solid by dissolving it, then slowly evaporating the solution to form regular crystals.' },
+        {
+          term: 'Filtration',
+          definition: 'Separating an insoluble solid from a liquid using filter paper.',
+        },
+        {
+          term: 'Distillation',
+          definition:
+            'Separating liquids by evaporation and condensation, exploiting different boiling points.',
+        },
+        {
+          term: 'Chromatography',
+          definition:
+            'Separating dissolved substances based on how they move through a medium with a solvent.',
+        },
+        {
+          term: 'Rf value',
+          definition:
+            'In chromatography, the distance a substance travels divided by the distance the solvent travels — used to identify substances.',
+        },
+        {
+          term: 'Fractional distillation',
+          definition:
+            'Separation of a mixture of liquids with different boiling points using a fractionating column.',
+        },
+        {
+          term: 'Crystallisation',
+          definition:
+            'Obtaining a pure solid by dissolving it, then slowly evaporating the solution to form regular crystals.',
+        },
       ],
       experiments: [
         {
-          name: 'Paper Chromatography: What\'s in the Ink?',
-          description: 'Use paper chromatography to separate and identify the pigments in felt-tip pen ink.',
+          name: "Paper Chromatography: What's in the Ink?",
+          description:
+            'Use paper chromatography to separate and identify the pigments in felt-tip pen ink.',
           steps: [
             'Cut strips of filter paper or coffee filter about 2cm wide and 15cm long.',
             'Draw a pencil line 2cm from the bottom of each strip.',
@@ -971,13 +1378,28 @@ export const chemistryTopics: ChemistryTopics = {
             'Once the water is near the top, remove and dry the strips. Measure and identify the separate colour bands.',
             'Calculate Rf values: distance moved by spot ÷ distance moved by solvent.',
           ],
-          safetyNote: 'No safety hazards for this experiment with water-soluble inks. Pencil must be used for the baseline (pen ink would spread).',
+          safetyNote:
+            'No safety hazards for this experiment with water-soluble inks. Pencil must be used for the baseline (pen ink would spread).',
         },
       ],
       practiceQuestions: [
-        { question: 'Which technique would you use to separate sand from salt water? Describe the steps.', answer: 'First filter to remove sand, then evaporate to recover the salt. (Or distil the filtrate to collect pure water and leave the salt behind.)' },
-        { question: 'Why is fractional distillation used to separate crude oil rather than simple distillation?', answer: 'Crude oil contains many different hydrocarbons with different boiling points — fractional distillation separates them into fractions by collecting vapours at different temperatures.' },
-        { question: 'In chromatography, what does an Rf value of 1 mean?', answer: 'The substance moved the same distance as the solvent — it has no attraction to the paper and is carried entirely by the solvent.' },
+        {
+          question:
+            'Which technique would you use to separate sand from salt water? Describe the steps.',
+          answer:
+            'First filter to remove sand, then evaporate to recover the salt. (Or distil the filtrate to collect pure water and leave the salt behind.)',
+        },
+        {
+          question:
+            'Why is fractional distillation used to separate crude oil rather than simple distillation?',
+          answer:
+            'Crude oil contains many different hydrocarbons with different boiling points — fractional distillation separates them into fractions by collecting vapours at different temperatures.',
+        },
+        {
+          question: 'In chromatography, what does an Rf value of 1 mean?',
+          answer:
+            'The substance moved the same distance as the solvent — it has no attraction to the paper and is carried entirely by the solvent.',
+        },
       ],
       funFacts: [
         'The alcohol in spirits (like rum and whisky) is produced by distillation — which is why distilleries are so important in Caribbean culture and history.',
@@ -997,12 +1419,7 @@ export const chemistryTopics: ChemistryTopics = {
         },
         {
           question: 'What property difference allows distillation to separate two liquids?',
-          options: [
-            'Colour',
-            'Boiling point',
-            'Melting point',
-            'Density',
-          ],
+          options: ['Colour', 'Boiling point', 'Melting point', 'Density'],
           correctIndex: 1,
         },
         {
@@ -1016,7 +1433,10 @@ export const chemistryTopics: ChemistryTopics = {
   ],
 };
 
-export function getAllChemistryLessons(): { lesson: ChemistryLesson; category: ChemistryTopicCategory }[] {
+export function getAllChemistryLessons(): {
+  lesson: ChemistryLesson;
+  category: ChemistryTopicCategory;
+}[] {
   const categories = Object.keys(chemistryTopics) as ChemistryTopicCategory[];
   return categories.flatMap((category) =>
     chemistryTopics[category].map((lesson) => ({ lesson, category })),
@@ -1041,11 +1461,44 @@ export const chemistryCategoryIcons: Record<ChemistryTopicCategory, string> = {
   materialsAndStates: '🧊',
 };
 
-export const chemistryCategoryColors: Record<ChemistryTopicCategory, { bg: string; border: string; text: string; badge: string }> = {
-  atomsAndElements: { bg: 'from-violet-50 to-violet-100', border: 'border-violet-500', text: 'text-violet-900', badge: 'bg-violet-500' },
-  periodicTable: { bg: 'from-cyan-50 to-cyan-100', border: 'border-cyan-500', text: 'text-cyan-900', badge: 'bg-cyan-500' },
-  chemicalBonding: { bg: 'from-emerald-50 to-emerald-100', border: 'border-emerald-500', text: 'text-emerald-900', badge: 'bg-emerald-500' },
-  chemicalReactions: { bg: 'from-orange-50 to-orange-100', border: 'border-orange-500', text: 'text-orange-900', badge: 'bg-orange-500' },
-  acidsAndBases: { bg: 'from-rose-50 to-rose-100', border: 'border-rose-500', text: 'text-rose-900', badge: 'bg-rose-500' },
-  materialsAndStates: { bg: 'from-sky-50 to-sky-100', border: 'border-sky-500', text: 'text-sky-900', badge: 'bg-sky-500' },
+export const chemistryCategoryColors: Record<
+  ChemistryTopicCategory,
+  { bg: string; border: string; text: string; badge: string }
+> = {
+  atomsAndElements: {
+    bg: 'from-violet-50 to-violet-100',
+    border: 'border-violet-500',
+    text: 'text-violet-900',
+    badge: 'bg-violet-500',
+  },
+  periodicTable: {
+    bg: 'from-cyan-50 to-cyan-100',
+    border: 'border-cyan-500',
+    text: 'text-cyan-900',
+    badge: 'bg-cyan-500',
+  },
+  chemicalBonding: {
+    bg: 'from-emerald-50 to-emerald-100',
+    border: 'border-emerald-500',
+    text: 'text-emerald-900',
+    badge: 'bg-emerald-500',
+  },
+  chemicalReactions: {
+    bg: 'from-orange-50 to-orange-100',
+    border: 'border-orange-500',
+    text: 'text-orange-900',
+    badge: 'bg-orange-500',
+  },
+  acidsAndBases: {
+    bg: 'from-rose-50 to-rose-100',
+    border: 'border-rose-500',
+    text: 'text-rose-900',
+    badge: 'bg-rose-500',
+  },
+  materialsAndStates: {
+    bg: 'from-sky-50 to-sky-100',
+    border: 'border-sky-500',
+    text: 'text-sky-900',
+    badge: 'bg-sky-500',
+  },
 };
