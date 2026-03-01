@@ -193,6 +193,25 @@ export interface EtymologyQuizQuestion {
   explanation: string;
 }
 
+// Section Learning Tools Types
+// A single content section with a stable unique ID for tracking
+export interface Section {
+  id: string;
+  title: string;
+  text: string;
+}
+
+// Payload sent to /api/simplify
+export interface SimplifyRequest {
+  sectionId: string;
+  text: string;
+}
+
+// Response from /api/simplify
+export interface SimplifyResponse {
+  simplified: string;
+}
+
 // Quiz Types
 export interface QuizQuestion {
   id: string;

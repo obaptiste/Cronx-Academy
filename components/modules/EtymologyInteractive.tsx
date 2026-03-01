@@ -17,7 +17,17 @@ import type { EtymologyLanguageNode } from '@/types';
 
 function IconChevronDown({ size = 14, style }: { size?: number; style?: React.CSSProperties }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={style}
+    >
       <polyline points="6 9 12 15 18 9" />
     </svg>
   );
@@ -25,7 +35,17 @@ function IconChevronDown({ size = 14, style }: { size?: number; style?: React.CS
 
 function IconChevronRight({ size = 14, style }: { size?: number; style?: React.CSSProperties }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={style}
+    >
       <polyline points="9 18 15 12 9 6" />
     </svg>
   );
@@ -33,7 +53,17 @@ function IconChevronRight({ size = 14, style }: { size?: number; style?: React.C
 
 function IconChevronLeft({ size = 14, style }: { size?: number; style?: React.CSSProperties }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={style}>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={style}
+    >
       <polyline points="15 18 9 12 15 6" />
     </svg>
   );
@@ -41,7 +71,17 @@ function IconChevronLeft({ size = 14, style }: { size?: number; style?: React.CS
 
 function IconCheck({ size = 14, className }: { size?: number; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
       <polyline points="20 6 9 17 4 12" />
     </svg>
   );
@@ -49,8 +89,19 @@ function IconCheck({ size = 14, className }: { size?: number; className?: string
 
 function IconX({ size = 14, className }: { size?: number; className?: string }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
 }
@@ -247,7 +298,7 @@ function NodeDetailPanel({ node }: { node: EtymologyLanguageNode }) {
                 style={{ background: `${GOLD}0d`, border: `1px solid ${GOLD}22` }}
               >
                 <p className="mb-1 font-bold" style={{ color: PARCHMENT }}>
-                  "{ex.modernWord}"
+                  &quot;{ex.modernWord}&quot;
                 </p>
                 <div className="mb-1 flex flex-wrap gap-1">
                   {ex.chain.map((step, j) => (
@@ -635,7 +686,7 @@ function WordDetective() {
           className="mb-4 text-xl font-bold"
           style={{ color: PARCHMENT, fontFamily: 'Georgia, serif' }}
         >
-          "{round.word}"
+          &quot;{round.word}&quot;
         </h3>
         <p className="mb-1 text-3xl font-bold" style={{ color: GOLD }}>
           {roundCorrect}/{totalSteps}
@@ -1338,8 +1389,8 @@ export default function EtymologyInteractive() {
               Quiz Zone — 15 Questions
             </h2>
             <p className="text-sm" style={{ color: `${PARCHMENT}99` }}>
-              Test everything you've learned. Answer all 15 questions, then submit to see your
-              badge. Expand each question's explanation to learn more.
+              Test everything you&apos;ve learned. Answer all 15 questions, then submit to see your
+              badge. Expand each question&apos;s explanation to learn more.
             </p>
           </div>
         )}
@@ -1379,7 +1430,9 @@ export default function EtymologyInteractive() {
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-2">
-                  <span className="mt-0.5 flex-shrink-0" style={{ color: TEAL, fontSize: 10 }}>★</span>
+                  <span className="mt-0.5 flex-shrink-0" style={{ color: TEAL, fontSize: 10 }}>
+                    ★
+                  </span>
                   <span style={{ color: `${PARCHMENT}cc` }}>
                     <strong style={{ color: '#7dd3ea' }}>{item.lang}:</strong> {item.places}
                   </span>
