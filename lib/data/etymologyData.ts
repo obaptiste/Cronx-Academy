@@ -20,7 +20,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
     examples: [
       {
         modernWord: 'father',
-        chain: ['father (English)', 'fæder (Old English)', 'fadēr (Proto-Germanic)', '*ph₂tḗr (PIE)'],
+        chain: [
+          'father (English)',
+          'fæder (Old English)',
+          'fadēr (Proto-Germanic)',
+          '*ph₂tḗr (PIE)',
+        ],
         meaning:
           'Compare: pater (Latin), patḗr (Greek), pitṛ́ (Sanskrit) — all from the same ancient root across thousands of miles.',
       },
@@ -53,11 +58,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
           '*abonā (Proto-Celtic)',
           '*h₂ep- (PIE, "water")',
         ],
-        meaning: 'There are 8 rivers called Avon in Britain — all from Celtic. The Romans borrowed the name too.',
+        meaning:
+          'There are 8 rivers called Avon in Britain — all from Celtic. The Romans borrowed the name too.',
       },
     ],
     didYouKnow:
-      "Celtic languages once dominated all of Western Europe — from Turkey to Ireland. The Romans pushed them to the Atlantic fringe. Celtic is the original language family of Britain before English even existed.",
+      'Celtic languages once dominated all of Western Europe — from Turkey to Ireland. The Romans pushed them to the Atlantic fringe. Celtic is the original language family of Britain before English even existed.',
     caribbeanConnection:
       "Many Caribbean islands were colonised by British settlers with Celtic roots — from Cornwall, Ireland, and Scotland. Celtic words like 'clan' and 'whiskey' (uisce beatha, 'water of life') reached the Caribbean through these settlers.",
   },
@@ -74,7 +80,8 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'whiskey',
         chain: ['whiskey (English)', 'fuisce (Irish)', 'uisce beatha (Irish, "water of life")'],
-        meaning: "The same concept gives French 'eau-de-vie' and Latin 'aqua vitae' — water of life across languages.",
+        meaning:
+          "The same concept gives French 'eau-de-vie' and Latin 'aqua vitae' — water of life across languages.",
       },
     ],
     didYouKnow:
@@ -93,7 +100,8 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'dragon',
         chain: ['dragon (English)', 'draig (Welsh)', 'draco (Latin)', 'drakōn (Greek)'],
-        meaning: "The Welsh dragon (Y Ddraig Goch — 'The Red Dragon') is on the Welsh flag. An ancient word.",
+        meaning:
+          "The Welsh dragon (Y Ddraig Goch — 'The Red Dragon') is on the Welsh flag. An ancient word.",
       },
     ],
     didYouKnow:
@@ -117,11 +125,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
           'Britannia (Latin)',
           'Brython (Celtic, "Briton")',
         ],
-        meaning: "Brittany = 'Little Britain' — named by Celtic settlers who migrated from southwest Britain around 500 CE.",
+        meaning:
+          "Brittany = 'Little Britain' — named by Celtic settlers who migrated from southwest Britain around 500 CE.",
       },
     ],
     didYouKnow:
-      "Breton is more closely related to Welsh and Cornish than to Irish. Its speakers migrated from southwest Britain to what is now France — they took their language with them across the Channel.",
+      'Breton is more closely related to Welsh and Cornish than to Irish. Its speakers migrated from southwest Britain to what is now France — they took their language with them across the Channel.',
   },
   {
     id: 'scottish-gaelic',
@@ -136,13 +145,14 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'clan',
         chain: ['clan (English)', 'clann (Scottish Gaelic/Irish, "children/family")'],
-        meaning: "The word 'clan' entered English directly from Scottish Gaelic during the Highland clan system.",
+        meaning:
+          "The word 'clan' entered English directly from Scottish Gaelic during the Highland clan system.",
       },
     ],
     didYouKnow:
       "Scottish Gaelic arrived from Ireland around 500 CE. Today it's mostly spoken in the Hebridean islands. Many Scots-Gaelic speakers emigrated to or were transported to the Caribbean in the 17th–19th centuries.",
     caribbeanConnection:
-      "Scottish Highlanders — many Gaelic-speaking — were transported to or emigrated to the Caribbean from the 1600s onward. Scottish surnames and place names appear across Jamaica, Barbados, and Guyana.",
+      'Scottish Highlanders — many Gaelic-speaking — were transported to or emigrated to the Caribbean from the 1600s onward. Scottish surnames and place names appear across Jamaica, Barbados, and Guyana.',
   },
   {
     id: 'cornish',
@@ -157,11 +167,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'penguin (possibly)',
         chain: ['penguin (English)', 'pen gwyn (Cornish/Welsh, "white head")'],
-        meaning: "The word 'penguin' may come from Cornish or Welsh pen gwyn — though linguists still debate this!",
+        meaning:
+          "The word 'penguin' may come from Cornish or Welsh pen gwyn — though linguists still debate this!",
       },
     ],
     didYouKnow:
-      "Dolly Pentreath (died 1777) is often cited as the last native Cornish speaker. The language was declared extinct — then activists began reviving it. Today around 600 people speak a language that came back from the dead.",
+      'Dolly Pentreath (died 1777) is often cited as the last native Cornish speaker. The language was declared extinct — then activists began reviving it. Today around 600 people speak a language that came back from the dead.',
   },
   // ─ Germanic family
   {
@@ -181,7 +192,8 @@ export const languageNodes: EtymologyLanguageNode[] = [
           'gudhus (Gothic, "god-house/temple")',
           '*keus- (PIE, "to hide/cover")',
         ],
-        meaning: "The concept of a house as a 'covering place' goes back 6,000 years. Gothic used it for God's house.",
+        meaning:
+          "The concept of a house as a 'covering place' goes back 6,000 years. Gothic used it for God's house.",
       },
     ],
     didYouKnow:
@@ -224,7 +236,8 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'ombudsman',
         chain: ['ombudsman (English)', 'ombudsman (Swedish, "legal representative")'],
-        meaning: "This Swedish word entered English unchanged — it means a person who investigates complaints against institutions.",
+        meaning:
+          'This Swedish word entered English unchanged — it means a person who investigates complaints against institutions.',
       },
     ],
     didYouKnow:
@@ -242,12 +255,17 @@ export const languageNodes: EtymologyLanguageNode[] = [
     examples: [
       {
         modernWord: 'geyser',
-        chain: ['geyser (English)', 'Geysir (Icelandic hot spring name)', 'gjósa (Old Norse, "to gush")'],
-        meaning: "Named after the specific Icelandic geyser 'Geysir' — the place name became the word for all geysers.",
+        chain: [
+          'geyser (English)',
+          'Geysir (Icelandic hot spring name)',
+          'gjósa (Old Norse, "to gush")',
+        ],
+        meaning:
+          "Named after the specific Icelandic geyser 'Geysir' — the place name became the word for all geysers.",
       },
     ],
     didYouKnow:
-      "Icelandic has changed so little in 1,000 years that Icelanders can still read 9th-century Viking sagas in the original — like English speakers being able to read Beowulf without any help.",
+      'Icelandic has changed so little in 1,000 years that Icelanders can still read 9th-century Viking sagas in the original — like English speakers being able to read Beowulf without any help.',
   },
   {
     id: 'norn',
@@ -261,11 +279,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'bairn (Orcadian dialect)',
         chain: ['bairn (Scottish dialect, "child")', 'barn (Norn/Old Norse, "child/barn")'],
-        meaning: 'Traces of Norn survive in Orkney and Shetland dialect words that English speakers in those islands still use.',
+        meaning:
+          'Traces of Norn survive in Orkney and Shetland dialect words that English speakers in those islands still use.',
       },
     ],
     didYouKnow:
-      "Norn died when Orkney and Shetland were transferred from Norway to Scotland in 1468. Scots English gradually replaced it. The last speakers probably died in the 18th–19th century.",
+      'Norn died when Orkney and Shetland were transferred from Norway to Scotland in 1468. Scots English gradually replaced it. The last speakers probably died in the 18th–19th century.',
   },
   {
     id: 'west-germanic',
@@ -279,11 +298,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'apple',
         chain: ['apple (English)', 'æppel (Old English)', '*aplaz (Proto-Germanic)'],
-        meaning: 'One of the oldest cultivated fruits — the Germanic word for apple is ancient and widespread.',
+        meaning:
+          'One of the oldest cultivated fruits — the Germanic word for apple is ancient and widespread.',
       },
     ],
     didYouKnow:
-      "West Germanic languages evolved from tribes in what is now Germany and the Netherlands. Anglo-Saxon settlers brought West Germanic to Britain in the 5th–6th centuries CE, forming the foundation of English.",
+      'West Germanic languages evolved from tribes in what is now Germany and the Netherlands. Anglo-Saxon settlers brought West Germanic to Britain in the 5th–6th centuries CE, forming the foundation of English.',
   },
   {
     id: 'english',
@@ -298,17 +318,17 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'beef / cow',
         chain: [
-          "beef (English, for eating) → bœuf (French) → bos/bovis (Latin) → *gʷōus (PIE)",
-          "cow (English, for the animal) → cū (Old English) → *kWōus (PIE)",
+          'beef (English, for eating) → bœuf (French) → bos/bovis (Latin) → *gʷōus (PIE)',
+          'cow (English, for the animal) → cū (Old English) → *kWōus (PIE)',
         ],
         meaning:
-          "After 1066, French-speaking Normans ate the meat while Anglo-Saxon peasants tended the animals — English ended up with two words for the same creature.",
+          'After 1066, French-speaking Normans ate the meat while Anglo-Saxon peasants tended the animals — English ended up with two words for the same creature.',
       },
     ],
     didYouKnow:
       "English is a hybrid — 60% of its vocabulary comes from French and Latin (post-1066), while its grammar and most common words are Germanic. It is the world's great linguistic crossroads.",
     caribbeanConnection:
-      "English colonised Jamaica (1655), Barbados (1627), Trinidad (1797), and many other Caribbean islands. Caribbean English Creoles — like Jamaican Patois — evolved from contact between English and African languages, creating entirely new forms.",
+      'English colonised Jamaica (1655), Barbados (1627), Trinidad (1797), and many other Caribbean islands. Caribbean English Creoles — like Jamaican Patois — evolved from contact between English and African languages, creating entirely new forms.',
   },
   {
     id: 'german',
@@ -324,7 +344,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
         modernWord: 'kindergarten',
         chain: ['kindergarten (English)', 'Kindergarten (German, "children-garden")'],
         meaning:
-          "Friedrich Froebel invented the concept in 1837 — the English-speaking world adopted both the idea AND the German word.",
+          'Friedrich Froebel invented the concept in 1837 — the English-speaking world adopted both the idea AND the German word.',
       },
     ],
     didYouKnow:
@@ -343,11 +363,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'coleslaw',
         chain: ['coleslaw (English)', 'koolsla (Dutch, "cabbage salad")'],
-        meaning: "Dutch colonial settlers in America brought their cuisine — and their vocabulary — with them.",
+        meaning:
+          'Dutch colonial settlers in America brought their cuisine — and their vocabulary — with them.',
       },
     ],
     didYouKnow:
-      "Dutch colonial presence in the Caribbean (Curaçao, Aruba, Suriname) created Papiamentu — a remarkable creole blending Dutch, Spanish, Portuguese, and West African languages.",
+      'Dutch colonial presence in the Caribbean (Curaçao, Aruba, Suriname) created Papiamentu — a remarkable creole blending Dutch, Spanish, Portuguese, and West African languages.',
     caribbeanConnection:
       "The Dutch colonised Curaçao (1634), Aruba, and Suriname. Papiamentu, spoken in Curaçao and Aruba, is one of the Caribbean's most fascinating linguistic creations — mixing Dutch, Spanish, Portuguese, and African languages into something entirely new.",
   },
@@ -369,7 +390,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
       },
     ],
     didYouKnow:
-      "Frisian is the closest living language to English — more closely related than German or Dutch. If you speak both English and Frisian, you would notice astonishing similarities in core vocabulary.",
+      'Frisian is the closest living language to English — more closely related than German or Dutch. If you speak both English and Frisian, you would notice astonishing similarities in core vocabulary.',
   },
   // ─ Italic/Romance family
   {
@@ -393,9 +414,9 @@ export const languageNodes: EtymologyLanguageNode[] = [
       },
     ],
     didYouKnow:
-      "Romance languages evolved from Vulgar Latin — everyday spoken Latin, NOT the formal written version. When the Roman Empire fell, Latin evolved differently in different regions, eventually becoming French, Spanish, Portuguese, Italian, and Romanian.",
+      'Romance languages evolved from Vulgar Latin — everyday spoken Latin, NOT the formal written version. When the Roman Empire fell, Latin evolved differently in different regions, eventually becoming French, Spanish, Portuguese, Italian, and Romanian.',
     caribbeanConnection:
-      "Spanish, French, and Portuguese colonisation carried Romance languages throughout the Caribbean. Spanish dominates Cuba, Dominican Republic, and Puerto Rico. French and French Creoles are the heartbeat of Haiti, Martinique, and Guadeloupe.",
+      'Spanish, French, and Portuguese colonisation carried Romance languages throughout the Caribbean. Spanish dominates Cuba, Dominican Republic, and Puerto Rico. French and French Creoles are the heartbeat of Haiti, Martinique, and Guadeloupe.',
   },
   {
     id: 'french',
@@ -410,11 +431,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'beef',
         chain: ['beef (English)', 'bœuf (French)', 'bos/bovis (Latin)', '*gʷōus (PIE)'],
-        meaning: "After 1066, French vocabulary flooded English — 'beef' for the meat, 'cow' for the living animal.",
+        meaning:
+          "After 1066, French vocabulary flooded English — 'beef' for the meat, 'cow' for the living animal.",
       },
     ],
     didYouKnow:
-      "The Norman Conquest of 1066 introduced French into English so thoroughly that English has two words for many concepts: freedom (Germanic) / liberty (French), house / mansion, king / royal.",
+      'The Norman Conquest of 1066 introduced French into English so thoroughly that English has two words for many concepts: freedom (Germanic) / liberty (French), house / mansion, king / royal.',
     caribbeanConnection:
       "France colonised Haiti, Martinique, and Guadeloupe. Haitian Creole evolved from French and West African languages — it's spoken by 11 million Haitians and is a fully developed language in its own right, not just 'broken French'.",
   },
@@ -436,13 +458,13 @@ export const languageNodes: EtymologyLanguageNode[] = [
           'hurakán (Taíno — indigenous Caribbean language)',
         ],
         meaning:
-          "Spanish colonisers heard the Taíno word for their storm god and adopted it — it then entered English through Spanish.",
+          'Spanish colonisers heard the Taíno word for their storm god and adopted it — it then entered English through Spanish.',
       },
     ],
     didYouKnow:
       "Spanish has more native speakers than English. Columbus's arrival in the Caribbean in 1492 began one of the most dramatic language spreads in human history.",
     caribbeanConnection:
-      "Spanish is the primary language of Cuba, Dominican Republic, and Puerto Rico. Colonisation began in 1492, and Spanish absorbed dozens of Taíno words: hurricane, canoe, tobacco, hammock, barbecue — words now used worldwide.",
+      'Spanish is the primary language of Cuba, Dominican Republic, and Puerto Rico. Colonisation began in 1492, and Spanish absorbed dozens of Taíno words: hurricane, canoe, tobacco, hammock, barbecue — words now used worldwide.',
   },
   {
     id: 'portuguese',
@@ -458,13 +480,13 @@ export const languageNodes: EtymologyLanguageNode[] = [
         modernWord: 'flamingo',
         chain: ['flamingo (English)', 'flamingo (Portuguese, "flame-coloured")'],
         meaning:
-          "Named by Portuguese explorers — the bright pink bird reminded them of flame (or possibly Flemish people, another theory).",
+          'Named by Portuguese explorers — the bright pink bird reminded them of flame (or possibly Flemish people, another theory).',
       },
     ],
     didYouKnow:
-      "Portuguese and Spanish diverged from the same medieval Iberian Latin around 900–1000 CE — they are still mutually intelligible. Brazil alone accounts for over 200 million Portuguese speakers.",
+      'Portuguese and Spanish diverged from the same medieval Iberian Latin around 900–1000 CE — they are still mutually intelligible. Brazil alone accounts for over 200 million Portuguese speakers.',
     caribbeanConnection:
-      "Portugal colonised Brazil, deeply connected to the Atlantic world. Brazilian Portuguese absorbed numerous Tupi indigenous words and African languages, creating a rich creolised linguistic landscape.",
+      'Portugal colonised Brazil, deeply connected to the Atlantic world. Brazilian Portuguese absorbed numerous Tupi indigenous words and African languages, creating a rich creolised linguistic landscape.',
   },
   {
     id: 'italian',
@@ -478,13 +500,17 @@ export const languageNodes: EtymologyLanguageNode[] = [
     examples: [
       {
         modernWord: 'piano',
-        chain: ['piano (English)', 'pianoforte (Italian, "soft-loud")', 'piano (Italian, "soft/gentle")'],
+        chain: [
+          'piano (English)',
+          'pianoforte (Italian, "soft-loud")',
+          'piano (Italian, "soft/gentle")',
+        ],
         meaning:
-          "The instrument was named because, unlike a harpsichord, it could play softly (piano) AND loudly (forte).",
+          'The instrument was named because, unlike a harpsichord, it could play softly (piano) AND loudly (forte).',
       },
     ],
     didYouKnow:
-      "Global music terminology comes from Italian: tempo, forte, piano, allegro, soprano, opera — Italian composers dominated European music from the 16th–18th centuries and their vocabulary went global with their art.",
+      'Global music terminology comes from Italian: tempo, forte, piano, allegro, soprano, opera — Italian composers dominated European music from the 16th–18th centuries and their vocabulary went global with their art.',
   },
   {
     id: 'romanian',
@@ -498,12 +524,17 @@ export const languageNodes: EtymologyLanguageNode[] = [
     examples: [
       {
         modernWord: 'Romania (the country name)',
-        chain: ['România (Romanian)', 'Romani (Latin, "Romans")', 'Roman (Latin colonisers, 106 CE)'],
-        meaning: "Romania literally means 'Land of the Romans' — the Romans colonised Dacia in 106 CE and left their language.",
+        chain: [
+          'România (Romanian)',
+          'Romani (Latin, "Romans")',
+          'Roman (Latin colonisers, 106 CE)',
+        ],
+        meaning:
+          "Romania literally means 'Land of the Romans' — the Romans colonised Dacia in 106 CE and left their language.",
       },
     ],
     didYouKnow:
-      "Romanian is a Romance island in Eastern Europe, surrounded by Slavic and other non-Romance languages. It preserved Latin features that other Romance languages lost — a remarkable survivor.",
+      'Romanian is a Romance island in Eastern Europe, surrounded by Slavic and other non-Romance languages. It preserved Latin features that other Romance languages lost — a remarkable survivor.',
   },
   {
     id: 'dalmatian',
@@ -521,11 +552,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
           'Compare: padre (Italian), père (French), pater (Latin)',
           'All from PIE *ph₂tḗr — same root, dramatically different paths',
         ],
-        meaning: "Dalmatian's words look nothing like other Romance languages — 1,000 years of isolation shaped it uniquely.",
+        meaning:
+          "Dalmatian's words look nothing like other Romance languages — 1,000 years of isolation shaped it uniquely.",
       },
     ],
     didYouKnow:
-      "Antonio Udaina (Tuone) was the last known speaker of Dalmatian. He died in 1898 when a landmine explosion killed him — a language that survived over 1,000 years ended not with a cultural shift but with a single explosion.",
+      'Antonio Udaina (Tuone) was the last known speaker of Dalmatian. He died in 1898 when a landmine explosion killed him — a language that survived over 1,000 years ended not with a cultural shift but with a single explosion.',
   },
   // ─ Slavic family
   {
@@ -545,7 +577,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
       },
     ],
     didYouKnow:
-      "Slavic languages underwent a dramatic expansion between 500–900 CE, spreading from a small homeland near the Carpathians across half of Europe — from the Czech Republic to Russia to Bulgaria.",
+      'Slavic languages underwent a dramatic expansion between 500–900 CE, spreading from a small homeland near the Carpathians across half of Europe — from the Czech Republic to Russia to Bulgaria.',
   },
   {
     id: 'russian',
@@ -565,7 +597,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
       },
     ],
     didYouKnow:
-      "Russian uses the Cyrillic alphabet, created in the 9th century by Byzantine missionaries. Despite looking completely different, Russian and English share thousands of common PIE roots buried under 6,000 years of change.",
+      'Russian uses the Cyrillic alphabet, created in the 9th century by Byzantine missionaries. Despite looking completely different, Russian and English share thousands of common PIE roots buried under 6,000 years of change.',
   },
   {
     id: 'polish',
@@ -579,8 +611,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
     examples: [
       {
         modernWord: 'polka',
-        chain: ['polka (English/international)', 'polka (Czech/Polish, possibly "half-step" or "Polish woman")'],
-        meaning: "The dance and its name spread across Europe in the 19th century — linguists still debate its exact origin.",
+        chain: [
+          'polka (English/international)',
+          'polka (Czech/Polish, possibly "half-step" or "Polish woman")',
+        ],
+        meaning:
+          'The dance and its name spread across Europe in the 19th century — linguists still debate its exact origin.',
       },
     ],
     didYouKnow:
@@ -598,7 +634,11 @@ export const languageNodes: EtymologyLanguageNode[] = [
     examples: [
       {
         modernWord: 'robot',
-        chain: ['robot (English)', 'robot (Czech, "forced labour/drudgery")', 'robota (Czech, "drudgery")'],
+        chain: [
+          'robot (English)',
+          'robot (Czech, "forced labour/drudgery")',
+          'robota (Czech, "drudgery")',
+        ],
         meaning:
           "Czech writer Karel Čapek coined 'robot' in his 1920 play R.U.R. — from 'robota' meaning forced labour. Czech gave us the word for the future.",
       },
@@ -629,7 +669,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
       },
     ],
     didYouKnow:
-      "Greek has continuous written records from 1400 BCE (Linear B tablets) through Classical Greek to Modern Greek — 3,400 years of unbroken written history in a single language.",
+      'Greek has continuous written records from 1400 BCE (Linear B tablets) through Classical Greek to Modern Greek — 3,400 years of unbroken written history in a single language.',
   },
   {
     id: 'greek',
@@ -654,7 +694,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
       },
     ],
     didYouKnow:
-      "A modern Greek speaker can read Classical Greek with effort — like an English speaker reading Shakespeare. Ancient Greek from 2,500 years ago is challenging without study, but the thread of continuity is unbroken.",
+      'A modern Greek speaker can read Classical Greek with effort — like an English speaker reading Shakespeare. Ancient Greek from 2,500 years ago is challenging without study, but the thread of continuity is unbroken.',
   },
   // ─ Baltic family
   {
@@ -675,7 +715,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
           'dzintars (Latvian amber, traded across ancient Europe)',
         ],
         meaning:
-          "Baltic amber — fossilised tree resin — was so valuable in ancient trade that it influenced words used across many language families.",
+          'Baltic amber — fossilised tree resin — was so valuable in ancient trade that it influenced words used across many language families.',
       },
     ],
     didYouKnow:
@@ -703,7 +743,7 @@ export const languageNodes: EtymologyLanguageNode[] = [
       },
     ],
     didYouKnow:
-      "Lithuanian has a grammatical case system similar to ancient Latin and Sanskrit — it preserved features of PIE that most other languages discarded thousands of years ago. For linguists, Lithuanian is a treasure chest.",
+      'Lithuanian has a grammatical case system similar to ancient Latin and Sanskrit — it preserved features of PIE that most other languages discarded thousands of years ago. For linguists, Lithuanian is a treasure chest.',
   },
   {
     id: 'latvian',
@@ -721,11 +761,12 @@ export const languageNodes: EtymologyLanguageNode[] = [
           'dzintars (Latvian, "amber")',
           'Baltic amber traded across ancient Europe from Latvia/Lithuania',
         ],
-        meaning: "Latvia sits on the Baltic Sea where amber has been gathered and traded for 4,000+ years — it shaped the regional identity.",
+        meaning:
+          'Latvia sits on the Baltic Sea where amber has been gathered and traded for 4,000+ years — it shaped the regional identity.',
       },
     ],
     didYouKnow:
-      "Latvian and Lithuanian are the only two surviving Baltic languages — the third, Old Prussian, became extinct around 1700 CE. The Baltic branch almost disappeared entirely.",
+      'Latvian and Lithuanian are the only two surviving Baltic languages — the third, Old Prussian, became extinct around 1700 CE. The Baltic branch almost disappeared entirely.',
   },
   // ─ Basque outlier
   {
@@ -741,16 +782,18 @@ export const languageNodes: EtymologyLanguageNode[] = [
       {
         modernWord: 'etxe (house)',
         chain: ['etxe (Basque, "house") — NO known cognates in any other language on Earth'],
-        meaning: "Unlike English 'house' which traces to PIE *keus-, Basque 'etxe' connects to nothing else known.",
+        meaning:
+          "Unlike English 'house' which traces to PIE *keus-, Basque 'etxe' connects to nothing else known.",
       },
       {
         modernWord: 'ur (water)',
         chain: ['ur (Basque, "water") — NO known cognates in any other language on Earth'],
-        meaning: "Completely unrelated to PIE *wódr̥, Greek húdōr, or any other water word. A true orphan.",
+        meaning:
+          'Completely unrelated to PIE *wódr̥, Greek húdōr, or any other water word. A true orphan.',
       },
     ],
     didYouKnow:
-      "Basque is the greatest linguistic mystery of Europe. It predates the Indo-European migrations — the last survivor of the languages spoken in Europe BEFORE the Indo-Europeans arrived. Words like etxe (house) and ur (water) are etymological orphans, connecting to nothing else on Earth. It has survived 5,000+ years of contact with PIE languages without being absorbed.",
+      'Basque is the greatest linguistic mystery of Europe. It predates the Indo-European migrations — the last survivor of the languages spoken in Europe BEFORE the Indo-Europeans arrived. Words like etxe (house) and ur (water) are etymological orphans, connecting to nothing else on Earth. It has survived 5,000+ years of contact with PIE languages without being absorbed.',
   },
 ];
 
@@ -780,7 +823,7 @@ export const timelineEvents: EtymologyTimelineEvent[] = [
     event: 'First Waves',
     detail: 'Indo-European spreads across Europe, displacing earlier languages',
     narrative:
-      "Over millennia, PIE speakers spread across Europe and Asia. They brought their language with them, and the earlier languages of Europe — ancestors of Basque — were gradually displaced or absorbed. Only Basque survived. Every other pre-IE language in Europe was lost.",
+      'Over millennia, PIE speakers spread across Europe and Asia. They brought their language with them, and the earlier languages of Europe — ancestors of Basque — were gradually displaced or absorbed. Only Basque survived. Every other pre-IE language in Europe was lost.',
     etymologicalExample:
       "The place name 'London' may come from pre-Celtic or early Celtic roots (*Lond-, meaning 'wild/bold place') — showing how place names outlast the languages that created them.",
   },
@@ -802,7 +845,7 @@ export const timelineEvents: EtymologyTimelineEvent[] = [
     etymologicalExample:
       "Latin 'augustus' (meaning 'majestic/sacred') became both the month August AND the name Augustus — a word that shaped centuries of European naming.",
     caribbeanConnection:
-      "Roman Catholic missionaries later carried Latin-descended languages — Spanish, French, Portuguese — to the Caribbean, reshaping its entire linguistic landscape.",
+      'Roman Catholic missionaries later carried Latin-descended languages — Spanish, French, Portuguese — to the Caribbean, reshaping its entire linguistic landscape.',
   },
   {
     year: '400–600 CE',
@@ -827,14 +870,14 @@ export const timelineEvents: EtymologyTimelineEvent[] = [
     event: 'Norman Conquest',
     detail: 'French floods into English, creating the hybrid language we speak today',
     narrative:
-      "When William the Conqueror defeated King Harold at the Battle of Hastings, Norman French became the language of power in England. For 300 years, English was the language of peasants; French was the language of nobles. The collision created modern English — a Germanic language with a vast French and Latin vocabulary overlay.",
+      'When William the Conqueror defeated King Harold at the Battle of Hastings, Norman French became the language of power in England. For 300 years, English was the language of peasants; French was the language of nobles. The collision created modern English — a Germanic language with a vast French and Latin vocabulary overlay.',
     etymologicalExample:
-      "English pairs: cow (Germanic) / beef (French), pig / pork, sheep / mutton, house / mansion, king / royal, freedom / liberty. The Germanic word usually refers to everyday things; the French word often feels more formal or elevated.",
+      'English pairs: cow (Germanic) / beef (French), pig / pork, sheep / mutton, house / mansion, king / royal, freedom / liberty. The Germanic word usually refers to everyday things; the French word often feels more formal or elevated.',
   },
   {
     year: '1440 CE',
     event: 'Printing Press',
-    detail: "Gutenberg standardises languages, dramatically slowing dialectal drift",
+    detail: 'Gutenberg standardises languages, dramatically slowing dialectal drift',
     narrative:
       "Before the printing press, each scribe copied texts slightly differently, and dialects drifted freely. After Gutenberg, printed books spread a single standardised form of each language. English spelling was effectively frozen around 1500 CE — which is why we still write 'knight' though we stopped pronouncing the 'k' and 'gh' centuries ago.",
     etymologicalExample:
@@ -847,16 +890,16 @@ export const timelineEvents: EtymologyTimelineEvent[] = [
     narrative:
       "Columbus's arrival in the Bahamas in 1492 triggered the most dramatic linguistic upheaval since the PIE migrations. Spanish, English, French, Dutch, and Portuguese were carried across the Atlantic by colonisers. Indigenous languages — including Taíno, Carib, and hundreds of others — were devastated. But their words lived on, absorbed into the European tongues that displaced them.",
     etymologicalExample:
-      "Words from Taíno (the indigenous Caribbean language) that entered ALL European languages: hurricane (hurakán), canoe (canaoua), barbecue (barbacoa), hammock (hamaca), tobacco (tabaco), maize (mahiz). Indigenous Caribbean vocabulary went global.",
+      'Words from Taíno (the indigenous Caribbean language) that entered ALL European languages: hurricane (hurakán), canoe (canaoua), barbecue (barbacoa), hammock (hamaca), tobacco (tabaco), maize (mahiz). Indigenous Caribbean vocabulary went global.',
     caribbeanConnection:
-      "This is the pivotal moment for Caribbean language history. Spanish arrived in 1492. English arrived in Barbados (1627) and Jamaica (1655). French and Dutch followed. The Caribbean became the most linguistically diverse region per square mile on Earth.",
+      'This is the pivotal moment for Caribbean language history. Spanish arrived in 1492. English arrived in Barbados (1627) and Jamaica (1655). French and Dutch followed. The Caribbean became the most linguistically diverse region per square mile on Earth.',
   },
   {
     year: '1898 CE',
     event: 'Dalmatian Disappears',
     detail: 'The last speaker of Dalmatian is killed in an explosion',
     narrative:
-      "Antonio Udaina — known as Tuone — was the last known speaker of Dalmatian, a Romance language spoken on the Adriatic coast for over 1,000 years. A linguist named Antonio Ive had interviewed him years before. Then in 1898, Tuone was killed when a landmine exploded. A language died not with a gradual fade but in a single moment.",
+      'Antonio Udaina — known as Tuone — was the last known speaker of Dalmatian, a Romance language spoken on the Adriatic coast for over 1,000 years. A linguist named Antonio Ive had interviewed him years before. Then in 1898, Tuone was killed when a landmine exploded. A language died not with a gradual fade but in a single moment.',
     etymologicalExample:
       "In Dalmatian: 'tuota' (father), 'muarter' (mother) — compare Italian 'padre', 'madre.' The same Latin roots, 1,000 years of separate evolution, forever silenced.",
   },
@@ -865,18 +908,18 @@ export const timelineEvents: EtymologyTimelineEvent[] = [
     event: 'Revival Movements',
     detail: 'Cornish, Welsh, Irish Gaelic, and Hebrew fight back from near-extinction',
     narrative:
-      "The 20th century saw something remarkable: languages fighting back. Hebrew was revived as a living language after 2,000 years as a liturgical tongue. Cornish was reconstructed from historical records after its last native speaker died in 1777. Welsh gained legal protection. These revivals show that language death is not always permanent — with community will and political support, languages can be brought back.",
+      'The 20th century saw something remarkable: languages fighting back. Hebrew was revived as a living language after 2,000 years as a liturgical tongue. Cornish was reconstructed from historical records after its last native speaker died in 1777. Welsh gained legal protection. These revivals show that language death is not always permanent — with community will and political support, languages can be brought back.',
     etymologicalExample:
       "Modern Hebrew revivalists like Eliezer Ben-Yehuda invented new words for modern concepts: miḥshav (מחשב, 'computer') from the root ḥ-sh-v meaning 'to think/calculate.' Ancient roots, new words.",
     caribbeanConnection:
-      "Caribbean Creole languages — Haitian Creole, Jamaican Patois, Papiamentu — are now recognised as legitimate languages in their own right, not dialects of European languages. Their recognition parallels the revival movements.",
+      'Caribbean Creole languages — Haitian Creole, Jamaican Patois, Papiamentu — are now recognised as legitimate languages in their own right, not dialects of European languages. Their recognition parallels the revival movements.',
   },
   {
     year: 'Present',
     event: 'Endangered Languages',
     detail: 'One language dies approximately every two weeks',
     narrative:
-      "Of the approximately 7,000 languages spoken today, half are expected to disappear by the end of this century. Irish Gaelic has fewer than 100,000 daily speakers. Breton faces pressure from French. Frisian from Dutch. Sorbian from German. Each loss represents not just words but entire ways of organising thought, irreplaceable ecological knowledge, and cultural memory that cannot be reconstructed.",
+      'Of the approximately 7,000 languages spoken today, half are expected to disappear by the end of this century. Irish Gaelic has fewer than 100,000 daily speakers. Breton faces pressure from French. Frisian from Dutch. Sorbian from German. Each loss represents not just words but entire ways of organising thought, irreplaceable ecological knowledge, and cultural memory that cannot be reconstructed.',
     etymologicalExample:
       "The Areyonga Desert Tiger Snake in Australia has a name in Pitjantjatjara that encodes knowledge about the snake's habitat and behaviour — knowledge that disappears with the language.",
     caribbeanConnection:
@@ -891,22 +934,26 @@ export const wordDetectiveRounds: WordDetectiveRound[] = [
     word: 'RIVER',
     steps: [
       {
-        prompt: "Middle English had a word for 'river' — it came from Old French. Which form is it?",
+        prompt:
+          "Middle English had a word for 'river' — it came from Old French. Which form is it?",
         options: ['rivere', 'flumen', 'wasser'],
         correctIndex: 0,
-        explanation: "'Rivere' came into Middle English from Old French — the Normans brought it after 1066.",
+        explanation:
+          "'Rivere' came into Middle English from Old French — the Normans brought it after 1066.",
       },
       {
         prompt: "Old French 'rivere' came from Latin. Which Latin word means 'riverbank'?",
         options: ['aqua', 'rīpāria', 'fluvius'],
         correctIndex: 1,
-        explanation: "Latin 'rīpāria' meant 'of/near the riverbank' — from 'rīpa' (riverbank). A river is defined by its banks.",
+        explanation:
+          "Latin 'rīpāria' meant 'of/near the riverbank' — from 'rīpa' (riverbank). A river is defined by its banks.",
       },
       {
         prompt: "Latin 'rīpāria' descends from a PIE root. Which PIE root meaning 'to flow' is it?",
         options: ['*h₂ep-', '*rei-', '*peth₂-'],
         correctIndex: 1,
-        explanation: "PIE *rei- meant 'to flow, run' — the ultimate ancestor of river, riviere, and rīpāria.",
+        explanation:
+          "PIE *rei- meant 'to flow, run' — the ultimate ancestor of river, riviere, and rīpāria.",
       },
     ],
     finalFact:
@@ -920,10 +967,12 @@ export const wordDetectiveRounds: WordDetectiveRound[] = [
         prompt: "Old English had 'scōl' for school — it borrowed this from which language?",
         options: ['French', 'Latin', 'Greek directly'],
         correctIndex: 1,
-        explanation: "Old English borrowed 'scōl' from Latin 'schola', which the Romans had borrowed from Greek.",
+        explanation:
+          "Old English borrowed 'scōl' from Latin 'schola', which the Romans had borrowed from Greek.",
       },
       {
-        prompt: "Latin 'schola' came from Greek 'skholḗ'. What did this Greek word originally mean?",
+        prompt:
+          "Latin 'schola' came from Greek 'skholḗ'. What did this Greek word originally mean?",
         options: ['a place of learning', 'leisure / free time', 'a lecture hall'],
         correctIndex: 1,
         explanation:
@@ -982,7 +1031,7 @@ export const wordDetectiveRounds: WordDetectiveRound[] = [
     finalFact:
       "CARIBBEAN CONNECTION: 'Barbecue' is 100% Caribbean. The modern global phenomenon of barbecuing — summer staple in the UK, USA, and worldwide — preserves a Taíno word and cooking technique. Every time someone fires up a BBQ, they're unknowingly honouring Caribbean indigenous culture.",
     caribbeanConnection:
-      "Barbecue is a Taíno word and concept from the Caribbean. The cooking technique travelled from the Caribbean to the world through Spanish colonisers.",
+      'Barbecue is a Taíno word and concept from the Caribbean. The cooking technique travelled from the Caribbean to the world through Spanish colonisers.',
   },
   {
     word: 'FATHER',
@@ -991,7 +1040,8 @@ export const wordDetectiveRounds: WordDetectiveRound[] = [
         prompt: "Old English had 'fæder'. Which Proto-Germanic form did it come from?",
         options: ['*fadōr', '*fadēr', '*faþar'],
         correctIndex: 1,
-        explanation: "Proto-Germanic *fadēr is reconstructed from comparing Old English, Gothic, and other Germanic languages.",
+        explanation:
+          'Proto-Germanic *fadēr is reconstructed from comparing Old English, Gothic, and other Germanic languages.',
       },
       {
         prompt: "Proto-Germanic *fadēr came from PIE. Which PIE root for 'father' is it?",
@@ -1026,7 +1076,7 @@ export const wordDetectiveRounds: WordDetectiveRound[] = [
     finalFact:
       "DETECTIVE TWIST: 'Chocolate' is NOT Indo-European. It's Nahuatl — the Aztec language of Mexico. This shows how trade and colonisation bring words from completely different language families into European tongues. The same thing happened with Caribbean words: hurricane, canoe, barbecue all entered European languages through contact.",
     caribbeanConnection:
-      "Chocolate shows that not all words in European languages have PIE roots — trade and colonisation brought words from Nahuatl, Taíno, and other indigenous languages into English, Spanish, and French.",
+      'Chocolate shows that not all words in European languages have PIE roots — trade and colonisation brought words from Nahuatl, Taíno, and other indigenous languages into English, Spanish, and French.',
   },
 ];
 
@@ -1070,7 +1120,7 @@ export const deadLanguages: DeadLanguage[] = [
     region: 'Cornwall, England',
     died: '~1777 CE (revived in 20th century)',
     lastSpeaker:
-      "Dolly Pentreath (died 1777) is traditionally cited as the last native Cornish speaker, though historians debate this. The language was declared dead — then revival efforts began.",
+      'Dolly Pentreath (died 1777) is traditionally cited as the last native Cornish speaker, though historians debate this. The language was declared dead — then revival efforts began.',
     legacy:
       "Cornish is now a remarkable success story of language revival. Reconstructed from historical texts, it has around 600 active speakers today. A language that 'died' came back to life through community determination.",
     sampleWords: [
@@ -1133,10 +1183,15 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
     id: 1,
     type: 'multiple-choice',
     question: 'What does PIE stand for in linguistics?',
-    options: ['Proto-Indo-European', 'Pre-Italian Etruscan', 'Proto-Island European', 'Pan-Indo European'],
+    options: [
+      'Proto-Indo-European',
+      'Pre-Italian Etruscan',
+      'Proto-Island European',
+      'Pan-Indo European',
+    ],
     correctIndex: 0,
     explanation:
-      "Proto-Indo-European (PIE) is the reconstructed ancestral language of most European, Iranian, and North Indian languages — spoken ~4500–2500 BCE on the Pontic-Caspian steppes.",
+      'Proto-Indo-European (PIE) is the reconstructed ancestral language of most European, Iranian, and North Indian languages — spoken ~4500–2500 BCE on the Pontic-Caspian steppes.',
   },
   {
     id: 2,
@@ -1145,12 +1200,13 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
     options: ['Finnish', 'Basque', 'Hungarian', 'Estonian'],
     correctIndex: 1,
     explanation:
-      "Basque (Euskara) is the sole survivor of the languages spoken in Europe before the Indo-European migrations — a genuine linguistic mystery. Finnish, Hungarian, and Estonian are Uralic languages, a separate family from PIE, but they arrived in Europe after PIE.",
+      'Basque (Euskara) is the sole survivor of the languages spoken in Europe before the Indo-European migrations — a genuine linguistic mystery. Finnish, Hungarian, and Estonian are Uralic languages, a separate family from PIE, but they arrived in Europe after PIE.',
   },
   {
     id: 3,
     type: 'true-false',
-    question: "True or False: The Greek word 'skholḗ' (origin of 'school') originally meant 'leisure' or 'free time'.",
+    question:
+      "True or False: The Greek word 'skholḗ' (origin of 'school') originally meant 'leisure' or 'free time'.",
     options: ['True', 'False'],
     correctIndex: 0,
     explanation:
@@ -1177,7 +1233,8 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
   {
     id: 6,
     type: 'multiple-choice',
-    question: 'Which major historical event in 1066 CE flooded the English language with French words?',
+    question:
+      'Which major historical event in 1066 CE flooded the English language with French words?',
     options: [
       'The signing of Magna Carta',
       'The Norman Conquest of England',
@@ -1186,7 +1243,7 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
     ],
     correctIndex: 1,
     explanation:
-      "The Norman Conquest brought French-speaking Normans to power in England. For 300 years, French was the language of the ruling class. This is why English has pairs like cow/beef, pig/pork, king/royal — Germanic for everyday life, French for power and cuisine.",
+      'The Norman Conquest brought French-speaking Normans to power in England. For 300 years, French was the language of the ruling class. This is why English has pairs like cow/beef, pig/pork, king/royal — Germanic for everyday life, French for power and cuisine.',
   },
   {
     id: 7,
@@ -1204,22 +1261,28 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
     options: ['Germanic', 'Romance', 'Celtic', 'Baltic'],
     correctIndex: 2,
     explanation:
-      "Welsh is Celtic — the indigenous language family of Britain, Ireland, and formerly much of Western Europe. Celtic languages were pushed to the Atlantic fringe (Wales, Ireland, Scotland, Brittany) by Germanic and Romance expansion.",
+      'Welsh is Celtic — the indigenous language family of Britain, Ireland, and formerly much of Western Europe. Celtic languages were pushed to the Atlantic fringe (Wales, Ireland, Scotland, Brittany) by Germanic and Romance expansion.',
   },
   {
     id: 9,
     type: 'true-false',
-    question: 'True or False: Basque is related to Finnish — both are non-Indo-European European languages.',
+    question:
+      'True or False: Basque is related to Finnish — both are non-Indo-European European languages.',
     options: ['True', 'False'],
     correctIndex: 1,
     explanation:
-      "False! Both Basque and Finnish are non-Indo-European, but they are completely unrelated to each other. Finnish belongs to the Uralic family (related to Estonian and Hungarian). Basque is a language isolate with NO known relatives anywhere on Earth.",
+      'False! Both Basque and Finnish are non-Indo-European, but they are completely unrelated to each other. Finnish belongs to the Uralic family (related to Estonian and Hungarian). Basque is a language isolate with NO known relatives anywhere on Earth.',
   },
   {
     id: 10,
     type: 'multiple-choice',
     question: 'What technology invented around 1440 CE helped standardise European languages?',
-    options: ['The telegraph', "Gutenberg's printing press", 'The postal service', 'The dictionary'],
+    options: [
+      'The telegraph',
+      "Gutenberg's printing press",
+      'The postal service',
+      'The dictionary',
+    ],
     correctIndex: 1,
     explanation:
       "Gutenberg's printing press (c. 1440) spread a single standardised form of each language widely. Before printing, scribes copied texts slightly differently and dialects drifted freely. After printing, spelling was effectively frozen — hence we still write 'knight' with a 'k' we stopped pronouncing 500 years ago.",
@@ -1240,12 +1303,13 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
     options: ['Icelandic', 'Lithuanian', 'Greek', 'Latin'],
     correctIndex: 1,
     explanation:
-      "Lithuanian! It preserved features of PIE that most other languages lost thousands of years ago — including grammatical cases similar to ancient Latin and Sanskrit. Linguists study Lithuanian to understand what PIE may have sounded like.",
+      'Lithuanian! It preserved features of PIE that most other languages lost thousands of years ago — including grammatical cases similar to ancient Latin and Sanskrit. Linguists study Lithuanian to understand what PIE may have sounded like.',
   },
   {
     id: 13,
     type: 'multiple-choice',
-    question: "The word 'barbecue' entered English from Spanish, which borrowed it from which Caribbean people?",
+    question:
+      "The word 'barbecue' entered English from Spanish, which borrowed it from which Caribbean people?",
     options: ['The Carib people', 'The Taíno people', 'The Arawak people', 'The Maya people'],
     correctIndex: 1,
     explanation:
@@ -1255,7 +1319,7 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
     id: 14,
     type: 'true-false',
     question:
-      "True or False: The Dutch language created the Caribbean creole called Papiamentu, spoken in Curaçao and Aruba.",
+      'True or False: The Dutch language created the Caribbean creole called Papiamentu, spoken in Curaçao and Aruba.',
     options: ['True', 'False'],
     correctIndex: 1,
     explanation:
@@ -1264,7 +1328,7 @@ export const quizQuestions: EtymologyQuizQuestion[] = [
   {
     id: 15,
     type: 'multiple-choice',
-    question: "Which Romance language has the most native speakers worldwide?",
+    question: 'Which Romance language has the most native speakers worldwide?',
     options: ['French', 'Italian', 'Spanish', 'Portuguese'],
     correctIndex: 2,
     explanation:
