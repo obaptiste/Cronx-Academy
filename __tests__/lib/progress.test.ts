@@ -19,9 +19,9 @@ beforeEach(() => {
 });
 
 describe('getAllModuleProgress', () => {
-  it('returns progress for all 8 modules', () => {
+  it('returns progress for all 9 modules', () => {
     const progress = getAllModuleProgress();
-    expect(progress).toHaveLength(8);
+    expect(progress).toHaveLength(9);
   });
 
   it('each module has required fields', () => {

@@ -193,6 +193,7 @@ export interface EtymologyQuizQuestion {
   explanation: string;
 }
 
+<<<<<<< claude/cronx-academy-setup-fKfDX
 // Section Learning Tools Types
 // A single content section with a stable unique ID for tracking
 export interface Section {
@@ -212,6 +213,49 @@ export interface SimplifyResponse {
   simplified: string;
 }
 
+=======
+// Chemistry Module Types
+export interface ChemistryQuizQuestion {
+  question: string;
+  options: string[];
+  correctIndex: number;
+}
+
+export interface ChemistryExperiment {
+  name: string;
+  description: string;
+  steps: string[];
+  safetyNote?: string;
+}
+
+export interface ChemistryLesson {
+  title: string;
+  category: string;
+  level: 'foundation' | 'standard' | 'higher';
+  objectives: string[];
+  introduction: string;
+  mainContent: string[];
+  keyConceptsAndDefinitions: { term: string; definition: string }[];
+  experiments: ChemistryExperiment[];
+  practiceQuestions: { question: string; answer: string }[];
+  funFacts: string[];
+  realWorldConnections: string[];
+  quizQuestions: ChemistryQuizQuestion[];
+  furtherReading: string;
+}
+
+export interface ChemistryTopics {
+  atomsAndElements: ChemistryLesson[];
+  periodicTable: ChemistryLesson[];
+  chemicalBonding: ChemistryLesson[];
+  chemicalReactions: ChemistryLesson[];
+  acidsAndBases: ChemistryLesson[];
+  materialsAndStates: ChemistryLesson[];
+}
+
+export type ChemistryTopicCategory = keyof ChemistryTopics;
+
+>>>>>>> main
 // Quiz Types
 export interface QuizQuestion {
   id: string;

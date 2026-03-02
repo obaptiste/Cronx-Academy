@@ -7,6 +7,7 @@ import { getAllSpiritualityLessons } from '@/lib/data/spiritualityLessons';
 import { getAllNubianLessons } from '@/lib/data/nubianLessons';
 import { getAllEnglishLessons } from '@/lib/data/englishLessons';
 import { mathTopics } from '@/lib/data/mathLessons';
+import { getAllChemistryLessons } from '@/lib/data/chemistryLessons';
 
 interface ModuleConfig {
   moduleId: string;
@@ -65,6 +66,13 @@ const moduleConfigs: ModuleConfig[] = [
     icon: '📖',
     storageKey: 'completedEnglishLessons',
     getTotalLessons: () => getAllEnglishLessons().length,
+  },
+  {
+    moduleId: 'chemistry',
+    moduleName: 'Chemistry Interactive',
+    icon: '⚗️',
+    storageKey: 'completedChemistryLessons',
+    getTotalLessons: () => getAllChemistryLessons().length,
   },
   {
     moduleId: 'maths',
