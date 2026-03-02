@@ -193,7 +193,6 @@ export interface EtymologyQuizQuestion {
   explanation: string;
 }
 
-<<<<<<< claude/cronx-academy-setup-fKfDX
 // Section Learning Tools Types
 // A single content section with a stable unique ID for tracking
 export interface Section {
@@ -213,7 +212,6 @@ export interface SimplifyResponse {
   simplified: string;
 }
 
-=======
 // Chemistry Module Types
 export interface ChemistryQuizQuestion {
   question: string;
@@ -255,7 +253,6 @@ export interface ChemistryTopics {
 
 export type ChemistryTopicCategory = keyof ChemistryTopics;
 
->>>>>>> main
 // Quiz Types
 export interface QuizQuestion {
   id: string;
