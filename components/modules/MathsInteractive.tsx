@@ -210,19 +210,27 @@ export default function MathsInteractive() {
             <div className="flex items-center gap-2 font-semibold text-blue-900 mb-2">
               ✅ Progress
             </div>
-            <div className="text-xl font-semibold text-gray-800">{completedTopics.length} topics completed</div>
+            <div className="text-xl font-semibold text-gray-800">
+              {completedTopics.length} topics completed
+            </div>
           </div>
 
           <div className="bg-gradient-to-br from-emerald-100 to-emerald-200 p-5 rounded-2xl">
-            <div className="flex items-center gap-2 font-semibold text-emerald-900 mb-2">🧭 Explored</div>
+            <div className="flex items-center gap-2 font-semibold text-emerald-900 mb-2">
+              🧭 Explored
+            </div>
             <div className="text-xl font-semibold text-gray-800">
               {visitedCategories.length} of {Object.keys(mathTopics).length} strands
             </div>
           </div>
 
           <div className="bg-gradient-to-br from-amber-100 to-amber-200 p-5 rounded-2xl">
-            <div className="flex items-center gap-2 font-semibold text-amber-900 mb-2">🎯 Overall</div>
-            <div className="text-xl font-semibold text-gray-800">{completionPercentage}% complete</div>
+            <div className="flex items-center gap-2 font-semibold text-amber-900 mb-2">
+              🎯 Overall
+            </div>
+            <div className="text-xl font-semibold text-gray-800">
+              {completionPercentage}% complete
+            </div>
           </div>
         </div>
 
@@ -270,7 +278,9 @@ export default function MathsInteractive() {
                   {visited && <span className="text-xs font-bold text-emerald-600">Visited</span>}
                 </div>
                 <div className="text-sm font-semibold text-gray-800">{meta.label}</div>
-                <div className="text-xs text-gray-500 mt-1">{mathTopics[category].length} lessons</div>
+                <div className="text-xs text-gray-500 mt-1">
+                  {mathTopics[category].length} lessons
+                </div>
               </button>
             );
           })}
@@ -404,7 +414,9 @@ export default function MathsInteractive() {
 
           <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-green-600">
             <div className="flex items-start justify-between gap-3 mb-4">
-              <h3 className="text-xl font-bold text-green-900">✏️ Practice Questions (15 minutes)</h3>
+              <h3 className="text-xl font-bold text-green-900">
+                ✏️ Practice Questions (15 minutes)
+              </h3>
               <button
                 onClick={() => toggleSectionDone('practice')}
                 className={`text-xs font-bold px-3 py-1 rounded-full border ${
