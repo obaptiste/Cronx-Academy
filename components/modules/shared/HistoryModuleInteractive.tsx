@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { HistoryLesson, QuizQuestion } from '@/types';
 import QuizPanel from '@/components/ui/QuizPanel';
 import { generateLessonQuiz, collectVocabPool } from '@/lib/quiz';
+import { useSpeechPlayback } from '@/hooks/useSpeechPlayback';
 
 // ── Variant styles ──────────────────────────────────────────────────────────
 // All Tailwind class strings must be literal (no template literals) so that
@@ -156,6 +157,8 @@ export default function HistoryModuleInteractive({
   loadingText = 'Loading your lesson...',
 }: HistoryModuleInteractiveProps) {
   const styles = variantStyles[variant];
+
+  const { isPlaying, activeSectionId, speak, stop, isSupported } = useSpeechPlayback();
 
   const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<string>(defaultCategory);
@@ -410,9 +413,42 @@ export default function HistoryModuleInteractive({
 
           {/* Introduction */}
           <div className="bg-white p-6 rounded-3xl shadow-lg">
-            <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-              📖 Introduction
-            </h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+                📖 Introduction
+              </h3>
+              {isSupported && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const id = `intro-${currentLesson.title}`;
+                    if (activeSectionId === id && isPlaying) {
+                      stop();
+                    } else {
+                      speak(id, currentLesson.introduction);
+                    }
+                  }}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 ${
+                    activeSectionId === `intro-${currentLesson.title}` && isPlaying
+                      ? 'bg-red-100 text-red-700 hover:bg-red-200 focus-visible:ring-red-400'
+                      : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 focus-visible:ring-indigo-400'
+                  }`}
+                  aria-label={
+                    activeSectionId === `intro-${currentLesson.title}` && isPlaying
+                      ? 'Stop reading introduction'
+                      : 'Read introduction aloud'
+                  }
+                  aria-pressed={activeSectionId === `intro-${currentLesson.title}` && isPlaying}
+                >
+                  <span aria-hidden="true">
+                    {activeSectionId === `intro-${currentLesson.title}` && isPlaying ? '⏹' : '🔊'}
+                  </span>
+                  {activeSectionId === `intro-${currentLesson.title}` && isPlaying
+                    ? 'Stop'
+                    : 'Read Aloud'}
+                </button>
+              )}
+            </div>
             <p className="text-gray-700 leading-relaxed text-lg">{currentLesson.introduction}</p>
           </div>
 
