@@ -76,6 +76,34 @@ const historyModules: HistoryModule[] = [
     href: '/modules/revolution',
     color: 'from-blue-500 to-indigo-600',
   },
+  {
+    title: 'Food and Nutrition',
+    icon: '🥗',
+    description: 'Exploring food culture, health, and nutrition across the diaspora',
+    topics: [
+      'Caribbean Food Heritage',
+      'African Food Traditions',
+      'Healthy Eating',
+      'Food and Identity',
+    ],
+    status: 'coming-soon',
+    href: '/modules/history',
+    color: 'from-emerald-500 to-lime-600',
+  },
+  {
+    title: 'Caribbean and African Music',
+    icon: '🎶',
+    description: 'Tracing musical roots, genres, and cultural influence',
+    topics: [
+      'Traditional Rhythms',
+      'Reggae & Dancehall',
+      'Afrobeats & Highlife',
+      'Music and Resistance',
+    ],
+    status: 'coming-soon',
+    href: '/modules/history',
+    color: 'from-fuchsia-500 to-rose-600',
+  },
 ];
 
 export default function HistoryPage() {
