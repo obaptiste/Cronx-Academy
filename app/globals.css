@@ -52,3 +52,15 @@ body {
 .module-chemistry {
   border-color: #6366f1;
 }
+
+.module-physics {
+  border-color: #0ea5e9; /* sky-500 */
+}
+
+.module-biology {
+  border-color: #84cc16; /* lime-500 */
+}
+
+.module-food {
+  border-color: #f97316; /* orange-500 */
+}

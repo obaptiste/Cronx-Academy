@@ -142,4 +142,58 @@ export const modules: ModuleCard[] = [
     href: '/modules/wellbeing',
     colorClass: 'wellbeing',
   },
+  {
+    id: 'physics',
+    title: 'Physics Explorer',
+    icon: '⚡',
+    description:
+      'Forces, energy, electricity, waves, and space — hands-on physics for the real world. Experiments and investigations aligned to KS3/4.',
+    features: [
+      'Forces & Motion',
+      'Energy & Electricity',
+      'Waves & Sound',
+      'Light & Optics',
+      'Space & The Universe',
+      'Experiments & Investigations',
+    ],
+    status: 'coming-soon',
+    href: '/modules/physics',
+    colorClass: 'physics',
+  },
+  {
+    id: 'biology',
+    title: 'Living World Biology',
+    icon: '🌿',
+    description:
+      'Cells, body systems, ecosystems, genetics, and health — with Caribbean flora and fauna woven throughout.',
+    features: [
+      'Cells & Organisation',
+      'Body Systems',
+      'Ecology & Ecosystems',
+      'Genetics & Inheritance',
+      'Health & Nutrition',
+      'Caribbean Biodiversity',
+    ],
+    status: 'coming-soon',
+    href: '/modules/biology',
+    colorClass: 'biology',
+  },
+  {
+    id: 'food-nutrition',
+    title: 'Food & Fuel',
+    icon: '🍽️',
+    description:
+      'Nutrition, cooking science, and how food powers the body — with Caribbean cuisine and cultural food traditions throughout.',
+    features: [
+      'Macronutrients & Micronutrients',
+      'Digestive System & Metabolism',
+      'Caribbean Cuisine & Heritage',
+      'Cooking Science & Methods',
+      'Healthy Eating & Meal Planning',
+      'Food Labelling & Consumer Skills',
+    ],
+    status: 'coming-soon',
+    href: '/modules/food-nutrition',
+    colorClass: 'food',
+  },
 ];
