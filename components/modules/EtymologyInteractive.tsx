@@ -298,7 +298,7 @@ function NodeDetailPanel({ node }: { node: EtymologyLanguageNode }) {
                 style={{ background: `${GOLD}0d`, border: `1px solid ${GOLD}22` }}
               >
                 <p className="mb-1 font-bold" style={{ color: PARCHMENT }}>
-                  "{ex.modernWord}"
+                  &quot;{ex.modernWord}&quot;
                 </p>
                 <div className="mb-1 flex flex-wrap gap-1">
                   {ex.chain.map((step, j) => (
@@ -686,7 +686,7 @@ function WordDetective() {
           className="mb-4 text-xl font-bold"
           style={{ color: PARCHMENT, fontFamily: 'Georgia, serif' }}
         >
-          "{round.word}"
+          &quot;{round.word}&quot;
         </h3>
         <p className="mb-1 text-3xl font-bold" style={{ color: GOLD }}>
           {roundCorrect}/{totalSteps}
@@ -1389,8 +1389,8 @@ export default function EtymologyInteractive() {
               Quiz Zone — 15 Questions
             </h2>
             <p className="text-sm" style={{ color: `${PARCHMENT}99` }}>
-              Test everything you've learned. Answer all 15 questions, then submit to see your
-              badge. Expand each question's explanation to learn more.
+              Test everything you&apos;ve learned. Answer all 15 questions, then submit to see your
+              badge. Expand each question&apos;s explanation to learn more.
             </p>
           </div>
         )}
