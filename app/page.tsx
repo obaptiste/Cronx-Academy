@@ -216,10 +216,10 @@ export default function Home() {
         id="guide"
         className="scroll-mt-6 bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-white/60 p-8 md:p-10"
       >
-        <h2 className="text-3xl font-extrabold text-indigo-600 mb-2">🧭 Teaching Guide for Sheena</h2>
-        <p className="text-gray-500 mb-6 text-sm">
-          Click any section to expand it.
-        </p>
+        <h2 className="text-3xl font-extrabold text-indigo-600 mb-2">
+          🧭 Teaching Guide for Sheena
+        </h2>
+        <p className="text-gray-500 mb-6 text-sm">Click any section to expand it.</p>
 
         {/* Welcome callout */}
         <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-l-4 border-indigo-400 rounded-2xl p-5 mb-6">
@@ -236,7 +236,9 @@ export default function Home() {
           <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
             <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
               <span>🌼 Your Role as a Home Educator</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">▾</span>
+              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+                ▾
+              </span>
             </summary>
             <div className="px-6 pb-5 pt-1">
               <ul className="space-y-2 text-gray-700">
@@ -259,7 +261,9 @@ export default function Home() {
           <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
             <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
               <span>📚 Curriculum Overview</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">▾</span>
+              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+                ▾
+              </span>
             </summary>
             <div className="px-6 pb-5 pt-1 grid md:grid-cols-2 gap-4">
               <div>
@@ -299,7 +303,9 @@ export default function Home() {
           <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
             <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
               <span>🌞 Daily Routine (9:00 – 16:00)</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">▾</span>
+              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+                ▾
+              </span>
             </summary>
             <div className="px-6 pb-5 pt-1">
               <div className="space-y-2">
@@ -322,7 +328,9 @@ export default function Home() {
           <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
             <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
               <span>🪄 Subject-by-Subject Tips</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">▾</span>
+              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+                ▾
+              </span>
             </summary>
             <div className="px-6 pb-5 pt-2 grid md:grid-cols-2 gap-4">
               {subjectTips.map((tip) => (
@@ -374,7 +382,9 @@ export default function Home() {
       {/* ── Footer ── */}
       <footer className="text-center text-white/80 py-6 text-sm space-y-1">
         <p>🌸 Curriculum design and materials compiled by Oris John-Baptiste, 2025</p>
-        <p className="text-white/60 text-xs">Built with love for Thalia&apos;s learning journey 💛</p>
+        <p className="text-white/60 text-xs">
+          Built with love for Thalia&apos;s learning journey 💛
+        </p>
       </footer>
     </div>
   );
