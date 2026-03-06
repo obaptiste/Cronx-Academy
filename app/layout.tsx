@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Cronx Academy - Homeschooling with Sheena & Thalia',
+  title: 'AquaCore Academy | Pool Maintenance Training',
   description:
-    'Interactive learning modules for homeschool education featuring history, maths, wellbeing, and cultural studies.',
+    'A full pool maintenance academy with authentication, interactive modules, compliance-focused training, and completion certification.',
 };
 
 export default function RootLayout({
