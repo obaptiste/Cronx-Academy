@@ -18,7 +18,7 @@ const moduleCategories = [
     color: 'from-blue-500 to-indigo-600',
     border: 'border-blue-400',
     bg: 'bg-blue-50',
-    ids: ['maths', 'chemistry', 'physics', 'biology'],
+    ids: ['maths', 'chemistry', 'pool-maintenance', 'physics', 'biology'],
   },
   {
     id: 'literacy',
@@ -41,7 +41,7 @@ const moduleCategories = [
 ];
 
 const stats = [
-  { value: '11', label: 'Modules' },
+  { value: '12', label: 'Modules' },
   { value: '100+', label: 'Lessons' },
   { value: '4', label: 'Subject Areas' },
   { value: '∞', label: 'Curiosity' },

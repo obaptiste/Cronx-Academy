@@ -33,10 +33,11 @@ describe('modules registry data integrity', () => {
     }
   });
 
-  it('includes core modules: history, maths, wellbeing', () => {
+  it('includes core modules: history, maths, wellbeing, pool-maintenance', () => {
     const ids = modules.map((m) => m.id);
     expect(ids).toContain('history');
     expect(ids).toContain('maths');
     expect(ids).toContain('wellbeing');
+    expect(ids).toContain('pool-maintenance');
   });
 });
