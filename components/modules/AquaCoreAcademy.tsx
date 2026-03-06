@@ -99,12 +99,12 @@ export default function AquaCoreAcademy() {
 
   const activeModule = poolMaintenanceModules.find((module) => module.id === openModuleId);
 
-  const submitAuth = (event: FormEvent<HTMLFormElement>) => {
+  const submitAuth = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const result = isLoginMode
-      ? loginUser(email, password)
-      : registerUser({ name: name.trim(), email: email.trim(), password });
+      ? await loginUser(email, password)
+      : await registerUser({ name: name.trim(), email: email.trim(), password });
 
     setAuthMessage(result.message);
 
