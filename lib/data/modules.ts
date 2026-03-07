@@ -126,23 +126,6 @@ export const modules: ModuleCard[] = [
     colorClass: 'chemistry',
   },
   {
-    id: 'pool-maintenance',
-    title: 'AquaCore Academy',
-    icon: '🏊',
-    description:
-      'Professional pool operations academy with 12 compliance-focused modules, quizzes, emergency references, and completion certification.',
-    features: [
-      '12 end-to-end pool maintenance modules',
-      'UK regulations: HSG179, COSHH, RIDDOR, PWTAG',
-      'Built-in read aloud, simplify mode, and quiz checks',
-      'Daily / weekly / monthly maintenance planner',
-      'User authentication and printable completion certificate',
-    ],
-    status: 'ready',
-    href: '/modules/pool-maintenance',
-    colorClass: 'chemistry',
-  },
-  {
     id: 'wellbeing',
     title: 'Whisper Garden',
     icon: '🌈',
