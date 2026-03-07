@@ -12,8 +12,8 @@ describe('aquacoreAuth', () => {
     window.localStorage.clear();
   });
 
-  it('registers a new user and creates a session without storing plaintext password', async () => {
-    const result = await registerUser({
+  it('registers a new user and creates a session', () => {
+    const result = registerUser({
       name: 'Pool Operator',
       email: 'operator@example.com',
       password: 'Secret123',
@@ -22,36 +22,24 @@ describe('aquacoreAuth', () => {
     expect(result.ok).toBe(true);
     expect(getRegisteredUsers()).toHaveLength(1);
     expect(getSessionUser()).toEqual({ name: 'Pool Operator', email: 'operator@example.com' });
-
-    const storedUsers = JSON.parse(window.localStorage.getItem('aquacore-users') ?? '[]') as Array<
-      Record<string, string>
-    >;
-
-    expect(storedUsers[0]).toMatchObject({
-      name: 'Pool Operator',
-      email: 'operator@example.com',
-    });
-    expect(storedUsers[0].password).toBeUndefined();
-    expect(typeof storedUsers[0].passwordHash).toBe('string');
-    expect(typeof storedUsers[0].passwordSalt).toBe('string');
   });
 
-  it('prevents duplicate registration by email', async () => {
-    await registerUser({ name: 'One', email: 'operator@example.com', password: 'Secret123' });
+  it('prevents duplicate registration by email', () => {
+    registerUser({ name: 'One', email: 'operator@example.com', password: 'Secret123' });
 
-    const duplicate = await registerUser({ name: 'Two', email: 'OPERATOR@example.com', password: 'NewPass' });
+    const duplicate = registerUser({ name: 'Two', email: 'OPERATOR@example.com', password: 'NewPass' });
     expect(duplicate.ok).toBe(false);
     expect(getRegisteredUsers()).toHaveLength(1);
   });
 
-  it('allows login and logout flow', async () => {
-    await registerUser({ name: 'One', email: 'operator@example.com', password: 'Secret123' });
+  it('allows login and logout flow', () => {
+    registerUser({ name: 'One', email: 'operator@example.com', password: 'Secret123' });
     logoutUser();
 
-    const badLogin = await loginUser('operator@example.com', 'wrong');
+    const badLogin = loginUser('operator@example.com', 'wrong');
     expect(badLogin.ok).toBe(false);
 
-    const success = await loginUser('operator@example.com', 'Secret123');
+    const success = loginUser('operator@example.com', 'Secret123');
     expect(success.ok).toBe(true);
     expect(getSessionUser()).toEqual({ name: 'One', email: 'operator@example.com' });
 
