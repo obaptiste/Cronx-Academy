@@ -22,4 +22,17 @@ describe('session auth', () => {
     const token = createSessionToken(user!);
     expect(verifySessionToken(token)?.email).toBe('supervisor@aquacore.academy');
   });
+
+  it('rejects tampered token payload', () => {
+    const user = authenticateUser('supervisor@aquacore.academy', 'LeadOps!2026');
+    expect(user).not.toBeNull();
+
+    const token = createSessionToken(user!);
+    const [payload, signature] = token.split('.');
+    const tamperedPayload = Buffer.from(
+      JSON.stringify({ ...JSON.parse(Buffer.from(payload, 'base64url').toString()), role: 'admin' }),
+    ).toString('base64url');
+
+    expect(verifySessionToken(`${tamperedPayload}.${signature}`)).toBeNull();
+  });
 });

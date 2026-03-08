@@ -2,7 +2,14 @@ import { NextResponse } from 'next/server';
 import { authenticateUser, createSessionToken, sessionCookieName } from '@/lib/auth/session';
 
 export async function POST(request: Request) {
-  const body = (await request.json()) as { email?: string; password?: string };
+  let body: { email?: string; password?: string } = {};
+
+  try {
+    body = (await request.json()) as { email?: string; password?: string };
+  } catch {
+    return NextResponse.json({ error: 'Invalid request body.' }, { status: 400 });
+  }
+
   const email = body.email ?? '';
   const password = body.password ?? '';
 
