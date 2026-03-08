@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import { createHmac, timingSafeEqual } from 'node:crypto';
 
 const SESSION_COOKIE = 'aquacore_session';
 
@@ -22,15 +23,24 @@ const users: Record<string, { password: string; role: AcademyUser['role']; name:
 };
 
 export function createSessionToken(user: AcademyUser) {
-  return Buffer.from(JSON.stringify(user)).toString('base64url');
+  const payload = Buffer.from(JSON.stringify(user)).toString('base64url');
+  const signature = signPayload(payload);
+  return `${payload}.${signature}`;
 }
 
 export function verifySessionToken(token?: string): AcademyUser | null {
   if (!token) return null;
 
   try {
-    const parsed = JSON.parse(Buffer.from(token, 'base64url').toString()) as AcademyUser;
-    if (!parsed.email || !parsed.name || !parsed.role) return null;
+    const [payload, signature] = token.split('.');
+    if (!payload || !signature) return null;
+
+    const expected = signPayload(payload);
+    const isValidSignature = timingSafeEqual(Buffer.from(signature), Buffer.from(expected));
+    if (!isValidSignature) return null;
+
+    const parsed = JSON.parse(Buffer.from(payload, 'base64url').toString()) as AcademyUser;
+    if (!parsed.email || !parsed.name || !isValidRole(parsed.role)) return null;
     return parsed;
   } catch {
     return null;
@@ -53,6 +63,18 @@ export async function getCurrentUser() {
   const store = await cookies();
   const token = store.get(SESSION_COOKIE)?.value;
   return verifySessionToken(token);
+}
+
+function getSessionSecret() {
+  return process.env.SESSION_SECRET ?? 'local-dev-session-secret';
+}
+
+function signPayload(payload: string) {
+  return createHmac('sha256', getSessionSecret()).update(payload).digest('base64url');
+}
+
+function isValidRole(value: string): value is AcademyUser['role'] {
+  return value === 'operator' || value === 'supervisor';
 }
 
 export const sessionCookieName = SESSION_COOKIE;
