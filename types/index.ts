@@ -253,6 +253,43 @@ export interface ChemistryTopics {
 
 export type ChemistryTopicCategory = keyof ChemistryTopics;
 
+// Biology Module Types
+export interface BiologyLesson {
+  title: string;
+  category: string;
+  level: 'foundation' | 'standard' | 'higher';
+  objectives: string[];
+  introduction: string;
+  mainContent: string[];
+  keyConceptsAndDefinitions: { term: string; definition: string }[];
+  experiments: {
+    name: string;
+    description: string;
+    steps: string[];
+    safetyNote?: string;
+  }[];
+  practiceQuestions: { question: string; answer: string }[];
+  funFacts: string[];
+  realWorldConnections: string[];
+  quizQuestions: {
+    question: string;
+    options: string[];
+    correctIndex: number;
+  }[];
+  furtherReading: string;
+}
+
+export interface BiologyTopics {
+  cellsAndOrganisation: BiologyLesson[];
+  bodySystems: BiologyLesson[];
+  ecologyAndEcosystems: BiologyLesson[];
+  geneticsAndInheritance: BiologyLesson[];
+  healthAndNutrition: BiologyLesson[];
+  caribbeanBiodiversity: BiologyLesson[];
+}
+
+export type BiologyTopicCategory = keyof BiologyTopics;
+
 // Quiz Types
 export interface QuizQuestion {
   id: string;

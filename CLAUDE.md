@@ -58,6 +58,7 @@ lib/data/               # Static lesson content (TypeScript)
   revolutionLessons.ts  # American Revolution lessons
   spiritualityLessons.ts # African & Caribbean spirituality lessons
   englishLessons.ts     # English & Literature lessons (4 categories, 16 lessons)
+  biologyLessons.ts     # Biology lessons (6 categories, 11 lessons) — cells, body systems, ecology, genetics, health, Caribbean biodiversity
 
 types/index.ts          # All TypeScript interfaces (single file)
 
@@ -124,6 +125,7 @@ This is an educational platform for a 14-year-old learner. All content should be
 - **Wellbeing module** (`/modules/wellbeing`) - still links to old HTML version, not fully migrated
 - **Orishas module** (`/modules/orishas`) - may still reference old HTML
 - ~~English & Literature module~~ - now fully implemented with 16 lessons across 4 categories
+- ~~Biology module~~ - now fully implemented with 11 lessons across 6 topics (localStorage key: `completedBiologyLessons`)
 - **localStorage keys are inconsistent** across modules (e.g., `completedTopics` vs `completedWW2Lessons`)
 - ~~History lesson type interfaces are duplicated~~ - Unified into single `HistoryLesson` interface
 
