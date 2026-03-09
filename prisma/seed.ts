@@ -266,8 +266,7 @@ async function upsertLesson(
 
 async function seedTopics(
   moduleId: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  topics: Record<string, any[]>,
+  topics: TopicsMap,
   lessonType: LessonType,
   label: string,
 ) {
@@ -284,28 +283,31 @@ async function seedTopics(
 // Main
 // ---------------------------------------------------------------------------
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TopicsMap = Record<string, any[]>;
+
 const LESSON_SEEDERS: Record<
   string,
-  { topics: Record<string, unknown[]>; lessonType: LessonType; label: string }
+  { topics: TopicsMap; lessonType: LessonType; label: string }
 > = {
-  ww2: { topics: ww2Topics, lessonType: LessonType.HISTORY, label: 'WW2' },
-  tudor: { topics: tudorTopics, lessonType: LessonType.HISTORY, label: 'Tudor' },
-  pirates: { topics: piratesTopics, lessonType: LessonType.HISTORY, label: 'Pirates' },
-  nubian: { topics: nubianTopics, lessonType: LessonType.HISTORY, label: 'Nubian' },
+  ww2: { topics: ww2Topics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'WW2' },
+  tudor: { topics: tudorTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Tudor' },
+  pirates: { topics: piratesTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Pirates' },
+  nubian: { topics: nubianTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Nubian' },
   spirituality: {
-    topics: spiritualityTopics,
+    topics: spiritualityTopics as unknown as TopicsMap,
     lessonType: LessonType.HISTORY,
     label: 'Spirituality',
   },
-  revolution: { topics: revolutionTopics, lessonType: LessonType.HISTORY, label: 'Revolution' },
-  maths: { topics: mathTopics, lessonType: LessonType.MATH, label: 'Maths' },
-  english: { topics: englishTopics, lessonType: LessonType.HISTORY, label: 'English' },
+  revolution: { topics: revolutionTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Revolution' },
+  maths: { topics: mathTopics as unknown as TopicsMap, lessonType: LessonType.MATH, label: 'Maths' },
+  english: { topics: englishTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'English' },
   'financial-literacy': {
-    topics: financialLiteracyTopics,
+    topics: financialLiteracyTopics as unknown as TopicsMap,
     lessonType: LessonType.HISTORY,
     label: 'Financial Literacy',
   },
-  chemistry: { topics: chemistryTopics, lessonType: LessonType.CHEMISTRY, label: 'Chemistry' },
+  chemistry: { topics: chemistryTopics as unknown as TopicsMap, lessonType: LessonType.CHEMISTRY, label: 'Chemistry' },
 };
 
 async function main() {
@@ -328,8 +330,7 @@ async function main() {
       console.warn(`  ⚠ No module found for slug "${slug}" — skipping`);
       continue;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await seedTopics(moduleId, topics as Record<string, any[]>, lessonType, label);
+    await seedTopics(moduleId, topics, lessonType, label);
   }
 
   console.log('\n✅ Seed complete.');
