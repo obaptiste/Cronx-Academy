@@ -172,7 +172,7 @@ export function SectionLearningTools({
                         ? `Stop reading "${section.title}"`
                         : `Read "${section.title}" aloud`
                     }
-                    aria-pressed={isActive && isPlaying}
+                    aria-pressed={(isActive && isPlaying).toString()}
                   >
                     <span aria-hidden="true">{isActive && isPlaying ? '⏹' : '🔊'}</span>
                     {isActive && isPlaying ? 'Stop' : 'Read Aloud'}
@@ -194,7 +194,7 @@ export function SectionLearningTools({
                       ? `Show original text for "${section.title}"`
                       : `Simplify "${section.title}" for easier reading`
                   }
-                  aria-pressed={simplifyState.showSimplified}
+                  aria-pressed={simplifyState.showSimplified.toString()}
                 >
                   <span aria-hidden="true">{simplifyState.isLoading ? '⏳' : '✨'}</span>
                   {simplifyState.isLoading
