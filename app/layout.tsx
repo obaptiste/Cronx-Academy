@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Providers from './providers';
+import UserHeader from '@/components/UserHeader';
 
 export const metadata: Metadata = {
   title: 'Cronx Academy - Homeschooling with Sheena & Thalia',
@@ -14,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Providers>
+          <UserHeader />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
