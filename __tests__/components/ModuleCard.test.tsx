@@ -70,7 +70,7 @@ describe('ModuleCard', () => {
 
   it('shows "Coming Soon" badge for coming-soon modules', () => {
     render(<ModuleCard module={comingSoonModule} />);
-    expect(screen.getByText(/Coming Soon/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Coming Soon/).length).toBeGreaterThan(0);
   });
 
   it('does not render a link for coming-soon modules', () => {
