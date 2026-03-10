@@ -91,7 +91,7 @@ export default function MathsInteractive() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const completed = readStringArrayFromStorage('completedTopics');
+      const completed = readStringArrayFromStorage('completedMathsLessons');
       const visitedRaw = readStringArrayFromStorage('visitedMathCategories');
       const validVisited = visitedRaw.filter((cat): cat is MathCategory => cat in mathTopics);
       const seededVisited: MathCategory[] = validVisited.length > 0 ? validVisited : ['algebra'];
@@ -122,7 +122,7 @@ export default function MathsInteractive() {
 
     const newCompleted = [...completedTopics, currentLesson.title];
     setCompletedTopics(newCompleted);
-    writeStringArrayToStorage('completedTopics', newCompleted);
+    writeStringArrayToStorage('completedMathsLessons', newCompleted);
   };
 
   const handleNewLesson = () => {

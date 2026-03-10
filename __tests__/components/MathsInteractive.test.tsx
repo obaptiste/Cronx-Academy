@@ -78,7 +78,7 @@ describe('MathsInteractive', () => {
 
   it('restores completed count from localStorage', async () => {
     localStorage.setItem(
-      'completedTopics',
+      'completedMathsLessons',
       JSON.stringify(['Solving Linear Equations', 'Expanding Brackets']),
     );
 
@@ -113,7 +113,7 @@ describe('MathsInteractive', () => {
     });
 
     // Verify localStorage was updated
-    const stored = JSON.parse(localStorage.getItem('completedTopics') || '[]');
+    const stored = JSON.parse(localStorage.getItem('completedMathsLessons') || '[]');
     expect(stored.length).toBe(1);
   });
 
@@ -133,12 +133,12 @@ describe('MathsInteractive', () => {
       expect(screen.getByText('1 topics completed')).toBeInTheDocument();
     });
 
-    const stored = JSON.parse(localStorage.getItem('completedTopics') || '[]');
+    const stored = JSON.parse(localStorage.getItem('completedMathsLessons') || '[]');
     expect(stored.length).toBe(1);
   });
 
   it('falls back to empty progress when localStorage contains malformed JSON', async () => {
-    localStorage.setItem('completedTopics', '{');
+    localStorage.setItem('completedMathsLessons', '{');
 
     render(<MathsInteractive />);
 
@@ -148,7 +148,7 @@ describe('MathsInteractive', () => {
   });
 
   it('falls back to empty progress when localStorage contains non-array JSON', async () => {
-    localStorage.setItem('completedTopics', JSON.stringify({ foo: 'bar' }));
+    localStorage.setItem('completedMathsLessons', JSON.stringify({ foo: 'bar' }));
 
     render(<MathsInteractive />);
 
