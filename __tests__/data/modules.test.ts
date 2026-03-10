@@ -33,10 +33,19 @@ describe('modules registry data integrity', () => {
     }
   });
 
-  it('includes core modules: history, maths, wellbeing', () => {
+  it('includes core modules: history, maths, wellbeing, biology', () => {
     const ids = modules.map((m) => m.id);
     expect(ids).toContain('history');
     expect(ids).toContain('maths');
     expect(ids).toContain('wellbeing');
+    expect(ids).toContain('biology');
+  });
+
+  it('keeps Biology module ready and routable', () => {
+    const biology = modules.find((m) => m.id === 'biology');
+
+    expect(biology).toBeDefined();
+    expect(biology?.status).toBe('ready');
+    expect(biology?.href).toBe('/modules/biology');
   });
 });

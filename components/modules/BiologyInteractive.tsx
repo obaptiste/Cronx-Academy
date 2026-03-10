@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { Fragment, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { BiologyLesson, BiologyTopicCategory } from '@/types';
 import {
@@ -589,7 +589,7 @@ export default function BiologyInteractive() {
 
       {/* Lesson mode */}
       {viewMode === 'lesson' && currentLesson && (
-        <>
+        <Fragment key={`${currentLesson.category}:${currentLesson.title}`}>
           {/* Fun Fact Ticker */}
           <FunFactTicker facts={currentLesson.funFacts} />
 
@@ -720,7 +720,7 @@ export default function BiologyInteractive() {
               🔄 New Lesson
             </button>
           </div>
-        </>
+        </Fragment>
       )}
 
       {/* Teaching Tips */}
