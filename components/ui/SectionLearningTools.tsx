@@ -195,7 +195,7 @@ export function SectionLearningTools({
                       ? `Show original text for "${section.title}"`
                       : `Simplify "${section.title}" for easier reading`
                   }
-                  aria-pressed={simplifyState.showSimplified}
+                  aria-pressed={simplifyState.showSimplified.toString()}
                 >
                   <span aria-hidden="true">{simplifyState.isLoading ? '⏳' : '✨'}</span>
                   {simplifyState.isLoading
