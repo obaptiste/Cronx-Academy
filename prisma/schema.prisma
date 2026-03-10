@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// Users
+// ---------------------------------------------------------------------------
+
+enum Role {
+  PARENT
+  LEARNER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  progress    Progress[]
+  quizResults QuizResult[]
+
+  @@map("users")
+}
+
+// ---------------------------------------------------------------------------
+// Curriculum
+// ---------------------------------------------------------------------------
+
+enum ModuleStatus {
+  READY
+  COMING_SOON
+}
+
+model Module {
+  id          String       @id @default(cuid())
+  slug        String       @unique // e.g. "ww2", "maths", "english"
+  title       String
+  icon        String
+  description String
+  colorClass  String
+  href        String
+  status      ModuleStatus @default(READY)
+  sortOrder   Int          @default(0)
+  createdAt   DateTime     @default(now())
+
+  lessons Lesson[]
+
+  @@map("modules")
+}
+
+enum LessonType {
+  HISTORY   // HistoryLesson shape
+  MATH      // MathLesson shape
+  CHEMISTRY // ChemistryLesson shape
+  GENERAL   // fallback for future lesson types
+}
+
+model Lesson {
+  id         String     @id @default(cuid())
+  moduleId   String
+  title      String
+  topic      String     // the category key, e.g. "causesAndOrigins", "algebra"
+  lessonType LessonType @default(HISTORY)
+  sortOrder  Int        @default(0)
+  data       Json       // full lesson content stored as JSON
+  createdAt  DateTime   @default(now())
+
+  module      Module       @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress    Progress[]
+  quizResults QuizResult[]
+
+  @@unique([moduleId, title])
+  @@index([moduleId, topic])
+  @@map("lessons")
+}
+
+// ---------------------------------------------------------------------------
+// Progress & Quiz Results
+// ---------------------------------------------------------------------------
+
+model Progress {
+  id          String    @id @default(cuid())
+  userId      String
+  lessonId    String
+  completedAt DateTime  @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId])
+  @@map("progress")
+}
+
+model QuizResult {
+  id             String   @id @default(cuid())
+  userId         String
+  lessonId       String
+  score          Int
+  totalQuestions Int
+  completedAt    DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([lessonId])
+  @@map("quiz_results")
+}

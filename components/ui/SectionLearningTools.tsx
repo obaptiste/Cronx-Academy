@@ -131,6 +131,7 @@ export function SectionLearningTools({
         const listened = isListened(section.id);
         const isActive = activeSectionId === section.id;
         const simplifyState = getState(section.id);
+        const isReadAloudPressed = Boolean(isActive && isPlaying);
 
         return (
           <article
@@ -163,19 +164,19 @@ export function SectionLearningTools({
                     type="button"
                     onClick={() => handleReadAloud(section)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                      isActive && isPlaying
+                      isReadAloudPressed
                         ? 'bg-red-100 text-red-700 hover:bg-red-200 focus-visible:ring-red-400'
                         : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 focus-visible:ring-indigo-400'
                     } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                     aria-label={
-                      isActive && isPlaying
+                      isReadAloudPressed
                         ? `Stop reading "${section.title}"`
                         : `Read "${section.title}" aloud`
                     }
-                    aria-pressed={(isActive && isPlaying).toString()}
+                    aria-pressed={isReadAloudPressed}
                   >
-                    <span aria-hidden="true">{isActive && isPlaying ? '⏹' : '🔊'}</span>
-                    {isActive && isPlaying ? 'Stop' : 'Read Aloud'}
+                    <span aria-hidden="true">{isReadAloudPressed ? '⏹' : '🔊'}</span>
+                    {isReadAloudPressed ? 'Stop' : 'Read Aloud'}
                   </button>
                 )}
 
