@@ -7,13 +7,11 @@ datasource db {
   provider = "postgresql"
 }
 
-// ---------------------------------------------------------------------------
-// Users
-// ---------------------------------------------------------------------------
-
 enum Role {
   PARENT
   LEARNER
+  TUTOR
+  ADMIN
 }
 
 model User {
@@ -31,10 +29,6 @@ model User {
   @@map("users")
 }
 
-// ---------------------------------------------------------------------------
-// Curriculum
-// ---------------------------------------------------------------------------
-
 enum ModuleStatus {
   READY
   COMING_SOON
@@ -42,7 +36,7 @@ enum ModuleStatus {
 
 model Module {
   id          String       @id @default(cuid())
-  slug        String       @unique // e.g. "ww2", "maths", "english"
+  slug        String       @unique
   title       String
   icon        String
   description String
@@ -58,20 +52,20 @@ model Module {
 }
 
 enum LessonType {
-  HISTORY   // HistoryLesson shape
-  MATH      // MathLesson shape
-  CHEMISTRY // ChemistryLesson shape
-  GENERAL   // fallback for future lesson types
+  HISTORY
+  MATH
+  CHEMISTRY
+  GENERAL
 }
 
 model Lesson {
   id         String     @id @default(cuid())
   moduleId   String
   title      String
-  topic      String     // the category key, e.g. "causesAndOrigins", "algebra"
+  topic      String
   lessonType LessonType @default(HISTORY)
   sortOrder  Int        @default(0)
-  data       Json       // full lesson content stored as JSON
+  data       Json
   createdAt  DateTime   @default(now())
 
   module      Module       @relation(fields: [moduleId], references: [id], onDelete: Cascade)
@@ -83,15 +77,11 @@ model Lesson {
   @@map("lessons")
 }
 
-// ---------------------------------------------------------------------------
-// Progress & Quiz Results
-// ---------------------------------------------------------------------------
-
 model Progress {
-  id          String    @id @default(cuid())
+  id          String   @id @default(cuid())
   userId      String
   lessonId    String
-  completedAt DateTime  @default(now())
+  completedAt DateTime @default(now())
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
@@ -115,4 +105,116 @@ model QuizResult {
   @@index([userId])
   @@index([lessonId])
   @@map("quiz_results")
+}
+
+enum FaultSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum QuestionType {
+  SINGLE_CHOICE
+  MULTI_CHOICE
+  BOOLEAN
+  INFO
+}
+
+model Fault {
+  id                  String        @id @default(cuid())
+  slug                String        @unique
+  title               String
+  summary             String
+  description         String
+  severity            FaultSeverity
+  dangerNotes         String
+  likelyCauses        Json
+  safeChecks          Json
+  electricianTestsNext Json
+  tags                String[]
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+
+  symptoms Symptom[]
+}
+
+model Symptom {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  title       String
+  description String
+  faultId     String?
+
+  fault Fault? @relation(fields: [faultId], references: [id], onDelete: SetNull)
+}
+
+model DecisionTree {
+  id          String         @id @default(cuid())
+  slug        String         @unique
+  title       String
+  symptomSlug String
+  startNodeId String
+
+  nodes DecisionNode[]
+}
+
+model DecisionNode {
+  id                String       @id @default(cuid())
+  treeId            String
+  key               String
+  question          String
+  explanation       String
+  questionType      QuestionType
+  severity          FaultSeverity
+  safetyGate        Boolean      @default(false)
+  stopReason        String?
+  educationalNote   String?
+  recommendedAction String?
+
+  tree    DecisionTree    @relation(fields: [treeId], references: [id], onDelete: Cascade)
+  options DecisionOption[]
+
+  @@unique([treeId, key])
+}
+
+model DecisionOption {
+  id                     String  @id @default(cuid())
+  nodeId                 String
+  label                  String
+  value                  String
+  nextNodeKey            String?
+  scoreModifier          Int     @default(0)
+  faultWeightAdjustments Json?
+
+  node DecisionNode @relation(fields: [nodeId], references: [id], onDelete: Cascade)
+}
+
+model DiagnosisSession {
+  id             String   @id @default(cuid())
+  sessionToken   String   @unique
+  symptomSlug    String
+  startedAt      DateTime @default(now())
+  completedAt    DateTime?
+  resultFaultSlug String?
+  riskLevel      String?
+
+  answers DiagnosisAnswer[]
+}
+
+model DiagnosisAnswer {
+  id                 String @id @default(cuid())
+  diagnosisSessionId String
+  nodeKey            String
+  answerValue        String
+
+  diagnosisSession DiagnosisSession @relation(fields: [diagnosisSessionId], references: [id], onDelete: Cascade)
+}
+
+model LearningArticle {
+  id                String   @id @default(cuid())
+  slug              String   @unique
+  title             String
+  body              String
+  relatedFaultSlugs String[]
 }
