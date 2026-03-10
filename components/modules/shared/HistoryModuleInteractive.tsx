@@ -210,6 +210,7 @@ export default function HistoryModuleInteractive({
 
   const markComplete = () => {
     if (currentLesson && typeof window !== 'undefined') {
+      if (completedLessons.includes(currentLesson.title)) return;
       const newCompleted = [...completedLessons, currentLesson.title];
       setCompletedLessons(newCompleted);
       localStorage.setItem(storageKey, JSON.stringify(newCompleted));
