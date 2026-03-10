@@ -156,7 +156,7 @@ export const modules: ModuleCard[] = [
       'Space & The Universe',
       'Experiments & Investigations',
     ],
-    status: 'coming-soon',
+    status: 'ready',
     href: '/modules/physics',
     colorClass: 'physics',
   },
