@@ -253,6 +253,33 @@ export interface ChemistryTopics {
 
 export type ChemistryTopicCategory = keyof ChemistryTopics;
 
+// Physics Module Types
+export interface PhysicsLesson {
+  title: string;
+  category: string;
+  level: 'foundation' | 'standard' | 'higher';
+  objectives: string[];
+  introduction: string;
+  mainContent: string[];
+  keyConceptsAndDefinitions: { term: string; definition: string }[];
+  experiments: { name: string; description: string; steps: string[]; safetyNote?: string }[];
+  practiceQuestions: { question: string; answer: string }[];
+  funFacts: string[];
+  realWorldConnections: string[];
+  quizQuestions: { question: string; options: string[]; correctIndex: number }[];
+  furtherReading: string;
+}
+
+export interface PhysicsTopics {
+  forcesAndMotion: PhysicsLesson[];
+  energyAndElectricity: PhysicsLesson[];
+  wavesAndSound: PhysicsLesson[];
+  lightAndOptics: PhysicsLesson[];
+  spaceAndUniverse: PhysicsLesson[];
+}
+
+export type PhysicsTopicCategory = keyof PhysicsTopics;
+
 // Quiz Types
 export interface QuizQuestion {
   id: string;
