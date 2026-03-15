@@ -169,7 +169,6 @@ export default function HistoryModuleInteractive({
   const [currentDate, setCurrentDate] = useState<string>('');
   const [viewMode, setViewMode] = useState<'lesson' | 'browse'>('browse');
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    content: true,
     sources: false,
     discussion: false,
     activities: false,
@@ -405,7 +404,7 @@ export default function HistoryModuleInteractive({
             </div>
           </div>
 
-          {/* Introduction with voice learning tools */}
+          {/* Introduction and Main Content with voice learning tools */}
           <SectionLearningTools
             storageKey={`${moduleId}-${currentLesson.title}-listened`}
             sections={[
@@ -414,29 +413,15 @@ export default function HistoryModuleInteractive({
                 title: 'Introduction',
                 text: currentLesson.introduction,
               },
+              {
+                id: `${currentLesson.title}-content`,
+                title: 'Main Content',
+                text: currentLesson.mainContent
+                  .map((item, i) => `${i + 1}. ${item}`)
+                  .join('\n'),
+              },
             ]}
           />
-
-          {/* Main content (collapsible) */}
-          <div className="paper-card border-l-[5px] border-purple-500 p-6">
-            <button
-              onClick={() => toggleSection('content')}
-              className="w-full flex items-center justify-between text-xl font-bold text-purple-900 mb-4"
-            >
-              <span className="flex items-center gap-2">📚 Main Content</span>
-              <span className="text-2xl">{expandedSections.content ? '−' : '+'}</span>
-            </button>
-            {expandedSections.content && (
-              <ol className="space-y-3">
-                {currentLesson.mainContent.map((content, idx) => (
-                  <li key={idx} className="flex gap-3 py-2">
-                    <span className="font-bold text-purple-600 flex-shrink-0">{idx + 1}.</span>
-                    <span className="text-[var(--text-dark)]">{content}</span>
-                  </li>
-                ))}
-              </ol>
-            )}
-          </div>
 
           {/* Key figures */}
           <div className="paper-card border-l-[5px] border-indigo-500 p-6">
