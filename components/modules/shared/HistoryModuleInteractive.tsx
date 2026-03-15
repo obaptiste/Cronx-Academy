@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { HistoryLesson, QuizQuestion } from '@/types';
 import QuizPanel from '@/components/ui/QuizPanel';
 import { generateLessonQuiz, collectVocabPool } from '@/lib/quiz';
-import { useSpeechPlayback } from '@/hooks/useSpeechPlayback';
+import { SectionLearningTools } from '@/components/ui/SectionLearningTools';
 
 // ── Variant styles ──────────────────────────────────────────────────────────
 // All Tailwind class strings must be literal (no template literals) so that
@@ -158,8 +158,6 @@ export default function HistoryModuleInteractive({
 }: HistoryModuleInteractiveProps) {
   const styles = variantStyles[variant];
 
-  const { isPlaying, activeSectionId, speak, stop, isSupported } = useSpeechPlayback();
-
   const [currentLesson, setCurrentLesson] = useState<HistoryLesson | null>(null);
   const [currentCategory, setCurrentCategory] = useState<string>(defaultCategory);
   const [completedLessons, setCompletedLessons] = useState<string[]>(() => {
@@ -171,7 +169,6 @@ export default function HistoryModuleInteractive({
   const [currentDate, setCurrentDate] = useState<string>('');
   const [viewMode, setViewMode] = useState<'lesson' | 'browse'>('browse');
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    content: true,
     sources: false,
     discussion: false,
     activities: false,
@@ -407,69 +404,24 @@ export default function HistoryModuleInteractive({
             </div>
           </div>
 
-          {/* Introduction */}
-          <div className="paper-card p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="flex items-center gap-2 text-xl font-bold text-[var(--text-dark)]">
-                📖 Introduction
-              </h3>
-              {isSupported && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    const id = `intro-${currentLesson.title}`;
-                    if (activeSectionId === id && isPlaying) {
-                      stop();
-                    } else {
-                      speak(id, currentLesson.introduction);
-                    }
-                  }}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 ${
-                    activeSectionId === `intro-${currentLesson.title}` && isPlaying
-                      ? 'bg-red-100 text-red-700 hover:bg-red-200 focus-visible:ring-red-400'
-                      : 'bg-amber-100 text-amber-800 hover:bg-amber-200 focus-visible:ring-amber-400'
-                  }`}
-                  aria-label={
-                    activeSectionId === `intro-${currentLesson.title}` && isPlaying
-                      ? 'Stop reading introduction'
-                      : 'Read introduction aloud'
-                  }
-                  aria-pressed={activeSectionId === `intro-${currentLesson.title}` && isPlaying}
-                >
-                  <span aria-hidden="true">
-                    {activeSectionId === `intro-${currentLesson.title}` && isPlaying ? '⏹' : '🔊'}
-                  </span>
-                  {activeSectionId === `intro-${currentLesson.title}` && isPlaying
-                    ? 'Stop'
-                    : 'Read Aloud'}
-                </button>
-              )}
-            </div>
-            <p className="text-lg leading-relaxed text-[var(--text-soft-dark)]">
-              {currentLesson.introduction}
-            </p>
-          </div>
-
-          {/* Main content (collapsible) */}
-          <div className="paper-card border-l-[5px] border-purple-500 p-6">
-            <button
-              onClick={() => toggleSection('content')}
-              className="w-full flex items-center justify-between text-xl font-bold text-purple-900 mb-4"
-            >
-              <span className="flex items-center gap-2">📚 Main Content</span>
-              <span className="text-2xl">{expandedSections.content ? '−' : '+'}</span>
-            </button>
-            {expandedSections.content && (
-              <ol className="space-y-3">
-                {currentLesson.mainContent.map((content, idx) => (
-                  <li key={idx} className="flex gap-3 py-2">
-                    <span className="font-bold text-purple-600 flex-shrink-0">{idx + 1}.</span>
-                    <span className="text-[var(--text-dark)]">{content}</span>
-                  </li>
-                ))}
-              </ol>
-            )}
-          </div>
+          {/* Introduction and Main Content with voice learning tools */}
+          <SectionLearningTools
+            storageKey={`${moduleId}-${currentLesson.title}-listened`}
+            sections={[
+              {
+                id: `${currentLesson.title}-intro`,
+                title: 'Introduction',
+                text: currentLesson.introduction,
+              },
+              {
+                id: `${currentLesson.title}-content`,
+                title: 'Main Content',
+                text: currentLesson.mainContent
+                  .map((item, i) => `${i + 1}. ${item}`)
+                  .join('\n'),
+              },
+            ]}
+          />
 
           {/* Key figures */}
           <div className="paper-card border-l-[5px] border-indigo-500 p-6">

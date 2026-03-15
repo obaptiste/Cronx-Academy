@@ -210,7 +210,7 @@ export function SectionLearningTools({
             </div>
 
             {/* ── Original text ────────────────────────────────────────── */}
-            <p className="text-sm leading-relaxed text-[var(--text-soft-dark)]">{section.text}</p>
+            <p className="text-sm leading-relaxed text-[var(--text-soft-dark)] whitespace-pre-line">{section.text}</p>
 
             {/* ── Error state ──────────────────────────────────────────── */}
             {simplifyState.error && (
