@@ -9,6 +9,7 @@ Scaffold a database migration file for the Cronx Academy backend.
 ```
 
 **Examples:**
+
 - `/gen-migration create-users-table`
 - `/gen-migration add-progress-tracking`
 - `/gen-migration seed-lessons`

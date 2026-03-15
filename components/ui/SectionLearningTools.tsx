@@ -136,14 +136,16 @@ export function SectionLearningTools({
         return (
           <article
             key={section.id}
-            className={`rounded-xl border p-5 transition-colors duration-300 ${
-              listened ? 'border-emerald-300 bg-emerald-50' : 'border-gray-200 bg-white'
+            className={`rounded-[1.5rem] border p-5 transition-colors duration-300 ${
+              listened
+                ? 'border-emerald-300 bg-[linear-gradient(180deg,rgba(236,253,245,0.96),rgba(220,252,231,0.92))]'
+                : 'border-black/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,242,232,0.88))]'
             }`}
             aria-label={section.title}
           >
             {/* ── Section header ──────────────────────────────────────── */}
             <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-              <h3 className="font-semibold text-gray-800 text-base flex items-center gap-2">
+              <h3 className="flex items-center gap-2 text-base font-semibold text-[var(--text-dark)]">
                 {listened && (
                   <span
                     className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500 text-white text-xs shrink-0"
@@ -166,7 +168,7 @@ export function SectionLearningTools({
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                       isReadAloudPressed
                         ? 'bg-red-100 text-red-700 hover:bg-red-200 focus-visible:ring-red-400'
-                        : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 focus-visible:ring-indigo-400'
+                        : 'bg-amber-100 text-amber-800 hover:bg-amber-200 focus-visible:ring-amber-400'
                     } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                     aria-label={
                       isReadAloudPressed
@@ -188,7 +190,7 @@ export function SectionLearningTools({
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                     simplifyState.showSimplified
                       ? 'bg-amber-100 text-amber-700 hover:bg-amber-200 focus-visible:ring-amber-400'
-                      : 'bg-violet-100 text-violet-700 hover:bg-violet-200 focus-visible:ring-violet-400'
+                      : 'bg-teal-100 text-teal-700 hover:bg-teal-200 focus-visible:ring-teal-400'
                   } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1`}
                   aria-label={
                     simplifyState.showSimplified
@@ -208,7 +210,7 @@ export function SectionLearningTools({
             </div>
 
             {/* ── Original text ────────────────────────────────────────── */}
-            <p className="text-gray-700 leading-relaxed text-sm">{section.text}</p>
+            <p className="text-sm leading-relaxed text-[var(--text-soft-dark)]">{section.text}</p>
 
             {/* ── Error state ──────────────────────────────────────────── */}
             {simplifyState.error && (
@@ -225,12 +227,14 @@ export function SectionLearningTools({
               <div
                 aria-live="polite"
                 aria-label="Simplified version"
-                className="mt-4 rounded-lg bg-amber-50 border border-amber-200 p-4"
+                className="mt-4 rounded-[1rem] border border-amber-200 bg-amber-50 p-4"
               >
                 <p className="text-xs font-semibold text-amber-700 mb-2 uppercase tracking-wide">
                   ✨ Simplified version
                 </p>
-                <p className="text-gray-700 leading-relaxed text-sm">{simplifyState.simplified}</p>
+                <p className="text-sm leading-relaxed text-[var(--text-soft-dark)]">
+                  {simplifyState.simplified}
+                </p>
               </div>
             )}
           </article>

@@ -9,6 +9,7 @@ Generate or run a database seed script derived from the existing static lesson T
 ```
 
 **Examples:**
+
 - `/db-seed` — scaffold seeds for all lesson modules
 - `/db-seed ww2` — scaffold seed for WW2 lessons only
 - `/db-seed math` — scaffold seed for Maths lessons only
@@ -17,15 +18,15 @@ Generate or run a database seed script derived from the existing static lesson T
 
 The static lesson data lives in `lib/data/`:
 
-| File | Module | Lesson type |
-|------|--------|-------------|
-| `mathLessons.ts` | Maths | `MathLesson` |
-| `ww2Lessons.ts` | WW2 History | `HistoryLesson` |
-| `tudorLessons.ts` | Tudor History | `HistoryLesson` |
-| `piratesLessons.ts` | Pirates | `HistoryLesson` |
-| `revolutionLessons.ts` | American Revolution | `HistoryLesson` |
-| `spiritualityLessons.ts` | Spirituality | `HistoryLesson` |
-| `englishLessons.ts` | English & Literature | `HistoryLesson` |
+| File                     | Module               | Lesson type     |
+| ------------------------ | -------------------- | --------------- |
+| `mathLessons.ts`         | Maths                | `MathLesson`    |
+| `ww2Lessons.ts`          | WW2 History          | `HistoryLesson` |
+| `tudorLessons.ts`        | Tudor History        | `HistoryLesson` |
+| `piratesLessons.ts`      | Pirates              | `HistoryLesson` |
+| `revolutionLessons.ts`   | American Revolution  | `HistoryLesson` |
+| `spiritualityLessons.ts` | Spirituality         | `HistoryLesson` |
+| `englishLessons.ts`      | English & Literature | `HistoryLesson` |
 
 ## What this does
 

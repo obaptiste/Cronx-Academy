@@ -119,8 +119,7 @@ const MODULE_SEEDS: ModuleSeed[] = [
     slug: 'maths',
     title: 'Maths Interactive',
     icon: '🔢',
-    description:
-      'Daily maths lessons covering algebra, geometry, number work, and statistics.',
+    description: 'Daily maths lessons covering algebra, geometry, number work, and statistics.',
     colorClass: 'maths',
     href: '/modules/maths',
     status: ModuleStatus.READY,
@@ -286,29 +285,59 @@ async function seedTopics(
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TopicsMap = Record<string, any[]>;
 
-const LESSON_SEEDERS: Record<
-  string,
-  { topics: TopicsMap; lessonType: LessonType; label: string }
-> = {
-  ww2: { topics: ww2Topics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'WW2' },
-  tudor: { topics: tudorTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Tudor' },
-  pirates: { topics: piratesTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Pirates' },
-  nubian: { topics: nubianTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Nubian' },
-  spirituality: {
-    topics: spiritualityTopics as unknown as TopicsMap,
-    lessonType: LessonType.HISTORY,
-    label: 'Spirituality',
-  },
-  revolution: { topics: revolutionTopics as unknown as TopicsMap, lessonType: LessonType.HISTORY, label: 'Revolution' },
-  maths: { topics: mathTopics as unknown as TopicsMap, lessonType: LessonType.MATH, label: 'Maths' },
-  english: { topics: englishTopics as unknown as TopicsMap, lessonType: LessonType.GENERAL, label: 'English' },
-  'financial-literacy': {
-    topics: financialLiteracyTopics as unknown as TopicsMap,
-    lessonType: LessonType.GENERAL,
-    label: 'Financial Literacy',
-  },
-  chemistry: { topics: chemistryTopics as unknown as TopicsMap, lessonType: LessonType.CHEMISTRY, label: 'Chemistry' },
-};
+const LESSON_SEEDERS: Record<string, { topics: TopicsMap; lessonType: LessonType; label: string }> =
+  {
+    ww2: {
+      topics: ww2Topics as unknown as TopicsMap,
+      lessonType: LessonType.HISTORY,
+      label: 'WW2',
+    },
+    tudor: {
+      topics: tudorTopics as unknown as TopicsMap,
+      lessonType: LessonType.HISTORY,
+      label: 'Tudor',
+    },
+    pirates: {
+      topics: piratesTopics as unknown as TopicsMap,
+      lessonType: LessonType.HISTORY,
+      label: 'Pirates',
+    },
+    nubian: {
+      topics: nubianTopics as unknown as TopicsMap,
+      lessonType: LessonType.HISTORY,
+      label: 'Nubian',
+    },
+    spirituality: {
+      topics: spiritualityTopics as unknown as TopicsMap,
+      lessonType: LessonType.HISTORY,
+      label: 'Spirituality',
+    },
+    revolution: {
+      topics: revolutionTopics as unknown as TopicsMap,
+      lessonType: LessonType.HISTORY,
+      label: 'Revolution',
+    },
+    maths: {
+      topics: mathTopics as unknown as TopicsMap,
+      lessonType: LessonType.MATH,
+      label: 'Maths',
+    },
+    english: {
+      topics: englishTopics as unknown as TopicsMap,
+      lessonType: LessonType.GENERAL,
+      label: 'English',
+    },
+    'financial-literacy': {
+      topics: financialLiteracyTopics as unknown as TopicsMap,
+      lessonType: LessonType.GENERAL,
+      label: 'Financial Literacy',
+    },
+    chemistry: {
+      topics: chemistryTopics as unknown as TopicsMap,
+      lessonType: LessonType.CHEMISTRY,
+      label: 'Chemistry',
+    },
+  };
 
 async function main() {
   console.log('🌱 Seeding Cronx Academy database…\n');

@@ -248,9 +248,9 @@ export default function HistoryModuleInteractive({
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-5 py-8">
-        <div className="bg-white p-10 rounded-3xl shadow-xl text-center">
+        <div className="panel rounded-[2rem] p-10 text-center">
           <div className="text-6xl mb-4">⏳</div>
-          <p className="text-xl text-gray-600">{loadingText}</p>
+          <p className="text-xl text-slate-300">{loadingText}</p>
         </div>
       </div>
     );
@@ -260,47 +260,42 @@ export default function HistoryModuleInteractive({
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-8">
-      <Link
-        href={backHref}
-        className={`inline-flex items-center gap-2 bg-white ${styles.backButton} border-2 px-5 py-3 rounded-xl font-semibold hover:text-white transition-all hover:-translate-y-1 mb-6`}
-      >
+      <Link href={backHref} className="button-secondary mb-6">
         ← {backLabel}
       </Link>
 
       {/* Header */}
-      <div className={`bg-white p-8 rounded-3xl shadow-xl mb-6 border-[3px] ${styles.border}`}>
+      <div className="hero-panel mb-6 rounded-[2rem] p-8">
         <div className="flex items-center gap-4 mb-6">
           <div className="text-5xl">{icon}</div>
           <div>
-            <h1 className={`text-4xl font-bold ${styles.title}`}>{title}</h1>
-            <p className="text-gray-600">{subtitle}</p>
+            <h1 className="display-title text-4xl text-white">{title}</h1>
+            <p className="text-slate-300">{subtitle}</p>
           </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 mb-6">
-          <div className={`bg-gradient-to-br ${styles.statBg} p-5 rounded-2xl`}>
-            <div className={`flex items-center gap-2 font-semibold ${styles.statText} mb-2`}>
+          <div className="soft-stat">
+            <div className="mb-2 flex items-center gap-2 font-semibold text-amber-100">
               📅 Today&apos;s Date
             </div>
-            <div className="text-xl font-semibold text-gray-800">{currentDate || 'Loading...'}</div>
+            <div className="text-xl font-semibold text-white">{currentDate || 'Loading...'}</div>
           </div>
 
-          <div className="bg-gradient-to-br from-red-100 to-red-200 p-5 rounded-2xl">
-            <div className="flex items-center gap-2 font-semibold text-red-900 mb-2">
+          <div className="soft-stat">
+            <div className="mb-2 flex items-center gap-2 font-semibold text-rose-100">
               ✅ Progress
             </div>
-            <div className="text-xl font-semibold text-gray-800">
+            <div className="text-xl font-semibold text-white">
               {completedLessons.length} of {totalLessons} lessons
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-indigo-100 to-indigo-200 p-5 rounded-2xl">
-            <div className="flex items-center gap-2 font-semibold text-indigo-900 mb-2">
+          <div className="soft-stat">
+            <div className="mb-2 flex items-center gap-2 font-semibold text-teal-100">
               📖 Current Topic
             </div>
-            <div className="text-xl font-semibold text-gray-800">
-              {categoryNames[currentCategory]}
-            </div>
+            <div className="text-xl font-semibold text-white">{categoryNames[currentCategory]}</div>
           </div>
         </div>
 
@@ -310,8 +305,8 @@ export default function HistoryModuleInteractive({
             onClick={() => setViewMode('browse')}
             className={`flex-1 px-4 py-3 rounded-xl border-2 font-semibold transition-all ${
               viewMode === 'browse'
-                ? styles.activeToggle + ' shadow-lg'
-                : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
+                ? 'border-amber-300 bg-amber-300 text-slate-900 shadow-lg'
+                : 'border-white/10 bg-white/5 text-slate-300 hover:bg-white/10'
             }`}
           >
             📚 Browse All Topics
@@ -320,8 +315,8 @@ export default function HistoryModuleInteractive({
             onClick={handleNewLesson}
             className={`flex-1 px-4 py-3 rounded-xl border-2 font-semibold transition-all ${
               viewMode === 'lesson'
-                ? styles.activeToggle + ' shadow-lg'
-                : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
+                ? 'border-amber-300 bg-amber-300 text-slate-900 shadow-lg'
+                : 'border-white/10 bg-white/5 text-slate-300 hover:bg-white/10'
             }`}
           >
             🎲 Random Lesson
@@ -333,8 +328,8 @@ export default function HistoryModuleInteractive({
       {viewMode === 'browse' && (
         <div className="space-y-6">
           {Object.keys(topics).map((category) => (
-            <div key={category} className="bg-white p-6 rounded-3xl shadow-lg">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <div key={category} className="paper-card p-6">
+              <h2 className="display-title mb-4 flex items-center gap-3 text-3xl text-[var(--text-dark)]">
                 <span className="text-3xl">{categoryIcons[category]}</span>
                 {categoryNames[category]}
               </h2>
@@ -345,17 +340,17 @@ export default function HistoryModuleInteractive({
                     <button
                       key={idx}
                       onClick={() => selectLesson(lesson, category)}
-                      className={`text-left p-4 rounded-xl border-2 transition-all hover:-translate-y-1 hover:shadow-lg ${
+                      className={`text-left p-4 rounded-[1.2rem] border transition-all hover:-translate-y-1 hover:shadow-lg ${
                         isCompleted
                           ? 'border-green-400 bg-green-50'
-                          : `border-gray-200 bg-gray-50 ${styles.browseBorder}`
+                          : 'border-black/10 bg-[rgba(255,255,255,0.7)] hover:border-amber-300'
                       }`}
                     >
                       <div className="flex items-start justify-between mb-2">
-                        <h3 className="font-bold text-gray-800">{lesson.title}</h3>
+                        <h3 className="font-bold text-[var(--text-dark)]">{lesson.title}</h3>
                         {isCompleted && <span className="text-green-500">✓</span>}
                       </div>
-                      <p className="text-sm text-gray-600">{lesson.era}</p>
+                      <p className="text-sm text-[var(--text-soft-dark)]">{lesson.era}</p>
                     </button>
                   );
                 })}
@@ -370,7 +365,7 @@ export default function HistoryModuleInteractive({
         <div className="space-y-6">
           {/* Lesson header */}
           <div
-            className={`bg-gradient-to-r ${headerGradient} text-white p-8 rounded-3xl shadow-xl`}
+            className={`rounded-[2rem] bg-gradient-to-r ${headerGradient} p-8 text-white shadow-xl`}
           >
             <div className={`flex items-center gap-2 ${styles.lessonHeaderText} mb-2`}>
               {categoryIcons[currentCategory]} {categoryNames[currentCategory]}
@@ -380,13 +375,13 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Learning objectives */}
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-blue-500">
+          <div className="paper-card border-l-[5px] border-blue-500 p-6">
             <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
               🎯 Learning Objectives
             </h3>
             <ul className="space-y-2">
               {currentLesson.objectives.map((obj, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-gray-700">
+                <li key={idx} className="flex items-start gap-3 text-[var(--text-soft-dark)]">
                   <span className="text-blue-600 font-bold">•</span>
                   <span>{obj}</span>
                 </li>
@@ -395,7 +390,7 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Key dates */}
-          <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-amber-500">
+          <div className="paper-card border-l-[5px] border-amber-500 p-6">
             <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
               📅 Key Dates
             </h3>
@@ -406,16 +401,16 @@ export default function HistoryModuleInteractive({
                   className="flex items-center gap-3 py-2 border-b border-amber-200 last:border-0"
                 >
                   <span className="text-amber-600 font-bold">{idx + 1}.</span>
-                  <span className="text-gray-800">{date}</span>
+                  <span className="text-[var(--text-dark)]">{date}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Introduction */}
-          <div className="bg-white p-6 rounded-3xl shadow-lg">
+          <div className="paper-card p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-800 flex items-center gap-2">
+              <h3 className="flex items-center gap-2 text-xl font-bold text-[var(--text-dark)]">
                 📖 Introduction
               </h3>
               {isSupported && (
@@ -432,7 +427,7 @@ export default function HistoryModuleInteractive({
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 ${
                     activeSectionId === `intro-${currentLesson.title}` && isPlaying
                       ? 'bg-red-100 text-red-700 hover:bg-red-200 focus-visible:ring-red-400'
-                      : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 focus-visible:ring-indigo-400'
+                      : 'bg-amber-100 text-amber-800 hover:bg-amber-200 focus-visible:ring-amber-400'
                   }`}
                   aria-label={
                     activeSectionId === `intro-${currentLesson.title}` && isPlaying
@@ -450,11 +445,13 @@ export default function HistoryModuleInteractive({
                 </button>
               )}
             </div>
-            <p className="text-gray-700 leading-relaxed text-lg">{currentLesson.introduction}</p>
+            <p className="text-lg leading-relaxed text-[var(--text-soft-dark)]">
+              {currentLesson.introduction}
+            </p>
           </div>
 
           {/* Main content (collapsible) */}
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-purple-500">
+          <div className="paper-card border-l-[5px] border-purple-500 p-6">
             <button
               onClick={() => toggleSection('content')}
               className="w-full flex items-center justify-between text-xl font-bold text-purple-900 mb-4"
@@ -467,7 +464,7 @@ export default function HistoryModuleInteractive({
                 {currentLesson.mainContent.map((content, idx) => (
                   <li key={idx} className="flex gap-3 py-2">
                     <span className="font-bold text-purple-600 flex-shrink-0">{idx + 1}.</span>
-                    <span className="text-gray-800">{content}</span>
+                    <span className="text-[var(--text-dark)]">{content}</span>
                   </li>
                 ))}
               </ol>
@@ -475,7 +472,7 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Key figures */}
-          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-indigo-500">
+          <div className="paper-card border-l-[5px] border-indigo-500 p-6">
             <h3 className="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
               👤 Key Figures
             </h3>
@@ -483,7 +480,7 @@ export default function HistoryModuleInteractive({
               {currentLesson.keyFigures.map((figure, idx) => (
                 <span
                   key={idx}
-                  className="bg-white px-4 py-2 rounded-full border border-indigo-300 text-gray-700"
+                  className="rounded-full border border-indigo-300 bg-[rgba(255,255,255,0.75)] px-4 py-2 text-[var(--text-soft-dark)]"
                 >
                   {figure}
                 </span>
@@ -492,7 +489,7 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Primary sources (collapsible) */}
-          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-yellow-600">
+          <div className="paper-card border-l-[5px] border-yellow-600 p-6">
             <button
               onClick={() => toggleSection('sources')}
               className="w-full flex items-center justify-between text-xl font-bold text-yellow-900 mb-4"
@@ -505,7 +502,7 @@ export default function HistoryModuleInteractive({
                 {currentLesson.primarySources.map((source, idx) => (
                   <blockquote
                     key={idx}
-                    className="bg-white p-4 rounded-xl border-l-4 border-yellow-500 italic text-gray-700"
+                    className="rounded-xl border-l-4 border-yellow-500 bg-[rgba(255,255,255,0.75)] p-4 italic text-[var(--text-soft-dark)]"
                   >
                     &quot;{source}&quot;
                   </blockquote>
@@ -515,7 +512,7 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Discussion questions (collapsible) */}
-          <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-green-600">
+          <div className="paper-card border-l-[5px] border-green-600 p-6">
             <button
               onClick={() => toggleSection('discussion')}
               className="w-full flex items-center justify-between text-xl font-bold text-green-900 mb-4"
@@ -528,7 +525,7 @@ export default function HistoryModuleInteractive({
                 {currentLesson.discussionQuestions.map((question, idx) => (
                   <li key={idx} className="flex gap-3 py-2">
                     <span className="font-bold text-green-600 flex-shrink-0">{idx + 1}.</span>
-                    <span className="text-gray-800">{question}</span>
+                    <span className="text-[var(--text-dark)]">{question}</span>
                   </li>
                 ))}
               </ol>
@@ -536,7 +533,7 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Activities (collapsible) */}
-          <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-orange-600">
+          <div className="paper-card border-l-[5px] border-orange-600 p-6">
             <button
               onClick={() => toggleSection('activities')}
               className="w-full flex items-center justify-between text-xl font-bold text-orange-900 mb-4"
@@ -553,7 +550,7 @@ export default function HistoryModuleInteractive({
                       aria-label={activity}
                       className="w-5 h-5 rounded border-2 border-orange-600 text-orange-600 focus:ring-orange-500"
                     />
-                    <span className="text-gray-800">{activity}</span>
+                    <span className="text-[var(--text-dark)]">{activity}</span>
                   </div>
                 ))}
               </div>
@@ -561,7 +558,7 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Vocabulary (collapsible) */}
-          <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-3xl shadow-lg border-l-[5px] border-teal-600">
+          <div className="paper-card border-l-[5px] border-teal-600 p-6">
             <button
               onClick={() => toggleSection('vocabulary')}
               className="w-full flex items-center justify-between text-xl font-bold text-teal-900 mb-4"
@@ -572,9 +569,9 @@ export default function HistoryModuleInteractive({
             {expandedSections.vocabulary && (
               <div className="grid md:grid-cols-2 gap-4">
                 {currentLesson.vocabularyTerms.map((vocab, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl">
+                  <div key={idx} className="rounded-xl bg-[rgba(255,255,255,0.75)] p-4">
                     <dt className="font-bold text-teal-700">{vocab.term}</dt>
-                    <dd className="text-gray-600 mt-1">{vocab.definition}</dd>
+                    <dd className="mt-1 text-[var(--text-soft-dark)]">{vocab.definition}</dd>
                   </div>
                 ))}
               </div>
@@ -582,11 +579,11 @@ export default function HistoryModuleInteractive({
           </div>
 
           {/* Further reading */}
-          <div className="bg-white p-6 rounded-3xl shadow-lg">
-            <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center gap-2">
+          <div className="paper-card p-6">
+            <h3 className="mb-3 flex items-center gap-2 text-xl font-bold text-[var(--text-dark)]">
               📚 Further Reading
             </h3>
-            <p className="text-gray-700">{currentLesson.furtherReading}</p>
+            <p className="text-[var(--text-soft-dark)]">{currentLesson.furtherReading}</p>
           </div>
 
           {/* Quiz */}
@@ -600,7 +597,7 @@ export default function HistoryModuleInteractive({
           ) : (
             <button
               onClick={startQuiz}
-              className="w-full bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3"
+              className="button-primary w-full rounded-[1.25rem] py-4 text-lg"
             >
               <span>📝</span>
               <span>Take Lesson Quiz</span>
@@ -615,7 +612,7 @@ export default function HistoryModuleInteractive({
               className={`flex-1 px-8 py-4 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 ${
                 completedLessons.includes(currentLesson.title)
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-green-500 text-white hover:bg-green-600 hover:-translate-y-1 hover:shadow-xl'
+                  : 'bg-green-600 text-white hover:bg-green-700 hover:-translate-y-1 hover:shadow-xl'
               }`}
             >
               <span>✅</span>
@@ -625,14 +622,14 @@ export default function HistoryModuleInteractive({
             </button>
             <button
               onClick={handleNewLesson}
-              className={`flex-1 ${styles.nextButton} text-white px-8 py-4 rounded-2xl font-bold text-lg hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3`}
+              className="flex flex-1 items-center justify-center gap-3 rounded-2xl bg-amber-500 px-8 py-4 text-lg font-bold text-slate-950 transition-all hover:-translate-y-1 hover:bg-amber-400 hover:shadow-xl"
             >
               <span>🔄</span>
               <span>Next Lesson</span>
             </button>
             <button
               onClick={() => setViewMode('browse')}
-              className="flex-1 bg-gray-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-700 hover:-translate-y-1 hover:shadow-xl transition-all flex items-center justify-center gap-3"
+              className="flex flex-1 items-center justify-center gap-3 rounded-2xl bg-slate-700 px-8 py-4 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:bg-slate-800 hover:shadow-xl"
             >
               <span>📚</span>
               <span>Browse Topics</span>
@@ -642,12 +639,14 @@ export default function HistoryModuleInteractive({
       )}
 
       {/* Teaching tips */}
-      <div className="bg-white p-8 rounded-3xl shadow-xl mt-6">
-        <h3 className="text-2xl font-bold text-gray-800 mb-4">💡 Teaching Tips for Sheena</h3>
+      <div className="paper-card mt-6 p-8">
+        <h3 className="display-title mb-4 text-3xl text-[var(--text-dark)]">
+          💡 Teaching Tips for Sheena
+        </h3>
         <ul className="space-y-3">
           {teachingTips.map((tip, idx) => (
-            <li key={idx} className="flex items-start gap-3 text-gray-700">
-              <span className={`${styles.bulletColor} font-bold`}>•</span>
+            <li key={idx} className="flex items-start gap-3 text-[var(--text-soft-dark)]">
+              <span className="font-bold text-amber-700">•</span>
               <span>{tip}</span>
             </li>
           ))}

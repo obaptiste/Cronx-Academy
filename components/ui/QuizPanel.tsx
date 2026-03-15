@@ -21,16 +21,16 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
 
   if (questions.length === 0) {
     return (
-      <div className="bg-white p-8 rounded-3xl shadow-xl border-[3px] border-amber-400">
+      <div className="paper-card border border-amber-300/70 p-8">
         <div className="text-center">
           <div className="text-5xl mb-4">📝</div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-3">No Quiz Available</h3>
-          <p className="text-gray-600 mb-6">
+          <h3 className="display-title mb-3 text-3xl text-[var(--text-dark)]">No Quiz Available</h3>
+          <p className="mb-6 text-[var(--text-soft-dark)]">
             This lesson doesn&apos;t have enough content to generate a quiz yet.
           </p>
           <button
             onClick={onClose}
-            className="bg-gray-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-700 transition-all"
+            className="rounded-full bg-slate-700 px-6 py-3 font-bold text-white hover:bg-slate-800"
           >
             Back to Lesson
           </button>
@@ -77,15 +77,17 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
 
   if (showResult) {
     return (
-      <div className="bg-white p-8 rounded-3xl shadow-xl border-[3px] border-indigo-400">
+      <div className="paper-card border border-[var(--line-strong)] p-8">
         <div className="text-center">
           <div className="text-6xl mb-4">{scorePercentage >= 70 ? '🎉' : '📚'}</div>
-          <h3 className="text-3xl font-bold text-gray-800 mb-2">Quiz Complete!</h3>
-          <p className="text-lg text-gray-600 mb-6">{lessonTitle}</p>
+          <h3 className="display-title mb-2 text-4xl text-[var(--text-dark)]">Quiz Complete!</h3>
+          <p className="mb-6 text-lg text-[var(--text-soft-dark)]">{lessonTitle}</p>
 
-          <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-2xl mb-6">
-            <div className="text-5xl font-bold text-indigo-600 mb-2">{scorePercentage}%</div>
-            <p className="text-gray-700 text-lg">
+          <div className="mb-6 rounded-[1.5rem] border border-amber-200 bg-[linear-gradient(135deg,rgba(226,197,121,0.16),rgba(95,196,182,0.12))] p-8">
+            <div className="mb-2 text-5xl font-bold text-[var(--text-dark)]">
+              {scorePercentage}%
+            </div>
+            <p className="text-lg text-[var(--text-soft-dark)]">
               {score} out of {questions.length} correct
             </p>
           </div>
@@ -119,14 +121,14 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
                 <div
                   key={idx}
                   className={`p-4 rounded-xl border-2 ${
-                    wasCorrect ? 'border-green-300 bg-green-50' : 'border-red-300 bg-red-50'
+                    wasCorrect ? 'border-green-300 bg-green-50/80' : 'border-red-300 bg-red-50/80'
                   }`}
                 >
-                  <p className="font-semibold text-gray-800 mb-1">
+                  <p className="mb-1 font-semibold text-[var(--text-dark)]">
                     {wasCorrect ? '✓' : '✗'} {q.question}
                   </p>
                   {!wasCorrect && (
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-[var(--text-soft-dark)]">
                       Correct answer: {q.options[q.correctIndex]}
                     </p>
                   )}
@@ -135,10 +137,7 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
             })}
           </div>
 
-          <button
-            onClick={onClose}
-            className="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all hover:-translate-y-1"
-          >
+          <button onClick={onClose} className="button-primary">
             Back to Lesson
           </button>
         </div>
@@ -147,21 +146,21 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
   }
 
   return (
-    <div className="bg-white p-8 rounded-3xl shadow-xl border-[3px] border-indigo-400">
+    <div className="paper-card border border-[var(--line-strong)] p-8">
       {/* Quiz header */}
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-2xl font-bold text-indigo-600 flex items-center gap-2">
+        <h3 className="display-title flex items-center gap-2 text-3xl text-[var(--text-dark)]">
           📝 Lesson Quiz
         </h3>
-        <span className="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full font-bold text-sm">
+        <span className="rounded-full border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800">
           {currentIndex + 1} / {questions.length}
         </span>
       </div>
 
       {/* Progress bar */}
-      <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
+      <div className="mb-6 h-2 w-full rounded-full bg-stone-200">
         <div
-          className="bg-indigo-600 h-2 rounded-full transition-all duration-300"
+          className="h-2 rounded-full bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] transition-all duration-300"
           style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
         />
       </div>
@@ -178,7 +177,9 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
       </span>
 
       {/* Question */}
-      <p className="text-xl font-semibold text-gray-800 mb-6">{currentQuestion.question}</p>
+      <p className="mb-6 text-xl font-semibold text-[var(--text-dark)]">
+        {currentQuestion.question}
+      </p>
 
       {/* Options */}
       <div className="space-y-3 mb-6">
@@ -188,15 +189,15 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
           if (!answered) {
             buttonClass +=
               selectedAnswers[currentIndex] === idx
-                ? 'border-indigo-500 bg-indigo-50 text-indigo-800'
-                : 'border-gray-200 bg-gray-50 text-gray-700 hover:border-indigo-300 hover:bg-indigo-50';
+                ? 'border-amber-400 bg-amber-50 text-amber-900'
+                : 'border-stone-200 bg-[rgba(255,255,255,0.8)] text-[var(--text-soft-dark)] hover:border-amber-300 hover:bg-amber-50/70';
           } else {
             if (idx === currentQuestion.correctIndex) {
               buttonClass += 'border-green-500 bg-green-50 text-green-800';
             } else if (selectedAnswers[currentIndex] === idx) {
               buttonClass += 'border-red-400 bg-red-50 text-red-800';
             } else {
-              buttonClass += 'border-gray-200 bg-gray-50 text-gray-500';
+              buttonClass += 'border-stone-200 bg-stone-50 text-stone-500';
             }
           }
 
@@ -217,15 +218,12 @@ export default function QuizPanel({ questions, lessonTitle, moduleId, onClose }:
       <div className="flex justify-between items-center">
         <button
           onClick={onClose}
-          className="text-gray-500 hover:text-gray-700 font-semibold transition-all"
+          className="font-semibold text-[var(--text-soft-dark)] hover:text-[var(--text-dark)]"
         >
           Exit Quiz
         </button>
         {answered && (
-          <button
-            onClick={handleNext}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition-all hover:-translate-y-1"
-          >
+          <button onClick={handleNext} className="button-primary">
             {isLastQuestion ? 'See Results' : 'Next Question'}
           </button>
         )}

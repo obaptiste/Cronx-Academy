@@ -9,6 +9,7 @@ Scaffold a typed Next.js App Router API route handler for the Cronx Academy back
 ```
 
 **Examples:**
+
 - `/gen-api-route progress` — creates GET+POST handler for progress tracking
 - `/gen-api-route lessons GET` — creates read-only lessons endpoint
 

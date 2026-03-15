@@ -117,88 +117,115 @@ const resources = [
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-10">
+    <div className="mx-auto max-w-7xl space-y-10 px-4 py-8 sm:px-6 md:py-12">
       {/* ── Hero ── */}
-      <header className="relative overflow-hidden bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/60 p-8 md:p-12 text-center">
-        {/* decorative blobs */}
-        <div
-          aria-hidden
-          className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-indigo-200/40 blur-3xl pointer-events-none"
-        />
-        <div
-          aria-hidden
-          className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-purple-200/40 blur-3xl pointer-events-none"
-        />
+      <header className="hero-panel rounded-[2rem] px-6 py-8 md:px-10 md:py-12">
+        <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+          <div className="space-y-6">
+            <span className="eyebrow">Curated Homeschool Studio</span>
+            <div className="space-y-4">
+              <div className="text-5xl md:text-6xl">🌷</div>
+              <h1 className="display-title max-w-4xl text-5xl leading-[0.9] text-white md:text-7xl">
+                Cronx Academy
+              </h1>
+              <p className="max-w-2xl text-lg font-semibold text-amber-100 md:text-2xl">
+                Sheena&apos;s teaching guide for Thalia, designed as a rich home-learning world
+                instead of a pile of worksheets.
+              </p>
+              <p className="max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
+                Age 14, based in Croydon, with a rhythm that blends structure, cultural depth,
+                curiosity, and real progress tracking.
+              </p>
+            </div>
 
-        <div className="relative">
-          <div className="text-6xl mb-4">🌷</div>
-          <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent mb-3 leading-tight">
-            Cronx Academy
-          </h1>
-          <p className="text-lg md:text-xl text-purple-700 font-semibold mb-1">
-            Sheena&apos;s Homeschool Teaching Guide for Thalia
-          </p>
-          <p className="text-gray-500 italic mb-8">
-            Age 14 · Croydon, UK · Learning together, growing together 💛
-          </p>
-
-          {/* Stats bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-indigo-50 rounded-2xl py-4 px-2">
-                <p className="text-3xl font-extrabold text-indigo-600">{s.value}</p>
-                <p className="text-sm text-gray-500 font-medium">{s.label}</p>
-              </div>
-            ))}
+            <a href="#modules" className="button-primary">
+              <span>📚</span>
+              <span>Explore Modules</span>
+            </a>
+            <nav className="flex flex-wrap gap-3">
+              <a href="#guide" className="button-secondary">
+                <span>📖</span>
+                <span>Teaching Guide</span>
+              </a>
+              <a href="#resources" className="button-secondary">
+                <span>🔗</span>
+                <span>Resources</span>
+              </a>
+            </nav>
           </div>
 
-          {/* Nav CTAs */}
-          <nav className="flex flex-wrap gap-3 justify-center">
-            <a
-              href="#modules"
-              className="bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 hover:-translate-y-0.5 hover:shadow-lg transition-all"
-            >
-              📚 Modules
-            </a>
-            <a
-              href="#guide"
-              className="bg-white border-2 border-indigo-600 text-indigo-600 px-6 py-3 rounded-full font-bold hover:bg-indigo-50 hover:-translate-y-0.5 hover:shadow-lg transition-all"
-            >
-              📖 Teaching Guide
-            </a>
-            <a
-              href="#resources"
-              className="bg-white border-2 border-indigo-600 text-indigo-600 px-6 py-3 rounded-full font-bold hover:bg-indigo-50 hover:-translate-y-0.5 hover:shadow-lg transition-all"
-            >
-              🔗 Resources
-            </a>
-          </nav>
+          <div className="panel rounded-[1.75rem] p-5 md:p-6">
+            <div className="mb-5 flex items-center justify-between">
+              <div>
+                <p className="text-sm uppercase tracking-[0.28em] text-amber-200/80">
+                  Learning Snapshot
+                </p>
+                <p className="mt-2 text-sm text-slate-300">
+                  A calm, beautiful dashboard for planning, exploring, and reflecting.
+                </p>
+              </div>
+              <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-amber-200">
+                2026
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {stats.map((s) => (
+                <div key={s.label} className="soft-stat">
+                  <p className="text-3xl font-extrabold text-white">{s.value}</p>
+                  <p className="mt-1 text-sm text-slate-300">{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 rounded-[1.5rem] border border-white/10 bg-black/20 p-4">
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-200/85">
+                Daily Focus
+              </p>
+              <div className="mt-3 grid gap-3 text-sm text-slate-200">
+                <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-3">
+                  <span>Morning anchor</span>
+                  <span className="text-amber-200">English / Maths</span>
+                </div>
+                <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/5 px-4 py-3">
+                  <span>Afternoon arc</span>
+                  <span className="text-teal-200">Science / Creative</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
       {/* ── Modules by Category ── */}
       <section id="modules" className="scroll-mt-6 space-y-8">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white drop-shadow mb-2">
-            🎯 Interactive Learning Modules
-          </h2>
-          <p className="text-white/80 text-lg">Click any module to start learning!</p>
+        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="eyebrow">Learning Worlds</span>
+            <h2 className="section-heading display-title mt-4">
+              Interactive modules with a point of view
+            </h2>
+          </div>
+          <p className="max-w-xl text-base leading-relaxed text-slate-300">
+            Each subject keeps its own personality while sharing one visual language, so moving
+            across the site feels intentional and connected.
+          </p>
         </div>
 
         {moduleCategories.map((cat) => {
           const catModules = modules.filter((m) => cat.ids.includes(m.id));
           if (catModules.length === 0) return null;
           return (
-            <div key={cat.id}>
+            <div key={cat.id} className="panel rounded-[2rem] p-5 md:p-6">
               {/* Category header */}
-              <div className="flex items-center gap-3 mb-4">
+              <div className="mb-5 flex items-center gap-3">
                 <div
-                  className={`flex items-center gap-2 bg-gradient-to-r ${cat.color} text-white px-5 py-2 rounded-full font-bold text-sm shadow-lg`}
+                  className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${cat.color} px-5 py-2 text-sm font-bold text-white shadow-lg`}
                 >
                   <span>{cat.emoji}</span>
                   <span>{cat.label}</span>
                 </div>
-                <div className="flex-1 h-px bg-white/30" />
+                <div className="h-px flex-1 bg-white/10" />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -212,36 +239,37 @@ export default function Home() {
       </section>
 
       {/* ── Teaching Guide ── */}
-      <section
-        id="guide"
-        className="scroll-mt-6 bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-white/60 p-8 md:p-10"
-      >
-        <h2 className="text-3xl font-extrabold text-indigo-600 mb-2">
-          🧭 Teaching Guide for Sheena
+      <section id="guide" className="panel-light section-shell scroll-mt-6">
+        <span className="eyebrow">Sheena&apos;s Guide</span>
+        <h2 className="section-heading-light display-title mt-4 mb-2">
+          A grounded rhythm for teaching at home
         </h2>
-        <p className="text-gray-500 mb-6 text-sm">Click any section to expand it.</p>
+        <p className="mb-6 text-sm text-[var(--text-soft-dark)]">
+          Open each section for practical guidance, structure, and encouragement.
+        </p>
 
         {/* Welcome callout */}
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-l-4 border-indigo-400 rounded-2xl p-5 mb-6">
-          <p className="text-gray-700 leading-relaxed">
-            <strong className="text-indigo-700">💛 Welcome & Encouragement:</strong> Dear Sheena,
-            you don&apos;t need to be a professional teacher — just patient, curious, and willing to
-            learn alongside Thalia. This guide helps you turn each day into an opportunity for
-            connection and growth. Perfection isn&apos;t the goal; joy and progress are.
+        <div className="mb-6 rounded-[1.75rem] border border-amber-300/50 bg-[linear-gradient(135deg,rgba(226,197,121,0.18),rgba(95,196,182,0.10))] p-5">
+          <p className="leading-relaxed text-[var(--text-dark)]">
+            <strong className="text-[var(--text-dark)]">💛 Welcome & Encouragement:</strong> Dear
+            Sheena, you don&apos;t need to be a professional teacher — just patient, curious, and
+            willing to learn alongside Thalia. This guide helps you turn each day into an
+            opportunity for connection and growth. Perfection isn&apos;t the goal; joy and progress
+            are.
           </p>
         </div>
 
         <div className="space-y-3">
           {/* Your Role */}
-          <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-            <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
+          <details className="group overflow-hidden rounded-[1.5rem] border border-black/10 bg-[rgba(255,255,255,0.6)]">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-bold text-[var(--text-dark)] transition-colors hover:bg-[rgba(255,255,255,0.8)]">
               <span>🌼 Your Role as a Home Educator</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+              <span className="text-amber-700 group-open:rotate-180 transition-transform duration-200 text-xl">
                 ▾
               </span>
             </summary>
             <div className="px-6 pb-5 pt-1">
-              <ul className="space-y-2 text-gray-700">
+              <ul className="space-y-2 text-[var(--text-soft-dark)]">
                 {[
                   '📚 Provide full-time, suitable education (no need to follow the national curriculum)',
                   '🕰️ Keep a gentle 9–4 structure with movement and breaks',
@@ -249,7 +277,7 @@ export default function Home() {
                   '💬 Flex when needed — interest-led detours are powerful',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="text-indigo-500 mt-0.5">•</span>
+                    <span className="mt-0.5 text-amber-700">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -258,17 +286,17 @@ export default function Home() {
           </details>
 
           {/* Curriculum Overview */}
-          <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-            <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
+          <details className="group overflow-hidden rounded-[1.5rem] border border-black/10 bg-[rgba(255,255,255,0.6)]">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-bold text-[var(--text-dark)] transition-colors hover:bg-[rgba(255,255,255,0.8)]">
               <span>📚 Curriculum Overview</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+              <span className="text-amber-700 group-open:rotate-180 transition-transform duration-200 text-xl">
                 ▾
               </span>
             </summary>
             <div className="px-6 pb-5 pt-1 grid md:grid-cols-2 gap-4">
               <div>
-                <p className="font-bold text-gray-800 mb-2">Core Subjects:</p>
-                <ul className="space-y-1 text-gray-700 text-sm">
+                <p className="mb-2 font-bold text-[var(--text-dark)]">Core Subjects:</p>
+                <ul className="space-y-1 text-sm text-[var(--text-soft-dark)]">
                   {[
                     'English – reading, writing, analysis',
                     'Maths – algebra, geometry, statistics',
@@ -276,14 +304,16 @@ export default function Home() {
                     'Language – French/Spanish daily practice',
                   ].map((s) => (
                     <li key={s} className="flex items-start gap-2">
-                      <span className="text-indigo-500">•</span> {s}
+                      <span className="text-amber-700">•</span> {s}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p className="font-bold text-gray-800 mb-2">Creative, Digital & Life Skills:</p>
-                <ul className="space-y-1 text-gray-700 text-sm">
+                <p className="mb-2 font-bold text-[var(--text-dark)]">
+                  Creative, Digital & Life Skills:
+                </p>
+                <ul className="space-y-1 text-sm text-[var(--text-soft-dark)]">
                   {[
                     'Computing & digital citizenship',
                     'Art, design & media',
@@ -291,7 +321,7 @@ export default function Home() {
                     'Community projects & volunteering',
                   ].map((s) => (
                     <li key={s} className="flex items-start gap-2">
-                      <span className="text-indigo-500">•</span> {s}
+                      <span className="text-amber-700">•</span> {s}
                     </li>
                   ))}
                 </ul>
@@ -300,10 +330,10 @@ export default function Home() {
           </details>
 
           {/* Daily Routine */}
-          <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-            <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
+          <details className="group overflow-hidden rounded-[1.5rem] border border-black/10 bg-[rgba(255,255,255,0.6)]">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-bold text-[var(--text-dark)] transition-colors hover:bg-[rgba(255,255,255,0.8)]">
               <span>🌞 Daily Routine (9:00 – 16:00)</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+              <span className="text-amber-700 group-open:rotate-180 transition-transform duration-200 text-xl">
                 ▾
               </span>
             </summary>
@@ -312,12 +342,12 @@ export default function Home() {
                 {dailySchedule.map((slot, i) => (
                   <div
                     key={slot.time}
-                    className={`flex gap-4 items-center rounded-xl px-4 py-3 ${i % 2 === 0 ? 'bg-indigo-50' : 'bg-white border border-gray-100'}`}
+                    className={`flex items-center gap-4 rounded-xl px-4 py-3 ${i % 2 === 0 ? 'bg-[rgba(0,0,0,0.04)]' : 'border border-black/10 bg-[rgba(255,255,255,0.8)]'}`}
                   >
-                    <span className="text-indigo-600 font-mono font-bold text-sm whitespace-nowrap w-28 flex-shrink-0">
+                    <span className="w-28 flex-shrink-0 whitespace-nowrap font-mono text-sm font-bold text-amber-800">
                       {slot.time}
                     </span>
-                    <span className="text-gray-700 text-sm">{slot.activity}</span>
+                    <span className="text-sm text-[var(--text-soft-dark)]">{slot.activity}</span>
                   </div>
                 ))}
               </div>
@@ -325,20 +355,23 @@ export default function Home() {
           </details>
 
           {/* Subject Tips */}
-          <details className="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-            <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-bold text-gray-800 hover:bg-indigo-50 transition-colors list-none">
+          <details className="group overflow-hidden rounded-[1.5rem] border border-black/10 bg-[rgba(255,255,255,0.6)]">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-bold text-[var(--text-dark)] transition-colors hover:bg-[rgba(255,255,255,0.8)]">
               <span>🪄 Subject-by-Subject Tips</span>
-              <span className="text-indigo-500 group-open:rotate-180 transition-transform duration-200 text-xl">
+              <span className="text-amber-700 group-open:rotate-180 transition-transform duration-200 text-xl">
                 ▾
               </span>
             </summary>
             <div className="px-6 pb-5 pt-2 grid md:grid-cols-2 gap-4">
-              {subjectTips.map((tip) => (
-                <div key={tip.subject} className="bg-white rounded-xl border border-gray-100 p-4">
-                  <p className="font-bold text-gray-800 mb-1">
+              {subjectTips.map((tip, index) => (
+                <div
+                  key={tip.subject}
+                  className={`rounded-xl border p-4 ${index % 2 === 0 ? 'border-amber-200 bg-amber-50/60' : 'border-teal-200 bg-teal-50/50'}`}
+                >
+                  <p className="mb-1 font-bold text-[var(--text-dark)]">
                     {tip.emoji} {tip.subject}
                   </p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{tip.tip}</p>
+                  <p className="text-sm leading-relaxed text-[var(--text-soft-dark)]">{tip.tip}</p>
                 </div>
               ))}
             </div>
@@ -347,12 +380,14 @@ export default function Home() {
       </section>
 
       {/* ── Resources ── */}
-      <section
-        id="resources"
-        className="scroll-mt-6 bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-white/60 p-8 md:p-10"
-      >
-        <h2 className="text-3xl font-extrabold text-indigo-600 mb-2">🔗 Helpful Resources</h2>
-        <p className="text-gray-500 mb-6">External links to support your homeschooling journey.</p>
+      <section id="resources" className="panel section-shell scroll-mt-6">
+        <span className="eyebrow">Resource Library</span>
+        <h2 className="section-heading display-title mt-4 mb-2">
+          Helpful links for the wider journey
+        </h2>
+        <p className="mb-6 text-slate-300">
+          Reliable external resources to support structure, lesson planning, and local context.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {resources.map((r) => (
@@ -361,7 +396,7 @@ export default function Home() {
               href={r.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-gradient-to-br from-indigo-600 to-purple-700 text-white px-5 py-4 rounded-2xl font-semibold hover:from-indigo-700 hover:to-purple-800 hover:-translate-y-1 hover:shadow-xl transition-all"
+              className="flex items-center gap-3 rounded-[1.25rem] border border-white/10 bg-[rgba(255,255,255,0.06)] px-5 py-4 font-semibold text-white backdrop-blur-sm hover:-translate-y-1 hover:border-amber-200/40 hover:bg-white/10 hover:shadow-xl"
             >
               <span className="text-2xl">{r.emoji}</span>
               <span>{r.label}</span>
@@ -369,9 +404,9 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-2xl p-5">
-          <p className="text-gray-700">
-            <strong className="text-amber-700">🏛️ Local Cultural Resources:</strong>
+        <div className="rounded-[1.5rem] border border-amber-300/25 bg-[linear-gradient(135deg,rgba(226,197,121,0.14),rgba(239,118,122,0.12))] p-5">
+          <p className="text-slate-200">
+            <strong className="text-amber-200">🏛️ Local Cultural Resources:</strong>
             <br />
             Museum of Croydon, Historic Croydon Airport, and Croydon libraries offer great learning
             opportunities for history and community engagement.
@@ -380,9 +415,9 @@ export default function Home() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="text-center text-white/80 py-6 text-sm space-y-1">
+      <footer className="space-y-1 py-6 text-center text-sm text-slate-300">
         <p>🌸 Curriculum design and materials compiled by Oris John-Baptiste, 2025</p>
-        <p className="text-white/60 text-xs">
+        <p className="text-xs text-slate-500">
           Built with love for Thalia&apos;s learning journey 💛
         </p>
       </footer>

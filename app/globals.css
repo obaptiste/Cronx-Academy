@@ -1,66 +1,316 @@
 @import 'tailwindcss';
 
 @theme inline {
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+@layer base {
+  :root {
+    --bg: #0b1220;
+    --bg-deep: #070d18;
+    --panel: rgba(9, 17, 31, 0.78);
+    --panel-strong: rgba(8, 15, 28, 0.92);
+    --panel-soft: rgba(248, 244, 232, 0.84);
+    --line: rgba(226, 197, 121, 0.2);
+    --line-strong: rgba(226, 197, 121, 0.34);
+    --text: #f5f0e2;
+    --text-muted: #b8c0cf;
+    --text-dark: #18202f;
+    --text-soft-dark: #4a5365;
+    --accent: #e2c579;
+    --accent-strong: #f0a43a;
+    --accent-rose: #ef767a;
+    --accent-mint: #5fc4b6;
+    --accent-sky: #69a8ff;
+    --shadow-lg: 0 32px 80px rgba(1, 6, 17, 0.42);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans), sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(238, 147, 104, 0.2), transparent 32%),
+      radial-gradient(circle at top right, rgba(95, 196, 182, 0.16), transparent 28%),
+      linear-gradient(160deg, var(--bg) 0%, #101a2d 50%, var(--bg-deep) 100%);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), serif;
+    letter-spacing: -0.03em;
+  }
+
+  a,
+  button {
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease,
+      box-shadow 180ms ease,
+      opacity 180ms ease;
+  }
+}
+
+@layer components {
+  .site-shell {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .site-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .site-orb {
+    position: fixed;
+    width: 38rem;
+    height: 38rem;
+    border-radius: 9999px;
+    filter: blur(70px);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .site-orb-left {
+    top: -10rem;
+    left: -12rem;
+    background: radial-gradient(circle, rgba(239, 118, 122, 0.45) 0%, transparent 70%);
+  }
+
+  .site-orb-right {
+    right: -10rem;
+    top: 18rem;
+    background: radial-gradient(circle, rgba(95, 196, 182, 0.34) 0%, transparent 68%);
+  }
+
+  .site-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 92%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .panel {
+    background: linear-gradient(180deg, rgba(10, 18, 32, 0.88), rgba(8, 14, 26, 0.94));
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(22px);
+  }
+
+  .panel-light {
+    background: linear-gradient(180deg, rgba(249, 245, 235, 0.96), rgba(240, 232, 217, 0.92));
+    border: 1px solid rgba(108, 88, 50, 0.14);
+    box-shadow: 0 24px 70px rgba(6, 10, 20, 0.18);
+    color: var(--text-dark);
+  }
+
+  .hero-panel {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top left, rgba(226, 197, 121, 0.18), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(95, 196, 182, 0.12), transparent 26%),
+      linear-gradient(145deg, rgba(11, 20, 37, 0.94), rgba(7, 13, 24, 0.98));
+    border: 1px solid var(--line-strong);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(24px);
+  }
+
+  .section-shell {
+    border-radius: 2rem;
+    padding: 2rem;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border: 1px solid var(--line-strong);
+    background: rgba(226, 197, 121, 0.08);
+    color: var(--accent);
+    border-radius: 9999px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .display-title {
+    font-family: var(--font-display), serif;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+  }
+
+  .muted-copy {
+    color: var(--text-muted);
+  }
+
+  .button-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+    color: #1a1205;
+    padding: 0.95rem 1.4rem;
+    font-weight: 800;
+    box-shadow: 0 18px 40px rgba(240, 164, 58, 0.28);
+  }
+
+  .button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 46px rgba(240, 164, 58, 0.34);
+  }
+
+  .button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    border-radius: 9999px;
+    border: 1px solid var(--line-strong);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    padding: 0.95rem 1.4rem;
+    font-weight: 700;
+    backdrop-filter: blur(16px);
+  }
+
+  .button-secondary:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  .section-heading {
+    color: var(--text);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 0.95;
+  }
+
+  .section-heading-light {
+    color: var(--text-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 0.95;
+  }
+
+  .soft-stat {
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+    padding: 1rem;
+  }
+
+  .paper-card {
+    position: relative;
+    border-radius: 1.75rem;
+    background: linear-gradient(180deg, rgba(245, 239, 226, 0.98), rgba(236, 228, 211, 0.95));
+    color: var(--text-dark);
+    border: 1px solid rgba(112, 90, 43, 0.16);
+    box-shadow: 0 22px 52px rgba(8, 10, 18, 0.22);
+  }
+
+  .paper-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(120deg, rgba(226, 197, 121, 0.12), transparent 35%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 22%);
+    pointer-events: none;
+  }
+
+  .module-history {
+    --module-accent: #d66f77;
+    --module-tint: rgba(214, 111, 119, 0.14);
+    border-color: #d66f77;
+  }
+
+  .module-maths {
+    --module-accent: #5997f8;
+    --module-tint: rgba(89, 151, 248, 0.14);
+    border-color: #5997f8;
+  }
+
+  .module-english {
+    --module-accent: #44a08d;
+    --module-tint: rgba(68, 160, 141, 0.14);
+    border-color: #44a08d;
+  }
+
+  .module-wellbeing {
+    --module-accent: #dd9b45;
+    --module-tint: rgba(221, 155, 69, 0.14);
+    border-color: #dd9b45;
+  }
+
+  .module-tudor {
+    border-color: #9d78de;
+  }
+
+  .module-pirates {
+    border-color: #d77b42;
+  }
+
+  .module-spirituality {
+    border-color: #d7a84a;
+  }
+
+  .module-revolution {
+    border-color: #5d8ff0;
+  }
+
+  .module-financial {
+    --module-accent: #2f9d7e;
+    --module-tint: rgba(47, 157, 126, 0.14);
+    border-color: #2f9d7e;
+  }
+
+  .module-chemistry {
+    --module-accent: #6f78f1;
+    --module-tint: rgba(111, 120, 241, 0.14);
+    border-color: #6f78f1;
+  }
+
+  .module-physics {
+    border-color: #4ca0d8;
+  }
+
+  .module-biology {
+    --module-accent: #78a83d;
+    --module-tint: rgba(120, 168, 61, 0.14);
+    border-color: #78a83d;
+  }
+
+  .module-food {
+    border-color: #da7f47;
+  }
 }
 
 body {
-  font-family: var(--font-sans);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   min-height: 100vh;
-}
-
-/* Module color classes */
-.module-history {
-  border-color: #fc5c7d;
-}
-
-.module-maths {
-  border-color: #1fa2ff;
-}
-
-.module-english {
-  border-color: #66bb6a;
-}
-
-.module-wellbeing {
-  border-color: #ffb74d;
-}
-
-.module-tudor {
-  border-color: #9333ea;
-}
-
-.module-pirates {
-  border-color: #ea580c;
-}
-
-.module-spirituality {
-  border-color: #f59e0b;
-}
-
-.module-revolution {
-  border-color: #2563eb;
-}
-
-.module-financial {
-  border-color: #10b981;
-}
-
-.module-chemistry {
-  border-color: #6366f1;
-}
-
-.module-physics {
-  border-color: #0ea5e9; /* sky-500 */
-}
-
-.module-biology {
-  border-color: #84cc16; /* lime-500 */
-}
-
-.module-food {
-  border-color: #f97316; /* orange-500 */
 }

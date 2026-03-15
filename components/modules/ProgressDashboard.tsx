@@ -30,9 +30,9 @@ export default function ProgressDashboard() {
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-5 py-8">
-        <div className="bg-white p-10 rounded-3xl shadow-xl text-center">
+        <div className="panel rounded-[2rem] p-10 text-center">
           <div className="text-6xl mb-4">📊</div>
-          <p className="text-xl text-gray-600">Loading progress data...</p>
+          <p className="text-xl text-slate-300">Loading progress data...</p>
         </div>
       </div>
     );
@@ -43,54 +43,53 @@ export default function ProgressDashboard() {
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-8">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 bg-white text-indigo-600 border-2 border-indigo-600 px-5 py-3 rounded-xl font-semibold hover:bg-indigo-600 hover:text-white transition-all hover:-translate-y-1 mb-6"
-      >
+      <Link href="/" className="button-secondary mb-6">
         ← Back to Cronx Academy
       </Link>
 
       {/* Header */}
-      <div className="bg-white p-8 rounded-3xl shadow-xl mb-6 border-[3px] border-indigo-500">
+      <div className="hero-panel mb-6 rounded-[2rem] p-8">
         <div className="flex items-center gap-4 mb-6">
           <div className="text-5xl">📊</div>
           <div>
-            <h1 className="text-4xl font-bold text-indigo-600">Progress Dashboard</h1>
-            <p className="text-gray-600">Thalia&apos;s learning journey at a glance</p>
+            <h1 className="display-title text-4xl text-white">Progress Dashboard</h1>
+            <p className="text-slate-300">Thalia&apos;s learning journey at a glance</p>
           </div>
         </div>
 
         {/* Overall Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-br from-indigo-100 to-indigo-200 p-5 rounded-2xl text-center">
-            <div className="text-3xl font-bold text-indigo-700">{overallPercentage}%</div>
-            <div className="text-sm font-semibold text-indigo-600 mt-1">Overall Complete</div>
+          <div className="soft-stat text-center">
+            <div className="text-3xl font-bold text-white">{overallPercentage}%</div>
+            <div className="mt-1 text-sm font-semibold text-slate-300">Overall Complete</div>
           </div>
-          <div className="bg-gradient-to-br from-green-100 to-green-200 p-5 rounded-2xl text-center">
-            <div className="text-3xl font-bold text-green-700">
+          <div className="soft-stat text-center">
+            <div className="text-3xl font-bold text-emerald-200">
               {stats.totalCompleted}/{stats.totalLessons}
             </div>
-            <div className="text-sm font-semibold text-green-600 mt-1">Lessons Done</div>
+            <div className="mt-1 text-sm font-semibold text-slate-300">Lessons Done</div>
           </div>
-          <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-5 rounded-2xl text-center">
-            <div className="text-3xl font-bold text-purple-700">{stats.totalQuizzesTaken}</div>
-            <div className="text-sm font-semibold text-purple-600 mt-1">Quizzes Taken</div>
+          <div className="soft-stat text-center">
+            <div className="text-3xl font-bold text-rose-200">{stats.totalQuizzesTaken}</div>
+            <div className="mt-1 text-sm font-semibold text-slate-300">Quizzes Taken</div>
           </div>
-          <div className="bg-gradient-to-br from-amber-100 to-amber-200 p-5 rounded-2xl text-center">
-            <div className="text-3xl font-bold text-amber-700">
+          <div className="soft-stat text-center">
+            <div className="text-3xl font-bold text-amber-200">
               {stats.averageQuizScore > 0 ? `${stats.averageQuizScore}%` : '—'}
             </div>
-            <div className="text-sm font-semibold text-amber-600 mt-1">Avg Quiz Score</div>
+            <div className="mt-1 text-sm font-semibold text-slate-300">Avg Quiz Score</div>
           </div>
         </div>
       </div>
 
       {/* Overall Progress Bar */}
-      <div className="bg-white p-6 rounded-3xl shadow-xl mb-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Overall Learning Progress</h2>
-        <div className="w-full bg-gray-200 rounded-full h-6 mb-2">
+      <div className="paper-card mb-6 p-6">
+        <h2 className="display-title mb-4 text-2xl text-[var(--text-dark)]">
+          Overall Learning Progress
+        </h2>
+        <div className="mb-2 h-6 w-full rounded-full bg-stone-200">
           <div
-            className="bg-gradient-to-r from-indigo-500 to-purple-600 h-6 rounded-full transition-all duration-500 flex items-center justify-center"
+            className="flex h-6 items-center justify-center rounded-full bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))] transition-all duration-500"
             style={{ width: `${Math.max(overallPercentage, 2)}%` }}
           >
             {overallPercentage >= 10 && (
@@ -98,14 +97,14 @@ export default function ProgressDashboard() {
             )}
           </div>
         </div>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-[var(--text-soft-dark)]">
           {stats.totalCompleted} of {stats.totalLessons} lessons completed across all modules
         </p>
       </div>
 
       {/* Module-by-Module Breakdown */}
-      <div className="bg-white p-8 rounded-3xl shadow-xl mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Module Progress</h2>
+      <div className="paper-card mb-6 p-8">
+        <h2 className="display-title mb-6 text-3xl text-[var(--text-dark)]">Module Progress</h2>
         <div className="space-y-6">
           {modules.map((mod) => {
             const percentage =
@@ -116,21 +115,26 @@ export default function ProgressDashboard() {
               mod.quizResults.length > 0 ? mod.quizResults[mod.quizResults.length - 1] : null;
 
             return (
-              <div key={mod.moduleId} className="border-2 border-gray-100 rounded-2xl p-5">
+              <div
+                key={mod.moduleId}
+                className="rounded-[1.5rem] border border-black/10 bg-[rgba(255,255,255,0.55)] p-5"
+              >
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{mod.icon}</span>
                     <div>
-                      <h3 className="font-bold text-gray-800 text-lg">{mod.moduleName}</h3>
-                      <p className="text-sm text-gray-500">
+                      <h3 className="text-lg font-bold text-[var(--text-dark)]">
+                        {mod.moduleName}
+                      </h3>
+                      <p className="text-sm text-[var(--text-soft-dark)]">
                         {mod.completedLessons} of {mod.totalLessons} lessons
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-indigo-600">{percentage}%</div>
+                    <div className="text-2xl font-bold text-amber-800">{percentage}%</div>
                     {latestQuiz && (
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-[var(--text-soft-dark)]">
                         Last quiz:{' '}
                         {Math.round((latestQuiz.score / latestQuiz.totalQuestions) * 100)}%
                       </p>
@@ -139,7 +143,7 @@ export default function ProgressDashboard() {
                 </div>
 
                 {/* Progress bar */}
-                <div className="w-full bg-gray-200 rounded-full h-3">
+                <div className="h-3 w-full rounded-full bg-stone-200">
                   <div
                     className={`h-3 rounded-full transition-all duration-500 ${
                       percentage === 100
@@ -156,8 +160,8 @@ export default function ProgressDashboard() {
 
                 {/* Quiz results for this module */}
                 {mod.quizResults.length > 0 && (
-                  <div className="mt-3 pt-3 border-t border-gray-100">
-                    <p className="text-sm font-semibold text-gray-600 mb-2">
+                  <div className="mt-3 border-t border-black/10 pt-3">
+                    <p className="mb-2 text-sm font-semibold text-[var(--text-soft-dark)]">
                       Quiz History ({mod.quizResults.length} taken)
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -189,8 +193,10 @@ export default function ProgressDashboard() {
       </div>
 
       {/* Teaching Insights for Sheena */}
-      <div className="bg-white p-8 rounded-3xl shadow-xl mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">💡 Insights for Sheena</h2>
+      <div className="paper-card mb-6 p-8">
+        <h2 className="display-title mb-4 text-3xl text-[var(--text-dark)]">
+          💡 Insights for Sheena
+        </h2>
         <div className="space-y-4">
           {overallPercentage === 0 && (
             <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-xl">

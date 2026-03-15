@@ -9,6 +9,7 @@ Review auth-related code in the Cronx Academy codebase for security issues befor
 ```
 
 **Examples:**
+
 - `/audit-auth` — audit all auth-related code in the project
 - `/audit-auth app/api/` — audit only API routes
 - `/audit-auth middleware.ts` — audit the Next.js middleware file
@@ -59,6 +60,7 @@ Review auth-related code in the Cronx Academy codebase for security issues befor
 ## Cronx Academy context
 
 This is a parent-child homeschool platform. The two roles are:
+
 - **Parent / Teacher** (Sheena): full access, can mark lessons complete, view all progress
 - **Learner** (Thalia, age 14): lesson access only, cannot modify curriculum data
 

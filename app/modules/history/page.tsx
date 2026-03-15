@@ -109,18 +109,15 @@ const historyModules: HistoryModule[] = [
 export default function HistoryPage() {
   return (
     <div className="max-w-7xl mx-auto px-5 py-8">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 bg-white text-indigo-600 border-2 border-indigo-600 px-5 py-3 rounded-xl font-semibold hover:bg-indigo-600 hover:text-white transition-all hover:-translate-y-1 mb-6"
-      >
+      <Link href="/" className="button-secondary mb-6">
         ← Back to Cronx Academy
       </Link>
 
-      <div className="bg-white p-10 rounded-3xl shadow-xl mb-8">
+      <div className="hero-panel mb-8 rounded-[2rem] p-10">
         <div className="text-center mb-8">
           <div className="text-7xl mb-4">📚</div>
-          <h1 className="text-5xl font-bold text-pink-600 mb-4">History Quest</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="display-title mb-4 text-5xl text-white">History Quest</h1>
+          <p className="text-xl text-slate-300">
             Interactive journey through Caribbean and world history
           </p>
         </div>
@@ -134,7 +131,7 @@ export default function HistoryPage() {
           return (
             <div
               key={idx}
-              className={`bg-white rounded-3xl shadow-lg overflow-hidden transition-all hover:-translate-y-2 hover:shadow-xl ${
+              className={`paper-card overflow-hidden transition-all hover:-translate-y-2 hover:shadow-xl ${
                 isComingSoon ? 'opacity-75' : ''
               }`}
             >
@@ -148,22 +145,19 @@ export default function HistoryPage() {
                 )}
               </div>
               <div className="p-6">
-                <p className="text-gray-600 mb-4">{module.description}</p>
+                <p className="mb-4 text-[var(--text-soft-dark)]">{module.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {module.topics.map((topic, topicIdx) => (
                     <span
                       key={topicIdx}
-                      className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+                      className="rounded-full bg-[rgba(0,0,0,0.04)] px-3 py-1 text-sm text-[var(--text-soft-dark)]"
                     >
                       {topic}
                     </span>
                   ))}
                 </div>
                 {!isComingSoon ? (
-                  <Link
-                    href={module.href}
-                    className="block w-full text-center bg-pink-600 text-white py-3 rounded-xl font-bold hover:bg-pink-700 transition-all"
-                  >
+                  <Link href={module.href} className="button-primary flex w-full">
                     Start Learning →
                   </Link>
                 ) : (
@@ -181,17 +175,15 @@ export default function HistoryPage() {
       </div>
 
       {/* Legacy Module Link */}
-      <div className="bg-linear-to-r from-pink-50 to-pink-100 p-8 rounded-3xl border-l-[5px] border-pink-500">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">📜 Original History Quest</h2>
-        <p className="text-gray-700 mb-4">
+      <div className="paper-card border-l-[5px] border-pink-500 p-8">
+        <h2 className="display-title mb-4 text-3xl text-[var(--text-dark)]">
+          📜 Original History Quest
+        </h2>
+        <p className="mb-4 text-[var(--text-soft-dark)]">
           Access the original comprehensive history module with all topics while we continue
           building out the interactive Next.js versions.
         </p>
-        <a
-          href="/old-html/history-quest-fixed.html"
-          target="_blank"
-          className="inline-block bg-pink-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-pink-700 hover:-translate-y-1 hover:shadow-lg transition-all"
-        >
+        <a href="/old-html/history-quest-fixed.html" target="_blank" className="button-primary">
           View Original History Quest Module
         </a>
       </div>

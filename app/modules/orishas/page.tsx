@@ -8,25 +8,26 @@ export const metadata = {
 export default function OrishasPage() {
   return (
     <div className="max-w-7xl mx-auto px-5 py-8">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 bg-white text-indigo-600 border-2 border-indigo-600 px-5 py-3 rounded-xl font-semibold hover:bg-indigo-600 hover:text-white transition-all hover:-translate-y-1 mb-6"
-      >
+      <Link href="/" className="button-secondary mb-6">
         ← Back to Cronx Academy
       </Link>
 
-      <div className="bg-white p-10 rounded-3xl shadow-xl">
+      <div className="paper-card p-10">
         <div className="text-center mb-8">
           <div className="text-7xl mb-4">✨</div>
-          <h1 className="text-5xl font-bold text-indigo-600 mb-4">Understanding the Orishas</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="display-title mb-4 text-5xl text-[var(--text-dark)]">
+            Understanding the Orishas
+          </h1>
+          <p className="text-xl text-[var(--text-soft-dark)]">
             Deep dive into African and Caribbean spiritual traditions
           </p>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-8 rounded-2xl border-l-[5px] border-purple-500 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">🚧 Module In Development</h2>
-          <p className="text-gray-700 mb-4">
+        <div className="mb-8 rounded-[1.5rem] border-l-[5px] border-purple-500 bg-[linear-gradient(135deg,rgba(216,180,254,0.28),rgba(255,255,255,0.7))] p-8">
+          <h2 className="mb-4 text-2xl font-bold text-[var(--text-dark)]">
+            🚧 Module In Development
+          </h2>
+          <p className="mb-4 text-[var(--text-soft-dark)]">
             This cultural education module is currently being refactored into the new Next.js
             architecture. It will include:
           </p>
@@ -38,7 +39,7 @@ export default function OrishasPage() {
               'Beautiful interactive profiles',
               'Cultural understanding & respect',
             ].map((feature, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-gray-700">
+              <li key={idx} className="flex items-start gap-3 text-[var(--text-soft-dark)]">
                 <span className="text-green-500 font-bold">✓</span>
                 <span>{feature}</span>
               </li>
@@ -47,11 +48,13 @@ export default function OrishasPage() {
         </div>
 
         <div className="text-center">
-          <p className="text-gray-600 mb-4">For now, you can access the original version:</p>
+          <p className="mb-4 text-[var(--text-soft-dark)]">
+            For now, you can access the original version:
+          </p>
           <a
             href="/old-html/orishas-learning-module.html"
             target="_blank"
-            className="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-indigo-700 hover:-translate-y-1 hover:shadow-lg transition-all"
+            className="button-primary"
           >
             View Original Orishas Module
           </a>
